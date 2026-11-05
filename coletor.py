@@ -1,8 +1,8 @@
 """
 Coletor do Hub Econômico.
 
-Busca dados públicos (Banco Central, Focus, brapi, FRED, FMI, BIS e feeds RSS)
-e grava tudo em data/hub.json, que é o arquivo lido pela página.
+Busca dados públicos (Banco Central, Focus, brapi, FRED, FMI, Banco Mundial, BIS
+e feeds RSS) e grava tudo em data/hub.json, que é o arquivo lido pela página.
 
 Se uma fonte falhar, o coletor mantém o último dado salvo daquela seção,
 então a página nunca fica em branco por causa de uma API fora do ar.
@@ -13,9 +13,11 @@ Variáveis de ambiente (opcionais):
 """
 import csv
 import datetime as dt
+import functools
 import io
 import json
 import os
+import re
 import sys
 from pathlib import Path
 from urllib.parse import quote
@@ -30,6 +32,7 @@ TIMEOUT = 30
 HOJE = dt.date.today()
 HTTP = requests.Session()
 HTTP.headers["User-Agent"] = "hub-economico/1.0"
+OLINDA = "https://olinda.bcb.gov.br/olinda/servico/Expectativas/versao/v1/odata"
 
 # Códigos das séries no SGS do Banco Central.
 # Confira ou troque em https://www3.bcb.gov.br/sgspub
@@ -38,7 +41,9 @@ SGS = {
     "cdi": 4389,           # CDI anualizado base 252 (% a.a., diária)
     "ipca_mes": 433,       # IPCA variação mensal (%)
     "ipca_12m": 13522,     # IPCA acumulado em 12 meses (%)
+    "inpc_mes": 188,       # INPC variação mensal (%)
     "igpm_mes": 189,       # IGP-M variação mensal (%)
+    "igpdi_mes": 190,      # IGP-DI variação mensal (%)
     "desemprego": 24369,   # Taxa de desocupação PNAD Contínua (%)
     "dolar": 1,            # Dólar PTAX venda (R$, diária)
     "euro": 21619,         # Euro PTAX venda (R$, diária)
@@ -54,7 +59,7 @@ NOMES_ACOES = {
     "ABEV3": "Ambev ON", "B3SA3": "B3 ON",
 }
 
-# Países da página "Países": código ISO de 3 letras (FMI) -> (nome, código de 2 letras do BIS)
+# Página "Países": código ISO de 3 letras (FMI) -> (nome, código de 2 letras do BIS)
 PAISES = {
     "BRA": ("Brasil", "BR"), "USA": ("Estados Unidos", "US"), "CHN": ("China", "CN"),
     "DEU": ("Alemanha", "DE"), "JPN": ("Japão", "JP"), "GBR": ("Reino Unido", "GB"),
@@ -63,7 +68,6 @@ PAISES = {
     "CHL": ("Chile", "CL"), "COL": ("Colômbia", "CO"), "KOR": ("Coreia do Sul", "KR"),
     "ZAF": ("África do Sul", "ZA"),
 }
-# Indicadores do FMI (World Economic Outlook, API DataMapper)
 INDICADORES_FMI = {
     "pib": "NGDP_RPCH",            # crescimento real do PIB (%)
     "inflacao": "PCPIPCH",         # inflação média ao consumidor (%)
@@ -73,8 +77,7 @@ INDICADORES_FMI = {
     "pib_usd": "NGDPD",            # PIB nominal (US$ bilhões)
     "pib_pc": "NGDPDPC",           # PIB per capita (US$)
 }
-
-# Plano B: Banco Mundial (API aberta). Só tem dados já realizados, sem projeções.
+# Plano B quando o FMI recusa a coleta: Banco Mundial (API aberta, só dados realizados).
 # chave -> (código do indicador, divisor para chegar na unidade usada na página)
 INDICADORES_BM = {
     "pib": ("NY.GDP.MKTP.KD.ZG", 1),
@@ -84,6 +87,30 @@ INDICADORES_BM = {
     "conta_corrente": ("BN.CAB.XOKA.GD.ZS", 1),
     "pib_usd": ("NY.GDP.MKTP.CD", 1e9),
     "pib_pc": ("NY.GDP.PCAP.CD", 1),
+}
+
+# Tabela "Juros pelo mundo": código do BIS -> (país, banco central, código ISO-3 para a inflação)
+BANCOS_CENTRAIS = {
+    "BR": ("Brasil", "Banco Central do Brasil", "BRA"),
+    "US": ("Estados Unidos", "Federal Reserve", "USA"),
+    "XM": ("Zona do euro", "Banco Central Europeu", None),
+    "GB": ("Reino Unido", "Banco da Inglaterra", "GBR"),
+    "JP": ("Japão", "Banco do Japão", "JPN"),
+    "CN": ("China", "Banco Popular da China", "CHN"),
+    "CA": ("Canadá", "Banco do Canadá", "CAN"),
+    "CH": ("Suíça", "Banco Nacional Suíço", None),
+    "AU": ("Austrália", "Reserve Bank of Australia", None),
+    "KR": ("Coreia do Sul", "Banco da Coreia", "KOR"),
+    "IN": ("Índia", "Reserve Bank of India", "IND"),
+    "ID": ("Indonésia", "Bank Indonesia", None),
+    "MX": ("México", "Banco de México", "MEX"),
+    "CL": ("Chile", "Banco Central do Chile", "CHL"),
+    "CO": ("Colômbia", "Banco de la República", "COL"),
+    "PE": ("Peru", "Banco Central de Reserva do Peru", None),
+    "AR": ("Argentina", "Banco Central da Argentina", "ARG"),
+    "ZA": ("África do Sul", "South African Reserve Bank", "ZAF"),
+    "TR": ("Turquia", "Banco Central da Turquia", None),
+    "RU": ("Rússia", "Banco da Rússia", None),
 }
 
 FEEDS = {
@@ -98,9 +125,9 @@ def log(msg):
     print(msg, file=sys.stderr)
 
 
-# ---------------------------------------------------------------- Banco Central
+# ================================================================ Banco Central
 
-def sgs(codigo, meses=26):
+def sgs(codigo, meses=27):
     """Série do SGS entre hoje e N meses atrás, como lista de {d, v}."""
     inicio = (HOJE - dt.timedelta(days=31 * meses)).strftime("%d/%m/%Y")
     fim = HOJE.strftime("%d/%m/%Y")
@@ -137,13 +164,65 @@ def acumulado_12m(serie_mensal):
     return out
 
 
-def indicador(nome, serie, unidade, casas=2, freq="m", pontos=12):
+def ultima_mudanca(serie):
+    """Data em que o valor atual da série passou a valer."""
+    atual = serie[-1]["v"]
+    for i in range(len(serie) - 1, 0, -1):
+        if serie[i - 1]["v"] != atual:
+            return serie[i]["d"]
+    return None
+
+
+# ---------------------------------------------------------------- Tabelas mês a mês
+
+def tabela_inflacao(s, linhas=13):
+    """Mês | No mês | No ano | 12 meses, a partir da variação mensal."""
+    out = []
+    for i in range(max(11, len(s) - linhas), len(s)):
+        mes = s[i]["d"][:7]
+        f_ano = 1.0
+        for p in s[:i + 1]:
+            if p["d"][:4] == mes[:4]:
+                f_ano *= 1 + p["v"] / 100
+        f_12 = 1.0
+        for p in s[i - 11:i + 1]:
+            f_12 *= 1 + p["v"] / 100
+        out.append([mes, s[i]["v"], round((f_ano - 1) * 100, 2), round((f_12 - 1) * 100, 2)])
+    return {"colunas": ["Mês", "No mês (%)", "No ano (%)", "12 meses (%)"], "casas": [None, 2, 2, 2], "linhas": out}
+
+
+def tabela_taxa(s, nome, casas=2, linhas=13):
+    """Mês | Taxa | Variação no mês | Variação em 12 meses (em pontos percentuais)."""
+    out = []
+    for i in range(max(1, len(s) - linhas), len(s)):
+        v = s[i]["v"]
+        a12 = round(v - s[i - 12]["v"], 2) if i >= 12 else None
+        out.append([s[i]["d"][:7], v, round(v - s[i - 1]["v"], 2), a12])
+    return {"colunas": ["Mês", nome, "Variação no mês (p.p.)", "Variação em 12 meses (p.p.)"],
+            "casas": [None, casas, 2, 2], "linhas": out}
+
+
+def tabela_cambio(serie_diaria, linhas=13):
+    """Mês | Cotação no fim do mês | No mês | No ano | 12 meses."""
+    s = mensal(serie_diaria)
+    out = []
+    for i in range(max(1, len(s) - linhas), len(s)):
+        v, mes = s[i]["v"], s[i]["d"][:7]
+        dez = [p for p in s[:i] if p["d"][:7] == f"{int(mes[:4]) - 1}-12"]
+        no_ano = round((v / dez[-1]["v"] - 1) * 100, 2) if dez else None
+        a12 = round((v / s[i - 12]["v"] - 1) * 100, 2) if i >= 12 else None
+        out.append([mes, v, round((v / s[i - 1]["v"] - 1) * 100, 2), no_ano, a12])
+    return {"colunas": ["Mês", "Cotação no fim do mês (R$)", "No mês (%)", "No ano (%)", "12 meses (%)"],
+            "casas": [None, 4, 2, 2, 2], "linhas": out}
+
+
+def indicador(nome, serie, unidade, casas=2, freq="m", pontos=12, tabela=None, fonte=""):
     s = serie[-pontos:]
     ult, ant = s[-1], (s[-2] if len(s) > 1 else None)
     return {
         "nome": nome, "valor": ult["v"], "unidade": unidade, "casas": casas,
         "data": ult["d"], "freq": freq, "anterior": ant["v"] if ant else None,
-        "serie": [p["v"] for p in s],
+        "serie": [p["v"] for p in s], "tabela": tabela, "fonte": fonte,
     }
 
 
@@ -153,10 +232,9 @@ def var_pct(serie):
     return round((serie[-1]["v"] / serie[-2]["v"] - 1) * 100, 2)
 
 
-# ---------------------------------------------------------------- Seções
+# ================================================================ Seções
 
 def coletar_sgs():
-    """Baixa todas as séries de uma vez para reaproveitar entre as seções."""
     dados = {}
     for nome, codigo in SGS.items():
         try:
@@ -174,27 +252,48 @@ def secao_juros(S):
         "meses": meses,
         "selic": [p["v"] for p in selic],
         "ipca12": [ipca.get(m) for m in meses],
+        "selic_desde": ultima_mudanca(S["selic"]),
     }
 
 
 def secao_indicadores(S):
-    out = []
+    m = lambda chave: mensal(S[chave])  # noqa: E731
     regras = [
-        ("Selic meta", "selic", "%", 2, "m", mensal),
-        ("CDI (ao ano)", "cdi", "%", 2, "m", mensal),
-        ("IPCA no mês", "ipca_mes", "%", 2, "m", mensal),
-        ("IPCA em 12 meses", "ipca_12m", "%", 2, "m", mensal),
-        ("IGP-M em 12 meses", "igpm_mes", "%", 2, "m", lambda s: acumulado_12m(mensal(s))),
-        ("Desemprego", "desemprego", "%", 1, "m", mensal),
-        ("Dólar (PTAX venda)", "dolar", "R$", 4, "d", lambda s: s[-30:]),
-        ("Euro (PTAX venda)", "euro", "R$", 4, "d", lambda s: s[-30:]),
+        ("Selic meta", "selic", "%", 2, "m", lambda: m("selic"),
+         lambda: tabela_taxa(m("selic"), "Selic (% ao ano)"), "Banco Central do Brasil"),
+        ("CDI (ao ano)", "cdi", "%", 2, "m", lambda: m("cdi"),
+         lambda: tabela_taxa(m("cdi"), "CDI (% ao ano)"), "Banco Central do Brasil"),
+        ("IPCA no mês", "ipca_mes", "%", 2, "m", lambda: m("ipca_mes"),
+         lambda: tabela_inflacao(m("ipca_mes")), "IBGE"),
+        ("IPCA em 12 meses", "ipca_12m", "%", 2, "m", lambda: m("ipca_12m"),
+         lambda: tabela_inflacao(m("ipca_mes")), "IBGE"),
+        ("INPC em 12 meses", "inpc_mes", "%", 2, "m", lambda: acumulado_12m(m("inpc_mes")),
+         lambda: tabela_inflacao(m("inpc_mes")), "IBGE"),
+        ("IGP-M em 12 meses", "igpm_mes", "%", 2, "m", lambda: acumulado_12m(m("igpm_mes")),
+         lambda: tabela_inflacao(m("igpm_mes")), "FGV"),
+        ("IGP-DI em 12 meses", "igpdi_mes", "%", 2, "m", lambda: acumulado_12m(m("igpdi_mes")),
+         lambda: tabela_inflacao(m("igpdi_mes")), "FGV"),
+        ("Desemprego", "desemprego", "%", 1, "m", lambda: m("desemprego"),
+         lambda: tabela_taxa(m("desemprego"), "Taxa de desocupação (%)", casas=1), "IBGE, PNAD Contínua"),
+        ("Dólar (PTAX venda)", "dolar", "R$", 4, "d", lambda: S["dolar"][-30:],
+         lambda: tabela_cambio(S["dolar"]), "Banco Central do Brasil"),
+        ("Euro (PTAX venda)", "euro", "R$", 4, "d", lambda: S["euro"][-30:],
+         lambda: tabela_cambio(S["euro"]), "Banco Central do Brasil"),
     ]
-    for nome, chave, un, casas, freq, prep in regras:
-        if chave in S:
+    out = []
+    for nome, chave, un, casas, freq, serie, tabela, fonte in regras:
+        if chave not in S or (chave == "ipca_12m" and "ipca_mes" not in S):
+            continue
+        try:
             try:
-                out.append(indicador(nome, prep(S[chave]), un, casas, freq, pontos=30 if freq == "d" else 12))
+                tab = tabela()
             except Exception as e:  # noqa: BLE001
-                log(f"[indicador] {nome}: {e}")
+                log(f"[tabela] {nome}: {e}")
+                tab = None
+            out.append(indicador(nome, serie(), un, casas, freq, pontos=30 if freq == "d" else 12,
+                                 tabela=tab, fonte=fonte))
+        except Exception as e:  # noqa: BLE001
+            log(f"[indicador] {nome}: {e}")
     if not out:
         raise ValueError("nenhum indicador disponível")
     return out
@@ -211,18 +310,20 @@ def secao_balanca(S):
     }
 
 
+def olinda(recurso, filtro, top=60):
+    url = (f"{OLINDA}/{recurso}?$top={top}&$format=json&$orderby=Data%20desc"
+           f"&$filter={quote(filtro)}")
+    r = HTTP.get(url, timeout=TIMEOUT)
+    r.raise_for_status()
+    return r.json().get("value", [])
+
+
 def secao_focus():
-    base = "https://olinda.bcb.gov.br/olinda/servico/Expectativas/versao/v1/odata/ExpectativasMercadoAnuais"
     anos = {HOJE.year, HOJE.year + 1, HOJE.year + 2}
     out = []
     for ind in ["IPCA", "PIB Total", "Câmbio", "Selic"]:
-        filtro = quote(f"Indicador eq '{ind}' and baseCalculo eq 0")
-        url = (f"{base}?$top=30&$format=json&$orderby=Data%20desc"
-               f"&$select=Indicador,Data,DataReferencia,Mediana&$filter={filtro}")
         try:
-            r = HTTP.get(url, timeout=TIMEOUT)
-            r.raise_for_status()
-            linhas = r.json().get("value", [])
+            linhas = olinda("ExpectativasMercadoAnuais", f"Indicador eq '{ind}' and baseCalculo eq 0", top=30)
         except Exception as e:  # noqa: BLE001
             log(f"[Focus] {ind}: {e}")
             continue
@@ -238,12 +339,33 @@ def secao_focus():
     return out
 
 
+def secao_selic_focus():
+    """Mediana da Selic esperada para cada reunião do Copom, no boletim Focus mais recente."""
+    linhas = olinda("ExpectativasMercadoSelic", "baseCalculo eq 0", top=80)
+    if not linhas:
+        raise ValueError("Focus Selic sem dados")
+    ultima = linhas[0]["Data"]
+    reunioes = []
+    for l in linhas:
+        if l.get("Data") != ultima:
+            continue
+        m = re.match(r"R(\d+)/(\d{4})", l.get("Reuniao", ""))
+        if not m:
+            continue
+        reunioes.append({
+            "reuniao": l["Reuniao"], "ordem": int(m.group(2)) * 10 + int(m.group(1)),
+            "mediana": l.get("Mediana"), "minimo": l.get("Minimo"), "maximo": l.get("Maximo"),
+            "respondentes": l.get("numeroRespondentes"),
+        })
+    reunioes.sort(key=lambda x: x["ordem"])
+    return {"data": ultima, "reunioes": reunioes}
+
+
 def brapi(ticker):
     params = {"token": BRAPI_TOKEN} if BRAPI_TOKEN else {}
     r = HTTP.get(f"https://brapi.dev/api/quote/{quote(ticker)}", params=params, timeout=TIMEOUT)
     r.raise_for_status()
-    q = r.json()["results"][0]
-    return q
+    return r.json()["results"][0]
 
 
 def fred(serie_id):
@@ -288,6 +410,8 @@ def secao_mercado(S):
     return {"indices": indices, "acoes": acoes}
 
 
+# ---------------------------------------------------------------- Mundo
+
 def fmi(indicador):
     url = f"https://www.imf.org/external/datamapper/api/v1/{indicador}/" + "/".join(PAISES)
     r = HTTP.get(url, timeout=TIMEOUT)
@@ -296,7 +420,7 @@ def fmi(indicador):
 
 
 def banco_mundial(chave, ano):
-    """Mesma ideia do fmi(), pelo Banco Mundial: {ISO3: {ano: valor}}."""
+    """Mesmo formato do fmi(), pelo Banco Mundial: {ISO3: {ano: valor}}."""
     codigo, div = INDICADORES_BM[chave]
     url = f"https://api.worldbank.org/v2/country/{';'.join(PAISES)}/indicator/{codigo}"
     r = HTTP.get(url, params={"format": "json", "per_page": 2000, "date": f"{ano - 10}:{ano}"}, timeout=TIMEOUT)
@@ -308,19 +432,22 @@ def banco_mundial(chave, ano):
     return out
 
 
-def bis_juros():
-    """Último juro básico de cada banco central, pela base de política monetária do BIS."""
-    codigos = "+".join(c for _, c in PAISES.values())
-    url = f"https://stats.bis.org/api/v1/data/WS_CBPOL/M.{codigos}/all"
-    r = HTTP.get(url, params={"lastNObservations": 1, "detail": "dataonly", "format": "csv"}, timeout=TIMEOUT)
+@functools.lru_cache(maxsize=1)
+def bis_historico():
+    """Últimos 25 meses do juro básico de cada banco central (base WS_CBPOL do BIS)."""
+    codigos = sorted(set(BANCOS_CENTRAIS) | {c for _, c in PAISES.values()})
+    url = f"https://stats.bis.org/api/v1/data/WS_CBPOL/M.{'+'.join(codigos)}/all"
+    r = HTTP.get(url, params={"lastNObservations": 25, "detail": "dataonly", "format": "csv"}, timeout=TIMEOUT)
     r.raise_for_status()
-    out = {}
+    hist = {}
     for linha in csv.DictReader(io.StringIO(r.text)):
         try:
-            out[linha["REF_AREA"]] = (float(linha["OBS_VALUE"]), linha["TIME_PERIOD"][:7])
+            hist.setdefault(linha["REF_AREA"], []).append({"d": linha["TIME_PERIOD"][:7], "v": float(linha["OBS_VALUE"])})
         except (KeyError, ValueError):
             continue
-    return out
+    for k in hist:
+        hist[k].sort(key=lambda p: p["d"])
+    return hist
 
 
 def secao_paises(S):
@@ -352,18 +479,50 @@ def secao_paises(S):
         proj, fonte = ref + 1, "Banco Mundial"
 
     try:
-        juros = bis_juros()
+        hist = bis_historico()
     except Exception as e:  # noqa: BLE001
         log(f"[BIS] juros: {e}")
-        juros = {}
+        hist = {}
 
     lista = []
     for cod, (nome, iso2) in PAISES.items():
-        j, data = juros.get(iso2, (None, None))
+        h = hist.get(iso2)
+        j, data = (h[-1]["v"], h[-1]["d"]) if h else (None, None)
         if cod == "BRA" and "selic" in S:  # a Selic do Banco Central é mais atual
             j, data = S["selic"][-1]["v"], S["selic"][-1]["d"][:7]
         lista.append({"codigo": cod, "nome": nome, "juros": j, "juros_data": data, "series": series[cod]})
     return {"ano": ref, "proj_desde": proj, "fonte": fonte, "lista": lista}
+
+
+def secao_juros_mundo(S, paises):
+    """Juro básico de cada banco central, com variação em 12 meses e juro real aproximado."""
+    hist = bis_historico()
+    ano = str((paises or {}).get("ano") or HOJE.year)
+    inflacao = {}
+    for p in (paises or {}).get("lista", []):
+        v = p.get("series", {}).get("inflacao", {}).get(ano)
+        if v is not None:
+            inflacao[p["codigo"]] = v
+    lista = []
+    for iso2, (nome, banco, iso3) in BANCOS_CENTRAIS.items():
+        h = hist.get(iso2)
+        if iso2 == "BR" and "selic" in S:
+            h = [{"d": p["d"][:7], "v": p["v"]} for p in mensal(S["selic"])]
+            desde = ultima_mudanca(S["selic"])
+        else:
+            desde = ultima_mudanca(h) if h else None
+        if not h:
+            continue
+        taxa = h[-1]["v"]
+        var12 = round(taxa - h[-13]["v"], 2) if len(h) >= 13 else None
+        inf = inflacao.get(iso3) if iso3 else None
+        real = round(((1 + taxa / 100) / (1 + inf / 100) - 1) * 100, 2) if inf is not None else None
+        lista.append({"codigo": iso2, "pais": nome, "banco": banco, "taxa": taxa, "data": h[-1]["d"],
+                      "desde": desde, "var12": var12, "inflacao": inf, "real": real})
+    if not lista:
+        raise ValueError("sem juros de outros países")
+    lista.sort(key=lambda x: -x["taxa"])
+    return {"ano_inflacao": int(ano), "lista": lista}
 
 
 def secao_noticias():
@@ -387,7 +546,7 @@ def secao_noticias():
     return out[:40]
 
 
-# ---------------------------------------------------------------- Principal
+# ================================================================ Principal
 
 def main():
     anterior = {}
@@ -398,16 +557,18 @@ def main():
             pass
 
     S = coletar_sgs()
+    hub = {"atualizado": dt.datetime.now(dt.timezone.utc).isoformat()}
     tarefas = {
         "juros": lambda: secao_juros(S),
         "indicadores": lambda: secao_indicadores(S),
         "mercado": lambda: secao_mercado(S),
         "balanca": lambda: secao_balanca(S),
         "focus": secao_focus,
+        "selic_focus": secao_selic_focus,
         "paises": lambda: secao_paises(S),
+        "juros_mundo": lambda: secao_juros_mundo(S, hub.get("paises")),
         "noticias": secao_noticias,
     }
-    hub = {"atualizado": dt.datetime.now(dt.timezone.utc).isoformat()}
     for chave, fn in tarefas.items():
         try:
             hub[chave] = fn()

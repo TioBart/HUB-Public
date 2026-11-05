@@ -6,367 +6,464 @@
 <title>Hub Econômico</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Source+Serif+4:opsz,wght@8..60,400..600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
 :root{
   color-scheme:light;
-  --bg:#EEF1EC; --surface:#F8FAF6; --ink:#16231E; --muted:#56665E; --line:#CED8D0;
-  --accent:#0F6E68; --accent2:#B7801A; --up:#1E7B3C; --down:#B3392C; --fill:rgba(15,110,104,.15);
-  --sans:"Archivo",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
-  --serif:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --bg:#F1F3F7; --panel:#FFFFFF; --ink:#0D1B2A; --muted:#5A6778; --line:#DCE1E9;
+  --accent:#2747C9; --accent-soft:#E6EBFB; --accent2:#D9840A; --up:#11804A; --down:#C7352B;
+  --hero:#0D1B2A; --hero-ink:#FFFFFF; --hero-muted:#A7B3C4; --hero-line:rgba(255,255,255,.14); --hero-accent:#9FB3FF; --hero-accent2:#FFC266;
+  --zebra:#F6F8FB;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --cond:"IBM Plex Sans Condensed","Arial Narrow",system-ui,sans-serif;
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
     color-scheme:dark;
-    --bg:#0E1613; --surface:#15201C; --ink:#E3ECE6; --muted:#93A59B; --line:#2B3934;
-    --accent:#45B6AA; --accent2:#E2B24B; --up:#62C483; --down:#F07F70; --fill:rgba(69,182,170,.17);
+    --bg:#0A0F17; --panel:#111925; --ink:#E5EAF1; --muted:#8E9AAC; --line:#223042;
+    --accent:#7F97FF; --accent-soft:#1A2440; --accent2:#F2A93B; --up:#4CC38A; --down:#F2776B;
+    --hero:#15223A; --hero-muted:#9AA8BC; --zebra:#141E2C;
   }
 }
 :root[data-theme="dark"]{
   color-scheme:dark;
-  --bg:#0E1613; --surface:#15201C; --ink:#E3ECE6; --muted:#93A59B; --line:#2B3934;
-  --accent:#45B6AA; --accent2:#E2B24B; --up:#62C483; --down:#F07F70; --fill:rgba(69,182,170,.17);
+  --bg:#0A0F17; --panel:#111925; --ink:#E5EAF1; --muted:#8E9AAC; --line:#223042;
+  --accent:#7F97FF; --accent-soft:#1A2440; --accent2:#F2A93B; --up:#4CC38A; --down:#F2776B;
+  --hero:#15223A; --hero-muted:#9AA8BC; --zebra:#141E2C;
 }
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.5 var(--sans);font-variant-numeric:tabular-nums}
-.wrap{max-width:1180px;margin:0 auto;padding-left:20px;padding-right:20px}
-a:focus-visible,button:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-
-/* Topo e abas */
-.top{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
-.top-in{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;padding-top:22px;padding-bottom:8px}
-h1{margin:0;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:760;font-stretch:85%;letter-spacing:-.01em}
-h1 a{color:inherit;text-decoration:none}
-.sub{margin:2px 0 0;color:var(--muted)}
-.stamp{margin:0;color:var(--muted);font-size:.9rem;text-align:right}
-.tabs{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
-.tabs a{color:var(--muted);text-decoration:none;font-weight:560;padding:10px 12px;border-bottom:2px solid transparent;white-space:nowrap}
-.tabs a:hover{color:var(--ink)}
-.tabs a[aria-current="page"]{color:var(--ink);border-bottom-color:var(--accent)}
-
-.aviso{margin-top:20px}
-.aviso p{margin:0;padding:12px 16px;background:var(--surface);border-left:4px solid var(--accent2)}
-
-.view{padding:40px 0 56px}
-.view[hidden]{display:none}
-h2{margin:0 0 20px;font-size:1.6rem;font-weight:720;font-stretch:88%}
-h3{margin:0 0 8px;font-size:1rem;font-weight:620;color:var(--muted)}
-h3 a{color:inherit;text-decoration:none}
-h3 a:hover{color:var(--ink);text-decoration:underline;text-decoration-color:var(--accent)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 15px/1.5 var(--sans);font-variant-numeric:tabular-nums}
+a:focus-visible,button:focus-visible,select:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .muted{color:var(--muted)}
-.meta{font-size:.84rem;color:var(--muted)}
-.mais{display:inline-block;margin-top:14px;color:var(--accent);font-weight:620;text-decoration:none}
-.mais:hover{text-decoration:underline}
-.fonte{margin-top:18px;font-size:.84rem;color:var(--muted);max-width:90ch}
+.up{color:var(--up)} .down{color:var(--down)}
 
-/* Destaque do juro real */
-.k{margin:0;color:var(--muted);font-weight:560}
-.big{margin:6px 0 20px;font-size:clamp(4rem,11vw,8rem);line-height:.9;font-weight:800;font-stretch:68%;letter-spacing:-.02em;color:var(--accent)}
-.pair{display:flex;flex-wrap:wrap;gap:32px;margin:0 0 6px}
-.pair dt{color:var(--muted);font-size:.85rem}
-.pair dd{margin:0;font-size:1.7rem;font-weight:720;font-stretch:82%}
-.pair .s dd{color:var(--accent)}
-.pair .i dd{color:var(--accent2)}
-.note{margin:12px 0 0;max-width:38ch;color:var(--muted);font-size:.93rem}
-.hero{display:grid;grid-template-columns:minmax(260px,1fr) 2fr;gap:44px;align-items:center}
-.hero-chart{position:relative;height:350px}
+/* ---------- Estrutura: barra lateral + conteúdo ---------- */
+.app{display:grid;grid-template-columns:228px minmax(0,1fr);min-height:100vh}
+.side{position:sticky;top:0;height:100vh;overflow-y:auto;display:flex;flex-direction:column;gap:28px;padding:26px 14px 22px;background:var(--panel);border-right:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px;padding:0 10px;color:var(--ink);text-decoration:none;font-family:var(--cond);font-weight:700;font-size:1.3rem;line-height:1.1}
+.brand svg{flex:none}
+.nav{display:flex;flex-direction:column;gap:2px}
+.nav a{display:block;padding:9px 12px;border-radius:7px;color:var(--muted);font-weight:500;text-decoration:none}
+.nav a:hover{background:var(--bg);color:var(--ink)}
+.nav a[aria-current="page"]{background:var(--accent-soft);color:var(--accent);font-weight:600}
+.stamp{margin:auto 10px 0;font-size:.8rem;color:var(--muted)}
+.main{padding:30px 40px 64px;max-width:1260px;width:100%}
+.ph{margin-bottom:22px}
+.ph h1{margin:0;font-family:var(--cond);font-size:2rem;font-weight:700;letter-spacing:-.01em}
+.ph p{margin:2px 0 0;color:var(--muted);max-width:70ch}
+.view[hidden]{display:none}
+.aviso{margin-bottom:20px;padding:12px 16px;border-radius:8px;background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--accent2)}
 
-/* Resumo (início) */
-.resumo-top{display:grid;grid-template-columns:1fr 1fr;gap:56px;padding-bottom:36px;border-bottom:1px solid var(--line)}
-.tres{display:grid;grid-template-columns:repeat(3,1fr);gap:44px;padding:32px 0;border-bottom:1px solid var(--line)}
-.duas{display:grid;grid-template-columns:1fr 1fr;gap:56px;padding-top:32px}
-.num{margin:2px 0 4px;font-size:2.1rem;font-weight:740;font-stretch:80%}
+/* ---------- Painéis ---------- */
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:20px 22px}
+.view > .panel + .panel{margin-top:16px}
+.ptit{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin:0 0 12px}
+.ptit h2{margin:0;font-size:1rem;font-weight:600}
+.ptit a,.ver{color:var(--accent);font-size:.86rem;font-weight:500;text-decoration:none;white-space:nowrap}
+.ptit a:hover,.ver:hover{text-decoration:underline}
+.sub2{margin:-6px 0 14px;color:var(--muted);font-size:.88rem}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:16px}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:16px}
+.fonte{margin:14px 0 0;font-size:.8rem;color:var(--muted);max-width:95ch}
+
+/* ---------- Destaque escuro ---------- */
+.hero{background:var(--hero);color:var(--hero-ink);border-radius:12px;padding:28px 30px;display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:0}
+.hero > div{padding:0 28px;border-left:1px solid var(--hero-line)}
+.hero > div:first-child{padding-left:0;border-left:0}
+.hero > div:last-child{padding-right:0}
+.hk{margin:0;color:var(--hero-muted);font-size:.86rem;font-weight:500}
+.hbig{margin:2px 0 14px;font-family:var(--cond);font-weight:700;font-size:clamp(3.6rem,7vw,5.6rem);line-height:.95;color:var(--hero-accent);letter-spacing:-.02em}
+.hmid{margin:2px 0 6px;font-family:var(--cond);font-weight:700;font-size:2.6rem;line-height:1}
+.hpair{display:flex;gap:28px;margin:0}
+.hpair dt{font-size:.8rem;color:var(--hero-muted)}
+.hpair dd{margin:0;font-family:var(--cond);font-weight:600;font-size:1.45rem}
+.hpair .a2 dd{color:var(--hero-accent2)}
+.hnote{margin:10px 0 0;font-size:.84rem;color:var(--hero-muted)}
+.hero a{color:var(--hero-ink)}
+.hspark{margin-top:10px}
+
+/* ---------- Listas e números ---------- */
+.lista{list-style:none;margin:0;padding:0}
+.lista li{display:grid;grid-template-columns:1fr auto auto;gap:14px;align-items:baseline;padding:9px 0;border-top:1px solid var(--line)}
+.lista li:first-child{border-top:0}
+.lista .val{font-weight:600}
+.lista .var{min-width:70px;text-align:right;font-size:.88rem}
 .mini{margin:0}
-.mini div{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-top:1px solid var(--line)}
+.mini div{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-top:1px solid var(--line)}
+.mini div:first-child{border-top:0}
 .mini dt{color:var(--muted)}
-.mini dd{margin:0;font-weight:680}
+.mini dd{margin:0;font-weight:600}
+.num{margin:0;font-family:var(--cond);font-weight:700;font-size:2.2rem;line-height:1.1}
 
-/* Indicadores */
-.ind{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));column-gap:40px}
-.ind li{display:grid;grid-template-columns:1fr 84px auto;align-items:center;gap:14px;padding:14px 0;border-top:1px solid var(--line)}
-.ind .n{font-weight:620}
-.ind .v{font-size:1.45rem;font-weight:720;font-stretch:84%;text-align:right;white-space:nowrap}
-.up{color:var(--up)}
-.down{color:var(--down)}
-
-/* Mercado */
-.mkt{display:grid;grid-template-columns:1fr 1.4fr;gap:44px}
-.idx{list-style:none;margin:0;padding:0}
-.idx li{display:grid;grid-template-columns:1fr auto auto;gap:16px;align-items:baseline;padding:12px 0;border-top:1px solid var(--line)}
-.idx .val{font-weight:720;font-size:1.15rem}
-.idx .var{min-width:76px;text-align:right;font-size:.95rem}
+/* ---------- Tabelas ---------- */
 .scroll{overflow-x:auto}
 table{width:100%;border-collapse:collapse}
-th,td{padding:10px 8px;text-align:right;border-top:1px solid var(--line);white-space:nowrap}
+th,td{padding:9px 10px;text-align:right;border-top:1px solid var(--line);white-space:nowrap}
 th:first-child,td:first-child{text-align:left;padding-left:0}
-thead th{border-top:0;color:var(--muted);font-size:.85rem;font-weight:600}
-tbody th{font-weight:620;color:var(--ink)}
-td .t{font-weight:680}
-td .nm{display:block;color:var(--muted);font-size:.84rem}
-caption{caption-side:bottom;text-align:left;color:var(--muted);font-size:.85rem;padding-top:10px}
-
-/* Balança */
-.resumo{margin:-6px 0 18px;color:var(--muted)}
-.resumo strong{color:var(--ink);font-size:1.2rem}
-.chartbox{position:relative;height:330px}
-
-/* Países */
-.pais-top{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:22px}
-.pais-top label{font-weight:600}
-select{font:inherit;padding:8px 12px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--ink)}
-.kpis{list-style:none;margin:0 0 28px;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));column-gap:32px}
-.kpis li{padding:12px 0;border-top:1px solid var(--line)}
-.kpis .l{display:block;color:var(--muted);font-size:.85rem}
-.kpis .x{font-size:1.5rem;font-weight:720;font-stretch:84%}
-.comparar{margin-top:40px}
+thead th{border-top:0;color:var(--muted);font-size:.8rem;font-weight:600}
+tbody th{font-weight:600}
+td .t{font-weight:600}
+.nm{display:block;color:var(--muted);font-size:.8rem;font-weight:400}
+caption{caption-side:bottom;text-align:left;color:var(--muted);font-size:.8rem;padding-top:10px}
 th button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
 th button:hover{color:var(--ink)}
-.tPaises tbody tr{cursor:pointer}
-.tPaises tbody tr:hover td,.tPaises tbody tr:hover th{background:var(--surface)}
-.tPaises tr.sel td,.tPaises tr.sel th{background:var(--fill)}
+.clicavel tbody tr{cursor:pointer}
+.clicavel tbody tr:hover > *{background:var(--zebra)}
+.clicavel tr.sel > *{background:var(--accent-soft)}
+.barra{display:inline-block;vertical-align:middle;width:70px;height:6px;margin-left:10px;background:var(--line);border-radius:3px;overflow:hidden}
+.barra i{display:block;height:100%;background:var(--accent)}
 
-/* Notícias */
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
-.chips button{font:inherit;font-size:.9rem;padding:6px 14px;border:1px solid var(--line);border-radius:999px;background:transparent;color:var(--ink);cursor:pointer}
-.chips button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--bg)}
-.news{list-style:none;margin:0;padding:0;columns:2 420px;column-gap:44px}
-.news.compact{columns:auto}
-.news li{break-inside:avoid;padding:13px 0;border-top:1px solid var(--line)}
-.news a{font-family:var(--serif);font-size:1.13rem;line-height:1.38;font-weight:600;color:var(--ink);text-decoration:none}
-.news.compact a{font-size:1.04rem}
-.news a:hover{text-decoration:underline;text-decoration-color:var(--accent)}
-.news .meta{margin-top:4px}
+/* ---------- Indicadores ---------- */
+.inds{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:12px}
+.ind{display:grid;grid-template-columns:minmax(0,1fr) 72px auto;align-items:center;gap:14px;width:100%;padding:16px 18px;text-align:left;font:inherit;color:inherit;background:var(--panel);border:1px solid var(--line);border-radius:10px;cursor:pointer}
+.ind:hover{border-color:var(--accent)}
+.ind .n{font-weight:600}
+.ind .m{font-size:.8rem;color:var(--muted)}
+.ind .v{font-family:var(--cond);font-weight:700;font-size:1.55rem;text-align:right;white-space:nowrap}
+.dica{margin:0 0 14px;color:var(--muted);font-size:.88rem}
 
-footer{padding:28px 20px 56px;color:var(--muted);font-size:.85rem;max-width:1180px;margin:0 auto;border-top:1px solid var(--line)}
-footer p{margin:0 0 6px;max-width:90ch}
+/* ---------- Gráficos ---------- */
+.chartbox{position:relative;height:320px}
+.chartbox.alto{height:360px}
+.juros-top{display:grid;grid-template-columns:minmax(240px,1fr) 2.2fr;gap:32px;align-items:center}
+.k{margin:0;color:var(--muted);font-size:.86rem;font-weight:500}
+.big{margin:2px 0 14px;font-family:var(--cond);font-weight:700;font-size:clamp(3.4rem,7vw,5.2rem);line-height:.95;color:var(--accent)}
+.pair{display:flex;gap:28px;margin:0}
+.pair dt{font-size:.8rem;color:var(--muted)}
+.pair dd{margin:0;font-family:var(--cond);font-weight:600;font-size:1.45rem}
+.pair .a dd{color:var(--accent)} .pair .a2 dd{color:var(--accent2)}
+.focus-sel{display:grid;grid-template-columns:1.6fr 1fr;gap:28px}
 
+/* ---------- Países ---------- */
+.pais-top{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:18px}
+.pais-top label{font-weight:600}
+select{font:inherit;padding:7px 12px;border:1px solid var(--line);border-radius:7px;background:var(--panel);color:var(--ink)}
+.kpis{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px}
+.kpis li{padding:12px 14px;border:1px solid var(--line);border-radius:8px}
+.kpis .l{display:block;color:var(--muted);font-size:.8rem}
+.kpis .x{font-family:var(--cond);font-weight:700;font-size:1.4rem}
+
+/* ---------- Notícias ---------- */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.chips button{font:inherit;font-size:.86rem;padding:6px 14px;border:1px solid var(--line);border-radius:999px;background:var(--panel);color:var(--ink);cursor:pointer}
+.chips button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.news{list-style:none;margin:0;padding:0}
+.news li{padding:12px 0;border-top:1px solid var(--line)}
+.news li:first-child{border-top:0}
+.news a{color:var(--ink);font-weight:600;text-decoration:none;line-height:1.4}
+.news a:hover{color:var(--accent);text-decoration:underline}
+.news .m{margin-top:3px;font-size:.8rem;color:var(--muted)}
+.news.cols{columns:2 380px;column-gap:40px}
+.news.cols li{break-inside:avoid}
+
+/* ---------- Janela da tabela ---------- */
+dialog{width:min(780px,calc(100% - 28px));max-height:calc(100vh - 40px);padding:0;border:1px solid var(--line);border-radius:12px;background:var(--panel);color:var(--ink)}
+dialog::backdrop{background:rgba(8,15,26,.5)}
+.dh{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:18px 22px;border-bottom:1px solid var(--line)}
+.dh h2{margin:0;font-family:var(--cond);font-size:1.4rem;font-weight:700}
+.dh p{margin:2px 0 0;font-size:.84rem;color:var(--muted)}
+.fechar{font:inherit;font-size:1.3rem;line-height:1;width:34px;height:34px;border:1px solid var(--line);border-radius:7px;background:transparent;color:var(--ink);cursor:pointer}
+.fechar:hover{background:var(--bg)}
+.db{padding:6px 22px 20px;overflow:auto;max-height:calc(100vh - 160px)}
+.tser th,.tser td{border:1px solid var(--line);padding:8px 12px}
+.tser th:first-child,.tser td:first-child{padding-left:12px}
+.tser thead th{color:var(--ink);background:var(--zebra);font-size:.84rem}
+.tser tbody tr:nth-child(even) td{background:var(--zebra)}
+
+footer{margin-top:32px;font-size:.8rem;color:var(--muted)}
+footer p{margin:0 0 4px}
+
+@media (max-width:1100px){
+  .hero{grid-template-columns:1fr 1fr}
+  .hero > div:last-child{display:none}
+  .grid3{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
 @media (max-width:860px){
-  .hero,.mkt,.resumo-top,.tres,.duas{grid-template-columns:1fr;gap:28px}
-  .hero-chart{height:270px}
-  .chartbox{height:280px}
-  .stamp{text-align:left}
-  .top{position:static}
+  .app{display:block}
+  .side{position:sticky;top:0;z-index:5;height:auto;flex-direction:row;flex-wrap:wrap;align-items:center;gap:8px 16px;padding:12px 14px}
+  .nav{flex-direction:row;overflow-x:auto;width:100%;scrollbar-width:none}
+  .nav a{white-space:nowrap;padding:7px 11px}
+  .stamp{margin:0 0 0 auto}
+  .main{padding:20px 16px 48px}
+  .hero{grid-template-columns:1fr;padding:22px}
+  .hero > div{padding:18px 0 0;border-left:0;border-top:1px solid var(--hero-line);margin-top:18px}
+  .hero > div:first-child{padding-top:0;border-top:0;margin-top:0}
+  .hero > div:last-child{display:block}
+  .grid3,.grid2,.juros-top,.focus-sel{grid-template-columns:1fr}
+  .chartbox,.chartbox.alto{height:270px}
 }
 </style>
 </head>
 <body>
-
-<header class="top">
-  <div class="wrap top-in">
-    <div>
-      <h1><a href="#inicio">Hub Econômico</a></h1>
-      <p class="sub">Juros, inflação, mercado, comércio exterior e notícias num só lugar.</p>
-    </div>
+<div class="app">
+  <aside class="side">
+    <a class="brand" href="#inicio">
+      <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect width="28" height="28" rx="7" fill="var(--accent)"/><path d="M6 19l5-5 4 3 7-8" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Hub Econômico
+    </a>
+    <nav class="nav" aria-label="Páginas">
+      <a href="#inicio">Resumo</a>
+      <a href="#juros">Juros</a>
+      <a href="#indicadores">Indicadores</a>
+      <a href="#mercado">Mercado</a>
+      <a href="#balanca">Balança comercial</a>
+      <a href="#expectativas">Expectativas</a>
+      <a href="#paises">Países</a>
+      <a href="#noticias">Notícias</a>
+    </nav>
     <p class="stamp" id="stamp"></p>
-  </div>
-  <nav class="wrap tabs" aria-label="Páginas">
-    <a href="#inicio">Resumo</a>
-    <a href="#juros">Juros</a>
-    <a href="#indicadores">Indicadores</a>
-    <a href="#mercado">Mercado</a>
-    <a href="#balanca">Balança comercial</a>
-    <a href="#expectativas">Expectativas</a>
-    <a href="#paises">Países</a>
-    <a href="#noticias">Notícias</a>
-  </nav>
-</header>
+  </aside>
 
-<div class="wrap aviso" id="aviso" hidden>
-  <p>Você está vendo <strong>dados ilustrativos</strong>, não números reais. Rode o coletor (<code>coletor.py</code>) para gerar o arquivo <code>data/hub.json</code>.</p>
-</div>
+  <main class="main">
+    <div class="aviso" id="aviso" hidden>Você está vendo <strong>dados ilustrativos</strong>, não números reais. Rode o coletor (<code>coletor.py</code>) para gerar o arquivo <code>data/hub.json</code>.</div>
 
-<main class="wrap">
-
-  <!-- RESUMO -->
-  <section class="view" id="v-inicio" aria-label="Resumo">
-    <div class="resumo-top">
-      <div>
-        <p class="k">Juro real hoje (Selic descontada a inflação de 12 meses)</p>
-        <p class="big" id="hJuroReal">–</p>
-        <dl class="pair">
-          <div class="s"><dt>Selic meta</dt><dd id="hSelic">–</dd></div>
-          <div class="i"><dt>IPCA 12 meses</dt><dd id="hIpca">–</dd></div>
-        </dl>
-        <a class="mais" href="#juros">Ver o histórico de juros e inflação</a>
-      </div>
-      <div>
-        <h3><a href="#mercado">Mercado agora</a></h3>
-        <ul class="idx" id="hIdx"></ul>
-      </div>
-    </div>
-    <div class="tres">
-      <div>
-        <h3><a href="#balanca">Balança comercial</a></h3>
-        <p class="num" id="hBal">–</p>
-        <p class="meta" id="hBalMeta"></p>
-      </div>
-      <div>
-        <h3><a href="#expectativas" id="hFocusTit">Expectativas do mercado</a></h3>
-        <dl class="mini" id="hFocus"></dl>
-      </div>
-      <div>
-        <h3><a href="#indicadores">Inflação e emprego</a></h3>
-        <dl class="mini" id="hInd"></dl>
-      </div>
-    </div>
-    <div class="duas">
-      <div>
-        <h3><a href="#paises" id="hPaisesTit">Mundo</a></h3>
-        <div class="scroll"><table id="hPaises"></table></div>
-      </div>
-      <div>
-        <h3><a href="#noticias">Últimas notícias</a></h3>
-        <ol class="news compact" id="hNews"></ol>
-      </div>
-    </div>
-  </section>
-
-  <!-- JUROS -->
-  <section class="view" id="v-juros" hidden>
-    <h2>Juros e inflação</h2>
-    <div class="hero">
-      <div>
-        <p class="k">Juro real (Selic descontada a inflação de 12 meses)</p>
-        <p class="big" id="juroReal">–</p>
-        <dl class="pair">
-          <div class="s"><dt>Selic meta</dt><dd id="selicNow">–</dd></div>
-          <div class="i"><dt>IPCA 12 meses</dt><dd id="ipcaNow">–</dd></div>
-        </dl>
-        <p class="note">A faixa sombreada no gráfico é a distância entre a Selic e a inflação. Quanto mais larga, mais apertada está a política monetária.</p>
-      </div>
-      <div class="hero-chart"><canvas id="chJuros" role="img" aria-label="Gráfico da Selic e do IPCA em 12 meses nos últimos 24 meses"></canvas></div>
-    </div>
-  </section>
-
-  <!-- INDICADORES -->
-  <section class="view" id="v-indicadores" hidden>
-    <h2>Indicadores</h2>
-    <ul class="ind" id="indList"></ul>
-    <p class="fonte">Fonte: Banco Central do Brasil (SGS) e IBGE.</p>
-  </section>
-
-  <!-- MERCADO -->
-  <section class="view" id="v-mercado" hidden>
-    <h2>Mercado</h2>
-    <div class="mkt">
-      <div>
-        <h3>Índices, câmbio e commodities</h3>
-        <ul class="idx" id="idxList"></ul>
-      </div>
-      <div>
-        <h3>Ações acompanhadas</h3>
-        <div class="scroll">
-          <table id="acoes">
-            <thead><tr><th scope="col">Ação</th><th scope="col">Preço</th><th scope="col">Variação no dia</th></tr></thead>
-            <tbody></tbody>
-          </table>
+    <!-- ===================== RESUMO ===================== -->
+    <section class="view" id="v-inicio">
+      <header class="ph"><h1>Resumo</h1><p>Os principais números da economia brasileira e mundial hoje.</p></header>
+      <div class="hero">
+        <div>
+          <p class="hk">Juro real (Selic descontada a inflação de 12 meses)</p>
+          <p class="hbig" id="hJuroReal">–</p>
+          <dl class="hpair">
+            <div><dt>Selic meta</dt><dd id="hSelic">–</dd></div>
+            <div class="a2"><dt>IPCA 12 meses</dt><dd id="hIpca">–</dd></div>
+          </dl>
+        </div>
+        <div>
+          <p class="hk" id="hProxTit">Próxima reunião do Copom</p>
+          <p class="hmid" id="hProx">–</p>
+          <p class="hnote" id="hProxNota"></p>
+          <dl class="hpair" style="margin-top:14px" id="hFimAno"></dl>
+        </div>
+        <div>
+          <p class="hk">Selic nos últimos 24 meses</p>
+          <div class="hspark" id="hSpark"></div>
+          <p class="hnote"><a href="#juros">Ver juros e previsões</a></p>
         </div>
       </div>
-    </div>
-    <p class="fonte">Cotações da B3 com atraso, via brapi.dev. S&amp;P 500 e Brent via FRED. Não é recomendação de investimento.</p>
-  </section>
 
-  <!-- BALANÇA -->
-  <section class="view" id="v-balanca" hidden>
-    <h2>Balança comercial</h2>
-    <p class="resumo" id="balResumo"></p>
-    <div class="chartbox"><canvas id="chBal" role="img" aria-label="Exportações, importações e saldo da balança comercial nos últimos 12 meses"></canvas></div>
-    <p class="fonte">Fonte: Banco Central do Brasil (balanço de pagamentos), em US$ bilhões.</p>
-  </section>
+      <div class="grid3">
+        <div class="panel"><div class="ptit"><h2>Mercado agora</h2><a href="#mercado">Ver mercado</a></div><ul class="lista" id="hIdx"></ul></div>
+        <div class="panel"><div class="ptit"><h2>Inflação e emprego</h2><a href="#indicadores">Ver indicadores</a></div><dl class="mini" id="hInd"></dl></div>
+        <div class="panel"><div class="ptit"><h2 id="hFocusTit">Expectativas</h2><a href="#expectativas">Ver Focus</a></div><dl class="mini" id="hFocus"></dl></div>
+      </div>
+      <div class="grid3">
+        <div class="panel">
+          <div class="ptit"><h2>Balança comercial</h2><a href="#balanca">Ver balança</a></div>
+          <p class="num" id="hBal">–</p>
+          <p class="sub2" style="margin:2px 0 10px" id="hBalMeta"></p>
+          <div id="hBalBarras"></div>
+        </div>
+        <div class="panel"><div class="ptit"><h2>Juros pelo mundo</h2><a href="#juros">Ver todos</a></div><ul class="lista" id="hMundo"></ul></div>
+        <div class="panel"><div class="ptit"><h2>Últimas notícias</h2><a href="#noticias">Ver todas</a></div><ol class="news" id="hNews"></ol></div>
+      </div>
+    </section>
 
-  <!-- EXPECTATIVAS -->
-  <section class="view" id="v-expectativas" hidden>
-    <h2>Expectativas do mercado (Focus)</h2>
-    <div class="scroll"><table id="focusT"></table></div>
-  </section>
+    <!-- ===================== JUROS ===================== -->
+    <section class="view" id="v-juros" hidden>
+      <header class="ph"><h1>Juros</h1><p>Selic, juro real, previsões do mercado e as taxas básicas dos principais bancos centrais.</p></header>
+      <div class="panel">
+        <div class="juros-top">
+          <div>
+            <p class="k">Juro real (Selic descontada a inflação de 12 meses)</p>
+            <p class="big" id="juroReal">–</p>
+            <dl class="pair">
+              <div class="a"><dt>Selic meta</dt><dd id="selicNow">–</dd></div>
+              <div class="a2"><dt>IPCA 12 meses</dt><dd id="ipcaNow">–</dd></div>
+            </dl>
+            <p class="fonte" id="selicDesde"></p>
+            <p class="fonte">A faixa sombreada é a distância entre a Selic e a inflação. Quanto mais larga, mais apertada está a política monetária.</p>
+          </div>
+          <div class="chartbox alto"><canvas id="chJuros" role="img" aria-label="Selic e IPCA em 12 meses nos últimos 24 meses"></canvas></div>
+        </div>
+      </div>
 
-  <!-- PAÍSES -->
-  <section class="view" id="v-paises" hidden>
-    <h2>Países</h2>
-    <div class="pais-top">
-      <label for="selPais">País</label>
-      <select id="selPais"></select>
-      <span class="meta" id="paisNota"></span>
-    </div>
-    <ul class="kpis" id="paisKpis"></ul>
-    <h3 id="paisGrafTit">Crescimento do PIB e inflação</h3>
-    <div class="chartbox"><canvas id="chPais" role="img" aria-label="Crescimento do PIB e inflação do país selecionado ao longo dos anos"></canvas></div>
-    <div class="comparar">
-      <h3 id="compTit">Comparação entre países</h3>
-      <div class="scroll"><table id="tPaises" class="tPaises"></table></div>
-    </div>
-    <p class="fonte">Fontes: FMI, World Economic Outlook (PIB, inflação, desemprego, dívida e contas externas) e BIS (juros básicos dos bancos centrais). Quando a fonte é o FMI, valores do ano corrente em diante são projeções, mostradas em tom mais claro no gráfico. Se o FMI estiver indisponível, usamos o Banco Mundial (dados já realizados, com defasagem de 1 a 2 anos). Clique numa linha da tabela para ver o país.</p>
-  </section>
+      <div class="panel">
+        <div class="ptit"><h2>Previsão do mercado para a Selic</h2></div>
+        <p class="sub2" id="selFocusSub">Mediana das projeções para cada reunião do Copom, boletim Focus.</p>
+        <div class="focus-sel">
+          <div class="chartbox"><canvas id="chSelicFocus" role="img" aria-label="Selic esperada pelo mercado para as próximas reuniões do Copom"></canvas></div>
+          <div class="scroll"><table id="selFocusT"></table></div>
+        </div>
+      </div>
 
-  <!-- NOTÍCIAS -->
-  <section class="view" id="v-noticias" hidden>
-    <h2>Notícias</h2>
-    <div class="chips" id="chips" role="group" aria-label="Filtrar por fonte"></div>
-    <ol class="news" id="news"></ol>
-    <p class="fonte">As notícias levam ao site original de cada veículo.</p>
-  </section>
-</main>
+      <div class="panel">
+        <div class="ptit"><h2>Juros pelo mundo</h2></div>
+        <p class="sub2" id="mundoSub">Taxa básica de juros de cada banco central. Clique no cabeçalho para ordenar.</p>
+        <div class="scroll"><table id="tMundo"></table></div>
+        <p class="fonte" id="mundoFonte">Fontes: BIS (taxas de política monetária) e Banco Central do Brasil.</p>
+      </div>
+    </section>
 
-<footer>
-  <p>Fontes: Banco Central do Brasil, IBGE, FMI, BIS, brapi.dev, FRED/St. Louis Fed e feeds RSS dos veículos citados.</p>
-  <p>Conteúdo informativo, não é recomendação de investimento.</p>
-</footer>
+    <!-- ===================== INDICADORES ===================== -->
+    <section class="view" id="v-indicadores" hidden>
+      <header class="ph"><h1>Indicadores</h1><p>Juros, inflação, emprego e câmbio. Clique num indicador para ver a série mês a mês.</p></header>
+      <div class="inds" id="indList"></div>
+      <p class="fonte">Fontes: Banco Central do Brasil (SGS), IBGE e FGV.</p>
+    </section>
+
+    <!-- ===================== MERCADO ===================== -->
+    <section class="view" id="v-mercado" hidden>
+      <header class="ph"><h1>Mercado</h1><p>Bolsa, câmbio, commodities e ações acompanhadas.</p></header>
+      <div class="grid2" style="margin-top:0">
+        <div class="panel"><div class="ptit"><h2>Índices, câmbio e commodities</h2></div><ul class="lista" id="idxList"></ul></div>
+        <div class="panel">
+          <div class="ptit"><h2>Ações acompanhadas</h2></div>
+          <div class="scroll"><table id="acoes"><thead><tr><th scope="col">Ação</th><th scope="col">Preço</th><th scope="col">Variação no dia</th></tr></thead><tbody></tbody></table></div>
+        </div>
+      </div>
+      <p class="fonte">Cotações da B3 com atraso, via brapi.dev. S&amp;P 500 e Brent via FRED. Não é recomendação de investimento.</p>
+    </section>
+
+    <!-- ===================== BALANÇA ===================== -->
+    <section class="view" id="v-balanca" hidden>
+      <header class="ph"><h1>Balança comercial</h1><p>Exportações, importações e saldo de bens nos últimos 12 meses, em US$ bilhões.</p></header>
+      <div class="panel">
+        <p class="sub2" style="margin:0 0 16px" id="balResumo"></p>
+        <div class="chartbox alto"><canvas id="chBal" role="img" aria-label="Exportações, importações e saldo da balança comercial"></canvas></div>
+        <p class="fonte">Fonte: Banco Central do Brasil (balanço de pagamentos).</p>
+      </div>
+    </section>
+
+    <!-- ===================== EXPECTATIVAS ===================== -->
+    <section class="view" id="v-expectativas" hidden>
+      <header class="ph"><h1>Expectativas do mercado</h1><p>Mediana das projeções de economistas e instituições financeiras, segundo o boletim Focus do Banco Central.</p></header>
+      <div class="panel"><div class="ptit"><h2>Projeções anuais</h2></div><div class="scroll"><table id="focusT"></table></div></div>
+      <div class="panel"><div class="ptit"><h2>Selic por reunião do Copom</h2></div><div class="scroll"><table id="selFocusT2"></table></div></div>
+    </section>
+
+    <!-- ===================== PAÍSES ===================== -->
+    <section class="view" id="v-paises" hidden>
+      <header class="ph"><h1>Países</h1><p>Crescimento, inflação, juros e contas públicas das principais economias.</p></header>
+      <div class="panel">
+        <div class="pais-top"><label for="selPais">País</label><select id="selPais"></select><span class="muted" style="font-size:.86rem" id="paisNota"></span></div>
+        <ul class="kpis" id="paisKpis"></ul>
+      </div>
+      <div class="panel">
+        <div class="ptit"><h2 id="paisGrafTit">Crescimento do PIB e inflação</h2></div>
+        <div class="chartbox"><canvas id="chPais" role="img" aria-label="Crescimento do PIB e inflação do país selecionado"></canvas></div>
+      </div>
+      <div class="panel">
+        <div class="ptit"><h2 id="compTit">Comparação entre países</h2></div>
+        <div class="scroll"><table id="tPaises" class="clicavel"></table></div>
+        <p class="fonte">Fontes: FMI (World Economic Outlook), com o Banco Mundial como reserva quando o FMI está indisponível, e BIS para os juros. Dados do FMI do ano corrente em diante são projeções, mostradas em tom mais claro no gráfico. Os do Banco Mundial são sempre dados já realizados, com defasagem de 1 a 2 anos. Clique numa linha para ver o país.</p>
+      </div>
+    </section>
+
+    <!-- ===================== NOTÍCIAS ===================== -->
+    <section class="view" id="v-noticias" hidden>
+      <header class="ph"><h1>Notícias</h1><p>Manchetes de economia dos principais veículos. Os links levam ao site original.</p></header>
+      <div class="panel">
+        <div class="chips" id="chips" role="group" aria-label="Filtrar por fonte"></div>
+        <ol class="news cols" id="news"></ol>
+      </div>
+    </section>
+
+    <footer>
+      <p>Fontes: Banco Central do Brasil, IBGE, FGV, FMI, Banco Mundial, BIS, brapi.dev, FRED/St. Louis Fed e feeds RSS dos veículos citados.</p>
+      <p>Conteúdo informativo, não é recomendação de investimento.</p>
+    </footer>
+  </main>
+</div>
+
+<dialog id="dlg" aria-labelledby="dlgTit">
+  <div class="dh">
+    <div><h2 id="dlgTit"></h2><p id="dlgSub"></p></div>
+    <button class="fechar" type="button" id="dlgFechar" aria-label="Fechar">×</button>
+  </div>
+  <div class="db"><table class="tser" id="dlgT"></table></div>
+</dialog>
 
 <script>
 /* ======================= Dados ilustrativos ======================= */
 const DEMO = (() => {
   const meses = [];
-  for (let i = 23; i >= 0; i--) {
+  for (let i = 25; i >= 0; i--) {
     const d = new Date(2026, 9 - i, 1);
     meses.push(d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0'));
   }
-  const selic = [11.25,12.25,12.25,13.25,14.25,14.25,14.75,15,15,15,15,15,15,15,15,15,15,14.75,14.5,14.25,14.25,14,13.75,13.75];
-  const ipca12 = [4.87,4.83,4.56,5.06,5.06,5.48,5.53,5.32,5.35,5.23,5.13,5.17,4.68,4.46,4.30,4.20,4.10,4.05,3.98,4.02,4.10,4.12,4.05,4.00];
+  const selic26 = [10.75,11.25,11.25,12.25,12.25,13.25,14.25,14.25,14.75,15,15,15,15,15,15,15,15,15,15,14.75,14.5,14.25,14.25,14,13.75,13.75];
+  const ipcaMes = [0.44,0.56,0.39,0.52,0.16,1.31,0.56,0.43,0.26,0.24,0.26,-0.11,0.48,0.09,0.18,0.33,0.42,0.38,0.24,0.29,0.35,0.22,0.18,0.31,0.31,0.28];
+  const igpmMes = [0.62,1.52,0.94,0.27,0.27,1.06,-0.34,0.24,-0.49,-1.67,-0.77,0.36,0.42,-0.36,0.27,0.30,0.72,0.28,0.54,1.00,0.88,0.78,0.61,0.66,0.22,0.30];
+  const desemp = [6.6,6.4,6.2,6.5,6.8,7.0,6.6,6.2,5.8,5.6,5.8,5.6,5.6,5.4,5.2,5.5,5.8,6.1,5.9,5.7,5.6,5.5,5.5,5.4,5.3,5.2];
+  const dolar = [5.45,5.78,6.07,6.19,5.84,5.76,5.70,5.68,5.63,5.45,5.58,5.43,5.40,5.37,5.33,5.38,5.36,5.42,5.39,5.44,5.41,5.40,5.38,5.37,5.40,5.38];
+  const linha = (vals) => vals.map((v, i) => ({ d: meses[i] + '-01', v }));
+  function tabInfl(vals) {
+    const s = linha(vals), out = [];
+    for (let i = Math.max(11, s.length - 13); i < s.length; i++) {
+      const mes = s[i].d.slice(0, 7);
+      let fa = 1, f12 = 1;
+      s.slice(0, i + 1).forEach(p => { if (p.d.slice(0, 4) === mes.slice(0, 4)) fa *= 1 + p.v / 100; });
+      s.slice(i - 11, i + 1).forEach(p => { f12 *= 1 + p.v / 100; });
+      out.push([mes, s[i].v, +((fa - 1) * 100).toFixed(2), +((f12 - 1) * 100).toFixed(2)]);
+    }
+    return { colunas: ['Mês', 'No mês (%)', 'No ano (%)', '12 meses (%)'], casas: [null, 2, 2, 2], linhas: out };
+  }
+  function tabTaxa(vals, nome, casas = 2) {
+    const out = [];
+    for (let i = Math.max(1, vals.length - 13); i < vals.length; i++)
+      out.push([meses[i], vals[i], +(vals[i] - vals[i - 1]).toFixed(2), i >= 12 ? +(vals[i] - vals[i - 12]).toFixed(2) : null]);
+    return { colunas: ['Mês', nome, 'Variação no mês (p.p.)', 'Variação em 12 meses (p.p.)'], casas: [null, casas, 2, 2], linhas: out };
+  }
+  function tabCambio(vals) {
+    const out = [];
+    for (let i = Math.max(1, vals.length - 13); i < vals.length; i++) {
+      const m = meses[i], dez = meses.indexOf((+m.slice(0, 4) - 1) + '-12');
+      out.push([m, vals[i], +((vals[i] / vals[i - 1] - 1) * 100).toFixed(2), dez >= 0 ? +((vals[i] / vals[dez] - 1) * 100).toFixed(2) : null, i >= 12 ? +((vals[i] / vals[i - 12] - 1) * 100).toFixed(2) : null]);
+    }
+    return { colunas: ['Mês', 'Cotação no fim do mês (R$)', 'No mês (%)', 'No ano (%)', '12 meses (%)'], casas: [null, 4, 2, 2, 2], linhas: out };
+  }
+  const acum12 = vals => vals.map((_, i) => i < 11 ? null : +((vals.slice(i - 11, i + 1).reduce((f, v) => f * (1 + v / 100), 1) - 1) * 100).toFixed(2)).filter(v => v != null);
+  const ipca12 = acum12(ipcaMes), igpm12 = acum12(igpmMes);
   const min = n => new Date(Date.now() - n * 60000).toISOString();
   const ano = 2026;
   const base = [
-    ['BRA','Brasil',2.2,4.3,6.5,88,-2.5,2300,10800,13.75],
-    ['USA','Estados Unidos',2.0,2.8,4.2,121,-3.5,30000,88000,4.0],
-    ['CHN','China',4.6,0.8,5.1,92,1.5,19500,13800,3.0],
-    ['DEU','Alemanha',0.8,2.2,3.5,63,5.8,4800,57000,2.0],
-    ['JPN','Japão',0.9,2.4,2.5,235,4.2,4200,34000,0.75],
-    ['GBR','Reino Unido',1.2,3.0,4.6,102,-3.0,3800,55000,4.0],
-    ['IND','Índia',6.4,4.2,null,82,-1.0,4200,2900,5.5],
-    ['MEX','México',1.4,3.8,2.8,58,-0.8,1900,14500,8.0],
-    ['ARG','Argentina',4.0,30,7.0,85,0.5,650,14000,29],
-    ['CHL','Chile',2.3,3.9,8.5,42,-2.0,350,17500,4.75]
+    ['BRA','Brasil',2.2,4.3,6.5,88,-2.5,2300,10800,13.75],['USA','Estados Unidos',2.0,2.8,4.2,121,-3.5,30000,88000,4.0],
+    ['CHN','China',4.6,0.8,5.1,92,1.5,19500,13800,3.0],['DEU','Alemanha',0.8,2.2,3.5,63,5.8,4800,57000,2.0],
+    ['JPN','Japão',0.9,2.4,2.5,235,4.2,4200,34000,0.75],['GBR','Reino Unido',1.2,3.0,4.6,102,-3.0,3800,55000,4.0],
+    ['IND','Índia',6.4,4.2,null,82,-1.0,4200,2900,5.5],['MEX','México',1.4,3.8,2.8,58,-0.8,1900,14500,8.0],
+    ['ARG','Argentina',4.0,30,7.0,85,0.5,650,14000,29],['CHL','Chile',2.3,3.9,8.5,42,-2.0,350,17500,4.75]
   ];
   const chaves = ['pib','inflacao','desemprego','divida','conta_corrente','pib_usd','pib_pc'];
-  const paises = {
-    ano,
-    lista: base.map((b, k) => {
-      const series = {};
-      chaves.forEach((c, j) => {
-        series[c] = {};
-        const v = b[2 + j];
-        if (v == null) return;
-        for (let y = ano - 10; y <= ano + 4; y++) {
-          const x = (c === 'pib_usd' || c === 'pib_pc') ? v * (1 + (y - ano) * 0.04)
-                  : v + Math.sin(y * 1.3 + k + j) * (c === 'inflacao' ? Math.max(1, v * 0.3) : 1.2);
-          series[c][y] = +x.toFixed(2);
-        }
-      });
-      return { codigo: b[0], nome: b[1], juros: b[9], juros_data: '2026-10', series };
-    })
-  };
+  const paises = { ano, proj_desde: ano, fonte: 'FMI', lista: base.map((b, k) => {
+    const series = {};
+    chaves.forEach((c, j) => {
+      series[c] = {};
+      const v = b[2 + j];
+      if (v == null) return;
+      for (let y = ano - 10; y <= ano + 4; y++) {
+        const x = (c === 'pib_usd' || c === 'pib_pc') ? v * (1 + (y - ano) * 0.04) : v + Math.sin(y * 1.3 + k + j) * (c === 'inflacao' ? Math.max(1, v * 0.3) : 1.2);
+        series[c][y] = +x.toFixed(2);
+      }
+    });
+    return { codigo: b[0], nome: b[1], juros: b[9], juros_data: '2026-10', series };
+  }) };
+  const mundo = [
+    ['TR','Turquia','Banco Central da Turquia',38,'2026-09',-9.5,null],['AR','Argentina','Banco Central da Argentina',29,'2026-07',-11,30],
+    ['RU','Rússia','Banco da Rússia',16,'2026-10',-5,null],['BR','Brasil','Banco Central do Brasil',13.75,'2026-09-17',-1.25,4.3],
+    ['CO','Colômbia','Banco de la República',8.75,'2026-06',-0.5,null],['MX','México','Banco de México',7,'2026-09',-2,3.8],
+    ['ZA','África do Sul','South African Reserve Bank',6.75,'2026-07',-0.75,null],['IN','Índia','Reserve Bank of India',5.5,'2026-06',-0.75,4.2],
+    ['ID','Indonésia','Bank Indonesia',4.75,'2026-09',-1.25,null],['CL','Chile','Banco Central do Chile',4.5,'2026-08',-0.5,3.9],
+    ['US','Estados Unidos','Federal Reserve',3.75,'2026-09',-0.5,2.8],['GB','Reino Unido','Banco da Inglaterra',3.75,'2026-08',-0.5,3.0],
+    ['AU','Austrália','Reserve Bank of Australia',3.35,'2026-08',-0.75,null],['CA','Canadá','Banco do Canadá',2.5,'2026-09',-0.25,null],
+    ['CN','China','Banco Popular da China',3.0,'2026-05',-0.1,0.8],['KR','Coreia do Sul','Banco da Coreia',2.5,'2026-05',-0.75,null],
+    ['XM','Zona do euro','Banco Central Europeu',2.0,'2026-06',-1.0,null],['JP','Japão','Banco do Japão',0.75,'2026-07',0.25,2.4],
+    ['CH','Suíça','Banco Nacional Suíço',0,'2026-06',-0.5,null]
+  ].map(([codigo, pais, banco, taxa, desde, var12, inf]) => ({ codigo, pais, banco, taxa, data: '2026-10', desde, var12, inflacao: inf,
+     real: inf == null ? null : +(((1 + taxa / 100) / (1 + inf / 100) - 1) * 100).toFixed(2) }));
+  const selic24 = selic26.slice(-24);
   return {
     atualizado: new Date().toISOString(),
-    juros: { meses, selic, ipca12 },
+    juros: { meses: meses.slice(-24), selic: selic24, ipca12: Array(Math.max(0, 24 - ipca12.length)).fill(null).concat(ipca12.slice(-24)), selic_desde: '2026-09-17' },
     indicadores: [
-      { nome: 'Selic meta', valor: 13.75, unidade: '%', casas: 2, data: '2026-10-01', freq: 'm', anterior: 13.75, serie: selic.slice(-12) },
-      { nome: 'CDI (ao ano)', valor: 13.65, unidade: '%', casas: 2, data: '2026-10-01', freq: 'm', anterior: 13.65, serie: selic.slice(-12).map(v => v - 0.1) },
-      { nome: 'IPCA no mês', valor: 0.28, unidade: '%', casas: 2, data: '2026-09-01', freq: 'm', anterior: 0.31, serie: [0.16,0.26,0.43,0.38,0.24,0.29,0.35,0.22,0.18,0.31,0.31,0.28] },
-      { nome: 'IPCA em 12 meses', valor: 4.00, unidade: '%', casas: 2, data: '2026-09-01', freq: 'm', anterior: 4.05, serie: ipca12.slice(-12) },
-      { nome: 'IGP-M em 12 meses', valor: 2.94, unidade: '%', casas: 2, data: '2026-09-01', freq: 'm', anterior: 3.10, serie: [5.2,4.9,4.4,4.0,3.7,3.5,3.4,3.3,3.2,3.2,3.1,2.94] },
-      { nome: 'Desemprego', valor: 5.8, unidade: '%', casas: 1, data: '2026-09-01', freq: 'm', anterior: 5.9, serie: [6.6,6.5,6.4,6.4,6.3,6.2,6.1,6.0,6.0,5.9,5.9,5.8] },
-      { nome: 'Dólar (PTAX venda)', valor: 5.3812, unidade: 'R$', casas: 4, data: '2026-10-30', freq: 'd', anterior: 5.4040, serie: [5.52,5.49,5.47,5.50,5.46,5.44,5.42,5.45,5.41,5.40,5.40,5.38] },
-      { nome: 'Euro (PTAX venda)', valor: 6.2140, unidade: 'R$', casas: 4, data: '2026-10-30', freq: 'd', anterior: 6.2401, serie: [6.31,6.29,6.30,6.27,6.26,6.28,6.25,6.24,6.25,6.23,6.24,6.21] }
+      { nome: 'Selic meta', valor: 13.75, unidade: '%', casas: 2, data: '2026-10-01', freq: 'm', anterior: 13.75, serie: selic24.slice(-12), tabela: tabTaxa(selic26, 'Selic (% ao ano)'), fonte: 'Banco Central do Brasil' },
+      { nome: 'CDI (ao ano)', valor: 13.65, unidade: '%', casas: 2, data: '2026-10-01', freq: 'm', anterior: 13.65, serie: selic24.slice(-12).map(v => v - 0.1), tabela: tabTaxa(selic26.map(v => +(v - 0.1).toFixed(2)), 'CDI (% ao ano)'), fonte: 'Banco Central do Brasil' },
+      { nome: 'IPCA no mês', valor: 0.28, unidade: '%', casas: 2, data: '2026-10-01', freq: 'm', anterior: 0.31, serie: ipcaMes.slice(-12), tabela: tabInfl(ipcaMes), fonte: 'IBGE' },
+      { nome: 'IPCA em 12 meses', valor: ipca12.at(-1), unidade: '%', casas: 2, data: '2026-10-01', freq: 'm', anterior: ipca12.at(-2), serie: ipca12.slice(-12), tabela: tabInfl(ipcaMes), fonte: 'IBGE' },
+      { nome: 'IGP-M em 12 meses', valor: igpm12.at(-1), unidade: '%', casas: 2, data: '2026-10-01', freq: 'm', anterior: igpm12.at(-2), serie: igpm12.slice(-12), tabela: tabInfl(igpmMes), fonte: 'FGV' },
+      { nome: 'Desemprego', valor: 5.2, unidade: '%', casas: 1, data: '2026-10-01', freq: 'm', anterior: 5.3, serie: desemp.slice(-12), tabela: tabTaxa(desemp, 'Taxa de desocupação (%)', 1), fonte: 'IBGE, PNAD Contínua' },
+      { nome: 'Dólar (PTAX venda)', valor: 5.3812, unidade: 'R$', casas: 4, data: '2026-10-30', freq: 'd', anterior: 5.404, serie: dolar.slice(-12), tabela: tabCambio(dolar), fonte: 'Banco Central do Brasil' }
     ],
     mercado: {
       indices: [
@@ -377,30 +474,24 @@ const DEMO = (() => {
         { nome: 'Petróleo Brent', valor: 68.40, unidade: 'US$', casas: 2, var: -1.12 }
       ],
       acoes: [
-        { ticker: 'PETR4', nome: 'Petrobras PN', preco: 34.12, var: -0.95 },
-        { ticker: 'VALE3', nome: 'Vale ON', preco: 58.40, var: 1.32 },
-        { ticker: 'ITUB4', nome: 'Itaú Unibanco PN', preco: 38.75, var: 0.48 },
-        { ticker: 'BBDC4', nome: 'Bradesco PN', preco: 15.62, var: -0.25 },
-        { ticker: 'BBAS3', nome: 'Banco do Brasil ON', preco: 24.18, var: 0.71 },
-        { ticker: 'WEGE3', nome: 'WEG ON', preco: 42.90, var: 1.85 }
+        { ticker: 'PETR4', nome: 'Petrobras PN', preco: 34.12, var: -0.95 }, { ticker: 'VALE3', nome: 'Vale ON', preco: 58.40, var: 1.32 },
+        { ticker: 'ITUB4', nome: 'Itaú Unibanco PN', preco: 38.75, var: 0.48 }, { ticker: 'BBDC4', nome: 'Bradesco PN', preco: 15.62, var: -0.25 },
+        { ticker: 'BBAS3', nome: 'Banco do Brasil ON', preco: 24.18, var: 0.71 }, { ticker: 'WEGE3', nome: 'WEG ON', preco: 42.90, var: 1.85 }
       ]
     },
-    balanca: {
-      meses: meses.slice(-12),
-      exportacoes: [27.1,25.4,28.9,30.2,31.5,32.8,30.9,31.2,29.8,30.6,29.4,28.7],
-      importacoes: [22.3,21.8,23.4,23.9,24.6,25.1,24.2,25.7,24.9,24.1,23.6,22.9]
-    },
+    balanca: { meses: meses.slice(-12), exportacoes: [27.1,25.4,28.9,30.2,31.5,32.8,30.9,31.2,29.8,30.6,29.4,28.7], importacoes: [22.3,21.8,23.4,23.9,24.6,25.1,24.2,25.7,24.9,24.1,23.6,22.9] },
     focus: [
-      { indicador: 'IPCA', ano: 2026, mediana: 4.10, data: '2026-10-30' },
-      { indicador: 'IPCA', ano: 2027, mediana: 3.80, data: '2026-10-30' },
-      { indicador: 'PIB Total', ano: 2026, mediana: 1.90, data: '2026-10-30' },
-      { indicador: 'PIB Total', ano: 2027, mediana: 1.80, data: '2026-10-30' },
-      { indicador: 'Câmbio', ano: 2026, mediana: 5.45, data: '2026-10-30' },
-      { indicador: 'Câmbio', ano: 2027, mediana: 5.50, data: '2026-10-30' },
-      { indicador: 'Selic', ano: 2026, mediana: 13.50, data: '2026-10-30' },
-      { indicador: 'Selic', ano: 2027, mediana: 11.75, data: '2026-10-30' }
+      { indicador: 'IPCA', ano: 2026, mediana: 4.10, data: '2026-10-30' }, { indicador: 'IPCA', ano: 2027, mediana: 3.80, data: '2026-10-30' },
+      { indicador: 'PIB Total', ano: 2026, mediana: 1.90, data: '2026-10-30' }, { indicador: 'PIB Total', ano: 2027, mediana: 1.80, data: '2026-10-30' },
+      { indicador: 'Câmbio', ano: 2026, mediana: 5.45, data: '2026-10-30' }, { indicador: 'Câmbio', ano: 2027, mediana: 5.50, data: '2026-10-30' },
+      { indicador: 'Selic', ano: 2026, mediana: 13.50, data: '2026-10-30' }, { indicador: 'Selic', ano: 2027, mediana: 11.75, data: '2026-10-30' }
     ],
+    selic_focus: { data: '2026-10-30', reunioes: [
+      ['R8/2026',13.5,13.25,13.75],['R1/2027',13.25,12.75,13.75],['R2/2027',12.75,12.25,13.5],['R3/2027',12.5,11.75,13.25],
+      ['R4/2027',12.25,11.25,13.25],['R5/2027',12.0,11.0,13.0],['R6/2027',11.75,10.75,13.0],['R7/2027',11.75,10.5,13.0],['R8/2027',11.75,10.5,13.0]
+    ].map(([reuniao, mediana, minimo, maximo]) => ({ reuniao, mediana, minimo, maximo, respondentes: 120 })) },
     paises,
+    juros_mundo: { ano_inflacao: 2026, lista: mundo },
     noticias: [
       { titulo: 'Exemplo: Copom mantém ritmo e sinaliza próximos passos da Selic', fonte: 'Fonte A', link: '#', data: min(18) },
       { titulo: 'Exemplo: Inflação de serviços desacelera pelo terceiro mês seguido', fonte: 'Fonte B', link: '#', data: min(42) },
@@ -428,10 +519,15 @@ function valor(v, unidade, casas = 2) {
 }
 function mes(m) {
   const [y, mo] = m.slice(0, 7).split('-').map(Number);
-  return new Date(y, mo - 1, 1).toLocaleDateString('pt-BR', { month: 'short', year: '2-digit' })
-    .replace('. de ', '/').replace(' de ', '/').replace('.', '');
+  return new Date(y, mo - 1, 1).toLocaleDateString('pt-BR', { month: 'short', year: '2-digit' }).replace('. de ', '/').replace(' de ', '/').replace('.', '');
+}
+function mesLongo(m) {
+  const [y, mo] = m.slice(0, 7).split('-').map(Number);
+  const nome = new Date(y, mo - 1, 1).toLocaleDateString('pt-BR', { month: 'long' });
+  return nome.charAt(0).toUpperCase() + nome.slice(1) + '/' + y;
 }
 const dia = d => new Date(d.slice(0, 10) + 'T12:00:00').toLocaleDateString('pt-BR');
+const quando = d => !d ? '–' : d.length >= 10 ? dia(d) : mes(d);
 function variacao(v, sufixo = '%', casas = 2) {
   if (vazio(v)) return '<span class="muted">–</span>';
   if (Math.abs(v) < 1e-9) return `<span class="muted">${num(0, casas)}${sufixo}</span>`;
@@ -445,12 +541,20 @@ function rel(iso) {
   if (Math.abs(diff) < 1440) return rtf.format(Math.round(diff / 60), 'hour');
   return rtf.format(Math.round(diff / 1440), 'day');
 }
-function spark(vals) {
+function spark(vals, cor = 'var(--accent)', w = 84, h = 28) {
   const v = (vals || []).filter(x => !vazio(x));
   if (v.length < 2) return '<span></span>';
-  const w = 84, h = 28, mn = Math.min(...v), mx = Math.max(...v), r = mx - mn || 1;
+  const mn = Math.min(...v), mx = Math.max(...v), r = mx - mn || 1;
   const pts = v.map((x, i) => `${(i / (v.length - 1) * w).toFixed(1)},${(h - 3 - (x - mn) / r * (h - 6)).toFixed(1)}`).join(' ');
-  return `<svg viewBox="0 0 ${w} ${h}" width="${w}" height="${h}" aria-hidden="true"><polyline points="${pts}" fill="none" stroke="var(--accent)" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/></svg>`;
+  return `<svg viewBox="0 0 ${w} ${h}" width="100%" style="max-width:${w}px" height="${h}" preserveAspectRatio="none" aria-hidden="true"><polyline points="${pts}" fill="none" stroke="${cor}" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>`;
+}
+function barras(vals, w = 300, h = 46) {
+  const v = vals.filter(x => !vazio(x));
+  if (!v.length) return '';
+  const mx = Math.max(...v.map(Math.abs)) || 1, bw = w / v.length;
+  return `<svg viewBox="0 0 ${w} ${h}" width="100%" height="${h}" preserveAspectRatio="none" aria-hidden="true">${
+    v.map((x, i) => { const bh = Math.max(2, Math.abs(x) / mx * (h - 2)); return `<rect x="${(i * bw + 2).toFixed(1)}" y="${(h - bh).toFixed(1)}" width="${(bw - 4).toFixed(1)}" height="${bh.toFixed(1)}" rx="2" fill="${x >= 0 ? 'var(--accent)' : 'var(--down)'}"/>`; }).join('')
+  }</svg>`;
 }
 const ultimo = arr => { for (let i = (arr || []).length - 1; i >= 0; i--) if (arr[i] != null) return arr[i]; return null; };
 const juroReal = (s, i) => (s == null || i == null) ? null : ((1 + s / 100) / (1 + i / 100) - 1) * 100;
@@ -461,41 +565,51 @@ function alpha(cor, a) {
   const n = parseInt(m[1], 16);
   return `rgba(${n >> 16},${(n >> 8) & 255},${n & 255},${a})`;
 }
+function nomeReuniao(r) {
+  const m = /R(\d+)\/(\d{4})/.exec(r || '');
+  return m ? `${m[1]}ª reunião de ${m[2]}` : (r || '');
+}
+const curtoReuniao = r => { const m = /R(\d+)\/(\d{4})/.exec(r || ''); return m ? `${m[1]}ª/${m[2].slice(2)}` : r; };
+
+/* Tabela ordenável genérica */
+function tabelaOrdenavel(el, cols, dados, estado, redesenhar, opts = {}) {
+  const c0 = cols.find(c => c.k === estado.k) || cols[0];
+  const lin = dados.slice().sort((a, b) => {
+    const va = c0.val(a), vb = c0.val(b);
+    if (typeof va === 'string' || typeof vb === 'string') return String(va).localeCompare(String(vb), 'pt-BR') * estado.dir;
+    if (va == null) return 1;
+    if (vb == null) return -1;
+    return (va - vb) * estado.dir;
+  });
+  const ar = k => estado.k === k ? (estado.dir > 0 ? 'ascending' : 'descending') : 'none';
+  const seta = k => estado.k === k ? (estado.dir > 0 ? ' ▲' : ' ▼') : '';
+  el.innerHTML = `<thead><tr>${cols.map(c => `<th scope="col" aria-sort="${ar(c.k)}"><button type="button" data-k="${c.k}">${c.t}${seta(c.k)}</button></th>`).join('')}</tr></thead>
+    <tbody>${lin.map(d => `<tr ${opts.attrs ? opts.attrs(d) : ''}>${cols.map((c, i) => i === 0 ? `<th scope="row">${c.f(d)}</th>` : `<td>${c.f(d)}</td>`).join('')}</tr>`).join('')}</tbody>`;
+  el.querySelectorAll('thead button').forEach(b => b.addEventListener('click', () => {
+    const k = b.dataset.k, c = cols.find(x => x.k === k);
+    if (estado.k === k) estado.dir = -estado.dir;
+    else { estado.k = k; estado.dir = c.texto ? 1 : -1; }
+    redesenhar();
+  }));
+  if (opts.onRow) el.querySelectorAll('tbody tr').forEach(tr => {
+    tr.addEventListener('click', () => opts.onRow(tr));
+    tr.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); opts.onRow(tr); } });
+  });
+}
 
 /* ======================= Blocos reaproveitados ======================= */
-function htmlIndices(lista) {
-  return (lista || []).map(x => `<li>
-      <span>${esc(x.nome)}</span>
-      <span class="val">${valor(x.valor, x.unidade, x.casas)}</span>
-      <span class="var">${variacao(x.var)}</span>
-    </li>`).join('');
-}
-function htmlNoticias(lista) {
-  return lista.length ? lista.map(n => `<li>
-      <a href="${esc(n.link)}" target="_blank" rel="noopener noreferrer">${esc(n.titulo)}</a>
-      <div class="meta">${esc(n.fonte)}, ${esc(rel(n.data))}</div>
-    </li>`).join('') : '<li class="muted">Nenhuma notícia no momento.</li>';
-}
+const htmlIndices = lista => (lista || []).map(x => `<li><span>${esc(x.nome)}</span><span class="val">${valor(x.valor, x.unidade, x.casas)}</span><span class="var">${variacao(x.var)}</span></li>`).join('');
+const htmlNoticias = lista => lista.length ? lista.map(n => `<li><a href="${esc(n.link)}" target="_blank" rel="noopener noreferrer">${esc(n.titulo)}</a><div class="m">${esc(n.fonte)}, ${esc(rel(n.data))}</div></li>`).join('') : '<li class="muted">Nenhuma notícia no momento.</li>';
 const noticiasOrdenadas = D => (D.noticias || []).slice().sort((a, b) => new Date(b.data) - new Date(a.data));
 const NOME_FOCUS = { 'IPCA': ['IPCA', '%'], 'PIB Total': ['PIB (crescimento)', '%'], 'Câmbio': ['Dólar no fim do ano', 'R$'], 'Selic': ['Selic no fim do ano', '%'] };
+const reunioes = D => (D.selic_focus && D.selic_focus.reunioes) || [];
 
 /* Países */
 const anoPaises = D => (D.paises && D.paises.ano) || new Date().getFullYear();
+const fontePaises = D => (D.paises && D.paises.fonte) || 'FMI';
+const projDesde = D => (D.paises && D.paises.proj_desde) || anoPaises(D);
 const serieVal = (p, chave, ano) => { const s = p.series && p.series[chave]; const v = s ? s[String(ano)] : null; return vazio(v) ? null : Number(v); };
-function moedaGrande(v) {
-  if (vazio(v)) return '–';
-  return v >= 1000 ? 'US$ ' + num(v / 1000, 2) + ' tri' : 'US$ ' + num(v, 0) + ' bi';
-}
-const COLUNAS_PAIS = [
-  { k: 'pib', t: 'PIB (cresc.)', f: v => pct(v, 1) },
-  { k: 'inflacao', t: 'Inflação', f: v => pct(v, 1) },
-  { k: 'desemprego', t: 'Desemprego', f: v => pct(v, 1) },
-  { k: 'juros', t: 'Juros básicos', f: v => pct(v, 2) },
-  { k: 'divida', t: 'Dívida / PIB', f: v => pct(v, 0) },
-  { k: 'conta_corrente', t: 'Conta corrente / PIB', f: v => pct(v, 1) },
-  { k: 'pib_pc', t: 'PIB per capita', f: v => vazio(v) ? '–' : 'US$ ' + num(v, 0) }
-];
-function valorPais(p, k, ano) { return k === 'juros' ? (vazio(p.juros) ? null : Number(p.juros)) : serieVal(p, k, ano); }
+const moedaGrande = v => vazio(v) ? '–' : v >= 1000 ? 'US$ ' + num(v / 1000, 2) + ' tri' : 'US$ ' + num(v, 0) + ' bi';
 
 /* ======================= Páginas ======================= */
 function renderTopo(D, demo) {
@@ -509,17 +623,30 @@ function renderResumo(D) {
   $('hJuroReal').textContent = pct(juroReal(s, i), 1);
   $('hSelic').textContent = pct(s);
   $('hIpca').textContent = pct(i);
+  $('hSpark').innerHTML = spark(D.juros.selic, 'var(--hero-accent)', 260, 70) +
+    `<p class="hnote" style="margin-top:4px">De ${pct(D.juros.selic[0])} em ${esc(mes(D.juros.meses[0]))} para ${pct(s)} agora.</p>`;
+
+  const R = reunioes(D);
+  if (R.length) {
+    const p = R[0];
+    $('hProxTit').textContent = `Selic esperada na ${nomeReuniao(p.reuniao)}`;
+    $('hProx').textContent = pct(p.mediana);
+    const dif = p.mediana - s;
+    $('hProxNota').textContent = Math.abs(dif) < 0.01 ? 'O mercado espera manutenção da taxa.' :
+      `O mercado espera ${dif < 0 ? 'corte' : 'alta'} de ${num(Math.abs(dif), 2)} ponto percentual.`;
+  }
+  const F = D.focus || [];
+  const anos = [...new Set(F.filter(f => f.indicador === 'Selic').map(f => f.ano))].sort().slice(0, 2);
+  $('hFimAno').innerHTML = anos.map(a => `<div><dt>Fim de ${a}</dt><dd>${pct((F.find(f => f.indicador === 'Selic' && f.ano === a) || {}).mediana)}</dd></div>`).join('');
+
   $('hIdx').innerHTML = htmlIndices(D.mercado && D.mercado.indices);
 
-  const b = D.balanca;
-  if (b && b.meses && b.meses.length) {
-    const n = b.meses.length - 1;
-    const ano = b.exportacoes.reduce((a, v, k) => a + v - b.importacoes[k], 0);
-    $('hBal').textContent = 'US$ ' + num(b.exportacoes[n] - b.importacoes[n], 1) + ' bi';
-    $('hBalMeta').textContent = `Saldo de ${mes(b.meses[n])}. Em 12 meses: US$ ${num(ano, 1)} bi.`;
-  }
+  const pega = nome => (D.indicadores || []).find(x => x.nome === nome);
+  $('hInd').innerHTML = ['IPCA no mês', 'IPCA em 12 meses', 'IGP-M em 12 meses', 'Desemprego', 'CDI (ao ano)'].map(nome => {
+    const x = pega(nome);
+    return x ? `<div><dt>${esc(nome)}</dt><dd>${valor(x.valor, x.unidade, x.casas)}</dd></div>` : '';
+  }).join('');
 
-  const F = D.focus || [];
   const anoF = F.length ? Math.min(...F.map(f => f.ano)) : new Date().getFullYear();
   $('hFocusTit').textContent = `Expectativas para ${anoF}`;
   $('hFocus').innerHTML = ['IPCA', 'Selic', 'PIB Total', 'Câmbio'].map(ind => {
@@ -529,101 +656,131 @@ function renderResumo(D) {
     return `<div><dt>${esc(nome)}</dt><dd>${valor(f.mediana, un, 2)}</dd></div>`;
   }).join('');
 
-  const pega = nome => (D.indicadores || []).find(x => x.nome === nome);
-  $('hInd').innerHTML = ['IPCA no mês', 'IGP-M em 12 meses', 'Desemprego', 'CDI (ao ano)'].map(nome => {
-    const x = pega(nome);
-    return x ? `<div><dt>${esc(nome)}</dt><dd>${valor(x.valor, x.unidade, x.casas)}</dd></div>` : '';
-  }).join('');
+  const b = D.balanca;
+  if (b && b.meses && b.meses.length) {
+    const n = b.meses.length - 1;
+    const saldos = b.exportacoes.map((v, k) => v - b.importacoes[k]);
+    $('hBal').textContent = 'US$ ' + num(saldos[n], 1) + ' bi';
+    $('hBalMeta').textContent = `Saldo de ${mes(b.meses[n])}. Em 12 meses: US$ ${num(saldos.reduce((a, v) => a + v, 0), 1)} bi.`;
+    $('hBalBarras').innerHTML = barras(saldos);
+  }
 
-  const P = D.paises && D.paises.lista ? D.paises.lista.slice(0, 6) : [];
-  const anoP = anoPaises(D);
-  $('hPaisesTit').textContent = `Mundo em ${anoP}`;
-  $('hPaises').innerHTML = P.length ? `<thead><tr><th scope="col">País</th><th scope="col">PIB</th><th scope="col">Inflação</th><th scope="col">Juros</th></tr></thead><tbody>${
-    P.map(p => `<tr><th scope="row">${esc(p.nome)}</th><td>${pct(serieVal(p, 'pib', anoP), 1)}</td><td>${pct(serieVal(p, 'inflacao', anoP), 1)}</td><td>${pct(p.juros, 2)}</td></tr>`).join('')
-  }</tbody><caption>PIB e inflação de ${anoP}. Fonte: ${esc((D.paises && D.paises.fonte) || 'FMI')}.</caption>` : '<caption>Sem dados de países no momento.</caption>';
+  const M = (D.juros_mundo && D.juros_mundo.lista) || [];
+  const destaque = ['BR', 'US', 'XM', 'GB', 'JP', 'CN', 'MX'];
+  $('hMundo').innerHTML = destaque.map(c => M.find(x => x.codigo === c)).filter(Boolean)
+    .map(x => `<li><span>${esc(x.pais)}</span><span class="val">${pct(x.taxa, 2)}</span><span class="var">${variacao(x.var12, ' p.p.')}</span></li>`).join('')
+    || '<li class="muted">Sem dados no momento.</li>';
 
   $('hNews').innerHTML = htmlNoticias(noticiasOrdenadas(D).slice(0, 5));
 }
 
+function htmlSelicFocus(D) {
+  const R = reunioes(D);
+  if (!R.length) return '<caption>Sem projeções da Selic no momento.</caption>';
+  return `<thead><tr><th scope="col">Reunião do Copom</th><th scope="col">Mediana</th><th scope="col">Mínima</th><th scope="col">Máxima</th></tr></thead>
+    <tbody>${R.map(r => `<tr><th scope="row">${esc(nomeReuniao(r.reuniao))}</th><td><strong>${pct(r.mediana)}</strong></td><td>${pct(r.minimo)}</td><td>${pct(r.maximo)}</td></tr>`).join('')}</tbody>
+    <caption>Boletim Focus de ${esc(dia(D.selic_focus.data))}${R[0].respondentes ? `, ${R[0].respondentes} respondentes na primeira reunião` : ''}.</caption>`;
+}
+
+let ordemMundo = { k: 'taxa', dir: -1 };
 function renderJuros(D) {
   const s = ultimo(D.juros.selic), i = ultimo(D.juros.ipca12);
   $('selicNow').textContent = pct(s);
   $('ipcaNow').textContent = pct(i);
   $('juroReal').textContent = pct(juroReal(s, i), 1);
+  $('selicDesde').textContent = D.juros.selic_desde ? `Selic em ${pct(s)} desde ${dia(D.juros.selic_desde)}.` : '';
+  $('selFocusT').innerHTML = htmlSelicFocus(D);
+  if (D.selic_focus) $('selFocusSub').textContent = `Mediana das projeções para cada reunião do Copom, boletim Focus de ${dia(D.selic_focus.data)}. A faixa mostra a menor e a maior projeção.`;
+
+  const M = (D.juros_mundo && D.juros_mundo.lista) || [];
+  if (!M.length) { $('tMundo').innerHTML = '<caption>Sem dados de outros países no momento.</caption>'; return; }
+  const anoI = D.juros_mundo.ano_inflacao;
+  const cols = [
+    { k: 'pais', t: 'País', texto: true, val: x => x.pais, f: x => `${esc(x.pais)}<span class="nm">${esc(x.banco)}</span>` },
+    { k: 'taxa', t: 'Taxa básica', val: x => x.taxa, f: x => `<strong>${pct(x.taxa, 2)}</strong><span class="barra" aria-hidden="true"><i style="width:${Math.min(100, Math.max(0, x.taxa) / 20 * 100)}%"></i></span>` },
+    { k: 'real', t: `Juro real aprox.`, val: x => x.real, f: x => pct(x.real, 1) },
+    { k: 'var12', t: 'Variação em 12 meses', val: x => x.var12, f: x => variacao(x.var12, ' p.p.') },
+    { k: 'desde', t: 'Última mudança', texto: true, val: x => x.desde || '', f: x => esc(x.desde ? quando(x.desde) : 'há mais de 2 anos') }
+  ];
+  tabelaOrdenavel($('tMundo'), cols, M, ordemMundo, () => renderJuros(D), { attrs: x => x.codigo === 'BR' ? 'class="sel"' : '' });
+  $('tMundo').classList.add('clicavel');
+  $('mundoSub').textContent = `Taxa básica de juros de ${M.length} bancos centrais. Clique no cabeçalho para ordenar.`;
+  $('mundoFonte').textContent = `Fontes: BIS (taxas de política monetária, dados mensais) e Banco Central do Brasil. O juro real é aproximado, descontando a inflação média de ${anoI} (${fontePaises(D)}), e aparece só para países com esse dado na base.`;
 }
 
 function renderIndicadores(D) {
-  $('indList').innerHTML = (D.indicadores || []).map(x => {
-    const quando = x.freq === 'd' ? dia(x.data) : mes(x.data);
+  const L = D.indicadores || [];
+  $('indList').innerHTML = L.map((x, k) => {
     let delta = '';
-    if (!vazio(x.anterior)) {
-      delta = x.unidade === '%' ? variacao(x.valor - x.anterior, ' p.p.', 2) : variacao((x.valor / x.anterior - 1) * 100, '%', 2);
-    }
-    return `<li>
-      <div><div class="n">${esc(x.nome)}</div><div class="meta">${esc(quando)}${delta ? ', ' + delta : ''}</div></div>
+    if (!vazio(x.anterior)) delta = x.unidade === '%' ? variacao(x.valor - x.anterior, ' p.p.', 2) : variacao((x.valor / x.anterior - 1) * 100, '%', 2);
+    return `<button type="button" class="ind" data-i="${k}" aria-haspopup="dialog">
+      <span><span class="n">${esc(x.nome)}</span><br><span class="m">${esc(x.freq === 'd' ? dia(x.data) : mes(x.data))}${delta ? ', ' + delta : ''}</span></span>
       ${spark(x.serie)}
-      <div class="v">${valor(x.valor, x.unidade, x.casas)}</div>
-    </li>`;
+      <span class="v">${valor(x.valor, x.unidade, x.casas)}</span>
+    </button>`;
   }).join('');
+  $('indList').querySelectorAll('.ind').forEach(b => b.addEventListener('click', () => abrirTabela(L[+b.dataset.i])));
+}
+
+function abrirTabela(x) {
+  const t = x.tabela;
+  $('dlgTit').textContent = x.nome;
+  $('dlgSub').textContent = x.fonte ? `Fonte: ${x.fonte}` : '';
+  if (!t || !t.linhas || !t.linhas.length) {
+    $('dlgT').innerHTML = '<caption>A série mês a mês deste indicador ainda não está disponível. Rode o coletor atualizado para gerá-la.</caption>';
+  } else {
+    $('dlgT').innerHTML = `<thead><tr>${t.colunas.map(c => `<th scope="col">${esc(c)}</th>`).join('')}</tr></thead>
+      <tbody>${t.linhas.map(l => `<tr>${l.map((v, i) => i === 0 ? `<td>${esc(mesLongo(v))}</td>` : `<td>${num(v, t.casas[i] ?? 2)}</td>`).join('')}</tr>`).join('')}</tbody>`;
+  }
+  const dlg = $('dlg');
+  if (typeof dlg.showModal === 'function') dlg.showModal(); else dlg.setAttribute('open', '');
 }
 
 function renderMercado(D) {
   $('idxList').innerHTML = htmlIndices(D.mercado.indices);
   $('acoes').querySelector('tbody').innerHTML = (D.mercado.acoes || []).map(a => `<tr>
       <td><span class="t">${esc(a.ticker)}</span>${a.nome && a.nome !== a.ticker ? `<span class="nm">${esc(a.nome)}</span>` : ''}</td>
-      <td>${valor(a.preco, 'R$', 2)}</td>
-      <td>${variacao(a.var)}</td>
-    </tr>`).join('');
+      <td>${valor(a.preco, 'R$', 2)}</td><td>${variacao(a.var)}</td></tr>`).join('');
 }
 
 function renderBalanca(D) {
   const b = D.balanca, n = b.meses.length - 1;
   if (n < 0) { $('balResumo').textContent = 'Sem dados da balança comercial.'; return; }
   const ano = b.exportacoes.reduce((a, v, k) => a + v - b.importacoes[k], 0);
-  $('balResumo').innerHTML = `Saldo em ${esc(mes(b.meses[n]))}: <strong>US$ ${num(b.exportacoes[n] - b.importacoes[n], 1)} bi</strong>. Acumulado em 12 meses: <strong>US$ ${num(ano, 1)} bi</strong>.`;
+  $('balResumo').innerHTML = `Saldo em ${esc(mes(b.meses[n]))}: <strong style="color:var(--ink)">US$ ${num(b.exportacoes[n] - b.importacoes[n], 1)} bi</strong>. Acumulado em 12 meses: <strong style="color:var(--ink)">US$ ${num(ano, 1)} bi</strong>.`;
 }
 
 function renderFocus(D) {
   const F = D.focus || [];
+  $('selFocusT2').innerHTML = htmlSelicFocus(D);
   if (!F.length) { $('focusT').innerHTML = '<caption>Sem dados do Focus no momento.</caption>'; return; }
   const anos = [...new Set(F.map(f => f.ano))].sort();
   const inds = [...new Set(F.map(f => f.indicador))];
-  const head = `<thead><tr><th scope="col">Indicador</th>${anos.map(a => `<th scope="col">${a}</th>`).join('')}</tr></thead>`;
-  const body = inds.map(ind => {
-    const [nome, un] = NOME_FOCUS[ind] || [ind, ''];
-    return `<tr><th scope="row">${esc(nome)}</th>${anos.map(a => {
-      const f = F.find(x => x.indicador === ind && x.ano === a);
-      return `<td>${f ? valor(f.mediana, un, 2) : '–'}</td>`;
-    }).join('')}</tr>`;
-  }).join('');
-  $('focusT').innerHTML = `${head}<tbody>${body}</tbody><caption>Mediana das projeções do mercado, boletim Focus de ${esc(dia(F[0].data))}.</caption>`;
+  $('focusT').innerHTML = `<thead><tr><th scope="col">Indicador</th>${anos.map(a => `<th scope="col">${a}</th>`).join('')}</tr></thead><tbody>${
+    inds.map(ind => { const [nome, un] = NOME_FOCUS[ind] || [ind, '']; return `<tr><th scope="row">${esc(nome)}</th>${anos.map(a => { const f = F.find(x => x.indicador === ind && x.ano === a); return `<td>${f ? valor(f.mediana, un, 2) : '–'}</td>`; }).join('')}</tr>`; }).join('')
+  }</tbody><caption>Mediana das projeções, boletim Focus de ${esc(dia(F[0].data))}.</caption>`;
 }
 
-/* ---- Países ---- */
 let paisSel = 'BRA';
-let ordem = { k: 'pib', dir: -1 };
+let ordemPaises = { k: 'pib', dir: -1 };
 function renderPaises(D) {
   const P = (D.paises && D.paises.lista) || [];
-  if (!P.length) {
-    $('paisKpis').innerHTML = '<li class="muted">Sem dados de países no momento.</li>';
-    return;
-  }
+  if (!P.length) { $('paisKpis').innerHTML = '<li class="muted">Sem dados de países no momento.</li>'; return; }
   if (!P.find(p => p.codigo === paisSel)) paisSel = P[0].codigo;
   const ano = anoPaises(D);
   const sel = $('selPais');
   if (!sel.options.length) {
-    sel.innerHTML = P.slice().sort((a, b) => a.nome.localeCompare(b.nome, 'pt-BR'))
-      .map(p => `<option value="${esc(p.codigo)}">${esc(p.nome)}</option>`).join('');
+    sel.innerHTML = P.slice().sort((a, b) => a.nome.localeCompare(b.nome, 'pt-BR')).map(p => `<option value="${esc(p.codigo)}">${esc(p.nome)}</option>`).join('');
     sel.addEventListener('change', () => { paisSel = sel.value; renderPaises(D); desenharGraficos('paises', D); });
   }
   sel.value = paisSel;
   const p = P.find(x => x.codigo === paisSel);
-  $('paisNota').textContent = `Valores de ${ano}. Fonte: ${(D.paises && D.paises.fonte) || 'FMI'}.`;
+  $('paisNota').textContent = `Valores de ${ano}. Fonte: ${fontePaises(D)}.`;
   $('paisKpis').innerHTML = [
     ['Crescimento do PIB', pct(serieVal(p, 'pib', ano), 1)],
     ['Inflação média', pct(serieVal(p, 'inflacao', ano), 1)],
     ['Desemprego', pct(serieVal(p, 'desemprego', ano), 1)],
-    ['Juros básicos', vazio(p.juros) ? '–' : pct(p.juros, 2) + (p.juros_data ? ` <span class="meta">(${esc(mes(p.juros_data))})</span>` : '')],
+    ['Juros básicos', vazio(p.juros) ? '–' : pct(p.juros, 2)],
     ['Dívida bruta / PIB', pct(serieVal(p, 'divida', ano), 0)],
     ['Conta corrente / PIB', pct(serieVal(p, 'conta_corrente', ano), 1)],
     ['PIB', moedaGrande(serieVal(p, 'pib_usd', ano))],
@@ -631,38 +788,23 @@ function renderPaises(D) {
   ].map(([l, x]) => `<li><span class="l">${l}</span><span class="x">${x}</span></li>`).join('');
   $('paisGrafTit').textContent = `${p.nome}: crescimento do PIB e inflação`;
   $('compTit').textContent = `Comparação entre países em ${ano}`;
-
-  const linhas = P.slice().sort((a, b) => {
-    if (ordem.k === 'nome') return a.nome.localeCompare(b.nome, 'pt-BR') * ordem.dir;
-    const va = valorPais(a, ordem.k, ano), vb = valorPais(b, ordem.k, ano);
-    if (va == null) return 1;
-    if (vb == null) return -1;
-    return (va - vb) * ordem.dir;
-  });
-  const ariaSort = k => ordem.k === k ? (ordem.dir > 0 ? 'ascending' : 'descending') : 'none';
-  const seta = k => ordem.k === k ? (ordem.dir > 0 ? ' ▲' : ' ▼') : '';
-  $('tPaises').innerHTML = `<thead><tr>
-      <th scope="col" aria-sort="${ariaSort('nome')}"><button type="button" data-k="nome">País${seta('nome')}</button></th>
-      ${COLUNAS_PAIS.map(c => `<th scope="col" aria-sort="${ariaSort(c.k)}"><button type="button" data-k="${c.k}">${c.t}${seta(c.k)}</button></th>`).join('')}
-    </tr></thead><tbody>${
-      linhas.map(x => `<tr data-c="${esc(x.codigo)}" class="${x.codigo === paisSel ? 'sel' : ''}" tabindex="0">
-        <th scope="row">${esc(x.nome)}</th>
-        ${COLUNAS_PAIS.map(c => `<td>${c.f(valorPais(x, c.k, ano))}</td>`).join('')}
-      </tr>`).join('')
-    }</tbody>`;
-  $('tPaises').querySelectorAll('th button').forEach(b => b.addEventListener('click', () => {
-    const k = b.dataset.k;
-    ordem = ordem.k === k ? { k, dir: -ordem.dir } : { k, dir: k === 'nome' ? 1 : -1 };
-    renderPaises(D);
-  }));
-  $('tPaises').querySelectorAll('tbody tr').forEach(tr => {
-    const escolher = () => { paisSel = tr.dataset.c; renderPaises(D); desenharGraficos('paises', D); $('selPais').scrollIntoView({ block: 'center' }); };
-    tr.addEventListener('click', escolher);
-    tr.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); escolher(); } });
+  const v = k => x => k === 'juros' ? (vazio(x.juros) ? null : Number(x.juros)) : serieVal(x, k, ano);
+  const cols = [
+    { k: 'nome', t: 'País', texto: true, val: x => x.nome, f: x => esc(x.nome) },
+    { k: 'pib', t: 'PIB (cresc.)', val: v('pib'), f: x => pct(v('pib')(x), 1) },
+    { k: 'inflacao', t: 'Inflação', val: v('inflacao'), f: x => pct(v('inflacao')(x), 1) },
+    { k: 'desemprego', t: 'Desemprego', val: v('desemprego'), f: x => pct(v('desemprego')(x), 1) },
+    { k: 'juros', t: 'Juros básicos', val: v('juros'), f: x => pct(v('juros')(x), 2) },
+    { k: 'divida', t: 'Dívida / PIB', val: v('divida'), f: x => pct(v('divida')(x), 0) },
+    { k: 'conta_corrente', t: 'Conta corrente / PIB', val: v('conta_corrente'), f: x => pct(v('conta_corrente')(x), 1) },
+    { k: 'pib_pc', t: 'PIB per capita', val: v('pib_pc'), f: x => vazio(v('pib_pc')(x)) ? '–' : 'US$ ' + num(v('pib_pc')(x), 0) }
+  ];
+  tabelaOrdenavel($('tPaises'), cols, P, ordemPaises, () => renderPaises(D), {
+    attrs: x => `data-c="${esc(x.codigo)}" tabindex="0" class="${x.codigo === paisSel ? 'sel' : ''}"`,
+    onRow: tr => { paisSel = tr.dataset.c; renderPaises(D); desenharGraficos('paises', D); window.scrollTo({ top: 0 }); }
   });
 }
 
-/* ---- Notícias ---- */
 let filtroFonte = 'Todas';
 function renderNoticias(D) {
   const N = noticiasOrdenadas(D);
@@ -674,76 +816,77 @@ function renderNoticias(D) {
 
 /* ======================= Gráficos ======================= */
 let graficos = [];
-function opcoesBase() {
-  return {
-    responsive: true, maintainAspectRatio: false,
-    interaction: { mode: 'index', intersect: false },
-    plugins: { legend: { position: 'bottom', labels: { usePointStyle: true, boxWidth: 8, padding: 18 } } },
-    scales: { x: { grid: { display: false } }, y: { grid: { color: css('--line') }, border: { display: false } } }
-  };
-}
 function desenharGraficos(view, D) {
   graficos.forEach(g => g.destroy());
   graficos = [];
   if (!window.Chart) return;
-  const acc = css('--accent'), acc2 = css('--accent2'), ink = css('--ink'), fill = css('--fill');
+  const acc = css('--accent'), acc2 = css('--accent2'), ink = css('--ink'), line = css('--line');
   Chart.defaults.font.family = css('--sans');
   Chart.defaults.color = css('--muted');
-  const base = opcoesBase();
-  const comEixo = (fmtY, fmtTip) => ({
+  const base = {
+    responsive: true, maintainAspectRatio: false,
+    interaction: { mode: 'index', intersect: false },
+    plugins: { legend: { position: 'bottom', labels: { usePointStyle: true, boxWidth: 8, padding: 16 } } },
+    scales: { x: { grid: { display: false } }, y: { grid: { color: line }, border: { display: false } } }
+  };
+  const opc = (fmtY, fmtTip, extraY = {}) => ({
     ...base,
     plugins: { ...base.plugins, tooltip: { callbacks: { label: fmtTip } } },
-    scales: { ...base.scales, y: { ...base.scales.y, ticks: { callback: fmtY } } }
+    scales: { ...base.scales, y: { ...base.scales.y, ...extraY, ticks: { callback: fmtY } } }
   });
 
   if (view === 'juros') {
     graficos.push(new Chart($('chJuros'), {
       type: 'line',
-      data: {
-        labels: D.juros.meses.map(mes),
-        datasets: [
-          { label: 'Selic meta', data: D.juros.selic, borderColor: acc, backgroundColor: acc, stepped: true, pointRadius: 0, borderWidth: 2.5 },
-          { label: 'IPCA 12 meses', data: D.juros.ipca12, borderColor: acc2, backgroundColor: fill, fill: '-1', pointRadius: 0, borderWidth: 2.5, tension: .3, spanGaps: false }
-        ]
-      },
-      options: comEixo(v => v + '%', c => `${c.dataset.label}: ${pct(c.parsed.y)}`)
+      data: { labels: D.juros.meses.map(mes), datasets: [
+        { label: 'Selic meta', data: D.juros.selic, borderColor: acc, backgroundColor: acc, stepped: true, pointRadius: 0, borderWidth: 2.5 },
+        { label: 'IPCA 12 meses', data: D.juros.ipca12, borderColor: acc2, backgroundColor: alpha(acc, .12), fill: '-1', pointRadius: 0, borderWidth: 2.5, tension: .3 }
+      ] },
+      options: opc(v => v + '%', c => `${c.dataset.label}: ${pct(c.parsed.y)}`)
     }));
+    const R = reunioes(D);
+    if (R.length) {
+      const atual = ultimo(D.juros.selic);
+      const labels = ['Hoje', ...R.map(r => curtoReuniao(r.reuniao))];
+      graficos.push(new Chart($('chSelicFocus'), {
+        type: 'line',
+        data: { labels, datasets: [
+          { label: 'Máxima', data: [atual, ...R.map(r => r.maximo)], borderColor: 'transparent', backgroundColor: alpha(acc, .14), pointRadius: 0, fill: '+1', stepped: 'after' },
+          { label: 'Mínima', data: [atual, ...R.map(r => r.minimo)], borderColor: 'transparent', backgroundColor: 'transparent', pointRadius: 0, fill: false, stepped: 'after' },
+          { label: 'Mediana', data: [atual, ...R.map(r => r.mediana)], borderColor: acc, backgroundColor: acc, borderWidth: 2.5, pointRadius: 3, stepped: 'after' }
+        ] },
+        options: {
+          ...opc(v => v + '%', c => `${c.dataset.label}: ${pct(c.parsed.y)}`),
+          plugins: { ...base.plugins, legend: { display: false }, tooltip: { callbacks: { label: c => `${c.dataset.label}: ${pct(c.parsed.y)}` } } }
+        }
+      }));
+    }
   }
 
   if (view === 'balanca') {
     const b = D.balanca;
     graficos.push(new Chart($('chBal'), {
-      data: {
-        labels: b.meses.map(mes),
-        datasets: [
-          { type: 'line', label: 'Saldo', data: b.exportacoes.map((v, k) => +(v - b.importacoes[k]).toFixed(2)), borderColor: ink, backgroundColor: ink, pointRadius: 3, borderWidth: 2, order: 0 },
-          { type: 'bar', label: 'Exportações', data: b.exportacoes, backgroundColor: acc, borderRadius: 3, order: 1 },
-          { type: 'bar', label: 'Importações', data: b.importacoes, backgroundColor: acc2, borderRadius: 3, order: 1 }
-        ]
-      },
-      options: comEixo(v => 'US$ ' + v + ' bi', c => `${c.dataset.label}: US$ ${num(c.parsed.y, 1)} bi`)
+      data: { labels: b.meses.map(mes), datasets: [
+        { type: 'line', label: 'Saldo', data: b.exportacoes.map((v, k) => +(v - b.importacoes[k]).toFixed(2)), borderColor: ink, backgroundColor: ink, pointRadius: 3, borderWidth: 2, order: 0 },
+        { type: 'bar', label: 'Exportações', data: b.exportacoes, backgroundColor: acc, borderRadius: 4, order: 1 },
+        { type: 'bar', label: 'Importações', data: b.importacoes, backgroundColor: acc2, borderRadius: 4, order: 1 }
+      ] },
+      options: opc(v => 'US$ ' + v + ' bi', c => `${c.dataset.label}: US$ ${num(c.parsed.y, 1)} bi`)
     }));
   }
 
   if (view === 'paises' && D.paises && D.paises.lista && D.paises.lista.length) {
     const p = D.paises.lista.find(x => x.codigo === paisSel) || D.paises.lista[0];
-    const ano = anoPaises(D);
-    const anos = [];
+    const ano = anoPaises(D), desde = projDesde(D), anos = [];
     for (let y = ano - 10; y <= ano + 4; y++) anos.push(y);
-    const desde = (D.paises && D.paises.proj_desde) || ano;
-    const proj = anos.map(y => y >= desde);
-    const iAno = anos.indexOf(desde);
+    const proj = anos.map(y => y >= desde), iAno = anos.indexOf(desde);
     graficos.push(new Chart($('chPais'), {
-      data: {
-        labels: anos.map(String),
-        datasets: [
-          { type: 'line', label: 'Inflação média', data: anos.map(y => serieVal(p, 'inflacao', y)), borderColor: acc2, backgroundColor: acc2, pointRadius: 2, borderWidth: 2.5, tension: .25, order: 0,
-            segment: { borderDash: c => c.p1DataIndex >= iAno ? [5, 4] : undefined } },
-          { type: 'bar', label: 'Crescimento do PIB', data: anos.map(y => serieVal(p, 'pib', y)),
-            backgroundColor: proj.map(e => e ? alpha(acc, .4) : acc), borderRadius: 3, order: 1 }
-        ]
-      },
-      options: comEixo(v => v + '%', c => `${c.dataset.label}: ${pct(c.parsed.y, 1)}${proj[c.dataIndex] ? ' (projeção)' : ''}`)
+      data: { labels: anos.map(String), datasets: [
+        { type: 'line', label: 'Inflação média', data: anos.map(y => serieVal(p, 'inflacao', y)), borderColor: acc2, backgroundColor: acc2, pointRadius: 2, borderWidth: 2.5, tension: .25, order: 0,
+          segment: { borderDash: c => c.p1DataIndex >= iAno ? [5, 4] : undefined } },
+        { type: 'bar', label: 'Crescimento do PIB', data: anos.map(y => serieVal(p, 'pib', y)), backgroundColor: proj.map(e => e ? alpha(acc, .4) : acc), borderRadius: 4, order: 1 }
+      ] },
+      options: opc(v => v + '%', c => `${c.dataset.label}: ${pct(c.parsed.y, 1)}${proj[c.dataIndex] ? ' (projeção)' : ''}`)
     }));
   }
 }
@@ -752,18 +895,20 @@ function desenharGraficos(view, D) {
 const VIEWS = ['inicio', 'juros', 'indicadores', 'mercado', 'balanca', 'expectativas', 'paises', 'noticias'];
 const TITULOS = { inicio: 'Resumo', juros: 'Juros', indicadores: 'Indicadores', mercado: 'Mercado', balanca: 'Balança comercial', expectativas: 'Expectativas', paises: 'Países', noticias: 'Notícias' };
 let DADOS = null;
+const viewAtual = () => { const h = location.hash.slice(1); return VIEWS.includes(h) ? h : 'inicio'; };
 function rota() {
-  const h = location.hash.slice(1);
-  const v = VIEWS.includes(h) ? h : 'inicio';
+  const v = viewAtual();
   document.querySelectorAll('.view').forEach(s => { s.hidden = s.id !== 'v-' + v; });
-  document.querySelectorAll('.tabs a').forEach(a => {
-    if (a.getAttribute('href') === '#' + v) a.setAttribute('aria-current', 'page');
-    else a.removeAttribute('aria-current');
+  document.querySelectorAll('.nav a').forEach(a => {
+    if (a.getAttribute('href') === '#' + v) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
   });
   document.title = v === 'inicio' ? 'Hub Econômico' : `${TITULOS[v]} | Hub Econômico`;
   window.scrollTo(0, 0);
   if (DADOS) { try { desenharGraficos(v, DADOS); } catch (e) { console.error(e); } }
 }
+
+$('dlgFechar').addEventListener('click', () => $('dlg').close());
+$('dlg').addEventListener('click', e => { if (e.target === $('dlg')) $('dlg').close(); });
 
 async function carregar() {
   try {
@@ -783,10 +928,7 @@ async function carregar() {
   [renderResumo, renderJuros, renderIndicadores, renderMercado, renderBalanca, renderFocus, renderPaises, renderNoticias].forEach(seguro);
   window.addEventListener('hashchange', rota);
   rota();
-  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-    const h = location.hash.slice(1);
-    try { desenharGraficos(VIEWS.includes(h) ? h : 'inicio', D); } catch (e) { console.error(e); }
-  });
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => { try { desenharGraficos(viewAtual(), D); } catch (e) { console.error(e); } });
 })();
 </script>
 </body>

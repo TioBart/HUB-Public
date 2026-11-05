@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-05T18:58:14.063157+00:00",
+ "atualizado": "2026-11-05T19:08:57.177388+00:00",
  "juros": {
   "meses": [
    "2024-12",
@@ -78,7 +78,8 @@
    4.58,
    null,
    null
-  ]
+  ],
+  "selic_desde": "2026-09-17"
  },
  "indicadores": [
   {
@@ -102,7 +103,102 @@
     13.75,
     13.75,
     13.75
-   ]
+   ],
+   "tabela": {
+    "colunas": [
+     "Mês",
+     "Selic (% ao ano)",
+     "Variação no mês (p.p.)",
+     "Variação em 12 meses (p.p.)"
+    ],
+    "casas": [
+     null,
+     2,
+     2,
+     2
+    ],
+    "linhas": [
+     [
+      "2025-11",
+      15.0,
+      0.0,
+      3.75
+     ],
+     [
+      "2025-12",
+      15.0,
+      0.0,
+      2.75
+     ],
+     [
+      "2026-01",
+      15.0,
+      0.0,
+      1.75
+     ],
+     [
+      "2026-02",
+      15.0,
+      0.0,
+      1.75
+     ],
+     [
+      "2026-03",
+      14.75,
+      -0.25,
+      0.5
+     ],
+     [
+      "2026-04",
+      14.5,
+      -0.25,
+      0.25
+     ],
+     [
+      "2026-05",
+      14.5,
+      0.0,
+      -0.25
+     ],
+     [
+      "2026-06",
+      14.25,
+      -0.25,
+      -0.75
+     ],
+     [
+      "2026-07",
+      14.25,
+      0.0,
+      -0.75
+     ],
+     [
+      "2026-08",
+      14.0,
+      -0.25,
+      -1.0
+     ],
+     [
+      "2026-09",
+      13.75,
+      -0.25,
+      -1.25
+     ],
+     [
+      "2026-10",
+      13.75,
+      0.0,
+      -1.25
+     ],
+     [
+      "2026-11",
+      13.75,
+      0.0,
+      -1.25
+     ]
+    ]
+   },
+   "fonte": "Banco Central do Brasil"
   },
   {
    "nome": "CDI (ao ano)",
@@ -125,7 +221,102 @@
     13.65,
     13.65,
     13.65
-   ]
+   ],
+   "tabela": {
+    "colunas": [
+     "Mês",
+     "CDI (% ao ano)",
+     "Variação no mês (p.p.)",
+     "Variação em 12 meses (p.p.)"
+    ],
+    "casas": [
+     null,
+     2,
+     2,
+     2
+    ],
+    "linhas": [
+     [
+      "2025-11",
+      14.9,
+      0.0,
+      3.75
+     ],
+     [
+      "2025-12",
+      14.9,
+      0.0,
+      2.75
+     ],
+     [
+      "2026-01",
+      14.9,
+      0.0,
+      1.75
+     ],
+     [
+      "2026-02",
+      14.9,
+      0.0,
+      1.75
+     ],
+     [
+      "2026-03",
+      14.65,
+      -0.25,
+      0.5
+     ],
+     [
+      "2026-04",
+      14.4,
+      -0.25,
+      0.25
+     ],
+     [
+      "2026-05",
+      14.4,
+      0.0,
+      -0.25
+     ],
+     [
+      "2026-06",
+      14.15,
+      -0.25,
+      -0.75
+     ],
+     [
+      "2026-07",
+      14.15,
+      0.0,
+      -0.75
+     ],
+     [
+      "2026-08",
+      13.9,
+      -0.25,
+      -1.0
+     ],
+     [
+      "2026-09",
+      13.65,
+      -0.25,
+      -1.25
+     ],
+     [
+      "2026-10",
+      13.65,
+      0.0,
+      -1.25
+     ],
+     [
+      "2026-11",
+      13.65,
+      0.0,
+      -1.25
+     ]
+    ]
+   },
+   "fonte": "Banco Central do Brasil"
   },
   {
    "nome": "IPCA no mês",
@@ -148,7 +339,102 @@
     0.07,
     -0.32,
     0.82
-   ]
+   ],
+   "tabela": {
+    "colunas": [
+     "Mês",
+     "No mês (%)",
+     "No ano (%)",
+     "12 meses (%)"
+    ],
+    "casas": [
+     null,
+     2,
+     2,
+     2
+    ],
+    "linhas": [
+     [
+      "2025-09",
+      0.48,
+      3.64,
+      5.17
+     ],
+     [
+      "2025-10",
+      0.09,
+      3.73,
+      4.68
+     ],
+     [
+      "2025-11",
+      0.18,
+      3.92,
+      4.46
+     ],
+     [
+      "2025-12",
+      0.33,
+      4.26,
+      4.26
+     ],
+     [
+      "2026-01",
+      0.33,
+      0.33,
+      4.44
+     ],
+     [
+      "2026-02",
+      0.7,
+      1.03,
+      3.81
+     ],
+     [
+      "2026-03",
+      0.88,
+      1.92,
+      4.14
+     ],
+     [
+      "2026-04",
+      0.67,
+      2.6,
+      4.39
+     ],
+     [
+      "2026-05",
+      0.58,
+      3.2,
+      4.72
+     ],
+     [
+      "2026-06",
+      0.16,
+      3.36,
+      4.64
+     ],
+     [
+      "2026-07",
+      0.07,
+      3.44,
+      4.44
+     ],
+     [
+      "2026-08",
+      -0.32,
+      3.11,
+      4.22
+     ],
+     [
+      "2026-09",
+      0.82,
+      3.95,
+      4.58
+     ]
+    ]
+   },
+   "fonte": "IBGE"
   },
   {
    "nome": "IPCA em 12 meses",
@@ -171,7 +457,220 @@
     4.44,
     4.22,
     4.58
-   ]
+   ],
+   "tabela": {
+    "colunas": [
+     "Mês",
+     "No mês (%)",
+     "No ano (%)",
+     "12 meses (%)"
+    ],
+    "casas": [
+     null,
+     2,
+     2,
+     2
+    ],
+    "linhas": [
+     [
+      "2025-09",
+      0.48,
+      3.64,
+      5.17
+     ],
+     [
+      "2025-10",
+      0.09,
+      3.73,
+      4.68
+     ],
+     [
+      "2025-11",
+      0.18,
+      3.92,
+      4.46
+     ],
+     [
+      "2025-12",
+      0.33,
+      4.26,
+      4.26
+     ],
+     [
+      "2026-01",
+      0.33,
+      0.33,
+      4.44
+     ],
+     [
+      "2026-02",
+      0.7,
+      1.03,
+      3.81
+     ],
+     [
+      "2026-03",
+      0.88,
+      1.92,
+      4.14
+     ],
+     [
+      "2026-04",
+      0.67,
+      2.6,
+      4.39
+     ],
+     [
+      "2026-05",
+      0.58,
+      3.2,
+      4.72
+     ],
+     [
+      "2026-06",
+      0.16,
+      3.36,
+      4.64
+     ],
+     [
+      "2026-07",
+      0.07,
+      3.44,
+      4.44
+     ],
+     [
+      "2026-08",
+      -0.32,
+      3.11,
+      4.22
+     ],
+     [
+      "2026-09",
+      0.82,
+      3.95,
+      4.58
+     ]
+    ]
+   },
+   "fonte": "IBGE"
+  },
+  {
+   "nome": "INPC em 12 meses",
+   "valor": 4.29,
+   "unidade": "%",
+   "casas": 2,
+   "data": "2026-09-01",
+   "freq": "m",
+   "anterior": 3.98,
+   "serie": [
+    4.49,
+    4.18,
+    3.9,
+    4.3,
+    3.36,
+    3.77,
+    4.11,
+    4.42,
+    4.33,
+    4.1,
+    3.98,
+    4.29
+   ],
+   "tabela": {
+    "colunas": [
+     "Mês",
+     "No mês (%)",
+     "No ano (%)",
+     "12 meses (%)"
+    ],
+    "casas": [
+     null,
+     2,
+     2,
+     2
+    ],
+    "linhas": [
+     [
+      "2025-09",
+      0.52,
+      3.62,
+      5.1
+     ],
+     [
+      "2025-10",
+      0.03,
+      3.65,
+      4.49
+     ],
+     [
+      "2025-11",
+      0.03,
+      3.68,
+      4.18
+     ],
+     [
+      "2025-12",
+      0.21,
+      3.9,
+      3.9
+     ],
+     [
+      "2026-01",
+      0.39,
+      0.39,
+      4.3
+     ],
+     [
+      "2026-02",
+      0.56,
+      0.95,
+      3.36
+     ],
+     [
+      "2026-03",
+      0.91,
+      1.87,
+      3.77
+     ],
+     [
+      "2026-04",
+      0.81,
+      2.7,
+      4.11
+     ],
+     [
+      "2026-05",
+      0.65,
+      3.36,
+      4.42
+     ],
+     [
+      "2026-06",
+      0.14,
+      3.51,
+      4.33
+     ],
+     [
+      "2026-07",
+      -0.01,
+      3.5,
+      4.1
+     ],
+     [
+      "2026-08",
+      -0.32,
+      3.17,
+      3.98
+     ],
+     [
+      "2026-09",
+      0.82,
+      4.01,
+      4.29
+     ]
+    ]
+   },
+   "fonte": "IBGE"
   },
   {
    "nome": "IGP-M em 12 meses",
@@ -194,7 +693,220 @@
     2.18,
     3.35,
     5.25
-   ]
+   ],
+   "tabela": {
+    "colunas": [
+     "Mês",
+     "No mês (%)",
+     "No ano (%)",
+     "12 meses (%)"
+    ],
+    "casas": [
+     null,
+     2,
+     2,
+     2
+    ],
+    "linhas": [
+     [
+      "2025-10",
+      -0.36,
+      -1.3,
+      0.92
+     ],
+     [
+      "2025-11",
+      0.27,
+      -1.03,
+      -0.1
+     ],
+     [
+      "2025-12",
+      -0.01,
+      -1.04,
+      -1.04
+     ],
+     [
+      "2026-01",
+      0.41,
+      0.41,
+      -0.9
+     ],
+     [
+      "2026-02",
+      -0.73,
+      -0.32,
+      -2.66
+     ],
+     [
+      "2026-03",
+      0.52,
+      0.2,
+      -1.82
+     ],
+     [
+      "2026-04",
+      2.73,
+      2.93,
+      0.62
+     ],
+     [
+      "2026-05",
+      0.84,
+      3.8,
+      1.96
+     ],
+     [
+      "2026-06",
+      -0.5,
+      3.28,
+      3.18
+     ],
+     [
+      "2026-07",
+      -1.16,
+      2.08,
+      2.77
+     ],
+     [
+      "2026-08",
+      -0.22,
+      1.85,
+      2.18
+     ],
+     [
+      "2026-09",
+      1.57,
+      3.45,
+      3.35
+     ],
+     [
+      "2026-10",
+      1.47,
+      4.97,
+      5.25
+     ]
+    ]
+   },
+   "fonte": "FGV"
+  },
+  {
+   "nome": "IGP-DI em 12 meses",
+   "valor": 3.78,
+   "unidade": "%",
+   "casas": 2,
+   "data": "2026-09-01",
+   "freq": "m",
+   "anterior": 2.61,
+   "serie": [
+    0.73,
+    -0.43,
+    -1.19,
+    -1.1,
+    -2.9,
+    -1.3,
+    0.77,
+    2.52,
+    3.58,
+    2.76,
+    2.61,
+    3.78
+   ],
+   "tabela": {
+    "colunas": [
+     "Mês",
+     "No mês (%)",
+     "No ano (%)",
+     "12 meses (%)"
+    ],
+    "casas": [
+     null,
+     2,
+     2,
+     2
+    ],
+    "linhas": [
+     [
+      "2025-09",
+      0.36,
+      -1.27,
+      2.32
+     ],
+     [
+      "2025-10",
+      -0.03,
+      -1.3,
+      0.73
+     ],
+     [
+      "2025-11",
+      0.01,
+      -1.29,
+      -0.43
+     ],
+     [
+      "2025-12",
+      0.1,
+      -1.19,
+      -1.19
+     ],
+     [
+      "2026-01",
+      0.2,
+      0.2,
+      -1.1
+     ],
+     [
+      "2026-02",
+      -0.84,
+      -0.64,
+      -2.9
+     ],
+     [
+      "2026-03",
+      1.14,
+      0.49,
+      -1.3
+     ],
+     [
+      "2026-04",
+      2.41,
+      2.91,
+      0.77
+     ],
+     [
+      "2026-05",
+      0.87,
+      3.81,
+      2.52
+     ],
+     [
+      "2026-06",
+      -0.79,
+      2.99,
+      3.58
+     ],
+     [
+      "2026-07",
+      -0.86,
+      2.1,
+      2.76
+     ],
+     [
+      "2026-08",
+      0.06,
+      2.16,
+      2.61
+     ],
+     [
+      "2026-09",
+      1.5,
+      3.7,
+      3.78
+     ]
+    ]
+   },
+   "fonte": "FGV"
   },
   {
    "nome": "Desemprego",
@@ -217,7 +929,102 @@
     5.3,
     5.3,
     5.2
-   ]
+   ],
+   "tabela": {
+    "colunas": [
+     "Mês",
+     "Taxa de desocupação (%)",
+     "Variação no mês (p.p.)",
+     "Variação em 12 meses (p.p.)"
+    ],
+    "casas": [
+     null,
+     1,
+     2,
+     2
+    ],
+    "linhas": [
+     [
+      "2025-09",
+      5.6,
+      0.0,
+      -0.8
+     ],
+     [
+      "2025-10",
+      5.4,
+      -0.2,
+      -0.8
+     ],
+     [
+      "2025-11",
+      5.2,
+      -0.2,
+      -0.9
+     ],
+     [
+      "2025-12",
+      5.1,
+      -0.1,
+      -1.1
+     ],
+     [
+      "2026-01",
+      5.4,
+      0.3,
+      -1.1
+     ],
+     [
+      "2026-02",
+      5.8,
+      0.4,
+      -1.0
+     ],
+     [
+      "2026-03",
+      6.1,
+      0.3,
+      -0.9
+     ],
+     [
+      "2026-04",
+      5.8,
+      -0.3,
+      -0.8
+     ],
+     [
+      "2026-05",
+      5.6,
+      -0.2,
+      -0.6
+     ],
+     [
+      "2026-06",
+      5.4,
+      -0.2,
+      -0.4
+     ],
+     [
+      "2026-07",
+      5.3,
+      -0.1,
+      -0.3
+     ],
+     [
+      "2026-08",
+      5.3,
+      0.0,
+      -0.3
+     ],
+     [
+      "2026-09",
+      5.2,
+      -0.1,
+      -0.4
+     ]
+    ]
+   },
+   "fonte": "IBGE, PNAD Contínua"
   },
   {
    "nome": "Dólar (PTAX venda)",
@@ -258,7 +1065,117 @@
     5.4935,
     5.4778,
     5.4621
-   ]
+   ],
+   "tabela": {
+    "colunas": [
+     "Mês",
+     "Cotação no fim do mês (R$)",
+     "No mês (%)",
+     "No ano (%)",
+     "12 meses (%)"
+    ],
+    "casas": [
+     null,
+     4,
+     2,
+     2,
+     2
+    ],
+    "linhas": [
+     [
+      "2025-11",
+      5.3338,
+      -0.94,
+      -13.86,
+      -11.89
+     ],
+     [
+      "2025-12",
+      5.5024,
+      3.16,
+      -11.14,
+      -11.14
+     ],
+     [
+      "2026-01",
+      5.2301,
+      -4.95,
+      -4.95,
+      -10.29
+     ],
+     [
+      "2026-02",
+      5.1495,
+      -1.54,
+      -6.41,
+      -11.96
+     ],
+     [
+      "2026-03",
+      5.2194,
+      1.36,
+      -5.14,
+      -9.1
+     ],
+     [
+      "2026-04",
+      4.9886,
+      -4.42,
+      -9.34,
+      -11.87
+     ],
+     [
+      "2026-05",
+      5.0569,
+      1.37,
+      -8.1,
+      -11.42
+     ],
+     [
+      "2026-06",
+      5.1766,
+      2.37,
+      -5.92,
+      -5.14
+     ],
+     [
+      "2026-07",
+      5.0773,
+      -1.92,
+      -7.73,
+      -9.37
+     ],
+     [
+      "2026-08",
+      5.1816,
+      2.05,
+      -5.83,
+      -4.51
+     ],
+     [
+      "2026-09",
+      5.1809,
+      -0.01,
+      -5.84,
+      -2.59
+     ],
+     [
+      "2026-10",
+      5.4212,
+      4.64,
+      -1.48,
+      0.69
+     ],
+     [
+      "2026-11",
+      5.4621,
+      0.75,
+      -0.73,
+      2.41
+     ]
+    ]
+   },
+   "fonte": "Banco Central do Brasil"
   },
   {
    "nome": "Euro (PTAX venda)",
@@ -299,18 +1216,121 @@
     6.15,
     6.1549,
     6.1323
-   ]
+   ],
+   "tabela": {
+    "colunas": [
+     "Mês",
+     "Cotação no fim do mês (R$)",
+     "No mês (%)",
+     "No ano (%)",
+     "12 meses (%)"
+    ],
+    "casas": [
+     null,
+     4,
+     2,
+     2,
+     2
+    ],
+    "linhas": [
+     [
+      "2025-11",
+      6.1915,
+      -0.36,
+      -3.8,
+      -3.17
+     ],
+     [
+      "2025-12",
+      6.4692,
+      4.49,
+      0.51,
+      0.51
+     ],
+     [
+      "2026-01",
+      6.2217,
+      -3.83,
+      -3.83,
+      2.64
+     ],
+     [
+      "2026-02",
+      6.0795,
+      -2.29,
+      -6.02,
+      -0.05
+     ],
+     [
+      "2026-03",
+      6.0117,
+      -1.12,
+      -7.07,
+      -3.03
+     ],
+     [
+      "2026-04",
+      5.8511,
+      -2.67,
+      -9.55,
+      -8.94
+     ],
+     [
+      "2026-05",
+      5.906,
+      0.94,
+      -8.71,
+      -8.83
+     ],
+     [
+      "2026-06",
+      5.9106,
+      0.08,
+      -8.63,
+      -7.98
+     ],
+     [
+      "2026-07",
+      5.849,
+      -1.04,
+      -9.59,
+      -8.66
+     ],
+     [
+      "2026-08",
+      6.0189,
+      2.9,
+      -6.96,
+      -5.16
+     ],
+     [
+      "2026-09",
+      5.8777,
+      -2.35,
+      -9.14,
+      -5.83
+     ],
+     [
+      "2026-10",
+      6.0522,
+      2.97,
+      -6.45,
+      -2.6
+     ],
+     [
+      "2026-11",
+      6.1323,
+      1.32,
+      -5.21,
+      -0.96
+     ]
+    ]
+   },
+   "fonte": "Banco Central do Brasil"
   }
  ],
  "mercado": {
   "indices": [
-   {
-    "nome": "Ibovespa",
-    "valor": 166637.03,
-    "unidade": "pts",
-    "casas": 0,
-    "var": -0.55
-   },
    {
     "nome": "Dólar",
     "valor": 5.4621,
@@ -324,70 +1344,26 @@
     "unidade": "R$",
     "casas": 4,
     "var": -0.37
-   },
-   {
-    "nome": "S&P 500",
-    "valor": 7568.92,
-    "unidade": "pts",
-    "casas": 0,
-    "var": 0.36
-   },
-   {
-    "nome": "Petróleo Brent",
-    "valor": 107.03,
-    "unidade": "US$",
-    "casas": 2,
-    "var": -0.34
    }
   ],
   "acoes": [
    {
     "ticker": "PETR4",
     "nome": "Petrobras PN",
-    "preco": 46.78,
-    "var": -0.72
+    "preco": 46.54,
+    "var": -1.23
    },
    {
     "ticker": "VALE3",
     "nome": "Vale ON",
-    "preco": 62.82,
-    "var": 0.75
+    "preco": 62.9,
+    "var": 0.88
    },
    {
     "ticker": "ITUB4",
     "nome": "Itaú Unibanco PN",
-    "preco": 39.71,
-    "var": 0
-   },
-   {
-    "ticker": "BBDC4",
-    "nome": "Bradesco PN",
-    "preco": 13.83,
-    "var": -1.64
-   },
-   {
-    "ticker": "BBAS3",
-    "nome": "Banco do Brasil ON",
-    "preco": 16.43,
-    "var": -0.36
-   },
-   {
-    "ticker": "WEGE3",
-    "nome": "WEG ON",
-    "preco": 47.91,
-    "var": -4.28
-   },
-   {
-    "ticker": "ABEV3",
-    "nome": "Ambev ON",
-    "preco": 15.39,
-    "var": 0.92
-   },
-   {
-    "ticker": "B3SA3",
-    "nome": "B3 ON",
-    "preco": 14.18,
-    "var": -0.84
+    "preco": 39.72,
+    "var": 0.03
    }
   ]
  },
@@ -509,6 +1485,139 @@
    "data": "2026-10-30"
   }
  ],
+ "selic_focus": {
+  "data": "2026-10-30",
+  "reunioes": [
+   {
+    "reuniao": "R7/2026",
+    "ordem": 20267,
+    "mediana": 13.5,
+    "minimo": 13.5,
+    "maximo": 14.0,
+    "respondentes": 139
+   },
+   {
+    "reuniao": "R8/2026",
+    "ordem": 20268,
+    "mediana": 13.5,
+    "minimo": 13.0,
+    "maximo": 14.0,
+    "respondentes": 143
+   },
+   {
+    "reuniao": "R1/2027",
+    "ordem": 20271,
+    "mediana": 13.5,
+    "minimo": 12.5,
+    "maximo": 14.0,
+    "respondentes": 138
+   },
+   {
+    "reuniao": "R2/2027",
+    "ordem": 20272,
+    "mediana": 13.5,
+    "minimo": 12.0,
+    "maximo": 14.25,
+    "respondentes": 138
+   },
+   {
+    "reuniao": "R3/2027",
+    "ordem": 20273,
+    "mediana": 13.5,
+    "minimo": 11.5,
+    "maximo": 14.5,
+    "respondentes": 138
+   },
+   {
+    "reuniao": "R4/2027",
+    "ordem": 20274,
+    "mediana": 13.25,
+    "minimo": 10.75,
+    "maximo": 15.0,
+    "respondentes": 138
+   },
+   {
+    "reuniao": "R5/2027",
+    "ordem": 20275,
+    "mediana": 13.0,
+    "minimo": 10.25,
+    "maximo": 15.0,
+    "respondentes": 138
+   },
+   {
+    "reuniao": "R6/2027",
+    "ordem": 20276,
+    "mediana": 12.75,
+    "minimo": 10.0,
+    "maximo": 15.0,
+    "respondentes": 137
+   },
+   {
+    "reuniao": "R7/2027",
+    "ordem": 20277,
+    "mediana": 12.5,
+    "minimo": 9.75,
+    "maximo": 15.0,
+    "respondentes": 137
+   },
+   {
+    "reuniao": "R8/2027",
+    "ordem": 20278,
+    "mediana": 12.5,
+    "minimo": 9.75,
+    "maximo": 15.0,
+    "respondentes": 143
+   },
+   {
+    "reuniao": "R1/2028",
+    "ordem": 20281,
+    "mediana": 12.25,
+    "minimo": 9.75,
+    "maximo": 14.75,
+    "respondentes": 125
+   },
+   {
+    "reuniao": "R2/2028",
+    "ordem": 20282,
+    "mediana": 12.0,
+    "minimo": 9.25,
+    "maximo": 14.75,
+    "respondentes": 125
+   },
+   {
+    "reuniao": "R3/2028",
+    "ordem": 20283,
+    "mediana": 12.0,
+    "minimo": 9.0,
+    "maximo": 14.75,
+    "respondentes": 125
+   },
+   {
+    "reuniao": "R4/2028",
+    "ordem": 20284,
+    "mediana": 11.75,
+    "minimo": 9.0,
+    "maximo": 14.75,
+    "respondentes": 125
+   },
+   {
+    "reuniao": "R5/2028",
+    "ordem": 20285,
+    "mediana": 11.5,
+    "minimo": 9.0,
+    "maximo": 14.75,
+    "respondentes": 123
+   },
+   {
+    "reuniao": "R6/2028",
+    "ordem": 20286,
+    "mediana": 11.25,
+    "minimo": 9.0,
+    "maximo": 14.75,
+    "respondentes": 121
+   }
+  ]
+ },
  "paises": {
   "ano": 2025,
   "proj_desde": 2026,
@@ -1889,6 +2998,231 @@
    }
   ]
  },
+ "juros_mundo": {
+  "ano_inflacao": 2025,
+  "lista": [
+   {
+    "codigo": "TR",
+    "pais": "Turquia",
+    "banco": "Banco Central da Turquia",
+    "taxa": 36.0,
+    "data": "2026-10",
+    "desde": "2026-10",
+    "var12": -3.5,
+    "inflacao": null,
+    "real": null
+   },
+   {
+    "codigo": "AR",
+    "pais": "Argentina",
+    "banco": "Banco Central da Argentina",
+    "taxa": 29.0,
+    "data": "2025-06",
+    "desde": "2025-01",
+    "var12": -11.0,
+    "inflacao": null,
+    "real": null
+   },
+   {
+    "codigo": "RU",
+    "pais": "Rússia",
+    "banco": "Banco da Rússia",
+    "taxa": 14.0,
+    "data": "2026-10",
+    "desde": "2026-07",
+    "var12": -2.5,
+    "inflacao": null,
+    "real": null
+   },
+   {
+    "codigo": "BR",
+    "pais": "Brasil",
+    "banco": "Banco Central do Brasil",
+    "taxa": 13.75,
+    "data": "2026-11",
+    "desde": "2026-09-17",
+    "var12": -1.25,
+    "inflacao": 5.02,
+    "real": 8.31
+   },
+   {
+    "codigo": "CO",
+    "pais": "Colômbia",
+    "banco": "Banco de la República",
+    "taxa": 12.25,
+    "data": "2026-10",
+    "desde": "2026-10",
+    "var12": 3.0,
+    "inflacao": 5.14,
+    "real": 6.76
+   },
+   {
+    "codigo": "ZA",
+    "pais": "África do Sul",
+    "banco": "South African Reserve Bank",
+    "taxa": 7.25,
+    "data": "2026-10",
+    "desde": "2026-09",
+    "var12": 0.25,
+    "inflacao": 3.21,
+    "real": 3.91
+   },
+   {
+    "codigo": "MX",
+    "pais": "México",
+    "banco": "Banco de México",
+    "taxa": 6.5,
+    "data": "2026-10",
+    "desde": "2026-05",
+    "var12": -1.0,
+    "inflacao": 3.81,
+    "real": 2.59
+   },
+   {
+    "codigo": "ID",
+    "pais": "Indonésia",
+    "banco": "Bank Indonesia",
+    "taxa": 5.75,
+    "data": "2026-09",
+    "desde": "2026-06",
+    "var12": 1.0,
+    "inflacao": null,
+    "real": null
+   },
+   {
+    "codigo": "IN",
+    "pais": "Índia",
+    "banco": "Reserve Bank of India",
+    "taxa": 5.25,
+    "data": "2026-09",
+    "desde": "2025-12",
+    "var12": -0.25,
+    "inflacao": 2.4,
+    "real": 2.78
+   },
+   {
+    "codigo": "AU",
+    "pais": "Austrália",
+    "banco": "Reserve Bank of Australia",
+    "taxa": 4.6,
+    "data": "2026-09",
+    "desde": "2026-09",
+    "var12": 1.0,
+    "inflacao": null,
+    "real": null
+   },
+   {
+    "codigo": "CL",
+    "pais": "Chile",
+    "banco": "Banco Central do Chile",
+    "taxa": 4.5,
+    "data": "2026-10",
+    "desde": "2025-12",
+    "var12": -0.25,
+    "inflacao": 4.21,
+    "real": 0.28
+   },
+   {
+    "codigo": "PE",
+    "pais": "Peru",
+    "banco": "Banco Central de Reserva do Peru",
+    "taxa": 4.25,
+    "data": "2026-10",
+    "desde": "2025-09",
+    "var12": 0.0,
+    "inflacao": null,
+    "real": null
+   },
+   {
+    "codigo": "US",
+    "pais": "Estados Unidos",
+    "banco": "Federal Reserve",
+    "taxa": 3.875,
+    "data": "2026-10",
+    "desde": "2026-09",
+    "var12": 0.0,
+    "inflacao": null,
+    "real": null
+   },
+   {
+    "codigo": "GB",
+    "pais": "Reino Unido",
+    "banco": "Banco da Inglaterra",
+    "taxa": 3.75,
+    "data": "2026-10",
+    "desde": "2025-12",
+    "var12": -0.25,
+    "inflacao": 3.88,
+    "real": -0.13
+   },
+   {
+    "codigo": "CN",
+    "pais": "China",
+    "banco": "Banco Popular da China",
+    "taxa": 3.0,
+    "data": "2026-10",
+    "desde": "2025-05",
+    "var12": 0.0,
+    "inflacao": 0.06,
+    "real": 2.94
+   },
+   {
+    "codigo": "KR",
+    "pais": "Coreia do Sul",
+    "banco": "Banco da Coreia",
+    "taxa": 3.0,
+    "data": "2026-09",
+    "desde": "2026-08",
+    "var12": 0.5,
+    "inflacao": 2.12,
+    "real": 0.86
+   },
+   {
+    "codigo": "XM",
+    "pais": "Zona do euro",
+    "banco": "Banco Central Europeu",
+    "taxa": 2.5,
+    "data": "2026-10",
+    "desde": "2026-09",
+    "var12": 0.5,
+    "inflacao": null,
+    "real": null
+   },
+   {
+    "codigo": "CA",
+    "pais": "Canadá",
+    "banco": "Banco do Canadá",
+    "taxa": 2.5,
+    "data": "2026-10",
+    "desde": "2026-10",
+    "var12": 0.25,
+    "inflacao": 2.07,
+    "real": 0.42
+   },
+   {
+    "codigo": "JP",
+    "pais": "Japão",
+    "banco": "Banco do Japão",
+    "taxa": 1.25,
+    "data": "2026-10",
+    "desde": "2026-09",
+    "var12": 0.75,
+    "inflacao": 3.17,
+    "real": -1.86
+   },
+   {
+    "codigo": "CH",
+    "pais": "Suíça",
+    "banco": "Banco Nacional Suíço",
+    "taxa": 0.0,
+    "data": "2026-10",
+    "desde": "2025-06",
+    "var12": 0.0,
+    "inflacao": null,
+    "real": null
+   }
+  ]
+ },
  "noticias": [
   {
    "titulo": "Comissão especial aprova MP do Brasil Soberano 3, para empresas afetadas por tarifaço",
@@ -1999,16 +3333,16 @@
    "data": "2026-11-05T12:37:00+00:00"
   },
   {
+   "titulo": "Economia sobreviveu porque mundo vivia leniência fiscal, diz especialista - CNN Brasil",
+   "fonte": "Google Notícias",
+   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPTlVuaHFhWUlobUx0XzRKOEtTWUdaZ05jRFBwd2trMGo4UVE0OUxRT2ZsUl9tb2dyeWk1THVIS0d5am5CUWxXdE4xdUdGVW5MOXJ6Rm9vSjRpdHRnbXFYWnNkdmlVS1VSSWZyMGpUN3JYOE5UemRqWU1vcGJzWjN2MER1cXNpd3RzVmN2RUs1cUlpMXEyQU53cDhvMXFyaEs1RTZNcU83TlloTElPZEpXeg?oc=5",
+   "data": "2026-11-05T05:17:31+00:00"
+  },
+  {
    "titulo": "Vitória democrata no Senado amplia pressão sobre tarifas de Trump ao Brasil - Folha de S.Paulo",
    "fonte": "Google Notícias",
    "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPekNWWU5UWi1NNy1zMkhYNFNkYkhMU2c3NUVyQXVUeVZfNl9Ic1dvVEtRSEJ5dlg0SmhuXy05M3pDNjdHNU1rWGZJUXhaN2RQOXd6REFNTkVCdG13OFFLSWs2N2l5SUFLdnllNjZZTUlKYWVSOVZySTgtNDlLZFJFajNiU3U4UHREcVdtdFd2M1VFaXRXc1BfN1IzYy11STJmbi1iRmthNGk3VTJsV2VKNjhiVWNFQlJhWThiaVpka0U1QWs2cFE?oc=5",
    "data": "2026-11-05T02:00:00+00:00"
-  },
-  {
-   "titulo": "Vitória democrata nos EUA impacta economia e investimentos no Brasil - Gazeta do Povo",
-   "fonte": "Google Notícias",
-   "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQYnlQV0pxUnR5bDFQdHlkRW5pWmZIZGt4MjZIdUZob3p0cXdzNVMyYlZneWNkTVBTSlF5Sk5IT2pWckEtUTUwSGFkaFVzbXBIanNoREI5VnJyN2FKUjkzTVM5X2JkV1J3TDlNelJWVndwNDZURFpYdkZhMmdCNzItanJvcjZpQlVLOFF1MlBvaXNkaXhjNGc2d2J6NHRxUl9xR3ZuamdKbmF0YXNzbHdWR1NSME9wd0lnazZxaThB?oc=5",
-   "data": "2026-11-05T00:56:00+00:00"
   },
   {
    "titulo": "Anatel publica novas regras para prevenir fraudes por meio de SMS",
@@ -2021,6 +3355,12 @@
    "fonte": "Agência Brasil",
    "link": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/dolar-cai-r-545-apos-eleicoes-nos-eua-e-antes-do-copom",
    "data": "2026-11-04T23:17:00+00:00"
+  },
+  {
+   "titulo": "Setor produtivo critica manutenção da Selic em 13,75% ao ano - Agência Brasil",
+   "fonte": "Google Notícias",
+   "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOZndIMks5Yml3cTYtZ3NKTVdTYjUwMHRQdTRFQkMzaElYY2t2cTZLVVUtY2N6SVNKTHRzN2VZQjBUOUFKZVhLX2lRaWJldkNmckZLd2l0cjlQUkNYTFYxMjNVZTlEeWR3MUpaVi1jT2lNdE1SQXlFZTNYSHJ6TS10ZlFjbDIwT1FtNDRWazdRWWVIWnFnWXAxM1ZUMmIwNkhPU2NvVkdnX1JnV1NyWmc0NU9xR1V3bFU?oc=5",
+   "data": "2026-11-04T22:34:00+00:00"
   },
   {
    "titulo": "Setor produtivo critica manutenção da Selic em 13,75% ao ano",
@@ -2047,10 +3387,10 @@
    "data": "2026-11-04T21:33:00+00:00"
   },
   {
-   "titulo": "Brasil registra saldo de 121,3 mil empregos formais em setembro, aponta Caged - VEJA",
+   "titulo": "Brasil cria 121,3 mil postos de trabalho em setembro, aponta Caged - Agência Brasil",
    "fonte": "Google Notícias",
-   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPMUctMkZFbEEwdkc0d2E5TmdXQUJPYzlKLTRaaEJhUlNMYllKcWJLUUVWbGtUZUN0d21ZYWp4ZE5Ta1JHVi0waUp3NU4tNV9kbnJsYlFJZjd3cFQtb19mWWdjUlJoMmtiQVpfUjhLRXpIenFybUxLemJ6SVRJVFoyT1V2a0ZCOWhuN1B3RU9KRXRDU3JZYUVFNTNNR3QtbjRiZ1Bweno2YzFKdFVzX0lwaA?oc=5",
-   "data": "2026-11-04T18:29:50+00:00"
+   "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPdDl4VEVVa1JzTTFKdzN3QTJqYlZ5VlZnenpDaXdsWkVzYVVCdldMa3dCYURlQmw5b0hwR1NLQVlQNk1yVkNoS3Z5V3U2cmYwTW1jaTM3Y3VHVkd3MnBuWWVYb3VoTGpXNHhnUE1sa05IT0R1aXBYdmtMMlc0QnZLbFhDbXBsRUpYbXhKdXZGc1ZtTXhMNXpqOXR0WFlqSHJRVGFwVWlvdmtlVUpLX0xzbHNaRUZCZmpXYUFMWmdsSQ?oc=5",
+   "data": "2026-11-04T19:33:00+00:00"
   },
   {
    "titulo": "Brasil registra pior setembro na criação de empregos formais desde o início da série histórica, diz Caged - Folha de S.Paulo",
@@ -2063,12 +3403,6 @@
    "fonte": "Google Notícias",
    "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPbzBYbU5OdE93TFFWaW1WS0tER0J3dkZIY3MxZHlzbXNKYkZVOGRnci1zSDVqWk1XVUhBOGJqXzE3a3lLclVlS01YTWpYdXVHMWxrbVNGRHF0ZE0yaVhBTG4tMWJzdXdqVVhHX19IUTN1eUdsSnVvRnlVaWhDYktST015VkpqTnAwR2JRemp1dkthenVjYnVWU1NnRmV3RmpxZWxnaXkzY0xiYm5zMXYxRUEzZDNVSGFMYXdqRGhCbU1XQkVjRUlLOTZFT2wwdEFW0gHfAUFVX3lxTFBpM3hYV3g4dmhZNmVzWUQyYnZTVDNkUUhqS2VCZVVjYmJVc0JzSDNERjRrN1M4TEFjTFFURUJvMGNYT1g4azRlTGtFZURVRjFZXzFVTmNDT3o4Y1J4enEzdXA0R3JLTkJxU2hORS1yZWliRUdLNWNFVXRLSnlDV2ZKM0w4NS1Ga3JpR0I3VFFNTkt1dWhabm45Nzd5QlZyRTVVWXdkLUVmdHlMb3NfcWNncGNaaXNUU3dVcDU0MGtkX2RrR0lfYXJnYWhuZlFyZTlhSUdxaFZmVzN3MTRIWm8?oc=5",
    "data": "2026-11-04T17:56:05+00:00"
-  },
-  {
-   "titulo": "Guerra, economia, IA e casos de corrupção derrotam Trump nos EUA - Agência Brasil",
-   "fonte": "Google Notícias",
-   "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNQUdNVGhoMFZlekIwSDlETXAwTEJjTERaOVM3bVMza3h2V3d2ZWxGOHc1X19iMFJkWEtIOHAxSERHSThRWjNUTkFkLUw3VlMyeS0tUGVxWHhUREV2b2s3REh1blRRZ0VpWVFXUnJ1Q0tDMkxZMGxSQkY2NzhvYnZxeUkwal9saUhHY0xBQmpaUXVqemRaWlA0SExPRGkzSHdpbzR1VTdDVG1UNUVRUVRQTXI4bHdYRHp1aUU0TGhkXzdGekU?oc=5",
-   "data": "2026-11-04T14:31:00+00:00"
   }
  ]
 }
