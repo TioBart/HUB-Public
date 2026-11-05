@@ -1,8 +1,8 @@
 """
 Coletor do Hub Econômico.
 
-Busca dados públicos (Banco Central, Focus, brapi, FRED, FMI, Banco Mundial, BIS
-e feeds RSS) e grava tudo em data/hub.json, que é o arquivo lido pela página.
+Busca dados públicos (Banco Central, Focus, brapi, Yahoo Finance, FRED, FMI, Banco Mundial,
+BIS e feeds RSS) e grava tudo em data/hub.json, que é o arquivo lido pela página.
 
 Se uma fonte falhar, o coletor mantém o último dado salvo daquela seção,
 então a página nunca fica em branco por causa de uma API fora do ar.
@@ -44,6 +44,16 @@ SGS = {
     "inpc_mes": 188,       # INPC variação mensal (%)
     "igpm_mes": 189,       # IGP-M variação mensal (%)
     "igpdi_mes": 190,      # IGP-DI variação mensal (%)
+    "ipca15_mes": 7478,    # IPCA-15 variação mensal (%)
+    "ipcfipe_mes": 193,    # IPC-Fipe variação mensal (%)
+    "incc_mes": 192,       # INCC variação mensal (%)
+    "tjlp": 256,           # TJLP (% a.a.)
+    "ibcbr": 24364,        # IBC-Br dessazonalizado (índice)
+    "credito": 20539,      # Saldo da carteira de crédito total (R$ milhões)
+    "inadimplencia": 21082,  # Inadimplência da carteira de crédito total (%)
+    "divida_bruta": 13762, # Dívida bruta do governo geral (% do PIB)
+    "dlsp": 4513,          # Dívida líquida do setor público (% do PIB)
+    "reservas": 13621,     # Reservas internacionais (US$ milhões, diária)
     "desemprego": 24369,   # Taxa de desocupação PNAD Contínua (%)
     "dolar": 1,            # Dólar PTAX venda (R$, diária)
     "euro": 21619,         # Euro PTAX venda (R$, diária)
@@ -112,6 +122,58 @@ BANCOS_CENTRAIS = {
     "TR": ("Turquia", "Banco Central da Turquia", None),
     "RU": ("Rússia", "Banco da Rússia", None),
 }
+
+# Mercados internacionais (Yahoo Finance; o FRED entra como reserva quando houver série equivalente)
+# grupo -> [(nome, símbolo do Yahoo, unidade, casas decimais)]
+MERCADOS = [
+    ("Brasil", [
+        ("Ibovespa", "^BVSP", "pts", 0), ("Dólar comercial", "BRL=X", "R$", 4),
+        ("Euro", "EURBRL=X", "R$", 4), ("Libra", "GBPBRL=X", "R$", 4),
+    ]),
+    ("Estados Unidos", [
+        ("S&P 500", "^GSPC", "pts", 0), ("Nasdaq", "^IXIC", "pts", 0),
+        ("Dow Jones", "^DJI", "pts", 0), ("VIX (volatilidade)", "^VIX", "pts", 2),
+    ]),
+    ("Europa", [
+        ("Euro Stoxx 50", "^STOXX50E", "pts", 0), ("DAX (Alemanha)", "^GDAXI", "pts", 0),
+        ("FTSE 100 (Reino Unido)", "^FTSE", "pts", 0), ("CAC 40 (França)", "^FCHI", "pts", 0),
+    ]),
+    ("Ásia", [
+        ("Nikkei 225 (Japão)", "^N225", "pts", 0), ("Hang Seng (Hong Kong)", "^HSI", "pts", 0),
+        ("Xangai (China)", "000001.SS", "pts", 0), ("Kospi (Coreia do Sul)", "^KS11", "pts", 0),
+    ]),
+    ("América Latina", [
+        ("Merval (Argentina)", "^MERV", "pts", 0), ("IPC (México)", "^MXX", "pts", 0),
+        ("IPSA (Chile)", "^IPSA", "pts", 0),
+    ]),
+    ("Juros dos títulos americanos", [
+        ("Treasury 3 meses", "^IRX", "%", 2), ("Treasury 5 anos", "^FVX", "%", 2),
+        ("Treasury 10 anos", "^TNX", "%", 2), ("Treasury 30 anos", "^TYX", "%", 2),
+    ]),
+    ("Commodities", [
+        ("Petróleo Brent (US$/barril)", "BZ=F", "US$", 2), ("Petróleo WTI (US$/barril)", "CL=F", "US$", 2),
+        ("Ouro (US$/onça)", "GC=F", "US$", 2), ("Prata (US$/onça)", "SI=F", "US$", 2),
+        ("Cobre (US$/libra)", "HG=F", "US$", 3), ("Minério de ferro (US$/t)", "TIO=F", "US$", 2),
+        ("Soja (US¢/bushel)", "ZS=F", "US¢", 2), ("Milho (US¢/bushel)", "ZC=F", "US¢", 2),
+        ("Café arábica (US¢/libra)", "KC=F", "US¢", 2),
+    ]),
+    ("Moedas", [
+        ("Índice do dólar (DXY)", "DX-Y.NYB", "pts", 2), ("Euro / dólar", "EURUSD=X", "US$", 4),
+        ("Dólar / iene", "JPY=X", "¥", 2), ("Dólar / yuan", "CNY=X", "CN¥", 4),
+        ("Dólar / peso argentino", "ARS=X", "ARS", 2), ("Dólar / peso mexicano", "MXN=X", "MXN", 4),
+    ]),
+    ("Criptomoedas", [
+        ("Bitcoin", "BTC-USD", "US$", 0), ("Ethereum", "ETH-USD", "US$", 0),
+    ]),
+]
+# Séries do FRED usadas quando o Yahoo não responde
+FRED_RESERVA = {
+    "^GSPC": "SP500", "^IXIC": "NASDAQCOM", "^DJI": "DJIA", "^N225": "NIKKEI225", "^VIX": "VIXCLS",
+    "BZ=F": "DCOILBRENTEU", "CL=F": "DCOILWTICO", "^TNX": "DGS10", "^FVX": "DGS5", "^TYX": "DGS30",
+    "^IRX": "DTB3", "DX-Y.NYB": "DTWEXBGS",
+}
+NAVEGADOR = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+             "(KHTML, like Gecko) Chrome/126.0 Safari/537.36")
 
 FEEDS = {
     "Google Notícias": "https://news.google.com/rss/search?q=economia+brasil&hl=pt-BR&gl=BR&ceid=BR:pt-419",
@@ -216,11 +278,26 @@ def tabela_cambio(serie_diaria, linhas=13):
             "casas": [None, 4, 2, 2, 2], "linhas": out}
 
 
-def indicador(nome, serie, unidade, casas=2, freq="m", pontos=12, tabela=None, fonte=""):
+def tabela_indice(s, nome, casas=2, linhas=13):
+    """Mês | Valor | No mês (%) | 12 meses (%), para índices e saldos."""
+    out = []
+    for i in range(max(1, len(s) - linhas), len(s)):
+        v = s[i]["v"]
+        a12 = round((v / s[i - 12]["v"] - 1) * 100, 2) if i >= 12 and s[i - 12]["v"] else None
+        m1 = round((v / s[i - 1]["v"] - 1) * 100, 2) if s[i - 1]["v"] else None
+        out.append([s[i]["d"][:7], round(v, casas), m1, a12])
+    return {"colunas": ["Mês", nome, "No mês (%)", "12 meses (%)"], "casas": [None, casas, 2, 2], "linhas": out}
+
+
+def escala(serie, fator):
+    return [{"d": p["d"], "v": p["v"] / fator} for p in serie]
+
+
+def indicador(nome, serie, unidade, casas=2, freq="m", pontos=12, tabela=None, fonte="", grupo=""):
     s = serie[-pontos:]
     ult, ant = s[-1], (s[-2] if len(s) > 1 else None)
     return {
-        "nome": nome, "valor": ult["v"], "unidade": unidade, "casas": casas,
+        "nome": nome, "grupo": grupo, "valor": ult["v"], "unidade": unidade, "casas": casas,
         "data": ult["d"], "freq": freq, "anterior": ant["v"] if ant else None,
         "serie": [p["v"] for p in s], "tabela": tabela, "fonte": fonte,
     }
@@ -258,30 +335,47 @@ def secao_juros(S):
 
 def secao_indicadores(S):
     m = lambda chave: mensal(S[chave])  # noqa: E731
+    a12 = lambda chave: acumulado_12m(m(chave))  # noqa: E731
+    infl = lambda chave: (lambda: tabela_inflacao(m(chave)))  # noqa: E731
+    BC, IBGE, FGV = "Banco Central do Brasil", "IBGE", "FGV"
+    # (grupo, nome, chave da série, unidade, casas, frequência, série do card, tabela, fonte)
     regras = [
-        ("Selic meta", "selic", "%", 2, "m", lambda: m("selic"),
-         lambda: tabela_taxa(m("selic"), "Selic (% ao ano)"), "Banco Central do Brasil"),
-        ("CDI (ao ano)", "cdi", "%", 2, "m", lambda: m("cdi"),
-         lambda: tabela_taxa(m("cdi"), "CDI (% ao ano)"), "Banco Central do Brasil"),
-        ("IPCA no mês", "ipca_mes", "%", 2, "m", lambda: m("ipca_mes"),
-         lambda: tabela_inflacao(m("ipca_mes")), "IBGE"),
-        ("IPCA em 12 meses", "ipca_12m", "%", 2, "m", lambda: m("ipca_12m"),
-         lambda: tabela_inflacao(m("ipca_mes")), "IBGE"),
-        ("INPC em 12 meses", "inpc_mes", "%", 2, "m", lambda: acumulado_12m(m("inpc_mes")),
-         lambda: tabela_inflacao(m("inpc_mes")), "IBGE"),
-        ("IGP-M em 12 meses", "igpm_mes", "%", 2, "m", lambda: acumulado_12m(m("igpm_mes")),
-         lambda: tabela_inflacao(m("igpm_mes")), "FGV"),
-        ("IGP-DI em 12 meses", "igpdi_mes", "%", 2, "m", lambda: acumulado_12m(m("igpdi_mes")),
-         lambda: tabela_inflacao(m("igpdi_mes")), "FGV"),
-        ("Desemprego", "desemprego", "%", 1, "m", lambda: m("desemprego"),
+        ("Juros", "Selic meta", "selic", "%", 2, "m", lambda: m("selic"),
+         lambda: tabela_taxa(m("selic"), "Selic (% ao ano)"), BC),
+        ("Juros", "CDI (ao ano)", "cdi", "%", 2, "m", lambda: m("cdi"),
+         lambda: tabela_taxa(m("cdi"), "CDI (% ao ano)"), BC),
+        ("Juros", "TJLP", "tjlp", "%", 2, "m", lambda: m("tjlp"),
+         lambda: tabela_taxa(m("tjlp"), "TJLP (% ao ano)"), BC),
+        ("Inflação", "IPCA no mês", "ipca_mes", "%", 2, "m", lambda: m("ipca_mes"), infl("ipca_mes"), IBGE),
+        ("Inflação", "IPCA em 12 meses", "ipca_12m", "%", 2, "m", lambda: m("ipca_12m"), infl("ipca_mes"), IBGE),
+        ("Inflação", "IPCA-15 em 12 meses", "ipca15_mes", "%", 2, "m", lambda: a12("ipca15_mes"), infl("ipca15_mes"), IBGE),
+        ("Inflação", "INPC em 12 meses", "inpc_mes", "%", 2, "m", lambda: a12("inpc_mes"), infl("inpc_mes"), IBGE),
+        ("Inflação", "IGP-M em 12 meses", "igpm_mes", "%", 2, "m", lambda: a12("igpm_mes"), infl("igpm_mes"), FGV),
+        ("Inflação", "IGP-DI em 12 meses", "igpdi_mes", "%", 2, "m", lambda: a12("igpdi_mes"), infl("igpdi_mes"), FGV),
+        ("Inflação", "INCC em 12 meses", "incc_mes", "%", 2, "m", lambda: a12("incc_mes"), infl("incc_mes"), FGV),
+        ("Inflação", "IPC-Fipe em 12 meses", "ipcfipe_mes", "%", 2, "m", lambda: a12("ipcfipe_mes"), infl("ipcfipe_mes"), "Fipe"),
+        ("Atividade e emprego", "IBC-Br (prévia do PIB)", "ibcbr", "índice", 2, "m", lambda: m("ibcbr"),
+         lambda: tabela_indice(m("ibcbr"), "Índice (dessazonalizado)"), BC),
+        ("Atividade e emprego", "Desemprego", "desemprego", "%", 1, "m", lambda: m("desemprego"),
          lambda: tabela_taxa(m("desemprego"), "Taxa de desocupação (%)", casas=1), "IBGE, PNAD Contínua"),
-        ("Dólar (PTAX venda)", "dolar", "R$", 4, "d", lambda: S["dolar"][-30:],
-         lambda: tabela_cambio(S["dolar"]), "Banco Central do Brasil"),
-        ("Euro (PTAX venda)", "euro", "R$", 4, "d", lambda: S["euro"][-30:],
-         lambda: tabela_cambio(S["euro"]), "Banco Central do Brasil"),
+        ("Crédito", "Saldo de crédito", "credito", "R$ tri", 2, "m", lambda: escala(m("credito"), 1e6),
+         lambda: tabela_indice(escala(m("credito"), 1e6), "Saldo (R$ trilhões)"), BC),
+        ("Crédito", "Inadimplência", "inadimplencia", "%", 2, "m", lambda: m("inadimplencia"),
+         lambda: tabela_taxa(m("inadimplencia"), "Inadimplência (%)"), BC),
+        ("Contas públicas", "Dívida bruta (% do PIB)", "divida_bruta", "%", 1, "m", lambda: m("divida_bruta"),
+         lambda: tabela_taxa(m("divida_bruta"), "Dívida bruta (% do PIB)", casas=1), BC),
+        ("Contas públicas", "Dívida líquida (% do PIB)", "dlsp", "%", 1, "m", lambda: m("dlsp"),
+         lambda: tabela_taxa(m("dlsp"), "Dívida líquida (% do PIB)", casas=1), BC),
+        ("Setor externo e câmbio", "Reservas internacionais", "reservas", "US$ bi", 1, "d",
+         lambda: escala(S["reservas"], 1e3)[-30:],
+         lambda: tabela_indice(escala(m("reservas"), 1e3), "Reservas (US$ bilhões)", casas=1), BC),
+        ("Setor externo e câmbio", "Dólar (PTAX venda)", "dolar", "R$", 4, "d", lambda: S["dolar"][-30:],
+         lambda: tabela_cambio(S["dolar"]), BC),
+        ("Setor externo e câmbio", "Euro (PTAX venda)", "euro", "R$", 4, "d", lambda: S["euro"][-30:],
+         lambda: tabela_cambio(S["euro"]), BC),
     ]
     out = []
-    for nome, chave, un, casas, freq, serie, tabela, fonte in regras:
+    for grupo, nome, chave, un, casas, freq, serie, tabela, fonte in regras:
         if chave not in S or (chave == "ipca_12m" and "ipca_mes" not in S):
             continue
         try:
@@ -291,7 +385,7 @@ def secao_indicadores(S):
                 log(f"[tabela] {nome}: {e}")
                 tab = None
             out.append(indicador(nome, serie(), un, casas, freq, pontos=30 if freq == "d" else 12,
-                                 tabela=tab, fonte=fonte))
+                                 tabela=tab, fonte=fonte, grupo=grupo))
         except Exception as e:  # noqa: BLE001
             log(f"[indicador] {nome}: {e}")
     if not out:
@@ -378,25 +472,91 @@ def fred(serie_id):
     return atual, round((atual / anterior - 1) * 100, 2)
 
 
+def yahoo(simbolo):
+    """Preço, variação no dia, variação em 1 mês e fechamentos do último mês, pelo Yahoo Finance."""
+    ultimo_erro = None
+    for host in ("query1", "query2"):
+        try:
+            r = HTTP.get(f"https://{host}.finance.yahoo.com/v8/finance/chart/{quote(simbolo)}",
+                         params={"range": "1mo", "interval": "1d"}, headers={"User-Agent": NAVEGADOR}, timeout=TIMEOUT)
+            r.raise_for_status()
+            res = r.json()["chart"]["result"][0]
+            fech = [c for c in (res["indicators"]["quote"][0].get("close") or []) if c is not None]
+            preco = res["meta"].get("regularMarketPrice") or (fech[-1] if fech else None)
+            if preco is None:
+                raise ValueError("sem preço")
+            ant = fech[-2] if len(fech) >= 2 else res["meta"].get("chartPreviousClose")
+            var = round((preco / ant - 1) * 100, 2) if ant else None
+            var_mes = round((preco / fech[0] - 1) * 100, 2) if fech else None
+            return preco, var, var_mes, [round(c, 4) for c in fech]
+        except Exception as e:  # noqa: BLE001
+            ultimo_erro = e
+    raise ultimo_erro
+
+
+def fred_serie(serie_id, n=25):
+    url = "https://api.stlouisfed.org/fred/series/observations"
+    r = HTTP.get(url, params={"series_id": serie_id, "api_key": FRED_KEY, "file_type": "json",
+                              "sort_order": "desc", "limit": n * 2}, timeout=TIMEOUT)
+    r.raise_for_status()
+    obs = [float(o["value"]) for o in r.json()["observations"] if o["value"] not in (".", "")][:n]
+    obs.reverse()
+    preco = obs[-1]
+    return preco, round((preco / obs[-2] - 1) * 100, 2), round((preco / obs[0] - 1) * 100, 2), obs
+
+
+def cotacao(simbolo):
+    try:
+        return yahoo(simbolo)
+    except Exception as e:  # noqa: BLE001
+        if FRED_KEY and simbolo in FRED_RESERVA:
+            log(f"[Yahoo] {simbolo}: {e}; usando o FRED")
+            return fred_serie(FRED_RESERVA[simbolo])
+        raise
+
+
 def secao_mercado(S):
-    indices, acoes = [], []
+    grupos = []
+    for grupo, itens in MERCADOS:
+        linhas = []
+        for nome, simbolo, un, casas in itens:
+            try:
+                preco, var, var_mes, serie = cotacao(simbolo)
+                linhas.append({"nome": nome, "simbolo": simbolo, "valor": preco, "unidade": un, "casas": casas,
+                               "var": var, "var_mes": var_mes, "serie": serie})
+            except Exception as e:  # noqa: BLE001
+                log(f"[mercado] {nome} ({simbolo}): {e}")
+        if linhas:
+            grupos.append({"nome": grupo, "itens": linhas})
+
+    def pega(simbolo):
+        for g in grupos:
+            for x in g["itens"]:
+                if x["simbolo"] == simbolo:
+                    return x
+        return None
+
+    # Destaques usados no resumo: Ibovespa pela brapi, câmbio pela PTAX, o resto pelos mercados
+    indices = []
     try:
         q = brapi("^BVSP")
         indices.append({"nome": "Ibovespa", "valor": q.get("regularMarketPrice"), "unidade": "pts",
                         "casas": 0, "var": q.get("regularMarketChangePercent")})
     except Exception as e:  # noqa: BLE001
         log(f"[brapi] Ibovespa: {e}")
+        x = pega("^BVSP")
+        if x:
+            indices.append({k: x[k] for k in ("nome", "valor", "unidade", "casas", "var")})
     for nome, chave in [("Dólar", "dolar"), ("Euro", "euro")]:
         if chave in S:
             indices.append({"nome": nome, "valor": S[chave][-1]["v"], "unidade": "R$",
                             "casas": 4, "var": var_pct(S[chave])})
-    if FRED_KEY:
-        for nome, sid, un, casas in [("S&P 500", "SP500", "pts", 0), ("Petróleo Brent", "DCOILBRENTEU", "US$", 2)]:
-            try:
-                v, var = fred(sid)
-                indices.append({"nome": nome, "valor": v, "unidade": un, "casas": casas, "var": var})
-            except Exception as e:  # noqa: BLE001
-                log(f"[FRED] {sid}: {e}")
+    for nome, simbolo in [("S&P 500", "^GSPC"), ("Petróleo Brent", "BZ=F"), ("Ouro", "GC=F"), ("Bitcoin", "BTC-USD")]:
+        x = pega(simbolo)
+        if x:
+            indices.append({"nome": nome, "valor": x["valor"], "unidade": x["unidade"], "casas": x["casas"], "var": x["var"]})
+
+    acoes = []
     for t in ACOES:
         try:
             q = brapi(t)
@@ -405,9 +565,9 @@ def secao_mercado(S):
                           "preco": q.get("regularMarketPrice"), "var": q.get("regularMarketChangePercent")})
         except Exception as e:  # noqa: BLE001
             log(f"[brapi] {t}: {e}")
-    if not indices and not acoes:
+    if not indices and not acoes and not grupos:
         raise ValueError("mercado sem dados")
-    return {"indices": indices, "acoes": acoes}
+    return {"indices": indices, "acoes": acoes, "grupos": grupos}
 
 
 # ---------------------------------------------------------------- Mundo
