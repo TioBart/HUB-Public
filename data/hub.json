@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-05T20:08:23.856479+00:00",
+ "atualizado": "2026-11-05T20:19:30.886863+00:00",
  "juros": {
   "meses": [
    "2024-12",
@@ -2551,10 +2551,10 @@
   "indices": [
    {
     "nome": "Ibovespa",
-    "valor": 166700.58,
+    "valor": 166655.77,
     "unidade": "pts",
     "casas": 0,
-    "var": -0.51
+    "var": -0.54
    },
    {
     "nome": "Dólar",
@@ -2572,57 +2572,57 @@
    },
    {
     "nome": "S&P 500",
-    "valor": 7387.48,
+    "valor": 7385.32,
     "unidade": "pts",
     "casas": 0,
-    "var": -3.92
+    "var": -3.94
    },
    {
     "nome": "Petróleo Brent",
-    "valor": 98.36,
+    "valor": 98.43,
     "unidade": "US$",
     "casas": 2,
-    "var": 3.95
+    "var": 4.03
    },
    {
     "nome": "Ouro",
-    "valor": 4123.8,
+    "valor": 4115.1,
     "unidade": "US$",
     "casas": 2,
-    "var": 1.25
+    "var": 1.03
    },
    {
     "nome": "Bitcoin",
-    "valor": 76044.01,
+    "valor": 75875.69,
     "unidade": "US$",
     "casas": 0,
-    "var": -5.42
+    "var": -5.63
    }
   ],
   "acoes": [
    {
     "ticker": "PETR4",
     "nome": "Petrobras PN",
-    "preco": 46.5,
-    "var": -1.32
+    "preco": 46.53,
+    "var": -1.25
    },
    {
     "ticker": "VALE3",
     "nome": "Vale ON",
-    "preco": 63.03,
-    "var": 1.09
+    "preco": 62.87,
+    "var": 0.83
    },
    {
     "ticker": "ITUB4",
     "nome": "Itaú Unibanco PN",
-    "preco": 39.87,
-    "var": 0.4
+    "preco": 39.92,
+    "var": 0.53
    },
    {
     "ticker": "BBDC4",
     "nome": "Bradesco PN",
-    "preco": 13.82,
-    "var": -1.71
+    "preco": 13.81,
+    "var": -1.78
    },
    {
     "ticker": "BBAS3",
@@ -2633,20 +2633,20 @@
    {
     "ticker": "WEGE3",
     "nome": "WEG ON",
-    "preco": 48.07,
-    "var": -3.96
+    "preco": 48.18,
+    "var": -3.74
    },
    {
     "ticker": "ABEV3",
     "nome": "Ambev ON",
-    "preco": 15.43,
-    "var": 1.18
+    "preco": 15.44,
+    "var": 1.25
    },
    {
     "ticker": "B3SA3",
     "nome": "B3 ON",
-    "preco": 14.3,
-    "var": 0
+    "preco": 14.28,
+    "var": -0.14
    }
   ],
   "grupos": [
@@ -2656,11 +2656,11 @@
      {
       "nome": "Ibovespa",
       "simbolo": "^BVSP",
-      "valor": 166675.34,
+      "valor": 166588.89,
       "unidade": "pts",
       "casas": 0,
-      "var": -0.53,
-      "var_mes": -19.45,
+      "var": -0.58,
+      "var_mes": -19.49,
       "serie": [
        206912.0,
        205835.0,
@@ -2683,17 +2683,17 @@
        167922.0,
        165529.0,
        167564.0,
-       166675.3438
+       166588.8906
       ]
      },
      {
       "nome": "Dólar comercial",
       "simbolo": "BRL=X",
-      "valor": 5.4908,
+      "valor": 5.4943,
       "unidade": "R$",
       "casas": 4,
-      "var": 0.07,
-      "var_mes": 5.13,
+      "var": 0.13,
+      "var_mes": 5.19,
       "serie": [
        5.2231,
        4.9967,
@@ -2718,17 +2718,17 @@
        5.4351,
        5.4363,
        5.487,
-       5.4908
+       5.4943
       ]
      },
      {
       "nome": "Euro",
       "simbolo": "EURBRL=X",
-      "valor": 6.1632,
+      "valor": 6.1669,
       "unidade": "R$",
       "casas": 4,
-      "var": 0.34,
-      "var_mes": 4.96,
+      "var": 0.4,
+      "var_mes": 5.02,
       "serie": [
        5.872,
        5.6054,
@@ -2753,17 +2753,17 @@
        6.0655,
        6.079,
        6.1425,
-       6.1632
+       6.1669
       ]
      },
      {
       "nome": "Libra",
       "simbolo": "GBPBRL=X",
-      "valor": 7.3895,
+      "valor": 7.3934,
       "unidade": "R$",
       "casas": 4,
-      "var": 0.25,
-      "var_mes": 6.84,
+      "var": 0.3,
+      "var_mes": 6.89,
       "serie": [
        6.9166,
        6.6049,
@@ -2788,7 +2788,7 @@
        7.2814,
        7.278,
        7.3711,
-       7.3895
+       7.3934
       ]
      }
     ]
@@ -2799,11 +2799,11 @@
      {
       "nome": "S&P 500",
       "simbolo": "^GSPC",
-      "valor": 7387.48,
+      "valor": 7385.32,
       "unidade": "pts",
       "casas": 0,
-      "var": -3.92,
-      "var_mes": -4.97,
+      "var": -3.94,
+      "var_mes": -5.0,
       "serie": [
        7773.9502,
        7818.9302,
@@ -2828,17 +2828,17 @@
        7541.3999,
        7568.9199,
        7688.6201,
-       7387.48
+       7385.3198
       ]
      },
      {
       "nome": "Nasdaq",
       "simbolo": "^IXIC",
-      "valor": 24452.713,
+      "valor": 24446.188,
       "unidade": "pts",
       "casas": 0,
-      "var": -4.99,
-      "var_mes": -11.01,
+      "var": -5.01,
+      "var_mes": -11.03,
       "serie": [
        27477.3105,
        27599.7891,
@@ -2863,17 +2863,17 @@
        25164.3105,
        25372.0098,
        25736.5098,
-       24452.7129
+       24446.1875
       ]
      },
      {
       "nome": "Dow Jones",
       "simbolo": "^DJI",
-      "valor": 51665.72,
+      "valor": 51673.07,
       "unidade": "pts",
       "casas": 0,
-      "var": -3.17,
-      "var_mes": 0.78,
+      "var": -3.15,
+      "var_mes": 0.79,
       "serie": [
        51267.8984,
        51521.2812,
@@ -2898,17 +2898,17 @@
        51983.9805,
        51786.7188,
        53356.1211,
-       51665.7188
+       51673.0703
       ]
      },
      {
       "nome": "VIX (volatilidade)",
       "simbolo": "^VIX",
-      "valor": 23.79,
+      "valor": 25.19,
       "unidade": "pts",
       "casas": 2,
-      "var": 43.23,
-      "var_mes": 53.29,
+      "var": 51.66,
+      "var_mes": 62.31,
       "serie": [
        15.52,
        15.01,
@@ -2933,7 +2933,7 @@
        21.15,
        20.83,
        16.61,
-       23.79
+       25.19
       ]
      }
     ]
@@ -3242,7 +3242,7 @@
      {
       "nome": "IPC (México)",
       "simbolo": "^MXX",
-      "valor": 70985.28,
+      "valor": 70985.27,
       "unidade": "pts",
       "casas": 0,
       "var": 0.23,
@@ -3270,7 +3270,7 @@
        69779.2031,
        70184.3281,
        70819.7969,
-       70985.2812
+       70985.2734
       ]
      }
     ]
@@ -3316,11 +3316,11 @@
      {
       "nome": "Treasury 5 anos",
       "simbolo": "^FVX",
-      "valor": 4.61,
+      "valor": 4.608,
       "unidade": "%",
       "casas": 2,
-      "var": -1.68,
-      "var_mes": -9.0,
+      "var": -1.73,
+      "var_mes": -9.04,
       "serie": [
        5.066,
        5.028,
@@ -3345,7 +3345,7 @@
        4.693,
        4.743,
        4.689,
-       4.61
+       4.608
       ]
      },
      {
@@ -3426,11 +3426,11 @@
      {
       "nome": "Petróleo Brent (US$/barril)",
       "simbolo": "BZ=F",
-      "valor": 98.36,
+      "valor": 98.43,
       "unidade": "US$",
       "casas": 2,
-      "var": 3.95,
-      "var_mes": -1.95,
+      "var": 4.03,
+      "var_mes": -1.88,
       "serie": [
        100.32,
        100.58,
@@ -3455,17 +3455,17 @@
        104.77,
        103.6,
        94.62,
-       98.36
+       98.43
       ]
      },
      {
       "nome": "Petróleo WTI (US$/barril)",
       "simbolo": "CL=F",
-      "valor": 90.6,
+      "valor": 90.7,
       "unidade": "US$",
       "casas": 2,
-      "var": 2.81,
-      "var_mes": 1.31,
+      "var": 2.93,
+      "var_mes": 1.42,
       "serie": [
        89.43,
        89.44,
@@ -3490,17 +3490,17 @@
        96.46,
        96.09,
        88.12,
-       90.6
+       90.7
       ]
      },
      {
       "nome": "Ouro (US$/onça)",
       "simbolo": "GC=F",
-      "valor": 4123.8,
+      "valor": 4115.1,
       "unidade": "US$",
       "casas": 2,
-      "var": 1.25,
-      "var_mes": -0.79,
+      "var": 1.03,
+      "var_mes": -1.0,
       "serie": [
        4156.7998,
        4187.1001,
@@ -3525,17 +3525,17 @@
        3969.6001,
        3940.3999,
        4073.0,
-       4123.7998
+       4115.1001
       ]
      },
      {
       "nome": "Prata (US$/onça)",
       "simbolo": "SI=F",
-      "valor": 52.55,
+      "valor": 52.285,
       "unidade": "US$",
       "casas": 2,
-      "var": 0.83,
-      "var_mes": -13.67,
+      "var": 0.32,
+      "var_mes": -14.1,
       "serie": [
        60.869,
        61.168,
@@ -3560,17 +3560,17 @@
        50.72,
        49.587,
        52.12,
-       52.55
+       52.285
       ]
      },
      {
       "nome": "Cobre (US$/libra)",
       "simbolo": "HG=F",
-      "valor": 6.252,
+      "valor": 6.223,
       "unidade": "US$",
       "casas": 3,
-      "var": -2.36,
-      "var_mes": -5.06,
+      "var": -2.81,
+      "var_mes": -5.5,
       "serie": [
        6.5855,
        6.5945,
@@ -3595,7 +3595,7 @@
        6.5435,
        6.3785,
        6.403,
-       6.2515
+       6.223
       ]
      },
      {
@@ -3745,11 +3745,11 @@
      {
       "nome": "Índice do dólar (DXY)",
       "simbolo": "DX-Y.NYB",
-      "valor": 101.554,
+      "valor": 101.546,
       "unidade": "pts",
       "casas": 2,
       "var": 0.04,
-      "var_mes": -0.6,
+      "var_mes": -0.61,
       "serie": [
        102.17,
        101.83,
@@ -3774,16 +3774,16 @@
        101.75,
        101.87,
        101.51,
-       101.554
+       101.546
       ]
      },
      {
       "nome": "Euro / dólar",
       "simbolo": "EURUSD=X",
-      "valor": 1.1227,
+      "valor": 1.1228,
       "unidade": "US$",
       "casas": 4,
-      "var": 0.18,
+      "var": 0.19,
       "var_mes": -0.24,
       "serie": [
        1.1255,
@@ -3809,17 +3809,17 @@
        1.1157,
        1.1192,
        1.1207,
-       1.1227
+       1.1228
       ]
      },
      {
       "nome": "Dólar / iene",
       "simbolo": "JPY=X",
-      "valor": 157.837,
+      "valor": 157.824,
       "unidade": "¥",
       "casas": 2,
-      "var": -0.4,
-      "var_mes": 0.07,
+      "var": -0.41,
+      "var_mes": 0.06,
       "serie": [
        157.734,
        157.963,
@@ -3844,7 +3844,7 @@
        157.677,
        157.915,
        158.469,
-       157.837
+       157.824
       ]
      },
      {
@@ -3920,7 +3920,7 @@
      {
       "nome": "Dólar / peso mexicano",
       "simbolo": "MXN=X",
-      "valor": 18.7546,
+      "valor": 18.7545,
       "unidade": "MXN",
       "casas": 4,
       "var": -0.33,
@@ -3949,7 +3949,7 @@
        18.7938,
        18.5709,
        18.8175,
-       18.7546
+       18.7545
       ]
      }
     ]
@@ -3960,11 +3960,11 @@
      {
       "nome": "Bitcoin",
       "simbolo": "BTC-USD",
-      "valor": 76044.01,
+      "valor": 75875.69,
       "unidade": "US$",
       "casas": 0,
-      "var": -5.42,
-      "var_mes": -11.36,
+      "var": -5.63,
+      "var_mes": -11.55,
       "serie": [
        85786.5938,
        85557.5625,
@@ -3997,17 +3997,17 @@
        76677.2969,
        77345.0469,
        80405.2891,
-       76044.0078
+       75875.6875
       ]
      },
      {
       "nome": "Ethereum",
       "simbolo": "ETH-USD",
-      "valor": 2246.91,
+      "valor": 2245.74,
       "unidade": "US$",
       "casas": 0,
-      "var": -7.24,
-      "var_mes": -17.12,
+      "var": -7.29,
+      "var_mes": -17.16,
       "serie": [
        2711.0315,
        2697.5164,
@@ -4040,7 +4040,7 @@
        2248.8862,
        2272.7258,
        2422.3118,
-       2246.9099
+       2245.74
       ]
      }
     ]
@@ -5905,6 +5905,42 @@
  },
  "noticias": [
   {
+   "titulo": "Flávio nomeia dois assessores para gabinete após fugir para os Estados Unidos",
+   "fonte": "InfoMoney",
+   "link": "https://www.infomoney.com.br/politica/flavio-nomeia-dois-assessores-para-gabinete-apos-fugir-para-os-estados-unidos/",
+   "data": "2026-11-05T20:16:17+00:00"
+  },
+  {
+   "titulo": "Durigan diz que reunião foi convergente em relação a caminhos para o futuro",
+   "fonte": "InfoMoney",
+   "link": "https://www.infomoney.com.br/politica/durigan-diz-que-reuniao-foi-convergente-em-relacao-a-caminhos-para-o-futuro/",
+   "data": "2026-11-05T20:15:19+00:00"
+  },
+  {
+   "titulo": "Palmeiras x Remo: Onde assistir ao Brasileirão?",
+   "fonte": "InfoMoney",
+   "link": "https://www.infomoney.com.br/esportes/palmeiras-remo-onde-assistir-brasileirao/",
+   "data": "2026-11-05T20:15:00+00:00"
+  },
+  {
+   "titulo": "Imposto do pecado: entenda cobrança sobre cigarros, bebidas e veículos",
+   "fonte": "Agência Brasil",
+   "link": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/imposto-do-pecado-entenda-cobranca-sobre-cigarros-bebidas-e-veiculos",
+   "data": "2026-11-05T20:10:00+00:00"
+  },
+  {
+   "titulo": "Ministro da Fazenda fala após reunião de Lula com economistas",
+   "fonte": "InfoMoney",
+   "link": "https://www.infomoney.com.br/politica/ministro-da-fazenda-fala-apos-reuniao-de-lula-com-economistas/",
+   "data": "2026-11-05T20:09:45+00:00"
+  },
+  {
+   "titulo": "Grynspan, da Costa Rica, lidera pesquisa informal para comandar a ONU, dizem fontes",
+   "fonte": "InfoMoney",
+   "link": "https://www.infomoney.com.br/mundo/grynspan-da-costa-rica-lidera-pesquisa-informal-para-comandar-a-onu-dizem-fontes/",
+   "data": "2026-11-05T20:08:59+00:00"
+  },
+  {
    "titulo": "Mais de 2,4 milhões de casas precisam renovar desconto na conta de luz",
    "fonte": "Agência Brasil",
    "link": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/mais-de-24-milhoes-de-casas-precisam-renovar-desconto-na-conta-de-luz",
@@ -5951,36 +5987,6 @@
    "fonte": "InfoMoney",
    "link": "https://www.infomoney.com.br/mercados/ibovespa-hoje-bolsa-de-valores-ao-vivo-05112026/",
    "data": "2026-11-05T18:29:50+00:00"
-  },
-  {
-   "titulo": "Crises políticas relâmpago são marca da política paraguaia; entenda",
-   "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/politica/crises-politicas-relampago-sao-marca-da-politica-paraguaia-entenda/",
-   "data": "2026-11-05T18:22:16+00:00"
-  },
-  {
-   "titulo": "Lula se reúne com Alckmin, Haddad, Mantega, ministros e economistas no Alvorada",
-   "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/politica/lula-se-reune-com-alckmin-haddad-mantega-ministros-e-economistas-no-alvorada/",
-   "data": "2026-11-05T18:21:03+00:00"
-  },
-  {
-   "titulo": "MP-SP: Gibraltar bloqueia R$ 2,3 mi em dólares e criptomoedas por crimes cibernéticos",
-   "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/brasil/mp-sp-gibraltar-bloqueia-r-23-mi-em-dolares-e-criptomoedas-por-crimes-ciberneticos/",
-   "data": "2026-11-05T18:18:43+00:00"
-  },
-  {
-   "titulo": "Renda previsível: as 6 ações de dividendos mais indicadas após as eleições",
-   "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/onde-investir/acoes-dividendos-recomendadas-novembro-2026/",
-   "data": "2026-11-05T18:00:00+00:00"
-  },
-  {
-   "titulo": "Quem é Santiago Peña, presidente do Paraguai que renunciou nesta quinta-feira (5)",
-   "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/mundo/quem-e-santiago-pena-presidente-do-paraguai-que-renunciou-nesta-quinta-feira-5/",
-   "data": "2026-11-05T17:51:02+00:00"
   },
   {
    "titulo": "Crise no Paraguai tem risco limitado para Brasil, mas ameaça investimentos - CNN Brasil",
@@ -6035,12 +6041,6 @@
    "fonte": "Agência Brasil",
    "link": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/dolar-cai-r-545-apos-eleicoes-nos-eua-e-antes-do-copom",
    "data": "2026-11-04T23:17:00+00:00"
-  },
-  {
-   "titulo": "Setor produtivo critica manutenção da Selic em 13,75% ao ano",
-   "fonte": "Agência Brasil",
-   "link": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/setor-produtivo-critica-manutencao-da-selic-em-1375-ao-ano",
-   "data": "2026-11-04T22:34:00+00:00"
   },
   {
    "titulo": "Banco Central surpreende e mantém juros básicos em 13,75% ao ano - Agência Brasil",
