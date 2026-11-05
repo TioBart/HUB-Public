@@ -74,6 +74,18 @@ INDICADORES_FMI = {
     "pib_pc": "NGDPDPC",           # PIB per capita (US$)
 }
 
+# Plano B: Banco Mundial (API aberta). Só tem dados já realizados, sem projeções.
+# chave -> (código do indicador, divisor para chegar na unidade usada na página)
+INDICADORES_BM = {
+    "pib": ("NY.GDP.MKTP.KD.ZG", 1),
+    "inflacao": ("FP.CPI.TOTL.ZG", 1),
+    "desemprego": ("SL.UEM.TOTL.ZS", 1),
+    "divida": ("GC.DOD.TOTL.GD.ZS", 1),
+    "conta_corrente": ("BN.CAB.XOKA.GD.ZS", 1),
+    "pib_usd": ("NY.GDP.MKTP.CD", 1e9),
+    "pib_pc": ("NY.GDP.PCAP.CD", 1),
+}
+
 FEEDS = {
     "Google Notícias": "https://news.google.com/rss/search?q=economia+brasil&hl=pt-BR&gl=BR&ceid=BR:pt-419",
     "InfoMoney": "https://www.infomoney.com.br/feed/",
@@ -283,6 +295,19 @@ def fmi(indicador):
     return r.json().get("values", {}).get(indicador, {})
 
 
+def banco_mundial(chave, ano):
+    """Mesma ideia do fmi(), pelo Banco Mundial: {ISO3: {ano: valor}}."""
+    codigo, div = INDICADORES_BM[chave]
+    url = f"https://api.worldbank.org/v2/country/{';'.join(PAISES)}/indicator/{codigo}"
+    r = HTTP.get(url, params={"format": "json", "per_page": 2000, "date": f"{ano - 10}:{ano}"}, timeout=TIMEOUT)
+    r.raise_for_status()
+    out = {}
+    for o in (r.json()[1] or []):
+        if o["value"] is not None:
+            out.setdefault(o["countryiso3code"], {})[o["date"]] = o["value"] / div
+    return out
+
+
 def bis_juros():
     """Último juro básico de cada banco central, pela base de política monetária do BIS."""
     codigos = "+".join(c for _, c in PAISES.values())
@@ -302,17 +327,29 @@ def secao_paises(S):
     ano = HOJE.year
     anos = {str(a) for a in range(ano - 10, ano + 5)}
     series = {cod: {} for cod in PAISES}
+    fmi_ok = False
     for chave, ind in INDICADORES_FMI.items():
         try:
             dados = fmi(ind)
+            fmi_ok = True
         except Exception as e:  # noqa: BLE001
-            log(f"[FMI] {ind}: {e}")
-            continue
+            log(f"[FMI] {ind}: {e}; tentando o Banco Mundial")
+            try:
+                dados = banco_mundial(chave, ano)
+            except Exception as e2:  # noqa: BLE001
+                log(f"[Banco Mundial] {chave}: {e2}")
+                continue
         for cod in PAISES:
             valores = dados.get(cod, {})
             series[cod][chave] = {a: round(float(v), 2) for a, v in valores.items() if a in anos and v is not None}
     if not any(series[c] for c in PAISES):
-        raise ValueError("FMI sem dados")
+        raise ValueError("FMI e Banco Mundial sem dados")
+
+    if fmi_ok:
+        ref, proj, fonte = ano, ano, "FMI"
+    else:  # só dados realizados: usa o último ano com PIB divulgado
+        ref = max((int(a) for c in PAISES for a in series[c].get("pib", {})), default=ano)
+        proj, fonte = ref + 1, "Banco Mundial"
 
     try:
         juros = bis_juros()
@@ -326,7 +363,7 @@ def secao_paises(S):
         if cod == "BRA" and "selic" in S:  # a Selic do Banco Central é mais atual
             j, data = S["selic"][-1]["v"], S["selic"][-1]["d"][:7]
         lista.append({"codigo": cod, "nome": nome, "juros": j, "juros_data": data, "series": series[cod]})
-    return {"ano": ano, "lista": lista}
+    return {"ano": ref, "proj_desde": proj, "fonte": fonte, "lista": lista}
 
 
 def secao_noticias():

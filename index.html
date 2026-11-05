@@ -296,7 +296,7 @@ footer p{margin:0 0 6px;max-width:90ch}
       <h3 id="compTit">Comparação entre países</h3>
       <div class="scroll"><table id="tPaises" class="tPaises"></table></div>
     </div>
-    <p class="fonte">Fontes: FMI, World Economic Outlook (PIB, inflação, desemprego, dívida e contas externas) e BIS (juros básicos dos bancos centrais). Valores do ano corrente em diante são estimativas e projeções do FMI, mostradas em tom mais claro no gráfico. Clique numa linha da tabela para ver o país.</p>
+    <p class="fonte">Fontes: FMI, World Economic Outlook (PIB, inflação, desemprego, dívida e contas externas) e BIS (juros básicos dos bancos centrais). Quando a fonte é o FMI, valores do ano corrente em diante são projeções, mostradas em tom mais claro no gráfico. Se o FMI estiver indisponível, usamos o Banco Mundial (dados já realizados, com defasagem de 1 a 2 anos). Clique numa linha da tabela para ver o país.</p>
   </section>
 
   <!-- NOTÍCIAS -->
@@ -540,7 +540,7 @@ function renderResumo(D) {
   $('hPaisesTit').textContent = `Mundo em ${anoP}`;
   $('hPaises').innerHTML = P.length ? `<thead><tr><th scope="col">País</th><th scope="col">PIB</th><th scope="col">Inflação</th><th scope="col">Juros</th></tr></thead><tbody>${
     P.map(p => `<tr><th scope="row">${esc(p.nome)}</th><td>${pct(serieVal(p, 'pib', anoP), 1)}</td><td>${pct(serieVal(p, 'inflacao', anoP), 1)}</td><td>${pct(p.juros, 2)}</td></tr>`).join('')
-  }</tbody><caption>PIB e inflação: projeções do FMI para o ano.</caption>` : '<caption>Sem dados de países no momento.</caption>';
+  }</tbody><caption>PIB e inflação de ${anoP}. Fonte: ${esc((D.paises && D.paises.fonte) || 'FMI')}.</caption>` : '<caption>Sem dados de países no momento.</caption>';
 
   $('hNews').innerHTML = htmlNoticias(noticiasOrdenadas(D).slice(0, 5));
 }
@@ -618,7 +618,7 @@ function renderPaises(D) {
   }
   sel.value = paisSel;
   const p = P.find(x => x.codigo === paisSel);
-  $('paisNota').textContent = `Valores de ${ano}, estimativas do FMI.`;
+  $('paisNota').textContent = `Valores de ${ano}. Fonte: ${(D.paises && D.paises.fonte) || 'FMI'}.`;
   $('paisKpis').innerHTML = [
     ['Crescimento do PIB', pct(serieVal(p, 'pib', ano), 1)],
     ['Inflação média', pct(serieVal(p, 'inflacao', ano), 1)],
@@ -730,8 +730,9 @@ function desenharGraficos(view, D) {
     const ano = anoPaises(D);
     const anos = [];
     for (let y = ano - 10; y <= ano + 4; y++) anos.push(y);
-    const proj = anos.map(y => y >= ano);
-    const iAno = anos.indexOf(ano);
+    const desde = (D.paises && D.paises.proj_desde) || ano;
+    const proj = anos.map(y => y >= desde);
+    const iAno = anos.indexOf(desde);
     graficos.push(new Chart($('chPais'), {
       data: {
         labels: anos.map(String),
