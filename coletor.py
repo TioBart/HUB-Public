@@ -1,7 +1,7 @@
 """
 Coletor do Hub Econômico.
 
-Busca dados públicos (Banco Central, Focus, brapi, FRED e feeds RSS)
+Busca dados públicos (Banco Central, Focus, brapi, FRED, FMI, BIS e feeds RSS)
 e grava tudo em data/hub.json, que é o arquivo lido pela página.
 
 Se uma fonte falhar, o coletor mantém o último dado salvo daquela seção,
@@ -11,7 +11,9 @@ Variáveis de ambiente (opcionais):
   BRAPI_TOKEN  token da brapi.dev (cotações da B3)
   FRED_KEY     chave da API do FRED (S&P 500 e petróleo Brent)
 """
+import csv
 import datetime as dt
+import io
 import json
 import os
 import sys
@@ -45,6 +47,32 @@ SGS = {
 }
 
 ACOES = ["PETR4", "VALE3", "ITUB4", "BBDC4", "BBAS3", "WEGE3", "ABEV3", "B3SA3"]
+# Nomes exibidos na página (o plano gratuito da brapi às vezes devolve só o ticker)
+NOMES_ACOES = {
+    "PETR4": "Petrobras PN", "VALE3": "Vale ON", "ITUB4": "Itaú Unibanco PN",
+    "BBDC4": "Bradesco PN", "BBAS3": "Banco do Brasil ON", "WEGE3": "WEG ON",
+    "ABEV3": "Ambev ON", "B3SA3": "B3 ON",
+}
+
+# Países da página "Países": código ISO de 3 letras (FMI) -> (nome, código de 2 letras do BIS)
+PAISES = {
+    "BRA": ("Brasil", "BR"), "USA": ("Estados Unidos", "US"), "CHN": ("China", "CN"),
+    "DEU": ("Alemanha", "DE"), "JPN": ("Japão", "JP"), "GBR": ("Reino Unido", "GB"),
+    "FRA": ("França", "FR"), "ITA": ("Itália", "IT"), "CAN": ("Canadá", "CA"),
+    "IND": ("Índia", "IN"), "MEX": ("México", "MX"), "ARG": ("Argentina", "AR"),
+    "CHL": ("Chile", "CL"), "COL": ("Colômbia", "CO"), "KOR": ("Coreia do Sul", "KR"),
+    "ZAF": ("África do Sul", "ZA"),
+}
+# Indicadores do FMI (World Economic Outlook, API DataMapper)
+INDICADORES_FMI = {
+    "pib": "NGDP_RPCH",            # crescimento real do PIB (%)
+    "inflacao": "PCPIPCH",         # inflação média ao consumidor (%)
+    "desemprego": "LUR",           # taxa de desemprego (%)
+    "divida": "GGXWDG_NGDP",       # dívida bruta do governo (% do PIB)
+    "conta_corrente": "BCA_NGDPD", # saldo em conta corrente (% do PIB)
+    "pib_usd": "NGDPD",            # PIB nominal (US$ bilhões)
+    "pib_pc": "NGDPDPC",           # PIB per capita (US$)
+}
 
 FEEDS = {
     "Google Notícias": "https://news.google.com/rss/search?q=economia+brasil&hl=pt-BR&gl=BR&ceid=BR:pt-419",
@@ -238,13 +266,67 @@ def secao_mercado(S):
     for t in ACOES:
         try:
             q = brapi(t)
-            acoes.append({"ticker": q["symbol"], "nome": q.get("shortName") or q["symbol"],
+            nome = NOMES_ACOES.get(t) or q.get("longName") or q.get("shortName") or q["symbol"]
+            acoes.append({"ticker": q["symbol"], "nome": nome,
                           "preco": q.get("regularMarketPrice"), "var": q.get("regularMarketChangePercent")})
         except Exception as e:  # noqa: BLE001
             log(f"[brapi] {t}: {e}")
     if not indices and not acoes:
         raise ValueError("mercado sem dados")
     return {"indices": indices, "acoes": acoes}
+
+
+def fmi(indicador):
+    url = f"https://www.imf.org/external/datamapper/api/v1/{indicador}/" + "/".join(PAISES)
+    r = HTTP.get(url, timeout=TIMEOUT)
+    r.raise_for_status()
+    return r.json().get("values", {}).get(indicador, {})
+
+
+def bis_juros():
+    """Último juro básico de cada banco central, pela base de política monetária do BIS."""
+    codigos = "+".join(c for _, c in PAISES.values())
+    url = f"https://stats.bis.org/api/v1/data/WS_CBPOL/M.{codigos}/all"
+    r = HTTP.get(url, params={"lastNObservations": 1, "detail": "dataonly", "format": "csv"}, timeout=TIMEOUT)
+    r.raise_for_status()
+    out = {}
+    for linha in csv.DictReader(io.StringIO(r.text)):
+        try:
+            out[linha["REF_AREA"]] = (float(linha["OBS_VALUE"]), linha["TIME_PERIOD"][:7])
+        except (KeyError, ValueError):
+            continue
+    return out
+
+
+def secao_paises(S):
+    ano = HOJE.year
+    anos = {str(a) for a in range(ano - 10, ano + 5)}
+    series = {cod: {} for cod in PAISES}
+    for chave, ind in INDICADORES_FMI.items():
+        try:
+            dados = fmi(ind)
+        except Exception as e:  # noqa: BLE001
+            log(f"[FMI] {ind}: {e}")
+            continue
+        for cod in PAISES:
+            valores = dados.get(cod, {})
+            series[cod][chave] = {a: round(float(v), 2) for a, v in valores.items() if a in anos and v is not None}
+    if not any(series[c] for c in PAISES):
+        raise ValueError("FMI sem dados")
+
+    try:
+        juros = bis_juros()
+    except Exception as e:  # noqa: BLE001
+        log(f"[BIS] juros: {e}")
+        juros = {}
+
+    lista = []
+    for cod, (nome, iso2) in PAISES.items():
+        j, data = juros.get(iso2, (None, None))
+        if cod == "BRA" and "selic" in S:  # a Selic do Banco Central é mais atual
+            j, data = S["selic"][-1]["v"], S["selic"][-1]["d"][:7]
+        lista.append({"codigo": cod, "nome": nome, "juros": j, "juros_data": data, "series": series[cod]})
+    return {"ano": ano, "lista": lista}
 
 
 def secao_noticias():
@@ -285,6 +367,7 @@ def main():
         "mercado": lambda: secao_mercado(S),
         "balanca": lambda: secao_balanca(S),
         "focus": secao_focus,
+        "paises": lambda: secao_paises(S),
         "noticias": secao_noticias,
     }
     hub = {"atualizado": dt.datetime.now(dt.timezone.utc).isoformat()}
