@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-05T18:02:18.527924+00:00",
+ "atualizado": "2026-11-05T18:53:26.987446+00:00",
  "juros": {
   "meses": [
    "2024-12",
@@ -306,10 +306,10 @@
   "indices": [
    {
     "nome": "Ibovespa",
-    "valor": 166311.61,
+    "valor": 166767.62,
     "unidade": "pts",
     "casas": 0,
-    "var": -0.75
+    "var": -0.47
    },
    {
     "nome": "Dólar",
@@ -343,51 +343,51 @@
   "acoes": [
    {
     "ticker": "PETR4",
-    "nome": "PETR4",
-    "preco": 46.68,
-    "var": -0.93
+    "nome": "Petrobras PN",
+    "preco": 46.83,
+    "var": -0.62
    },
    {
     "ticker": "VALE3",
-    "nome": "VALE3",
-    "preco": 62.71,
-    "var": 0.58
+    "nome": "Vale ON",
+    "preco": 62.88,
+    "var": 0.85
    },
    {
     "ticker": "ITUB4",
-    "nome": "ITUB4",
-    "preco": 39.7,
-    "var": -0.03
+    "nome": "Itaú Unibanco PN",
+    "preco": 39.77,
+    "var": 0.15
    },
    {
     "ticker": "BBDC4",
-    "nome": "BBDC4",
-    "preco": 13.86,
-    "var": -1.42
+    "nome": "Bradesco PN",
+    "preco": 13.84,
+    "var": -1.56
    },
    {
     "ticker": "BBAS3",
-    "nome": "BBAS3",
-    "preco": 16.41,
-    "var": -0.49
+    "nome": "Banco do Brasil ON",
+    "preco": 16.44,
+    "var": -0.3
    },
    {
     "ticker": "WEGE3",
-    "nome": "WEGE3",
-    "preco": 47.98,
-    "var": -4.14
+    "nome": "WEG ON",
+    "preco": 47.92,
+    "var": -4.26
    },
    {
     "ticker": "ABEV3",
-    "nome": "ABEV3",
-    "preco": 15.41,
-    "var": 1.05
+    "nome": "Ambev ON",
+    "preco": 15.4,
+    "var": 0.98
    },
    {
     "ticker": "B3SA3",
-    "nome": "B3SA3",
-    "preco": 14.16,
-    "var": -0.98
+    "nome": "B3 ON",
+    "preco": 14.19,
+    "var": -0.77
    }
   ]
  },
@@ -511,6 +511,42 @@
  ],
  "noticias": [
   {
+   "titulo": "Custo Brasil passa a incluir impacto do crime e dos juros reais na economia - VEJA",
+   "fonte": "Google Notícias",
+   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOekpmdnNWelJBdXJvclNkOEdNejNqQmlLNzJLeUg1Yng3SmNnd21aWXE3TDctMVhKZkFfUi1lUUNhY3Qzb2FLSTNqUU1wTnRQN0hfdEpFOFlGZUJvdHNkN3lublJDWkpKZVJ0UXUyeHQ4dEN4ajlPOGhEeTJEVURCNlV3UjFEU250cWNvX2o0Y0hIMHphZmZFdUVqdHlxU3pkT3BZZU10dXpVU1VpM0tNVA?oc=5",
+   "data": "2026-11-05T18:32:20+00:00"
+  },
+  {
+   "titulo": "Fiat Punto vai voltar? Veja planos da montadora",
+   "fonte": "InfoMoney",
+   "link": "https://www.infomoney.com.br/consumo/fiat-punto-vai-voltar-planos-montadora/",
+   "data": "2026-11-05T18:30:00+00:00"
+  },
+  {
+   "titulo": "Ibovespa Hoje Ao Vivo: Bolsa recua na esteira de Wall Street; VALE3 sobe",
+   "fonte": "InfoMoney",
+   "link": "https://www.infomoney.com.br/mercados/ibovespa-hoje-bolsa-de-valores-ao-vivo-05112026/",
+   "data": "2026-11-05T18:29:50+00:00"
+  },
+  {
+   "titulo": "Crises políticas relâmpago são marca da política paraguaia; entenda",
+   "fonte": "InfoMoney",
+   "link": "https://www.infomoney.com.br/politica/crises-politicas-relampago-sao-marca-da-politica-paraguaia-entenda/",
+   "data": "2026-11-05T18:22:16+00:00"
+  },
+  {
+   "titulo": "Lula se reúne com Alckmin, Haddad, Mantega, ministros e economistas no Alvorada",
+   "fonte": "InfoMoney",
+   "link": "https://www.infomoney.com.br/politica/lula-se-reune-com-alckmin-haddad-mantega-ministros-e-economistas-no-alvorada/",
+   "data": "2026-11-05T18:21:03+00:00"
+  },
+  {
+   "titulo": "MP-SP: Gibraltar bloqueia R$ 2,3 mi em dólares e criptomoedas por crimes cibernéticos",
+   "fonte": "InfoMoney",
+   "link": "https://www.infomoney.com.br/brasil/mp-sp-gibraltar-bloqueia-r-23-mi-em-dolares-e-criptomoedas-por-crimes-ciberneticos/",
+   "data": "2026-11-05T18:18:43+00:00"
+  },
+  {
    "titulo": "Renda previsível: as 6 ações de dividendos mais indicadas após as eleições",
    "fonte": "InfoMoney",
    "link": "https://www.infomoney.com.br/onde-investir/acoes-dividendos-recomendadas-novembro-2026/",
@@ -539,42 +575,6 @@
    "fonte": "InfoMoney",
    "link": "https://www.infomoney.com.br/politica/flavio-bolsonaro-discursa-em-mar-a-lago-ao-lado-de-ator-de-dark-horse/",
    "data": "2026-11-05T17:27:42+00:00"
-  },
-  {
-   "titulo": "Crise no Ueno Bank: entenda como o banco digital do Paraguai foi à lona",
-   "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/mundo/crise-no-ueno-bank-entenda-como-o-banco-digital-do-paraguai-foi-a-lona/",
-   "data": "2026-11-05T17:22:53+00:00"
-  },
-  {
-   "titulo": "FII TRBL11 reforça carteira com galpão da Amazon e investe R$ 456 mi em dois imóveis",
-   "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/onde-investir/fii-trbl11-reforca-carteira-com-galpao-da-amazon-e-investe-r-456-mi-em-dois-imoveis/",
-   "data": "2026-11-05T17:18:34+00:00"
-  },
-  {
-   "titulo": "Após acordo com Mercosul, vendas do Brasil para a União Europeia subiram US$ 6,4 bi, diz Apex - Folha de S.Paulo",
-   "fonte": "Google Notícias",
-   "link": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxQelNDdnNQdE5wVEl0U0dfX3VwNGZMdnNkbExIWDBRS3dRSVFGTllMZW1VLUhUSElmd2dDUkZta0owT1FKUV9hUnhWNVVwV0hMZElVUHhBWFNHamJRbVZRdVNnd0NKN0NaQ3FWQXp1TzdMQ0lxOHMxV0w1czM3MXhwbGtfY3VkWjdPSTl6ajR2WkxDY0tlSXNCMFFnbmcxNnRZSDYwTEFudUVsSndBdEJ6clpKa05ZeTVrU1F4aGlTcno3LWZMeE80YXV0QkFsOXR4T09oaHc1OUo?oc=5",
-   "data": "2026-11-05T17:17:00+00:00"
-  },
-  {
-   "titulo": "PF prende mulher que chefiava rede de prostituição de brasileiras em Israel",
-   "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/politica/pf-prende-mulher-que-chefiava-rede-de-prostituicao-de-brasileiras-em-israel/",
-   "data": "2026-11-05T17:16:08+00:00"
-  },
-  {
-   "titulo": "Vitória democrata nas “midterms” traz de volta debate sobre teto da dívida nos EUA",
-   "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/economia/vitoria-democrata-nas-midterms-traz-de-volta-debate-sobre-teto-da-divida-nos-eua/",
-   "data": "2026-11-05T17:03:30+00:00"
-  },
-  {
-   "titulo": "Viagens corporativas encarecem: passagens aéreas sobem 110% com pressão do QAV",
-   "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/business/viagens-corporativas-encarecem-passagens-aereas-sobem-110-com-pressao-do-qav/",
-   "data": "2026-11-05T17:00:00+00:00"
   },
   {
    "titulo": "Crise no Paraguai tem risco limitado para Brasil, mas ameaça investimentos - CNN Brasil",
@@ -667,10 +667,10 @@
    "data": "2026-11-04T21:33:00+00:00"
   },
   {
-   "titulo": "Brasil cria 121,3 mil postos de trabalho em setembro, aponta Caged - Agência Brasil",
+   "titulo": "Brasil registra saldo de 121,3 mil empregos formais em setembro, aponta Caged - VEJA",
    "fonte": "Google Notícias",
-   "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPdDl4VEVVa1JzTTFKdzN3QTJqYlZ5VlZnenpDaXdsWkVzYVVCdldMa3dCYURlQmw5b0hwR1NLQVlQNk1yVkNoS3Z5V3U2cmYwTW1jaTM3Y3VHVkd3MnBuWWVYb3VoTGpXNHhnUE1sa05IT0R1aXBYdmtMMlc0QnZLbFhDbXBsRUpYbXhKdXZGc1ZtTXhMNXpqOXR0WFlqSHJRVGFwVWlvdmtlVUpLX0xzbHNaRUZCZmpXYUFMWmdsSQ?oc=5",
-   "data": "2026-11-04T19:33:00+00:00"
+   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPMUctMkZFbEEwdkc0d2E5TmdXQUJPYzlKLTRaaEJhUlNMYllKcWJLUUVWbGtUZUN0d21ZYWp4ZE5Ta1JHVi0waUp3NU4tNV9kbnJsYlFJZjd3cFQtb19mWWdjUlJoMmtiQVpfUjhLRXpIenFybUxLemJ6SVRJVFoyT1V2a0ZCOWhuN1B3RU9KRXRDU3JZYUVFNTNNR3QtbjRiZ1Bweno2YzFKdFVzX0lwaA?oc=5",
+   "data": "2026-11-04T18:29:50+00:00"
   },
   {
    "titulo": "Brasil registra pior setembro na criação de empregos formais desde o início da série histórica, diz Caged - Folha de S.Paulo",
