@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-05T19:08:57.177388+00:00",
+ "atualizado": "2026-11-05T19:12:08.981262+00:00",
  "juros": {
   "meses": [
    "2024-12",
@@ -1332,6 +1332,13 @@
  "mercado": {
   "indices": [
    {
+    "nome": "Ibovespa",
+    "valor": 166460.66,
+    "unidade": "pts",
+    "casas": 0,
+    "var": -0.66
+   },
+   {
     "nome": "Dólar",
     "valor": 5.4621,
     "unidade": "R$",
@@ -1344,26 +1351,70 @@
     "unidade": "R$",
     "casas": 4,
     "var": -0.37
+   },
+   {
+    "nome": "S&P 500",
+    "valor": 7568.92,
+    "unidade": "pts",
+    "casas": 0,
+    "var": 0.36
+   },
+   {
+    "nome": "Petróleo Brent",
+    "valor": 107.03,
+    "unidade": "US$",
+    "casas": 2,
+    "var": -0.34
    }
   ],
   "acoes": [
    {
     "ticker": "PETR4",
     "nome": "Petrobras PN",
-    "preco": 46.54,
-    "var": -1.23
+    "preco": 46.5,
+    "var": -1.32
    },
    {
     "ticker": "VALE3",
     "nome": "Vale ON",
-    "preco": 62.9,
-    "var": 0.88
+    "preco": 63.01,
+    "var": 1.06
    },
    {
     "ticker": "ITUB4",
     "nome": "Itaú Unibanco PN",
-    "preco": 39.72,
-    "var": 0.03
+    "preco": 39.74,
+    "var": 0.08
+   },
+   {
+    "ticker": "BBDC4",
+    "nome": "Bradesco PN",
+    "preco": 13.83,
+    "var": -1.64
+   },
+   {
+    "ticker": "BBAS3",
+    "nome": "Banco do Brasil ON",
+    "preco": 16.45,
+    "var": -0.24
+   },
+   {
+    "ticker": "WEGE3",
+    "nome": "WEG ON",
+    "preco": 47.86,
+    "var": -4.38
+   },
+   {
+    "ticker": "ABEV3",
+    "nome": "Ambev ON",
+    "preco": 15.42,
+    "var": 1.11
+   },
+   {
+    "ticker": "B3SA3",
+    "nome": "B3 ON",
+    "preco": 14.19,
+    "var": -0.77
    }
   ]
  },
@@ -3333,10 +3384,16 @@
    "data": "2026-11-05T12:37:00+00:00"
   },
   {
+   "titulo": "Durigan diz que taxa de juros é muito alta no Brasil, mas evita criticar decisão do BC de interromper ciclo de corte da Selic - G1",
+   "fonte": "Google Notícias",
+   "link": "https://news.google.com/rss/articles/CBMiiwJBVV95cUxPM2Z2LXdfQ0Z6cThvbE05SkhMTTZTNUxRc1JHbzM0ZFYzQjBIT1Z6R2x5RlpfNEhZalNpZ3E2Q1QyVnF3X0lPdUxQWFpoYllWeE1idURaRkxkRWJjMldLUm0zcTFzdWRnNFZGNHNqdWwtUEwxTDBaTjZ5QlM0R09DOUFjWFlNbG9MSWkzQVdNOGR4eUZGenRaLW5VdF9TemVFd1VMLTBJaS1nMEVldFpYaVpRNzltMDFQaV9OTDBLZmNDcTd5d1dqdmJSajFsN3JZVlVEYUFJekZ0NlR0cnZrbHVVX0NlM2VLbkdCTU8zczBhcU8tVFYtUFNJQWRydDVuRHFobTNfYWQ3YWPSAZoCQVVfeXFMT25BUHdsRmJvUTRUQTU0SFVOSGVLY3JEQWh3MjlrcVcyOHJBMGJVZC1oQk9aeGt5QTJCbGRJNkkyVlV0X0J3T2k3MmdUYnMwcjhoR21EWVp0dGNSWFZBTjJpNTVheFBRNWx3OS1PN0hHV2U4WnZoUWR5VTdOa3ppWklPVHFYbExDQ0ZmREFhNkdBdEdvRmhXZWVfaTkzSEZ5ZHZIOUdYUi1QLXN4dWZDelZZdEwyY0x5d0dLOTdXSFVhMWczOXdycUlHc1pGMDVORDIyY0Q1SnA5TEYtZE1Od2VoaHBVNmI5WEVtNG9kZUpFV1ZDUUlDdjdpOVdpQ3FnbjByMXdGMUVla01rcFpiLVpWaE9iWV9PMm1B?oc=5",
+   "data": "2026-11-05T12:20:51+00:00"
+  },
+  {
    "titulo": "Economia sobreviveu porque mundo vivia leniência fiscal, diz especialista - CNN Brasil",
    "fonte": "Google Notícias",
    "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPTlVuaHFhWUlobUx0XzRKOEtTWUdaZ05jRFBwd2trMGo4UVE0OUxRT2ZsUl9tb2dyeWk1THVIS0d5am5CUWxXdE4xdUdGVW5MOXJ6Rm9vSjRpdHRnbXFYWnNkdmlVS1VSSWZyMGpUN3JYOE5UemRqWU1vcGJzWjN2MER1cXNpd3RzVmN2RUs1cUlpMXEyQU53cDhvMXFyaEs1RTZNcU83TlloTElPZEpXeg?oc=5",
-   "data": "2026-11-05T05:17:31+00:00"
+   "data": "2026-11-05T02:17:31+00:00"
   },
   {
    "titulo": "Vitória democrata no Senado amplia pressão sobre tarifas de Trump ao Brasil - Folha de S.Paulo",
@@ -3355,12 +3412,6 @@
    "fonte": "Agência Brasil",
    "link": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/dolar-cai-r-545-apos-eleicoes-nos-eua-e-antes-do-copom",
    "data": "2026-11-04T23:17:00+00:00"
-  },
-  {
-   "titulo": "Setor produtivo critica manutenção da Selic em 13,75% ao ano - Agência Brasil",
-   "fonte": "Google Notícias",
-   "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOZndIMks5Yml3cTYtZ3NKTVdTYjUwMHRQdTRFQkMzaElYY2t2cTZLVVUtY2N6SVNKTHRzN2VZQjBUOUFKZVhLX2lRaWJldkNmckZLd2l0cjlQUkNYTFYxMjNVZTlEeWR3MUpaVi1jT2lNdE1SQXlFZTNYSHJ6TS10ZlFjbDIwT1FtNDRWazdRWWVIWnFnWXAxM1ZUMmIwNkhPU2NvVkdnX1JnV1NyWmc0NU9xR1V3bFU?oc=5",
-   "data": "2026-11-04T22:34:00+00:00"
   },
   {
    "titulo": "Setor produtivo critica manutenção da Selic em 13,75% ao ano",
