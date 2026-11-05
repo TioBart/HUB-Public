@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-05T15:51:36.364651+00:00",
+ "atualizado": "2026-11-05T18:02:18.527924+00:00",
  "juros": {
   "meses": [
    "2024-12",
@@ -221,14 +221,13 @@
   },
   {
    "nome": "Dólar (PTAX venda)",
-   "valor": 5.4778,
+   "valor": 5.4621,
    "unidade": "R$",
    "casas": 4,
-   "data": "2026-11-04",
+   "data": "2026-11-05",
    "freq": "d",
-   "anterior": 5.4935,
+   "anterior": 5.4778,
    "serie": [
-    5.1161,
     5.1414,
     5.1795,
     5.1991,
@@ -257,19 +256,19 @@
     5.3744,
     5.4212,
     5.4935,
-    5.4778
+    5.4778,
+    5.4621
    ]
   },
   {
    "nome": "Euro (PTAX venda)",
-   "valor": 6.1549,
+   "valor": 6.1323,
    "unidade": "R$",
    "casas": 4,
-   "data": "2026-11-04",
+   "data": "2026-11-05",
    "freq": "d",
-   "anterior": 6.15,
+   "anterior": 6.1549,
    "serie": [
-    5.8487,
     5.8576,
     5.8906,
     5.928,
@@ -298,7 +297,8 @@
     6.0,
     6.0522,
     6.15,
-    6.1549
+    6.1549,
+    6.1323
    ]
   }
  ],
@@ -306,24 +306,24 @@
   "indices": [
    {
     "nome": "Ibovespa",
-    "valor": 167128.81,
+    "valor": 166311.61,
     "unidade": "pts",
     "casas": 0,
-    "var": -0.26
+    "var": -0.75
    },
    {
     "nome": "Dólar",
-    "valor": 5.4778,
+    "valor": 5.4621,
     "unidade": "R$",
     "casas": 4,
     "var": -0.29
    },
    {
     "nome": "Euro",
-    "valor": 6.1549,
+    "valor": 6.1323,
     "unidade": "R$",
     "casas": 4,
-    "var": 0.08
+    "var": -0.37
    },
    {
     "nome": "S&P 500",
@@ -344,50 +344,50 @@
    {
     "ticker": "PETR4",
     "nome": "PETR4",
-    "preco": 47.12,
-    "var": 0
+    "preco": 46.68,
+    "var": -0.93
    },
    {
     "ticker": "VALE3",
     "nome": "VALE3",
-    "preco": 62.6,
-    "var": 0.4
+    "preco": 62.71,
+    "var": 0.58
    },
    {
     "ticker": "ITUB4",
     "nome": "ITUB4",
-    "preco": 39.62,
-    "var": -0.23
+    "preco": 39.7,
+    "var": -0.03
    },
    {
     "ticker": "BBDC4",
     "nome": "BBDC4",
-    "preco": 13.8,
-    "var": -1.85
+    "preco": 13.86,
+    "var": -1.42
    },
    {
     "ticker": "BBAS3",
     "nome": "BBAS3",
-    "preco": 16.52,
-    "var": 0.18
+    "preco": 16.41,
+    "var": -0.49
    },
    {
     "ticker": "WEGE3",
     "nome": "WEGE3",
-    "preco": 48.1,
-    "var": -3.9
+    "preco": 47.98,
+    "var": -4.14
    },
    {
     "ticker": "ABEV3",
     "nome": "ABEV3",
-    "preco": 15.38,
-    "var": 0.85
+    "preco": 15.41,
+    "var": 1.05
    },
    {
     "ticker": "B3SA3",
     "nome": "B3SA3",
-    "preco": 14.1,
-    "var": -1.4
+    "preco": 14.16,
+    "var": -0.98
    }
   ]
  },
@@ -511,16 +511,76 @@
  ],
  "noticias": [
   {
-   "titulo": "Smart Fit, GPA e C&A sobem forte, Méliuz e Meli caem após 3T; veja análises",
+   "titulo": "Renda previsível: as 6 ações de dividendos mais indicadas após as eleições",
    "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/mercados/smart-fit-gpa-e-ca-sobem-forte-meliuz-e-meli-caem-apos-3t-veja-analises/",
-   "data": "2026-11-05T15:46:28+00:00"
+   "link": "https://www.infomoney.com.br/onde-investir/acoes-dividendos-recomendadas-novembro-2026/",
+   "data": "2026-11-05T18:00:00+00:00"
   },
   {
-   "titulo": "Governo Lula estuda corte permanente no teto de gastos para conter dívida, diz jornal",
+   "titulo": "Quem é Santiago Peña, presidente do Paraguai que renunciou nesta quinta-feira (5)",
    "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/politica/governo-lula-estuda-corte-permanente-no-teto-de-gastos-para-conter-divida-diz-jornal/",
-   "data": "2026-11-05T15:32:56+00:00"
+   "link": "https://www.infomoney.com.br/mundo/quem-e-santiago-pena-presidente-do-paraguai-que-renunciou-nesta-quinta-feira-5/",
+   "data": "2026-11-05T17:51:02+00:00"
+  },
+  {
+   "titulo": "Neymar tem triplex em São Paulo com sala de cinema, cabeleireiro e mais; veja fotos",
+   "fonte": "InfoMoney",
+   "link": "https://www.infomoney.com.br/consumo/neymar-triplex-sao-paulo-sala-cinema-cabeleireiro/",
+   "data": "2026-11-05T17:45:00+00:00"
+  },
+  {
+   "titulo": "Base Exchange mira lançamento em 2027 em desafio à B3 no mercado de ações",
+   "fonte": "InfoMoney",
+   "link": "https://www.infomoney.com.br/mercados/base-exchange-mira-lancamento-em-2027-em-desafio-a-b3-no-mercado-de-acoes/",
+   "data": "2026-11-05T17:31:06+00:00"
+  },
+  {
+   "titulo": "Flávio Bolsonaro discursa em Mar-a-Lago ao lado de ator de ‘Dark Horse’",
+   "fonte": "InfoMoney",
+   "link": "https://www.infomoney.com.br/politica/flavio-bolsonaro-discursa-em-mar-a-lago-ao-lado-de-ator-de-dark-horse/",
+   "data": "2026-11-05T17:27:42+00:00"
+  },
+  {
+   "titulo": "Crise no Ueno Bank: entenda como o banco digital do Paraguai foi à lona",
+   "fonte": "InfoMoney",
+   "link": "https://www.infomoney.com.br/mundo/crise-no-ueno-bank-entenda-como-o-banco-digital-do-paraguai-foi-a-lona/",
+   "data": "2026-11-05T17:22:53+00:00"
+  },
+  {
+   "titulo": "FII TRBL11 reforça carteira com galpão da Amazon e investe R$ 456 mi em dois imóveis",
+   "fonte": "InfoMoney",
+   "link": "https://www.infomoney.com.br/onde-investir/fii-trbl11-reforca-carteira-com-galpao-da-amazon-e-investe-r-456-mi-em-dois-imoveis/",
+   "data": "2026-11-05T17:18:34+00:00"
+  },
+  {
+   "titulo": "Após acordo com Mercosul, vendas do Brasil para a União Europeia subiram US$ 6,4 bi, diz Apex - Folha de S.Paulo",
+   "fonte": "Google Notícias",
+   "link": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxQelNDdnNQdE5wVEl0U0dfX3VwNGZMdnNkbExIWDBRS3dRSVFGTllMZW1VLUhUSElmd2dDUkZta0owT1FKUV9hUnhWNVVwV0hMZElVUHhBWFNHamJRbVZRdVNnd0NKN0NaQ3FWQXp1TzdMQ0lxOHMxV0w1czM3MXhwbGtfY3VkWjdPSTl6ajR2WkxDY0tlSXNCMFFnbmcxNnRZSDYwTEFudUVsSndBdEJ6clpKa05ZeTVrU1F4aGlTcno3LWZMeE80YXV0QkFsOXR4T09oaHc1OUo?oc=5",
+   "data": "2026-11-05T17:17:00+00:00"
+  },
+  {
+   "titulo": "PF prende mulher que chefiava rede de prostituição de brasileiras em Israel",
+   "fonte": "InfoMoney",
+   "link": "https://www.infomoney.com.br/politica/pf-prende-mulher-que-chefiava-rede-de-prostituicao-de-brasileiras-em-israel/",
+   "data": "2026-11-05T17:16:08+00:00"
+  },
+  {
+   "titulo": "Vitória democrata nas “midterms” traz de volta debate sobre teto da dívida nos EUA",
+   "fonte": "InfoMoney",
+   "link": "https://www.infomoney.com.br/economia/vitoria-democrata-nas-midterms-traz-de-volta-debate-sobre-teto-da-divida-nos-eua/",
+   "data": "2026-11-05T17:03:30+00:00"
+  },
+  {
+   "titulo": "Viagens corporativas encarecem: passagens aéreas sobem 110% com pressão do QAV",
+   "fonte": "InfoMoney",
+   "link": "https://www.infomoney.com.br/business/viagens-corporativas-encarecem-passagens-aereas-sobem-110-com-pressao-do-qav/",
+   "data": "2026-11-05T17:00:00+00:00"
+  },
+  {
+   "titulo": "Crise no Paraguai tem risco limitado para Brasil, mas ameaça investimentos - CNN Brasil",
+   "fonte": "Google Notícias",
+   "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxOWkZXajVmUlVmX0xhY0lWdkFyM1BCVHlxLUZ6YXp3clJLZzlmRlQzU1ZhY0tzVTV6RXFHX2t6ZzBTQXRVMEp0QUZ1MlhDTWF5ejd0NEE2bDJsdkZjUXc3UkhhLUpmQXF0cmpjTEF6SlA1VklwRlFwWVEyUmxXcXJka29wbnJtT2tsWTYxdWpjQ0VTZXMxZ3JjcDhhSVpvQTR4cEFMbFgwSWdCWDVEcnJ1RUhtaEt6S3R5Y3BWRlA0U1J1UzB1QmtsVkoxaWh1bU5uNVp0YzB1dm84UlBoSjVGN1BXUmpwU1E?oc=5",
+   "data": "2026-11-05T16:59:38+00:00"
   },
   {
    "titulo": "Durigan diz que é preciso dar condições para a queda dos juros",
@@ -529,64 +589,10 @@
    "data": "2026-11-05T15:30:00+00:00"
   },
   {
-   "titulo": "Ibovespa opera volátil, em meio à queda em NY e cautela fiscal, apesar de commodities",
-   "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/mercados/ibovespa-opera-volatil-em-meio-a-queda-em-ny-e-cautela-fiscal-apesar-de-commodities/",
-   "data": "2026-11-05T15:24:16+00:00"
-  },
-  {
-   "titulo": "Durigan vê juros muito altos, mas evita criticar decisão do Copom",
-   "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/politica/durigan-ve-juros-muito-altos-mas-evita-criticar-decisao-do-copom/",
-   "data": "2026-11-05T15:22:29+00:00"
-  },
-  {
-   "titulo": "Bolsonaro pede visitas de Marinho e Tereza Cristina em meio à disputa pelo Senado",
-   "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/politica/bolsonaro-pede-visitas-de-marinho-e-tereza-cristina-em-meio-a-disputa-pelo-senado/",
-   "data": "2026-11-05T15:18:23+00:00"
-  },
-  {
-   "titulo": "FGC informa ‘acesso não autorizado’ a seu sistema e vazamento de dados pessoais",
-   "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/politica/fgc-informa-acesso-nao-autorizado-a-seu-sistema-e-vazamento-de-dados-pessoais/",
-   "data": "2026-11-05T15:13:00+00:00"
-  },
-  {
-   "titulo": "XP vê dólar a R$ 5,50 em 2027 e diz que rumo do real dependerá do cenário fiscal",
-   "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/mercados/xp-ve-dolar-a-r-550-em-2027-e-diz-que-rumo-do-real-dependera-do-cenario-fiscal/",
-   "data": "2026-11-05T15:09:55+00:00"
-  },
-  {
-   "titulo": "Ibovespa Hoje Ao Vivo: Bolsa oscila com balanços no radar e manutenção da Selic",
-   "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/mercados/ibovespa-hoje-bolsa-de-valores-ao-vivo-05112026/",
-   "data": "2026-11-05T15:07:44+00:00"
-  },
-  {
    "titulo": "IBGE abre seleção para mais de 27 mil recenseadores temporários",
    "fonte": "Agência Brasil",
    "link": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/ibge-abre-selecao-para-mais-de-27-mil-recenseadores-temporarios",
    "data": "2026-11-05T15:04:00+00:00"
-  },
-  {
-   "titulo": "De perfumes à IA: quais são os negócios e investimentos do Cristiano Ronaldo?",
-   "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/business/de-perfumes-a-ia-quais-sao-os-negocios-e-investimentos-do-cristiano-ronaldo/",
-   "data": "2026-11-05T15:03:52+00:00"
-  },
-  {
-   "titulo": "Setor de serviços amplia contração no Brasil em outubro - CNN Brasil",
-   "fonte": "Google Notícias",
-   "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOS3FiSU5WVmRVSkhxWmtTMnFjalpkVUF1RGhDV2RvZDR1OGFWM0pYZXJWSDBENFp1NzIxMFpxVVpjQlFyb2Q4NThaN29WY2I5ZEl0cFRKNFVXUkgyNWpmUW1xNkdyN0YwS3pYT2xSa3VhU2JMX0JlNl92N3MxTjVscmY0bWZFaGxteHNLNGRJanE3Yk15cVVkUF9B?oc=5",
-   "data": "2026-11-05T15:03:27+00:00"
-  },
-  {
-   "titulo": "Partidos árabes sinalizam apoio para derrubar Netanyahu",
-   "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/mundo/partidos-arabes-sinalizam-apoio-para-derrubar-netanyahu/",
-   "data": "2026-11-05T15:02:31+00:00"
   },
   {
    "titulo": "Sem reformas fiscais, Brasil pode ficar na lanterna do crescimento na América Latina em 2027 - O GLOBO",
@@ -601,12 +607,6 @@
    "data": "2026-11-05T14:17:00+00:00"
   },
   {
-   "titulo": "Produção da indústria recua 0,8% em setembro; 4ª queda em cinco meses - Agência Brasil",
-   "fonte": "Google Notícias",
-   "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNdy1mVTVobnJtcWo1UFlWbnNuLV9wTlhXRUlnLUd4MnEyREpsLTlmMG5YZlgtQWxuZFpya3J4Y3p4VGo0M2Z4Mi1MaWdJUG0tRnJVUXRqMWd1LXF3ZWJsTVRlWHNDQmhxZlhSUFRPMjBkS0R4TEtYM2VybDNHdk9hSEF6WW9YU2xrUW9teW91R3djZ1lMZm9BZndBUU0yY2J6bFozT05kYlJOSWNLZGhuODJMVU5jZWJGOG9mZ0l5TWpFQQ?oc=5",
-   "data": "2026-11-05T13:45:00+00:00"
-  },
-  {
    "titulo": "Produção da indústria recua 0,8% em setembro; 4ª queda em cinco meses",
    "fonte": "Agência Brasil",
    "link": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/producao-da-industria-recua-08-em-setembro-4a-queda-em-cinco-meses",
@@ -619,22 +619,16 @@
    "data": "2026-11-05T12:37:00+00:00"
   },
   {
-   "titulo": "Produção industrial no Brasil recua 0,8% em setembro e frustra projeção do mercado - InfoMoney",
-   "fonte": "Google Notícias",
-   "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNTm54NVJTQ25iYnlIMmRPeUlfVlZHa3EtMUR2NWlZUmJJbUowV2RJMkEyVTNmcmQyYk02Ty1KT0Z1V3dGUVozV3paZ3lQSzM0UFIxeG12WFNqUDN1Y0R5Y09JakJPS0RaS2ZYemtneGtoQXVCWmRycFl2RmhWU0xwVkIyeVZMNW1pZmlXWjRJeXMxMDRSUjhjMEJYX2lpbzlFOVZ5R0J2TmZpLTg5TUxFQ2hZTjBlNDBnYWF30gHAAUFVX3lxTE1TRDZZWGpJWUhKLWZqOEpJc3lsSkp1dWx4M1F0N2tmZnF3aEYtTmNMRld2a3VRQ0MzY1V0bU5Eci0xaHlPQTZiSEVkbnBwQklrVDFLNE8tbUtsN3FYOUs3RTdnVi1ETWpnNHdBNDE5c3JWOFZaZ25YUjVxYXliX3NYVWhpalRSOGlRZmhscThYSy1pX0xFeF9UdjlZS21LZjNwajJFR1dpMlNrZWFtT19BaFp2dnBzcFZsQkVRZjNaSg?oc=5",
-   "data": "2026-11-05T12:13:15+00:00"
-  },
-  {
-   "titulo": "Produção industrial no Brasil recua mais do que o esperado em setembro - Terra",
-   "fonte": "Google Notícias",
-   "link": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxPNGR5cl9mZGo1VEVRMzNVVEJxT2xNQVBLakVJSlI3M0NITF8ySGFyckdqSWxBdFZaUXBMd3JYbHloTVRBbDk4ajF0WVFER3R3eXlxOG5kOUY4MEZaSlJKa3lYaURkZG5jcHNrMW1tWTVGXzRzVU9ncjVMb1lFX2F3OU44SmFCV3d5T0hQbEctdkNMVVFlR0M5bk1TVlN0MVVwR2xEYzJlMFMwa3FHQS0wVVZzVDAxenNMMDJzay12OEQ4NWcxdnB5eTRLR3hpX1o5d1VpRTZQMjRia0lVb2xZTjRVcm0?oc=5",
-   "data": "2026-11-05T12:13:00+00:00"
-  },
-  {
    "titulo": "Vitória democrata no Senado amplia pressão sobre tarifas de Trump ao Brasil - Folha de S.Paulo",
    "fonte": "Google Notícias",
    "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPekNWWU5UWi1NNy1zMkhYNFNkYkhMU2c3NUVyQXVUeVZfNl9Ic1dvVEtRSEJ5dlg0SmhuXy05M3pDNjdHNU1rWGZJUXhaN2RQOXd6REFNTkVCdG13OFFLSWs2N2l5SUFLdnllNjZZTUlKYWVSOVZySTgtNDlLZFJFajNiU3U4UHREcVdtdFd2M1VFaXRXc1BfN1IzYy11STJmbi1iRmthNGk3VTJsV2VKNjhiVWNFQlJhWThiaVpka0U1QWs2cFE?oc=5",
    "data": "2026-11-05T02:00:00+00:00"
+  },
+  {
+   "titulo": "Vitória democrata nos EUA impacta economia e investimentos no Brasil - Gazeta do Povo",
+   "fonte": "Google Notícias",
+   "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQYnlQV0pxUnR5bDFQdHlkRW5pWmZIZGt4MjZIdUZob3p0cXdzNVMyYlZneWNkTVBTSlF5Sk5IT2pWckEtUTUwSGFkaFVzbXBIanNoREI5VnJyN2FKUjkzTVM5X2JkV1J3TDlNelJWVndwNDZURFpYdkZhMmdCNzItanJvcjZpQlVLOFF1MlBvaXNkaXhjNGc2d2J6NHRxUl9xR3ZuamdKbmF0YXNzbHdWR1NSME9wd0lnazZxaThB?oc=5",
+   "data": "2026-11-05T00:56:00+00:00"
   },
   {
    "titulo": "Anatel publica novas regras para prevenir fraudes por meio de SMS",
@@ -685,10 +679,16 @@
    "data": "2026-11-04T18:01:00+00:00"
   },
   {
-   "titulo": "Brasil cria 121 mil empregos formais em setembro, pior resultado para o mês desde 2020 - G1",
+   "titulo": "Brasil cria 121,3 mil vagas formais em setembro, queda de 43,5% ante 2025 - O GLOBO",
    "fonte": "Google Notícias",
-   "link": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxNNGlCS1dSdm1kR3BjZGJ0ZHdnTjd0TVIzWnNhbFVibmR0cGtiS3o5V080TEluY0ZKdDRBUkRuLXE2Z0NqX1VBU29XNlJWaE03U1Q5SkY4UDFkQlZvZ29pbVk3Y1d1dE5rM2VBQ3pzSDZQYjdEZkdLbkFodEtTZjhjZWUwN21iOTZIT2pfSmtiU2RZWWM0NVE5U0tEem1XNDVkazZyS1E2RXJRVmNlcUNRM1p6bXV1SnhIazZaY1VTbk5QeDBuUDRoN29LcXBsT2VrV3dZbjhKZUlkVmJyd1RkSmxjei1nXy1LMElENVBSczDSAf8BQVVfeXFMTmdqaThYMEtVc3plazlKTk5IYWRJVkQtT2NxVHVyVzBpczhrVER2NG41YUV0Y3VpMW1HMW5UR3dkTTNzVy1UZzBGVEtKLVkweWRodGRYaVFqaDJEanluNm0tbFYxRUZ3cU9xSE8ybUhiRXQ3THFudHJQcW9fSXdBOW1WMkhHUWdkMmJqVXVsTngtdi0yRGM5NFAtZ2ZrVW9RRndiLUhCMjhlRWQxYUVMZ1IxNFg1c1lnYlpCd3FadjJuVE1Sb29IdmtNeFkwVWwtZG9HTFotSEE2bWhmNHY5SXlGX2ZvdE8wNHJucWV0MUNNNVpFeTRRbnhZUDZ4aVlN?oc=5",
-   "data": "2026-11-04T17:30:01+00:00"
+   "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPbzBYbU5OdE93TFFWaW1WS0tER0J3dkZIY3MxZHlzbXNKYkZVOGRnci1zSDVqWk1XVUhBOGJqXzE3a3lLclVlS01YTWpYdXVHMWxrbVNGRHF0ZE0yaVhBTG4tMWJzdXdqVVhHX19IUTN1eUdsSnVvRnlVaWhDYktST015VkpqTnAwR2JRemp1dkthenVjYnVWU1NnRmV3RmpxZWxnaXkzY0xiYm5zMXYxRUEzZDNVSGFMYXdqRGhCbU1XQkVjRUlLOTZFT2wwdEFW0gHfAUFVX3lxTFBpM3hYV3g4dmhZNmVzWUQyYnZTVDNkUUhqS2VCZVVjYmJVc0JzSDNERjRrN1M4TEFjTFFURUJvMGNYT1g4azRlTGtFZURVRjFZXzFVTmNDT3o4Y1J4enEzdXA0R3JLTkJxU2hORS1yZWliRUdLNWNFVXRLSnlDV2ZKM0w4NS1Ga3JpR0I3VFFNTkt1dWhabm45Nzd5QlZyRTVVWXdkLUVmdHlMb3NfcWNncGNaaXNUU3dVcDU0MGtkX2RrR0lfYXJnYWhuZlFyZTlhSUdxaFZmVzN3MTRIWm8?oc=5",
+   "data": "2026-11-04T17:56:05+00:00"
+  },
+  {
+   "titulo": "Guerra, economia, IA e casos de corrupção derrotam Trump nos EUA - Agência Brasil",
+   "fonte": "Google Notícias",
+   "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNQUdNVGhoMFZlekIwSDlETXAwTEJjTERaOVM3bVMza3h2V3d2ZWxGOHc1X19iMFJkWEtIOHAxSERHSThRWjNUTkFkLUw3VlMyeS0tUGVxWHhUREV2b2s3REh1blRRZ0VpWVFXUnJ1Q0tDMkxZMGxSQkY2NzhvYnZxeUkwal9saUhHY0xBQmpaUXVqemRaWlA0SExPRGkzSHdpbzR1VTdDVG1UNUVRUVRQTXI4bHdYRHp1aUU0TGhkXzdGekU?oc=5",
+   "data": "2026-11-04T14:31:00+00:00"
   }
  ]
 }
