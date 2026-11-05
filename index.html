@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="config.js"></script>
 <style>
 :root{
   color-scheme:light;
@@ -182,22 +183,91 @@ dialog::backdrop{background:rgba(8,15,26,.5)}
 .dh p{margin:2px 0 0;font-size:.84rem;color:var(--muted)}
 .fechar{font:inherit;font-size:1.3rem;line-height:1;width:34px;height:34px;border:1px solid var(--line);border-radius:7px;background:transparent;color:var(--ink);cursor:pointer}
 .fechar:hover{background:var(--bg)}
-.db{padding:6px 22px 20px;overflow:auto;max-height:calc(100vh - 160px)}
+dialog[open]{display:flex;flex-direction:column}
+.db{padding:6px 22px 20px;overflow:auto;flex:1 1 auto;min-height:0}
+.dh,.df{flex:none}
 .tser th,.tser td{border:1px solid var(--line);padding:8px 12px}
 .tser th:first-child,.tser td:first-child{padding-left:12px}
 .tser thead th{color:var(--ink);background:var(--zebra);font-size:.84rem;white-space:normal}
 .tser tbody tr:nth-child(even) td{background:var(--zebra)}
 
+/* ---------- Botões ---------- */
+.acoes-topo{display:flex;align-items:center;gap:10px}
+.btn-topo{font:inherit;font-size:.86rem;padding:7px 13px;border:1px solid rgba(255,255,255,.22);border-radius:7px;background:transparent;color:#fff;cursor:pointer;white-space:nowrap}
+.btn-topo:hover{background:rgba(255,255,255,.08)}
+.btn-topo.forte{background:#2F5BFF;border-color:#2F5BFF}
+.btn{font:inherit;font-size:.9rem;font-weight:600;padding:8px 16px;border:1px solid var(--accent);border-radius:7px;background:var(--accent);color:#fff;cursor:pointer;white-space:nowrap}
+.btn:hover{filter:brightness(1.08)}
+.btn.sec{background:var(--panel);color:var(--ink);border-color:var(--line)}
+.btn.sec:hover{background:var(--bg);filter:none}
+.link{font:inherit;font-size:.84rem;font-weight:500;color:var(--accent);background:none;border:0;padding:0;cursor:pointer}
+.link:hover{text-decoration:underline}
+
+/* ---------- Blocos do resumo ---------- */
+.blocos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;grid-auto-flow:row dense}
+.bloco.larg{grid-column:1/-1}
+.bloco[hidden]{display:none}
+.bloco > .panel{height:100%}
+.mgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px}
+.mc{display:flex;flex-direction:column;gap:1px;padding:12px 14px;border:1px solid var(--line);border-radius:8px;text-align:left;font:inherit;color:inherit;background:var(--panel)}
+button.mc{cursor:pointer}
+button.mc:hover{border-color:var(--accent)}
+.mc .g{font-size:.74rem;color:var(--muted)}
+.mc .n{font-weight:600;font-size:.88rem}
+.mc .x{font-family:var(--cond);font-weight:700;font-size:1.45rem;line-height:1.2}
+.mc .s{font-size:.78rem;color:var(--muted)}
+.mc .sp{margin-top:6px}
+.vazio{margin:0;color:var(--muted)}
+
+/* ---------- Estrelas ---------- */
+.estrela{font:inherit;font-size:1.05rem;line-height:1;width:28px;height:28px;border:0;border-radius:6px;background:transparent;color:var(--muted);cursor:pointer;flex:none}
+.estrela:hover{background:var(--bg);color:var(--accent2)}
+.estrela[aria-pressed="true"]{color:var(--accent2)}
+.indw{position:relative}
+.indw .estrela{position:absolute;top:8px;right:8px}
+.cot th .estrela{margin:-4px 4px -4px -6px;vertical-align:middle}
+
+/* ---------- Formulários ---------- */
+.campo{display:flex;flex-direction:column;gap:5px;margin-bottom:14px}
+.campo label,.rot{font-size:.84rem;font-weight:600}
+input[type=number],input[type=email],input[type=search]{font:inherit;padding:8px 11px;border:1px solid var(--line);border-radius:7px;background:var(--panel);color:var(--ink);width:100%}
+.pers h3{margin:22px 0 4px;font-size:.95rem}
+.dica{margin:0 0 10px;font-size:.84rem;color:var(--muted)}
+.ordem{list-style:none;margin:0;padding:0}
+.ordem li{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:7px 0;border-top:1px solid var(--line)}
+.ordem li:first-child{border-top:0}
+.ordem label{display:flex;align-items:center;gap:8px}
+.ordem button{font:inherit;width:30px;height:30px;border:1px solid var(--line);border-radius:6px;background:var(--panel);color:var(--ink);cursor:pointer}
+.ordem button:disabled{opacity:.35;cursor:default}
+.escolhas{max-height:260px;overflow:auto;border:1px solid var(--line);border-radius:8px;padding:6px 12px;margin-top:8px}
+.escolhas h4{margin:10px 0 2px;font-size:.78rem;color:var(--muted);font-weight:600}
+.opt{display:flex;align-items:center;gap:8px;padding:4px 0;font-size:.9rem}
+.df{display:flex;justify-content:space-between;gap:10px;padding:14px 22px;border-top:1px solid var(--line)}
+dialog.largo{width:min(680px,calc(100% - 28px))}
+
+/* ---------- Renda fixa ---------- */
+.sim{display:grid;grid-template-columns:280px minmax(0,1fr);gap:28px}
+.sim-campos .campo{margin-bottom:10px}
+.chk{display:flex;gap:8px;align-items:flex-start;font-size:.86rem;margin-top:6px}
+tr.melhor > *{background:var(--accent-soft)}
+.conv{display:flex;flex-wrap:wrap;align-items:flex-end;gap:12px}
+.conv .campo{margin:0;min-width:150px;flex:1}
+.cvRes{flex-basis:100%;margin:12px 0 0;font-family:var(--cond);font-weight:700;font-size:1.9rem}
+.cvRes small{display:block;font-family:var(--sans);font-weight:400;font-size:.84rem;color:var(--muted)}
+
 footer{margin-top:36px;padding-top:18px;border-top:1px solid var(--line);font-size:.8rem;color:var(--muted)}
 footer p{margin:0 0 4px}
 
 @media (max-width:1100px){
+  .blocos{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .sim{grid-template-columns:1fr}
   .g4{grid-template-columns:repeat(2,minmax(0,1fr))}
   .g3{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media (max-width:760px){
   .wrap{padding-left:14px;padding-right:14px}
-  .g4,.g3,.g2,.jg{grid-template-columns:1fr}
+  .g4,.g3,.g2,.jg,.blocos{grid-template-columns:1fr}
+  .btn-topo{padding:6px 10px}
   .jg .big{font-size:3.4rem}
   .chartbox,.chartbox.alto{height:280px}
   .stat{min-height:0}
@@ -213,7 +283,11 @@ footer p{margin:0 0 4px}
       <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect width="28" height="28" rx="7" fill="#2F5BFF"/><path d="M6 19l5-5 4 3 7-8" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
       Hub Econômico
     </a>
-    <p class="stamp" id="stamp"></p>
+    <div class="acoes-topo">
+      <p class="stamp" id="stamp"></p>
+      <button type="button" class="btn-topo" id="btnPers">Personalizar</button>
+      <button type="button" class="btn-topo forte" id="btnConta" hidden>Entrar</button>
+    </div>
   </div>
   <div class="ticker" id="ticker" aria-label="Cotações em destaque"><div class="trilho" id="trilho"></div></div>
 </header>
@@ -222,6 +296,7 @@ footer p{margin:0 0 4px}
   <div class="wrap">
     <a href="#inicio">Resumo</a>
     <a href="#juros">Juros</a>
+    <a href="#rendafixa">Renda fixa</a>
     <a href="#indicadores">Indicadores</a>
     <a href="#mercado">Mercados</a>
     <a href="#balanca">Balança comercial</a>
@@ -235,34 +310,28 @@ footer p{margin:0 0 4px}
   <div class="aviso" id="aviso" hidden>Você está vendo <strong>dados ilustrativos</strong>, não números reais. Rode o coletor (<code>coletor.py</code>) para gerar o arquivo <code>data/hub.json</code>.</div>
 
   <!-- ===================== RESUMO ===================== -->
-  <section class="view pilha" id="v-inicio">
-    <header class="ph"><div><h1>Resumo</h1><p>Os principais números da economia brasileira e mundial hoje.</p></div></header>
-    <div class="g4" id="stats"></div>
-    <div class="panel">
-      <div class="ptit"><h2>Selic e inflação: histórico e projeção do mercado</h2><a href="#juros">Ver juros</a></div>
-      <div class="jg">
-        <div>
-          <p class="k">Juro real hoje</p>
-          <p class="big" id="hJuroReal">–</p>
-          <ul class="leg" id="hLeg"></ul>
+  <section class="view" id="v-inicio">
+    <header class="ph"><div><h1>Resumo</h1><p id="saud">Os principais números da economia brasileira e mundial hoje.</p></div><button type="button" class="btn sec" data-pers>Personalizar esta tela</button></header>
+    <div class="blocos" id="blocos">
+      <div class="bloco larg" data-bloco="destaques"><div class="g4" id="stats"></div></div>
+      <div class="bloco larg" data-bloco="meus"><div class="panel"><div class="ptit"><h2>Minha seleção</h2><button type="button" class="link" data-pers>Editar</button></div><div id="meus"></div></div></div>
+      <div class="bloco larg" data-bloco="grafico"><div class="panel">
+        <div class="ptit"><h2>Selic e inflação: histórico e projeção do mercado</h2><a href="#juros">Ver juros</a></div>
+        <div class="jg">
+          <div><p class="k">Juro real hoje</p><p class="big" id="hJuroReal">–</p><ul class="leg" id="hLeg"></ul></div>
+          <div class="chartbox"><canvas id="chResumo" role="img" aria-label="Selic e IPCA nos últimos 24 meses e projeções do boletim Focus"></canvas></div>
         </div>
-        <div class="chartbox"><canvas id="chResumo" role="img" aria-label="Selic e IPCA nos últimos 24 meses e projeções do boletim Focus"></canvas></div>
-      </div>
-    </div>
-    <div class="g3">
-      <div class="panel"><div class="ptit"><h2>Mercados no mundo</h2><a href="#mercado">Ver mercados</a></div><ul class="lista" id="hMundoMerc"></ul></div>
-      <div class="panel"><div class="ptit"><h2>Inflação e atividade</h2><a href="#indicadores">Ver indicadores</a></div><dl class="mini" id="hInd"></dl></div>
-      <div class="panel"><div class="ptit"><h2 id="hFocusTit">Expectativas</h2><a href="#expectativas">Ver Focus</a></div><dl class="mini" id="hFocus"></dl></div>
-    </div>
-    <div class="g3">
-      <div class="panel">
+      </div></div>
+      <div class="bloco" data-bloco="mercados"><div class="panel"><div class="ptit"><h2>Mercados no mundo</h2><a href="#mercado">Ver mercados</a></div><ul class="lista" id="hMundoMerc"></ul></div></div>
+      <div class="bloco" data-bloco="inflacao"><div class="panel"><div class="ptit"><h2>Inflação e atividade</h2><a href="#indicadores">Ver indicadores</a></div><dl class="mini" id="hInd"></dl></div></div>
+      <div class="bloco" data-bloco="expectativas"><div class="panel"><div class="ptit"><h2 id="hFocusTit">Expectativas</h2><a href="#expectativas">Ver Focus</a></div><dl class="mini" id="hFocus"></dl></div></div>
+      <div class="bloco" data-bloco="tesouro"><div class="panel"><div class="ptit"><h2>Tesouro Direto hoje</h2><a href="#rendafixa">Ver renda fixa</a></div><dl class="mini" id="hTesouro"></dl></div></div>
+      <div class="bloco" data-bloco="balanca"><div class="panel">
         <div class="ptit"><h2>Balança comercial</h2><a href="#balanca">Ver balança</a></div>
-        <p class="num" id="hBal">–</p>
-        <p class="sub2" style="margin:2px 0 12px" id="hBalMeta"></p>
-        <div id="hBalBarras"></div>
-      </div>
-      <div class="panel"><div class="ptit"><h2>Juros pelo mundo</h2><a href="#juros">Ver todos</a></div><ul class="lista" id="hMundo"></ul></div>
-      <div class="panel"><div class="ptit"><h2>Últimas notícias</h2><a href="#noticias">Ver todas</a></div><ol class="news" id="hNews"></ol></div>
+        <p class="num" id="hBal">–</p><p class="sub2" style="margin:2px 0 12px" id="hBalMeta"></p><div id="hBalBarras"></div>
+      </div></div>
+      <div class="bloco" data-bloco="jurosmundo"><div class="panel"><div class="ptit"><h2>Juros pelo mundo</h2><a href="#juros">Ver todos</a></div><ul class="lista" id="hMundo"></ul></div></div>
+      <div class="bloco" data-bloco="noticias"><div class="panel"><div class="ptit"><h2>Últimas notícias</h2><a href="#noticias">Ver todas</a></div><ol class="news" id="hNews"></ol></div></div>
     </div>
   </section>
 
@@ -288,6 +357,44 @@ footer p{margin:0 0 4px}
     </div>
   </section>
 
+  <!-- ===================== RENDA FIXA ===================== -->
+  <section class="view pilha" id="v-rendafixa" hidden>
+    <header class="ph"><div><h1>Renda fixa</h1><p>Taxas do Tesouro Direto, curva de juros, inflação implícita e um simulador para comparar aplicações.</p></div></header>
+    <div class="g4" id="rfStats"></div>
+    <div class="panel">
+      <div class="ptit"><h2>Curva de juros do Tesouro</h2></div>
+      <p class="sub2" id="curvaSub"></p>
+      <div class="chartbox alto"><canvas id="chCurva" role="img" aria-label="Taxas dos títulos prefixados e atrelados ao IPCA por prazo, e a inflação implícita"></canvas></div>
+      <p class="fonte">A curva prefixada mostra quanto o mercado cobra para emprestar ao governo em cada prazo. O IPCA+ mostra o juro real. A inflação implícita é a diferença entre os dois em prazos parecidos, uma leitura da inflação que o mercado embute nos preços.</p>
+    </div>
+    <div class="panel">
+      <div class="ptit"><h2>Títulos do Tesouro Direto</h2></div>
+      <div class="scroll"><table id="tTit"></table></div>
+    </div>
+    <div class="panel">
+      <div class="ptit"><h2>Simulador de renda fixa</h2></div>
+      <p class="sub2">Compare quanto o mesmo dinheiro renderia em cada aplicação, já descontado o imposto de renda. As taxas sugeridas partem dos números de hoje e você pode alterar todas.</p>
+      <div class="sim">
+        <div class="sim-campos">
+          <div class="campo"><label for="sValor">Valor inicial (R$)</label><input type="number" id="sValor" min="0" step="100" value="10000"></div>
+          <div class="campo"><label for="sAporte">Aporte mensal (R$)</label><input type="number" id="sAporte" min="0" step="50" value="0"></div>
+          <div class="campo"><label for="sPrazo">Prazo (meses)</label><input type="number" id="sPrazo" min="1" max="360" step="1" value="24"></div>
+          <div class="campo"><label for="sCdb">CDB (% do CDI)</label><input type="number" id="sCdb" min="0" step="1" value="100"></div>
+          <div class="campo"><label for="sLci">LCI e LCA (% do CDI)</label><input type="number" id="sLci" min="0" step="1" value="90"></div>
+          <div class="campo"><label for="sPre">Prefixado (% ao ano)</label><input type="number" id="sPre" min="0" step="0.05"></div>
+          <div class="campo"><label for="sReal">IPCA+ (juro real, % ao ano)</label><input type="number" id="sReal" min="0" step="0.05"></div>
+          <div class="campo"><label for="sIpca">IPCA esperado (% ao ano)</label><input type="number" id="sIpca" min="0" step="0.05"></div>
+          <label class="chk"><input type="checkbox" id="sFocus" checked> Fazer a Selic e o CDI seguirem a trajetória esperada pelo Focus</label>
+        </div>
+        <div>
+          <div class="scroll"><table id="tSim"></table></div>
+          <div class="chartbox" style="height:240px;margin-top:14px"><canvas id="chSim" role="img" aria-label="Valor líquido final de cada aplicação"></canvas></div>
+        </div>
+      </div>
+      <p class="fonte">Simulação simplificada, sem garantia de resultado. Considera IR regressivo (22,5% a 15%) sobre cada aporte, isenção para LCI, LCA e poupança, taxa de custódia de 0,20% ao ano no Tesouro e a regra atual da poupança (0,5% ao mês mais TR com a Selic acima de 8,5%). Não considera IOF em resgates antes de 30 dias, FGC nem taxas de corretoras.</p>
+    </div>
+  </section>
+
   <!-- ===================== INDICADORES ===================== -->
   <section class="view" id="v-indicadores" hidden>
     <header class="ph"><div><h1>Indicadores</h1><p>Juros, inflação, atividade, crédito, contas públicas e setor externo. Clique num indicador para ver a série mês a mês.</p></div></header>
@@ -298,6 +405,16 @@ footer p{margin:0 0 4px}
   <!-- ===================== MERCADOS ===================== -->
   <section class="view pilha" id="v-mercado" hidden>
     <header class="ph"><div><h1>Mercados</h1><p>Bolsas do Brasil e do mundo, juros americanos, commodities, moedas e criptomoedas.</p></div></header>
+    <div class="panel">
+      <div class="ptit"><h2>Conversor de moedas</h2></div>
+      <div class="conv">
+        <div class="campo"><label for="cvVal">Valor</label><input type="number" id="cvVal" min="0" step="any" value="1000"></div>
+        <div class="campo"><label for="cvDe">De</label><select id="cvDe"></select></div>
+        <button type="button" class="btn sec" id="cvInv" aria-label="Inverter moedas">⇄</button>
+        <div class="campo"><label for="cvPara">Para</label><select id="cvPara"></select></div>
+        <p class="cvRes" id="cvRes" role="status"></p>
+      </div>
+    </div>
     <div class="g2" id="mercGrupos"></div>
     <div class="panel">
       <div class="ptit"><h2>Ações brasileiras acompanhadas</h2></div>
@@ -364,6 +481,47 @@ footer p{margin:0 0 4px}
   <div class="db"><table class="tser" id="dlgT"></table></div>
 </dialog>
 
+<dialog id="dlgPers" class="largo" aria-labelledby="persTit">
+  <div class="dh">
+    <div><h2 id="persTit">Personalizar</h2><p id="persSub">Suas escolhas ficam salvas neste navegador.</p></div>
+    <button class="fechar" type="button" data-fechar aria-label="Fechar">×</button>
+  </div>
+  <div class="db pers">
+    <div class="g2" style="margin:8px 0 0">
+      <div class="campo"><label for="pTema">Tema</label><select id="pTema"><option value="auto">Automático (segue o sistema)</option><option value="claro">Claro</option><option value="escuro">Escuro</option></select></div>
+      <div class="campo"><label for="pInicio">Abrir o site em</label><select id="pInicio"></select></div>
+    </div>
+    <h3>Blocos do resumo</h3>
+    <p class="dica">Marque o que quer ver e use as setas para mudar a ordem.</p>
+    <ol class="ordem" id="pBlocos"></ol>
+    <h3>Meus ativos</h3>
+    <p class="dica">Aparecem em "Minha seleção" no resumo e no começo da faixa de cotações.</p>
+    <input type="search" id="pBusca" placeholder="Buscar ativo ou ação" aria-label="Buscar ativo">
+    <div class="escolhas" id="pAtivos"></div>
+    <h3>Meus indicadores</h3>
+    <div class="escolhas" id="pInds"></div>
+  </div>
+  <div class="df"><button type="button" class="btn sec" id="pPadrao">Restaurar padrão</button><button type="button" class="btn" data-fechar>Concluir</button></div>
+</dialog>
+
+<dialog id="dlgLogin" aria-labelledby="loginTit">
+  <div class="dh">
+    <div><h2 id="loginTit">Entrar</h2><p>Entre com seu e-mail para guardar suas preferências na sua conta e usá-las em qualquer dispositivo.</p></div>
+    <button class="fechar" type="button" data-fechar aria-label="Fechar">×</button>
+  </div>
+  <div class="db" style="padding-top:16px">
+    <form id="fLogin">
+      <div class="campo"><label for="lEmail">E-mail</label><input type="email" id="lEmail" required autocomplete="email"></div>
+      <button class="btn" type="submit" id="lEnviar">Receber link de acesso</button>
+    </form>
+    <div id="lLogado" hidden>
+      <p style="margin-top:0">Você entrou como <strong id="lQuem"></strong>. Suas preferências são salvas automaticamente na sua conta.</p>
+      <button class="btn sec" type="button" id="lSair">Sair</button>
+    </div>
+    <p class="dica" id="lMsg" role="status" style="margin-top:12px"></p>
+  </div>
+</dialog>
+
 <script>
 /* ======================= Dados ilustrativos ======================= */
 const DEMO = (() => {
@@ -413,7 +571,14 @@ const DEMO = (() => {
     ['R5/2027',13,10.25,15],['R6/2027',12.75,10,15],['R7/2027',12.5,9.75,15],['R8/2027',12.5,9.75,15],['R1/2028',12.25,9.75,14.75],['R2/2028',12,9.25,14.75],['R3/2028',12,9,14.75],['R4/2028',11.75,9,14.75]];
   return {
     atualizado: new Date().toISOString(),
-    juros: { meses: meses.slice(-24), selic: selic24, ipca12: ipca12.slice(-24), selic_desde: '2026-09-17' },
+    juros: { meses: meses.slice(-24), selic: selic24, ipca12: ipca12.slice(-24), selic_desde: '2026-09-17', tr_mes: 0.08 },
+    tesouro: { data: '2026-11-05', data_comparacao: '2026-10-29', titulos: [
+      ['Tesouro Selic', '2029-03-01', 0.06, 0.07, 17050], ['Tesouro Selic', '2031-03-01', 0.1, 0.11, 16980],
+      ['Tesouro Prefixado', '2028-01-01', 13.52, 13.64, 865], ['Tesouro Prefixado', '2029-01-01', 13.38, 13.5, 760], ['Tesouro Prefixado', '2032-01-01', 13.62, 13.74, 512],
+      ['Tesouro Prefixado com Juros Semestrais', '2035-01-01', 13.8, 13.92, 905],
+      ['Tesouro IPCA+', '2029-05-15', 7.6, 7.72, 3620], ['Tesouro IPCA+', '2035-05-15', 7.15, 7.27, 2280], ['Tesouro IPCA+', '2045-05-15', 6.92, 7.04, 1190],
+      ['Tesouro IPCA+ com Juros Semestrais', '2040-08-15', 7.0, 7.12, 4250], ['Tesouro IPCA+ com Juros Semestrais', '2055-05-15', 6.85, 6.97, 4310]
+    ].map(([tipo, vencimento, tc, tv, pc]) => ({ tipo, vencimento, anos: +((new Date(vencimento) - new Date('2026-11-05')) / 31557600000).toFixed(2), taxa_compra: tc, taxa_venda: tv, pu_compra: pc, pu_venda: pc * 0.995, var_semana: +(Math.sin(pc) * 0.15).toFixed(2) })) },
     indicadores: [
       ind('Juros', 'Selic meta', 13.75, '%', 2, 13.75, selic24.slice(-12), tabTaxa(selic26, 'Selic (% ao ano)'), 'Banco Central do Brasil'),
       ind('Juros', 'CDI (ao ano)', 13.65, '%', 2, 13.65, selic24.slice(-12).map(v => v - 0.1), null, 'Banco Central do Brasil'),
@@ -677,10 +842,11 @@ function renderTopo(D, demo) {
   const t = new Date(D.atualizado);
   $('stamp').textContent = isNaN(t) ? '' : 'Atualizado em ' + t.toLocaleString('pt-BR', { dateStyle: 'short', timeStyle: 'short' });
   const SIMB = ['^BVSP', 'BRL=X', 'EURBRL=X', '^GSPC', '^IXIC', '^DJI', '^STOXX50E', '^GDAXI', '^N225', '^HSI', 'BZ=F', 'GC=F', 'TIO=F', '^TNX', 'BTC-USD'];
-  let itens = SIMB.map(s => cotacao(D, s)).filter(Boolean).map(x => ({ nome: nomeCurto(x.nome), valor: x.valor, unidade: x.unidade, casas: x.casas, var: x.var }));
+  const meus = ativosEscolhidos(D).map(a => ({ nome: a.curto, valor: a.valor, unidade: a.unidade, casas: a.casas, var: a.var }));
+  let itens = SIMB.filter(x => !PREFS.ativos.includes(x)).map(s => cotacao(D, s)).filter(Boolean).map(x => ({ nome: nomeCurto(x.nome), valor: x.valor, unidade: x.unidade, casas: x.casas, var: x.var }));
   if (!itens.length) itens = (D.mercado && D.mercado.indices) || [];
   const s = ultimo(D.juros.selic), i = ultimo(D.juros.ipca12);
-  itens = [{ nome: 'Selic', valor: s, unidade: '%', casas: 2 }, { nome: 'IPCA 12m', valor: i, unidade: '%', casas: 2 }, ...itens];
+  itens = [...meus, { nome: 'Selic', valor: s, unidade: '%', casas: 2 }, { nome: 'IPCA 12m', valor: i, unidade: '%', casas: 2 }, ...itens];
   const html = itens.map(x => `<span class="tk"><span class="n">${esc(x.nome)}</span><span class="v">${valor(x.valor, x.unidade, x.casas)}</span>${x.var == null ? '' : variacao(x.var)}</span>`).join('');
   $('trilho').innerHTML = `<span>${html}</span><span aria-hidden="true">${html}</span>`;
 }
@@ -732,6 +898,10 @@ function renderResumo(D) {
   $('hMundo').innerHTML = ['BR', 'US', 'XM', 'GB', 'JP', 'CN', 'MX'].map(c => M.find(x => x.codigo === c)).filter(Boolean)
     .map(x => `<li><span>${esc(x.pais)}</span><span class="val">${pct(x.taxa, 2)}</span><span class="var">${variacao(x.var12, ' p.p.')}</span></li>`).join('') || '<li class="muted">Sem dados no momento.</li>';
   $('hNews').innerHTML = htmlNoticias(noticiasOrdenadas(D).slice(0, 5));
+  const T = titulosTesouro(D);
+  const destaqueT = [T.selic[0], T.pre[0], T.pre.at(-1), T.ipca[0], T.ipca.at(-1)].filter((x, k, a) => x && a.indexOf(x) === k);
+  $('hTesouro').innerHTML = destaqueT.length ? destaqueT.map(t => `<div><dt>${esc(nomeTitulo(t))}</dt><dd>${taxaTitulo(t)}</dd></div>`).join('')
+    : '<div><dt>Sem dados do Tesouro no momento</dt><dd></dd></div>';
 }
 
 function htmlSelicFocus(D) {
@@ -795,17 +965,17 @@ function renderIndicadores(D) {
   $('indGrupos').innerHTML = gs.map(g => {
     const itens = L.filter(x => x.g === g);
     return `<h2 class="grupo">${esc(g)} <small>${itens.length} ${itens.length === 1 ? 'indicador' : 'indicadores'}</small></h2><div class="inds">${itens.map(x => {
-      let delta = '';
-      if (!vazio(x.anterior)) delta = x.unidade === '%' ? variacao(x.valor - x.anterior, ' p.p.', 2) : variacao((x.valor / x.anterior - 1) * 100, '%', 2);
-      return `<button type="button" class="ind" data-i="${x.k}" aria-haspopup="dialog">
+      const delta = deltaInd(x);
+      return `<div class="indw">${botaoEstrela('indicadores', x.nome, x.nome)}<button type="button" class="ind" data-i="${x.k}" aria-haspopup="dialog">
         <span class="n">${esc(x.nome)}</span>
         <span class="v">${valor(x.valor, x.unidade, x.casas)}</span>
         <span class="m">${esc(x.freq === 'd' ? dia(x.data) : mes(x.data))}${delta ? ', ' + delta : ''}</span>
         <span class="spk">${spark(x.serie, 'var(--accent)', 200, 34)}</span>
-        <span class="ver">Ver série mês a mês</span></button>`;
+        <span class="ver">Ver série mês a mês</span></button></div>`;
     }).join('')}</div>`;
   }).join('');
   $('indGrupos').querySelectorAll('.ind').forEach(b => b.addEventListener('click', () => abrirTabela(D.indicadores[+b.dataset.i])));
+  atualizarEstrelas();
 }
 
 function abrirTabela(x) {
@@ -824,12 +994,14 @@ function renderMercado(D) {
   const G = grupos(D);
   $('mercGrupos').innerHTML = G.length ? G.map(g => `<div class="panel"><div class="ptit"><h2>${esc(g.nome)}</h2></div>
     <div class="scroll"><table class="cot"><thead><tr><th scope="col">Ativo</th><th scope="col">Tendência</th><th scope="col">Último</th><th scope="col">Dia</th><th scope="col">1 mês</th></tr></thead><tbody>${
-      g.itens.map(x => `<tr><th scope="row" style="white-space:normal">${esc(x.nome)}</th><td class="sp">${spark(x.serie, corTend(x.serie), 96, 26)}</td><td><strong>${valor(x.valor, x.unidade, x.casas)}</strong></td><td>${variacao(x.var)}</td><td>${variacao(x.var_mes)}</td></tr>`).join('')
+      g.itens.map(x => `<tr><th scope="row" style="white-space:normal">${botaoEstrela('ativos', x.simbolo, x.nome)}${esc(x.nome)}</th><td class="sp">${spark(x.serie, corTend(x.serie), 96, 26)}</td><td><strong>${valor(x.valor, x.unidade, x.casas)}</strong></td><td>${variacao(x.var)}</td><td>${variacao(x.var_mes)}</td></tr>`).join('')
     }</tbody></table></div></div>`).join('')
     : `<div class="panel"><div class="ptit"><h2>Índices, câmbio e commodities</h2></div><ul class="lista">${htmlIndices(D.mercado.indices)}</ul></div>`;
   $('acoes').querySelector('tbody').innerHTML = (D.mercado.acoes || []).map(a => `<tr>
-      <td><span class="t">${esc(a.ticker)}</span>${a.nome && a.nome !== a.ticker ? `<span class="nm">${esc(a.nome)}</span>` : ''}</td>
+      <td><div style="display:flex;align-items:center;gap:6px">${botaoEstrela('ativos', 'acao:' + a.ticker, a.ticker)}<div><span class="t">${esc(a.ticker)}</span>${a.nome && a.nome !== a.ticker ? `<span class="nm">${esc(a.nome)}</span>` : ''}</div></div></td>
       <td>${valor(a.preco, 'R$', 2)}</td><td>${variacao(a.var)}</td></tr>`).join('');
+  montarConversor(D);
+  atualizarEstrelas();
 }
 
 function renderBalanca(D) {
@@ -917,6 +1089,24 @@ function desenharGraficos(view, D) {
 
   if (view === 'inicio') graficos.push(graficoJuros($('chResumo'), D, $('hLeg')));
   if (view === 'juros') graficos.push(graficoJuros($('chJuros'), D, null));
+  if (view === 'rendafixa') {
+    const T = titulosTesouro(D);
+    const ponto = t => ({ x: t.anos, y: taxaNum(t), t });
+    const tip = c => c.raw.t ? `${nomeTitulo(c.raw.t)} (${mesLongo(c.raw.t.vencimento)}): ${pct(c.parsed.y)}` : `${c.dataset.label}, ${num(c.parsed.x, 1)} anos: ${pct(c.parsed.y)}`;
+    if (T.pre.length || T.ipca.length) graficos.push(new Chart($('chCurva'), {
+      type: 'scatter',
+      data: { datasets: [
+        { label: 'Prefixados (% ao ano)', data: T.pre.map(ponto), borderColor: acc, backgroundColor: acc, showLine: true, borderWidth: 2.4, pointRadius: 4, tension: .25 },
+        { label: 'IPCA+ (juro real, % ao ano)', data: T.ipca.map(ponto), borderColor: acc2, backgroundColor: acc2, showLine: true, borderWidth: 2.4, pointRadius: 4, tension: .25 },
+        { label: 'Inflação implícita (% ao ano)', data: inflacaoImplicita(T).map(x => ({ x: x.anos, y: x.valor })), borderColor: css('--muted'), backgroundColor: css('--muted'), showLine: true, borderDash: [5, 4], borderWidth: 1.8, pointRadius: 3 }
+      ] },
+      options: { ...base, interaction: { mode: 'nearest', intersect: false },
+        plugins: { ...base.plugins, tooltip: { callbacks: { label: tip } } },
+        scales: { x: { type: 'linear', grid: { color: line }, title: { display: true, text: 'Anos até o vencimento' }, ticks: { callback: v => v + ' a' } },
+                  y: { ...base.scales.y, ticks: { callback: v => v + '%' } } } }
+    }));
+    simular(D);
+  }
   if (view === 'balanca') {
     const b = D.balanca;
     graficos.push(new Chart($('chBal'), {
@@ -944,9 +1134,368 @@ function desenharGraficos(view, D) {
   }
 }
 
+
+/* ======================= Indicadores: variação ======================= */
+function deltaInd(x) {
+  if (vazio(x.anterior)) return '';
+  return x.unidade === '%' ? variacao(x.valor - x.anterior, ' p.p.', 2) : variacao((x.valor / x.anterior - 1) * 100, '%', 2);
+}
+
+/* ======================= Renda fixa ======================= */
+const taxaNum = t => vazio(t.taxa_compra) || !t.taxa_compra ? t.taxa_venda : t.taxa_compra;
+function nomeTitulo(t) {
+  return `${t.tipo.replace('Tesouro ', '').replace(' com Juros Semestrais', ' com juros')} ${t.vencimento.slice(0, 4)}`;
+}
+function taxaTitulo(t) {
+  const v = taxaNum(t);
+  if (/Selic/i.test(t.tipo)) return 'Selic + ' + pct(v, 2);
+  if (/IPCA|Renda\+|Educa\+/i.test(t.tipo)) return 'IPCA + ' + pct(v, 2);
+  return pct(v, 2);
+}
+function titulosTesouro(D) {
+  const L = ((D.tesouro && D.tesouro.titulos) || []).filter(t => !vazio(taxaNum(t)));
+  const por = f => L.filter(f).sort((a, b) => a.anos - b.anos);
+  return {
+    todos: L,
+    selic: por(t => /Selic/i.test(t.tipo)),
+    pre: por(t => /Prefixado/i.test(t.tipo)),
+    ipca: por(t => /IPCA\+/i.test(t.tipo) && !/Renda\+|Educa\+/i.test(t.tipo))
+  };
+}
+function inflacaoImplicita(T) {
+  const out = [];
+  T.ipca.forEach(r => {
+    let melhor = null;
+    T.pre.forEach(p => { const d = Math.abs(p.anos - r.anos); if (d <= 1.5 && (!melhor || d < melhor.d)) melhor = { p, d }; });
+    if (melhor) out.push({ anos: r.anos, valor: ((1 + taxaNum(melhor.p) / 100) / (1 + taxaNum(r) / 100) - 1) * 100 });
+  });
+  return out;
+}
+const sinal = (v, suf = ' p.p.') => vazio(v) ? '–' : (v > 0 ? '+' : v < 0 ? '−' : '') + num(Math.abs(v), 2) + suf;
+let simIniciado = false;
+function renderRendaFixa(D) {
+  const T = titulosTesouro(D);
+  const impl = inflacaoImplicita(T);
+  const imp5 = impl.slice().sort((a, b) => Math.abs(a.anos - 5) - Math.abs(b.anos - 5))[0];
+  const card = (l, t, sub) => statCard(l, t ? pct(taxaNum(t), 2) : '–', t ? sub(t) : '&nbsp;', '');
+  $('rfStats').innerHTML = [
+    card('Prefixado mais curto', T.pre[0], t => `Vence em ${mesLongo(t.vencimento)}`),
+    card('Prefixado mais longo', T.pre.at(-1), t => `Vence em ${mesLongo(t.vencimento)}`),
+    card('IPCA+ mais longo (juro real)', T.ipca.at(-1), t => `IPCA mais essa taxa até ${mesLongo(t.vencimento)}`),
+    statCard('Inflação implícita', imp5 ? pct(imp5.valor, 2) : '–', imp5 ? `Ao ano, em cerca de ${num(imp5.anos, 0)} anos` : 'Sem títulos comparáveis', '')
+  ].join('');
+  const dt = D.tesouro && D.tesouro.data;
+  $('curvaSub').textContent = dt ? `Taxas de compra do Tesouro Direto em ${dia(dt)}.` : 'Sem dados do Tesouro no momento.';
+  $('tTit').innerHTML = T.todos.length ? `<thead><tr><th scope="col">Título</th><th scope="col">Vencimento</th><th scope="col">Taxa de compra</th><th scope="col">Taxa de resgate</th><th scope="col">Variação em 1 semana</th><th scope="col">Preço de compra</th></tr></thead>
+    <tbody>${T.todos.slice().sort((a, b) => a.tipo.localeCompare(b.tipo) || a.anos - b.anos).map(t => `<tr><th scope="row">${esc(t.tipo)}</th><td>${esc(dia(t.vencimento))}</td>
+      <td><strong>${t.taxa_compra ? taxaTitulo(t) : '<span class="muted">só resgate</span>'}</strong></td><td>${taxaTitulo({ ...t, taxa_compra: null })}</td>
+      <td>${sinal(t.var_semana)}</td><td>${t.pu_compra ? valor(t.pu_compra, 'R$', 2) : '–'}</td></tr>`).join('')}</tbody>
+    <caption>Fonte: Tesouro Transparente${dt ? `, taxas de ${esc(dia(dt))}` : ''}. Taxa em alta significa preço em queda. A variação compara a taxa de resgate com a de ${D.tesouro && D.tesouro.data_comparacao ? esc(dia(D.tesouro.data_comparacao)) : 'uma semana antes'}.</caption>`
+    : '<caption>Sem dados do Tesouro no momento.</caption>';
+
+  if (!simIniciado) {
+    simIniciado = true;
+    const prazoAnos = () => (+$('sPrazo').value || 24) / 12;
+    const perto = L => L.slice().sort((a, b) => Math.abs(a.anos - prazoAnos()) - Math.abs(b.anos - prazoAnos()))[0];
+    const p = perto(T.pre), r = perto(T.ipca);
+    $('sPre').value = p ? taxaNum(p).toFixed(2) : (ultimo(D.juros.selic) || 12).toFixed(2);
+    $('sReal').value = r ? taxaNum(r).toFixed(2) : '6.50';
+    const ano = new Date().getFullYear();
+    const ip = focusVal(D, 'IPCA', ano + 1) ?? focusVal(D, 'IPCA', ano) ?? ultimo(D.juros.ipca12) ?? 4;
+    $('sIpca').value = (+ip).toFixed(2);
+    ['sValor', 'sAporte', 'sPrazo', 'sCdb', 'sLci', 'sPre', 'sReal', 'sIpca', 'sFocus'].forEach(id => $(id).addEventListener('input', () => simular(D)));
+  }
+}
+
+let graficoSim = null;
+function simular(D) {
+  const n = Math.max(1, Math.min(360, Math.round(+$('sPrazo').value || 1)));
+  const v0 = Math.max(0, +$('sValor').value || 0), ap = Math.max(0, +$('sAporte').value || 0);
+  const selic0 = ultimo(D.juros.selic) ?? 10;
+  const cdiInd = indicador(D, 'CDI (ao ano)');
+  const difCdi = cdiInd ? selic0 - cdiInd.valor : 0.1;
+  const R = proximas(D).filter(r => r.mes);
+  const usarFocus = $('sFocus').checked;
+  const selicMes = [];
+  for (let k = 0; k < n; k++) {
+    const m = somaMes(hojeMes(), k);
+    let s = selic0;
+    if (usarFocus) R.forEach(r => { if (r.mes <= m) s = r.mediana; });
+    selicMes.push(s);
+  }
+  const am = aa => Math.pow(1 + aa / 100, 1 / 12) - 1;
+  const tr = (D.juros.tr_mes || 0) / 100;
+  const tesouroSelic = titulosTesouro(D).selic[0];
+  const spread = tesouroSelic ? taxaNum(tesouroSelic) : 0;
+  function aplicar(taxaMes, ir, custodia) {
+    let bruto = 0, imposto = 0, investido = 0;
+    const tranches = [[0, v0], ...Array.from({ length: n - 1 }, (_, j) => [j + 1, ap])];
+    tranches.forEach(([ini, amt]) => {
+      if (!amt) return;
+      let f = 1;
+      for (let k = ini; k < n; k++) f *= 1 + taxaMes(k);
+      if (custodia) f *= Math.pow(1 - 0.002, (n - ini) / 12);
+      const val = amt * f, ganho = val - amt, dias = (n - ini) * 30;
+      const aliq = !ir ? 0 : dias <= 180 ? .225 : dias <= 360 ? .2 : dias <= 720 ? .175 : .15;
+      bruto += val; imposto += ganho > 0 ? ganho * aliq : 0; investido += amt;
+    });
+    return { bruto, imposto, liquido: bruto - imposto, investido };
+  }
+  const cdb = +$('sCdb').value || 0, lci = +$('sLci').value || 0, pre = +$('sPre').value || 0, real = +$('sReal').value || 0, ipca = +$('sIpca').value || 0;
+  const op = [
+    ['CDB', `${num(cdb, 0)}% do CDI`, aplicar(k => am((selicMes[k] - difCdi) * cdb / 100), true, false)],
+    ['LCI e LCA', `${num(lci, 0)}% do CDI, isentas de IR`, aplicar(k => am((selicMes[k] - difCdi) * lci / 100), false, false)],
+    ['Tesouro Selic', `Selic + ${num(spread, 2)}%`, aplicar(k => am(selicMes[k] + spread), true, true)],
+    ['Tesouro Prefixado', `${num(pre, 2)}% ao ano`, aplicar(() => am(pre), true, true)],
+    ['Tesouro IPCA+', `IPCA (${num(ipca, 2)}%) + ${num(real, 2)}%`, aplicar(() => am(((1 + real / 100) * (1 + ipca / 100) - 1) * 100), true, true)],
+    ['Poupança', 'Isenta de IR', aplicar(k => (selicMes[k] > 8.5 ? 0.005 : am(selicMes[k] * 0.7)) + tr, false, false)]
+  ].map(([nome, det, r]) => ({ nome, det, ...r })).sort((a, b) => b.liquido - a.liquido);
+  const inv = op[0] ? op[0].investido : 0;
+  $('tSim').innerHTML = `<thead><tr><th scope="col">Aplicação</th><th scope="col">Valor bruto</th><th scope="col">Imposto de renda</th><th scope="col">Valor líquido</th><th scope="col">Ganho líquido</th></tr></thead>
+    <tbody>${op.map((o, k) => `<tr class="${k === 0 ? 'melhor' : ''}"><th scope="row">${esc(o.nome)}${k === 0 ? '<span class="tag">melhor resultado</span>' : ''}<span class="nm">${esc(o.det)}</span></th>
+      <td>${valor(o.bruto, 'R$', 2)}</td><td>${valor(o.imposto, 'R$', 2)}</td><td><strong>${valor(o.liquido, 'R$', 2)}</strong></td><td>${o.investido ? pct((o.liquido / o.investido - 1) * 100, 2) : '–'}</td></tr>`).join('')}</tbody>
+    <caption>Total investido: ${valor(inv, 'R$', 2)} em ${n} ${n === 1 ? 'mês' : 'meses'}. ${usarFocus && R.length ? 'Selic e CDI seguem a mediana do Focus para cada reunião do Copom.' : `Selic constante em ${pct(selic0)}.`}</caption>`;
+  if (window.Chart && $('chSim').offsetParent !== null) {
+    const dados = { labels: op.map(o => o.nome), datasets: [{ label: 'Valor líquido', data: op.map(o => +o.liquido.toFixed(2)), backgroundColor: op.map((o, k) => k === 0 ? css('--accent') : alpha(css('--accent'), .45)), borderRadius: 4 }] };
+    if (graficoSim && graficos.includes(graficoSim)) { graficoSim.data = dados; graficoSim.update(); }
+    else {
+      graficoSim = new Chart($('chSim'), { type: 'bar', data: dados, options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => valor(c.parsed.x, 'R$', 2) } } },
+        scales: { x: { grid: { color: css('--line') }, ticks: { callback: v => 'R$ ' + num(v, 0) }, min: Math.floor(Math.min(...op.map(o => o.liquido)) * 0.97) }, y: { grid: { display: false } } } } });
+      graficos.push(graficoSim);
+    }
+  }
+}
+
+/* ======================= Conversor de moedas ======================= */
+function taxasEmReais(D) {
+  const q = s => { const x = cotacao(D, s); return x && x.valor ? x.valor : null; };
+  const dolarInd = (D.mercado.indices || []).find(x => x.nome === 'Dólar');
+  const usd = q('BRL=X') || (dolarInd && dolarInd.valor);
+  const t = { BRL: 1 };
+  if (usd) t.USD = usd;
+  const eur = q('EURBRL=X') || (((D.mercado.indices || []).find(x => x.nome === 'Euro')) || {}).valor;
+  if (eur) t.EUR = eur;
+  if (q('GBPBRL=X')) t.GBP = q('GBPBRL=X');
+  if (usd) {
+    [['JPY', 'JPY=X'], ['CNY', 'CNY=X'], ['ARS', 'ARS=X'], ['MXN', 'MXN=X']].forEach(([c, s]) => { if (q(s)) t[c] = usd / q(s); });
+    [['BTC', 'BTC-USD'], ['ETH', 'ETH-USD']].forEach(([c, s]) => { if (q(s)) t[c] = usd * q(s); });
+  }
+  return t;
+}
+const NOMES_MOEDAS = { BRL: 'Real', USD: 'Dólar americano', EUR: 'Euro', GBP: 'Libra esterlina', JPY: 'Iene', CNY: 'Yuan', ARS: 'Peso argentino', MXN: 'Peso mexicano', BTC: 'Bitcoin', ETH: 'Ethereum' };
+let conversorPronto = false;
+function montarConversor(D) {
+  const t = taxasEmReais(D);
+  const cods = Object.keys(NOMES_MOEDAS).filter(c => t[c]);
+  if (!conversorPronto) {
+    const opts = cods.map(c => `<option value="${c}">${c}, ${esc(NOMES_MOEDAS[c])}</option>`).join('');
+    $('cvDe').innerHTML = opts; $('cvPara').innerHTML = opts;
+    $('cvDe').value = t.USD ? 'USD' : cods[0]; $('cvPara').value = 'BRL';
+    ['cvVal', 'cvDe', 'cvPara'].forEach(id => $(id).addEventListener('input', () => montarConversor(D)));
+    $('cvInv').addEventListener('click', () => { const a = $('cvDe').value; $('cvDe').value = $('cvPara').value; $('cvPara').value = a; montarConversor(D); });
+    conversorPronto = true;
+  }
+  const de = $('cvDe').value, para = $('cvPara').value, v = +$('cvVal').value || 0;
+  if (!t[de] || !t[para]) { $('cvRes').textContent = 'Cotação indisponível no momento.'; return; }
+  const res = v * t[de] / t[para], unit = t[de] / t[para];
+  const casas = c => (c === 'BTC' || c === 'ETH') ? 6 : 2;
+  $('cvRes').innerHTML = `${num(v, casas(de))} ${de} = ${num(res, casas(para))} ${para}<small>1 ${de} = ${num(unit, unit < 0.01 ? 6 : 4)} ${para}</small>`;
+}
+
+/* ======================= Preferências do usuário ======================= */
+const BLOCOS = [
+  { id: 'destaques', nome: 'Destaques (Selic, IPCA, dólar e Ibovespa)' }, { id: 'meus', nome: 'Minha seleção' },
+  { id: 'grafico', nome: 'Gráfico de juros e projeção' }, { id: 'mercados', nome: 'Mercados no mundo' },
+  { id: 'inflacao', nome: 'Inflação e atividade' }, { id: 'expectativas', nome: 'Expectativas do Focus' },
+  { id: 'tesouro', nome: 'Tesouro Direto hoje' }, { id: 'balanca', nome: 'Balança comercial' },
+  { id: 'jurosmundo', nome: 'Juros pelo mundo' }, { id: 'noticias', nome: 'Últimas notícias' }
+];
+const CHAVE_PREFS = 'hub:prefs:v1';
+const prefsPadrao = () => ({ tema: 'auto', inicio: 'inicio', blocos: BLOCOS.map(b => ({ id: b.id, on: true })), ativos: [], indicadores: [] });
+function normalizarPrefs(p) {
+  const d = prefsPadrao();
+  p = p && typeof p === 'object' ? p : {};
+  const vistos = new Set();
+  const blocos = (Array.isArray(p.blocos) ? p.blocos : []).filter(b => b && BLOCOS.some(x => x.id === b.id) && !vistos.has(b.id) && vistos.add(b.id)).map(b => ({ id: b.id, on: b.on !== false }));
+  BLOCOS.forEach(b => { if (!vistos.has(b.id)) blocos.push({ id: b.id, on: true }); });
+  const lista = x => Array.isArray(x) ? [...new Set(x.filter(i => typeof i === 'string' && i.length < 120))].slice(0, 40) : [];
+  return {
+    tema: ['auto', 'claro', 'escuro'].includes(p.tema) ? p.tema : d.tema,
+    inicio: typeof p.inicio === 'string' && ['inicio', 'juros', 'rendafixa', 'indicadores', 'mercado', 'balanca', 'expectativas', 'paises', 'noticias'].includes(p.inicio) ? p.inicio : d.inicio,
+    blocos, ativos: lista(p.ativos), indicadores: lista(p.indicadores)
+  };
+}
+function lerPrefsLocal() { try { return JSON.parse(localStorage.getItem(CHAVE_PREFS) || 'null'); } catch (e) { return null; } }
+let PREFS = normalizarPrefs(lerPrefsLocal());
+function salvarPrefs() {
+  try { localStorage.setItem(CHAVE_PREFS, JSON.stringify(PREFS)); } catch (e) { /* navegador sem armazenamento */ }
+  if (usuario) salvarNaNuvemDepois();
+}
+function aplicarTema() {
+  const r = document.documentElement;
+  if (PREFS.tema === 'auto') r.removeAttribute('data-theme'); else r.setAttribute('data-theme', PREFS.tema === 'escuro' ? 'dark' : 'light');
+}
+function aplicarBlocos() {
+  const c = $('blocos');
+  PREFS.blocos.forEach(b => { const el = c.querySelector(`[data-bloco="${b.id}"]`); if (el) { c.appendChild(el); el.hidden = !b.on; } });
+}
+function aplicarPrefs(redesenhar = true) {
+  aplicarTema();
+  aplicarBlocos();
+  if (!DADOS) return;
+  try { renderTopo(DADOS, DADOS === DEMO); renderMeus(DADOS); atualizarEstrelas(); } catch (e) { console.error(e); }
+  if (redesenhar) { try { desenharGraficos(viewAtual(), DADOS); } catch (e) { console.error(e); } }
+}
+
+function ativosDisponiveis(D) {
+  const out = [];
+  grupos(D).forEach(g => g.itens.forEach(x => out.push({ id: x.simbolo, nome: x.nome, curto: nomeCurto(x.nome), grupo: g.nome, valor: x.valor, unidade: x.unidade, casas: x.casas, var: x.var, serie: x.serie })));
+  ((D.mercado && D.mercado.acoes) || []).forEach(a => out.push({ id: 'acao:' + a.ticker, nome: a.nome && a.nome !== a.ticker ? `${a.ticker} (${a.nome})` : a.ticker, curto: a.ticker, grupo: 'Ações brasileiras', valor: a.preco, unidade: 'R$', casas: 2, var: a.var, serie: null }));
+  return out;
+}
+function ativosEscolhidos(D) { const A = ativosDisponiveis(D); return PREFS.ativos.map(id => A.find(a => a.id === id)).filter(Boolean); }
+
+function botaoEstrela(lista, id, nome) {
+  return `<button type="button" class="estrela" data-lista="${lista}" data-id="${esc(id)}" data-nome="${esc(nome)}" aria-pressed="false" aria-label="Adicionar ${esc(nome)} à minha seleção">☆</button>`;
+}
+function atualizarEstrelas() {
+  document.querySelectorAll('.estrela').forEach(b => {
+    const on = (PREFS[b.dataset.lista] || []).includes(b.dataset.id);
+    b.setAttribute('aria-pressed', on);
+    b.textContent = on ? '★' : '☆';
+    b.setAttribute('aria-label', `${on ? 'Remover' : 'Adicionar'} ${b.dataset.nome} ${on ? 'da' : 'à'} minha seleção`);
+  });
+}
+function alternarEscolha(lista, id) {
+  const L = PREFS[lista], i = L.indexOf(id);
+  if (i >= 0) L.splice(i, 1); else L.push(id);
+  salvarPrefs();
+  atualizarEstrelas();
+  if (DADOS) { renderMeus(DADOS); renderTopo(DADOS, DADOS === DEMO); }
+}
+document.addEventListener('click', e => {
+  const b = e.target.closest('.estrela');
+  if (!b) return;
+  e.stopPropagation();
+  alternarEscolha(b.dataset.lista, b.dataset.id);
+});
+
+function renderMeus(D) {
+  const at = ativosEscolhidos(D);
+  const ind = PREFS.indicadores.map(n => indicador(D, n)).filter(Boolean);
+  if (!at.length && !ind.length) {
+    $('meus').innerHTML = '<p class="vazio">Monte sua seleção: clique na estrela ☆ ao lado de qualquer ativo em Mercados ou de um indicador em Indicadores, ou use o botão Editar.</p>';
+    return;
+  }
+  $('meus').innerHTML = `<div class="mgrid">${at.map(a => `<div class="mc"><span class="g">${esc(a.grupo)}</span><span class="n">${esc(a.curto)}</span><span class="x">${valor(a.valor, a.unidade, a.casas)}</span><span class="s">${variacao(a.var)} no dia</span>${a.serie ? `<span class="sp">${spark(a.serie, corTend(a.serie), 160, 28)}</span>` : ''}</div>`).join('')}${
+    ind.map(x => `<button type="button" class="mc" data-ind="${esc(x.nome)}" aria-haspopup="dialog"><span class="g">${esc(x.grupo || 'Indicador')}</span><span class="n">${esc(x.nome)}</span><span class="x">${valor(x.valor, x.unidade, x.casas)}</span><span class="s">${esc(x.freq === 'd' ? dia(x.data) : mes(x.data))}${deltaInd(x) ? ', ' + deltaInd(x) : ''}</span><span class="sp">${spark(x.serie, 'var(--accent)', 160, 28)}</span></button>`).join('')}</div>`;
+  $('meus').querySelectorAll('[data-ind]').forEach(b => b.addEventListener('click', () => abrirTabela(indicador(D, b.dataset.ind))));
+}
+
+/* Janela de personalização */
+function renderPers() {
+  if (!DADOS) return;
+  $('pTema').value = PREFS.tema;
+  if (!$('pInicio').options.length) $('pInicio').innerHTML = VIEWS.map(v => `<option value="${v}">${esc(TITULOS[v])}</option>`).join('');
+  $('pInicio').value = PREFS.inicio;
+  $('pBlocos').innerHTML = PREFS.blocos.map((b, k) => `<li><label><input type="checkbox" data-bloco-on="${b.id}" ${b.on ? 'checked' : ''}> ${esc(BLOCOS.find(x => x.id === b.id).nome)}</label>
+    <span><button type="button" data-mover="${b.id}" data-dir="-1" aria-label="Subir" ${k === 0 ? 'disabled' : ''}>↑</button> <button type="button" data-mover="${b.id}" data-dir="1" aria-label="Descer" ${k === PREFS.blocos.length - 1 ? 'disabled' : ''}>↓</button></span></li>`).join('');
+  const A = ativosDisponiveis(DADOS), busca = ($('pBusca').value || '').trim().toLowerCase();
+  const gruposA = [...new Set(A.map(a => a.grupo))];
+  $('pAtivos').innerHTML = gruposA.map(g => {
+    const itens = A.filter(a => a.grupo === g && (!busca || a.nome.toLowerCase().includes(busca) || a.id.toLowerCase().includes(busca)));
+    return itens.length ? `<h4>${esc(g)}</h4>${itens.map(a => `<label class="opt"><input type="checkbox" data-escolha="ativos" value="${esc(a.id)}" ${PREFS.ativos.includes(a.id) ? 'checked' : ''}> ${esc(a.nome)}</label>`).join('')}` : '';
+  }).join('') || '<p class="dica" style="margin:8px 0">Nenhum ativo encontrado.</p>';
+  const I = DADOS.indicadores || [];
+  const gruposI = [...new Set(I.map(x => x.grupo || 'Indicadores'))];
+  $('pInds').innerHTML = gruposI.map(g => `<h4>${esc(g)}</h4>${I.filter(x => (x.grupo || 'Indicadores') === g).map(x => `<label class="opt"><input type="checkbox" data-escolha="indicadores" value="${esc(x.nome)}" ${PREFS.indicadores.includes(x.nome) ? 'checked' : ''}> ${esc(x.nome)}</label>`).join('')}`).join('');
+  $('persSub').textContent = usuario ? `Salvo automaticamente na sua conta (${usuario.email}).` : sb ? 'Salvo neste navegador. Entre com seu e-mail para levar suas escolhas para outros dispositivos.' : 'Suas escolhas ficam salvas neste navegador.';
+}
+function abrirPers() { renderPers(); $('dlgPers').showModal(); }
+$('btnPers').addEventListener('click', abrirPers);
+document.querySelectorAll('[data-pers]').forEach(b => b.addEventListener('click', abrirPers));
+$('pTema').addEventListener('change', () => { PREFS.tema = $('pTema').value; salvarPrefs(); aplicarPrefs(); });
+$('pInicio').addEventListener('change', () => { PREFS.inicio = $('pInicio').value; salvarPrefs(); });
+$('pBusca').addEventListener('input', renderPers);
+$('dlgPers').addEventListener('change', e => {
+  const t = e.target;
+  if (t.dataset.blocoOn) { PREFS.blocos.find(b => b.id === t.dataset.blocoOn).on = t.checked; salvarPrefs(); aplicarBlocos(); }
+  if (t.dataset.escolha) { const L = PREFS[t.dataset.escolha], i = L.indexOf(t.value); if (t.checked && i < 0) L.push(t.value); if (!t.checked && i >= 0) L.splice(i, 1); salvarPrefs(); aplicarPrefs(false); }
+});
+$('dlgPers').addEventListener('click', e => {
+  const b = e.target.closest('[data-mover]');
+  if (!b) return;
+  const i = PREFS.blocos.findIndex(x => x.id === b.dataset.mover), j = i + +b.dataset.dir;
+  if (j < 0 || j >= PREFS.blocos.length) return;
+  [PREFS.blocos[i], PREFS.blocos[j]] = [PREFS.blocos[j], PREFS.blocos[i]];
+  salvarPrefs(); aplicarBlocos(); renderPers();
+  const novo = $('pBlocos').querySelector(`[data-mover="${b.dataset.mover}"][data-dir="${b.dataset.dir}"]`);
+  if (novo && !novo.disabled) novo.focus();
+});
+$('pPadrao').addEventListener('click', () => { PREFS = prefsPadrao(); salvarPrefs(); aplicarPrefs(); renderPers(); });
+document.querySelectorAll('dialog [data-fechar]').forEach(b => b.addEventListener('click', () => b.closest('dialog').close()));
+['dlgPers', 'dlgLogin'].forEach(id => $(id).addEventListener('click', e => { if (e.target === $(id)) $(id).close(); }));
+
+/* ======================= Login (Supabase) ======================= */
+const CFG = window.HUB_CONFIG || {};
+let sb = null, usuario = null, timerNuvem = null;
+function carregarScript(src) {
+  return new Promise((ok, erro) => { const s = document.createElement('script'); s.src = src; s.onload = ok; s.onerror = erro; document.head.appendChild(s); });
+}
+async function iniciarLogin() {
+  if (!CFG.supabaseUrl || !CFG.supabaseAnonKey) return;
+  try { await carregarScript('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js'); }
+  catch (e) { console.error('Não foi possível carregar o Supabase', e); return; }
+  sb = window.supabase.createClient(CFG.supabaseUrl, CFG.supabaseAnonKey, { auth: { flowType: 'pkce', persistSession: true, detectSessionInUrl: true } });
+  $('btnConta').hidden = false;
+  sb.auth.onAuthStateChange((evento, sessao) => { setTimeout(() => definirUsuario(sessao ? sessao.user : null), 0); });
+  const { data } = await sb.auth.getSession();
+  await definirUsuario(data.session ? data.session.user : null);
+  if (/[?&]code=/.test(location.search)) history.replaceState(null, '', location.pathname + location.hash);
+}
+async function definirUsuario(u) {
+  if ((u && u.id) === (usuario && usuario.id)) return;
+  usuario = u;
+  $('btnConta').textContent = u ? 'Minha conta' : 'Entrar';
+  $('lLogado').hidden = !u; $('fLogin').hidden = !!u;
+  $('loginTit').textContent = u ? 'Minha conta' : 'Entrar';
+  if (u) { $('lQuem').textContent = u.email; $('lMsg').textContent = ''; await carregarDaNuvem(); }
+}
+async function carregarDaNuvem() {
+  const { data, error } = await sb.from('preferencias').select('dados').eq('user_id', usuario.id).maybeSingle();
+  if (error) { console.error(error); return; }
+  if (data && data.dados) {
+    PREFS = normalizarPrefs(data.dados);
+    try { localStorage.setItem(CHAVE_PREFS, JSON.stringify(PREFS)); } catch (e) { /* sem armazenamento */ }
+    aplicarPrefs();
+    if ($('dlgPers').open) renderPers();
+  } else {
+    await salvarNaNuvem();
+  }
+}
+async function salvarNaNuvem() {
+  if (!sb || !usuario) return;
+  const { error } = await sb.from('preferencias').upsert({ user_id: usuario.id, dados: PREFS, atualizado_em: new Date().toISOString() });
+  if (error) console.error('Erro ao salvar preferências', error);
+}
+function salvarNaNuvemDepois() { clearTimeout(timerNuvem); timerNuvem = setTimeout(salvarNaNuvem, 800); }
+$('btnConta').addEventListener('click', () => $('dlgLogin').showModal());
+$('fLogin').addEventListener('submit', async e => {
+  e.preventDefault();
+  if (!sb) return;
+  const email = $('lEmail').value.trim();
+  $('lEnviar').disabled = true;
+  $('lMsg').textContent = 'Enviando...';
+  const { error } = await sb.auth.signInWithOtp({ email, options: { emailRedirectTo: location.origin + location.pathname } });
+  $('lEnviar').disabled = false;
+  $('lMsg').textContent = error ? `Não foi possível enviar o link: ${error.message}` : `Pronto. Enviamos um link de acesso para ${email}. Abra o e-mail neste mesmo navegador para entrar.`;
+});
+$('lSair').addEventListener('click', async () => { await sb.auth.signOut(); await definirUsuario(null); $('dlgLogin').close(); });
+
 /* ======================= Navegação ======================= */
-const VIEWS = ['inicio', 'juros', 'indicadores', 'mercado', 'balanca', 'expectativas', 'paises', 'noticias'];
-const TITULOS = { inicio: 'Resumo', juros: 'Juros', indicadores: 'Indicadores', mercado: 'Mercados', balanca: 'Balança comercial', expectativas: 'Expectativas', paises: 'Países', noticias: 'Notícias' };
+const VIEWS = ['inicio', 'juros', 'rendafixa', 'indicadores', 'mercado', 'balanca', 'expectativas', 'paises', 'noticias'];
+const TITULOS = { inicio: 'Resumo', juros: 'Juros', rendafixa: 'Renda fixa', indicadores: 'Indicadores', mercado: 'Mercados', balanca: 'Balança comercial', expectativas: 'Expectativas', paises: 'Países', noticias: 'Notícias' };
 let DADOS = null;
 const viewAtual = () => { const h = location.hash.slice(1); return VIEWS.includes(h) ? h : 'inicio'; };
 function rota() {
@@ -970,15 +1519,20 @@ async function carregar() {
   }
 }
 (async () => {
+  aplicarTema();
   const { D, demo } = await carregar();
   D.mercado = D.mercado || { indices: [], acoes: [] };
   DADOS = D;
   const seguro = fn => { try { fn(D); } catch (e) { console.error(fn.name, e); } };
   seguro(d => renderTopo(d, demo));
-  [renderResumo, renderJuros, renderIndicadores, renderMercado, renderBalanca, renderFocus, renderPaises, renderNoticias].forEach(seguro);
+  [renderResumo, renderMeus, renderJuros, renderRendaFixa, renderIndicadores, renderMercado, renderBalanca, renderFocus, renderPaises, renderNoticias].forEach(seguro);
+  aplicarBlocos();
+  atualizarEstrelas();
+  if (!location.hash && PREFS.inicio !== 'inicio') history.replaceState(null, '', location.pathname + location.search + '#' + PREFS.inicio);
   window.addEventListener('hashchange', rota);
   rota();
-  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => { try { desenharGraficos(viewAtual(), D); } catch (e) { console.error(e); } });
+  iniciarLogin();
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => { if (PREFS.tema !== 'auto') return; try { desenharGraficos(viewAtual(), D); } catch (e) { console.error(e); } });
 })();
 </script>
 </body>

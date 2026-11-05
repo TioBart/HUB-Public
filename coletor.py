@@ -54,8 +54,9 @@ SGS = {
     "divida_bruta": 13762, # Dívida bruta do governo geral (% do PIB)
     "dlsp": 4513,          # Dívida líquida do setor público (% do PIB)
     "reservas": 13621,     # Reservas internacionais (US$ milhões, diária)
+    "tr": 226,             # Taxa Referencial (% no período), usada no rendimento da poupança
     "desemprego": 24369,   # Taxa de desocupação PNAD Contínua (%)
-    "dolar": 1,            # Dólar PTAX venda (R$, diária)
+    "dolar": 1,           # Dólar PTAX venda (R$, diária)
     "euro": 21619,         # Euro PTAX venda (R$, diária)
     "exportacoes": 22708,  # Exportações de bens, mensal (US$ milhões)
     "importacoes": 22709,  # Importações de bens, mensal (US$ milhões)
@@ -174,6 +175,10 @@ FRED_RESERVA = {
 }
 NAVEGADOR = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
              "(KHTML, like Gecko) Chrome/126.0 Safari/537.36")
+
+# Preços e taxas do Tesouro Direto (Tesouro Transparente, CSV oficial atualizado todo dia útil)
+TESOURO_CSV = ("https://www.tesourotransparente.gov.br/ckan/dataset/df56aa42-484a-4a59-8184-7676580c81e3/"
+               "resource/796d2059-14e9-44e3-80c9-2d9e30b405c1/download/PrecoTaxaTesouroDireto.csv")
 
 FEEDS = {
     "Google Notícias": "https://news.google.com/rss/search?q=economia+brasil&hl=pt-BR&gl=BR&ceid=BR:pt-419",
@@ -330,6 +335,7 @@ def secao_juros(S):
         "selic": [p["v"] for p in selic],
         "ipca12": [ipca.get(m) for m in meses],
         "selic_desde": ultima_mudanca(S["selic"]),
+        "tr_mes": S["tr"][-1]["v"] if "tr" in S else None,
     }
 
 
@@ -685,6 +691,62 @@ def secao_juros_mundo(S, paises):
     return {"ano_inflacao": int(ano), "lista": lista}
 
 
+def _num_br(txt):
+    txt = (txt or "").strip().replace(".", "").replace(",", ".")
+    return float(txt) if txt else None
+
+
+def _data_br(txt):
+    return dt.datetime.strptime(txt.strip(), "%d/%m/%Y").date()
+
+
+def secao_tesouro():
+    """Taxas dos títulos do Tesouro Direto no último dia disponível, com a variação em uma semana."""
+    r = HTTP.get(TESOURO_CSV, timeout=180)
+    r.raise_for_status()
+    try:
+        texto = r.content.decode("utf-8-sig")
+    except UnicodeDecodeError:
+        texto = r.content.decode("latin-1")
+    leitor = csv.reader(io.StringIO(texto), delimiter=";")
+    cab = [c.strip().lower() for c in next(leitor)]
+
+    def col(*partes):
+        for i, c in enumerate(cab):
+            if all(p in c for p in partes):
+                return i
+        raise KeyError(" ".join(partes))
+
+    i_tipo, i_venc, i_base = col("tipo"), col("vencimento"), col("data base")
+    i_tc, i_tv = col("taxa", "compra"), col("taxa", "venda")
+    i_pc, i_pv = col("pu", "compra"), col("pu", "venda")
+    linhas = []
+    for l in leitor:
+        try:
+            linhas.append((l[i_tipo].strip(), _data_br(l[i_venc]), _data_br(l[i_base]),
+                           _num_br(l[i_tc]), _num_br(l[i_tv]), _num_br(l[i_pc]), _num_br(l[i_pv])))
+        except (ValueError, IndexError):
+            continue
+    if not linhas:
+        raise ValueError("CSV do Tesouro sem linhas")
+    ultima = max(x[2] for x in linhas)
+    datas = sorted({x[2] for x in linhas if x[2] <= ultima - dt.timedelta(days=6)})
+    ref = datas[-1] if datas else None
+    antes = {(x[0], x[1]): x[4] for x in linhas if x[2] == ref}
+    titulos = []
+    for tipo, venc, base, tc, tv, pc, pv in linhas:
+        if base != ultima or venc <= ultima:
+            continue
+        a = antes.get((tipo, venc))
+        titulos.append({
+            "tipo": tipo, "vencimento": venc.isoformat(), "anos": round((venc - ultima).days / 365.25, 2),
+            "taxa_compra": tc or None, "taxa_venda": tv, "pu_compra": pc or None, "pu_venda": pv,
+            "var_semana": round(tv - a, 2) if a is not None and tv is not None else None,
+        })
+    titulos.sort(key=lambda t: (t["tipo"], t["vencimento"]))
+    return {"data": ultima.isoformat(), "data_comparacao": ref.isoformat() if ref else None, "titulos": titulos}
+
+
 def secao_noticias():
     out = []
     for fonte, url in FEEDS.items():
@@ -725,6 +787,7 @@ def main():
         "balanca": lambda: secao_balanca(S),
         "focus": secao_focus,
         "selic_focus": secao_selic_focus,
+        "tesouro": secao_tesouro,
         "paises": lambda: secao_paises(S),
         "juros_mundo": lambda: secao_juros_mundo(S, hub.get("paises")),
         "noticias": secao_noticias,
