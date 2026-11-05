@@ -1,0 +1,694 @@
+{
+ "atualizado": "2026-11-05T15:51:36.364651+00:00",
+ "juros": {
+  "meses": [
+   "2024-12",
+   "2025-01",
+   "2025-02",
+   "2025-03",
+   "2025-04",
+   "2025-05",
+   "2025-06",
+   "2025-07",
+   "2025-08",
+   "2025-09",
+   "2025-10",
+   "2025-11",
+   "2025-12",
+   "2026-01",
+   "2026-02",
+   "2026-03",
+   "2026-04",
+   "2026-05",
+   "2026-06",
+   "2026-07",
+   "2026-08",
+   "2026-09",
+   "2026-10",
+   "2026-11"
+  ],
+  "selic": [
+   12.25,
+   13.25,
+   13.25,
+   14.25,
+   14.25,
+   14.75,
+   15.0,
+   15.0,
+   15.0,
+   15.0,
+   15.0,
+   15.0,
+   15.0,
+   15.0,
+   15.0,
+   14.75,
+   14.5,
+   14.5,
+   14.25,
+   14.25,
+   14.0,
+   13.75,
+   13.75,
+   13.75
+  ],
+  "ipca12": [
+   4.83,
+   4.56,
+   5.06,
+   5.48,
+   5.53,
+   5.32,
+   5.35,
+   5.23,
+   5.13,
+   5.17,
+   4.68,
+   4.46,
+   4.26,
+   4.44,
+   3.81,
+   4.14,
+   4.39,
+   4.72,
+   4.64,
+   4.44,
+   4.22,
+   4.58,
+   null,
+   null
+  ]
+ },
+ "indicadores": [
+  {
+   "nome": "Selic meta",
+   "valor": 13.75,
+   "unidade": "%",
+   "casas": 2,
+   "data": "2026-11-05",
+   "freq": "m",
+   "anterior": 13.75,
+   "serie": [
+    15.0,
+    15.0,
+    15.0,
+    14.75,
+    14.5,
+    14.5,
+    14.25,
+    14.25,
+    14.0,
+    13.75,
+    13.75,
+    13.75
+   ]
+  },
+  {
+   "nome": "CDI (ao ano)",
+   "valor": 13.65,
+   "unidade": "%",
+   "casas": 2,
+   "data": "2026-11-04",
+   "freq": "m",
+   "anterior": 13.65,
+   "serie": [
+    14.9,
+    14.9,
+    14.9,
+    14.65,
+    14.4,
+    14.4,
+    14.15,
+    14.15,
+    13.9,
+    13.65,
+    13.65,
+    13.65
+   ]
+  },
+  {
+   "nome": "IPCA no mês",
+   "valor": 0.82,
+   "unidade": "%",
+   "casas": 2,
+   "data": "2026-09-01",
+   "freq": "m",
+   "anterior": -0.32,
+   "serie": [
+    0.09,
+    0.18,
+    0.33,
+    0.33,
+    0.7,
+    0.88,
+    0.67,
+    0.58,
+    0.16,
+    0.07,
+    -0.32,
+    0.82
+   ]
+  },
+  {
+   "nome": "IPCA em 12 meses",
+   "valor": 4.58,
+   "unidade": "%",
+   "casas": 2,
+   "data": "2026-09-01",
+   "freq": "m",
+   "anterior": 4.22,
+   "serie": [
+    4.68,
+    4.46,
+    4.26,
+    4.44,
+    3.81,
+    4.14,
+    4.39,
+    4.72,
+    4.64,
+    4.44,
+    4.22,
+    4.58
+   ]
+  },
+  {
+   "nome": "IGP-M em 12 meses",
+   "valor": 5.25,
+   "unidade": "%",
+   "casas": 2,
+   "data": "2026-10-01",
+   "freq": "m",
+   "anterior": 3.35,
+   "serie": [
+    -0.1,
+    -1.04,
+    -0.9,
+    -2.66,
+    -1.82,
+    0.62,
+    1.96,
+    3.18,
+    2.77,
+    2.18,
+    3.35,
+    5.25
+   ]
+  },
+  {
+   "nome": "Desemprego",
+   "valor": 5.2,
+   "unidade": "%",
+   "casas": 1,
+   "data": "2026-09-01",
+   "freq": "m",
+   "anterior": 5.3,
+   "serie": [
+    5.4,
+    5.2,
+    5.1,
+    5.4,
+    5.8,
+    6.1,
+    5.8,
+    5.6,
+    5.4,
+    5.3,
+    5.3,
+    5.2
+   ]
+  },
+  {
+   "nome": "Dólar (PTAX venda)",
+   "valor": 5.4778,
+   "unidade": "R$",
+   "casas": 4,
+   "data": "2026-11-04",
+   "freq": "d",
+   "anterior": 5.4935,
+   "serie": [
+    5.1161,
+    5.1414,
+    5.1795,
+    5.1991,
+    5.2132,
+    5.2204,
+    5.1809,
+    5.2079,
+    5.2238,
+    4.9859,
+    4.9698,
+    4.9935,
+    5.0119,
+    4.9892,
+    5.0096,
+    5.0441,
+    5.0521,
+    5.0826,
+    5.0564,
+    5.014,
+    5.0277,
+    5.0383,
+    5.0377,
+    5.5007,
+    5.3346,
+    5.342,
+    5.3744,
+    5.4212,
+    5.4935,
+    5.4778
+   ]
+  },
+  {
+   "nome": "Euro (PTAX venda)",
+   "valor": 6.1549,
+   "unidade": "R$",
+   "casas": 4,
+   "data": "2026-11-04",
+   "freq": "d",
+   "anterior": 6.15,
+   "serie": [
+    5.8487,
+    5.8576,
+    5.8906,
+    5.928,
+    5.9253,
+    5.9178,
+    5.8777,
+    5.8495,
+    5.8815,
+    5.5897,
+    5.5975,
+    5.5867,
+    5.6093,
+    5.5844,
+    5.6092,
+    5.6111,
+    5.6609,
+    5.7088,
+    5.6682,
+    5.6317,
+    5.6411,
+    5.6494,
+    5.6422,
+    6.1487,
+    5.9449,
+    5.9515,
+    6.0,
+    6.0522,
+    6.15,
+    6.1549
+   ]
+  }
+ ],
+ "mercado": {
+  "indices": [
+   {
+    "nome": "Ibovespa",
+    "valor": 167128.81,
+    "unidade": "pts",
+    "casas": 0,
+    "var": -0.26
+   },
+   {
+    "nome": "Dólar",
+    "valor": 5.4778,
+    "unidade": "R$",
+    "casas": 4,
+    "var": -0.29
+   },
+   {
+    "nome": "Euro",
+    "valor": 6.1549,
+    "unidade": "R$",
+    "casas": 4,
+    "var": 0.08
+   },
+   {
+    "nome": "S&P 500",
+    "valor": 7568.92,
+    "unidade": "pts",
+    "casas": 0,
+    "var": 0.36
+   },
+   {
+    "nome": "Petróleo Brent",
+    "valor": 107.03,
+    "unidade": "US$",
+    "casas": 2,
+    "var": -0.34
+   }
+  ],
+  "acoes": [
+   {
+    "ticker": "PETR4",
+    "nome": "PETR4",
+    "preco": 47.12,
+    "var": 0
+   },
+   {
+    "ticker": "VALE3",
+    "nome": "VALE3",
+    "preco": 62.6,
+    "var": 0.4
+   },
+   {
+    "ticker": "ITUB4",
+    "nome": "ITUB4",
+    "preco": 39.62,
+    "var": -0.23
+   },
+   {
+    "ticker": "BBDC4",
+    "nome": "BBDC4",
+    "preco": 13.8,
+    "var": -1.85
+   },
+   {
+    "ticker": "BBAS3",
+    "nome": "BBAS3",
+    "preco": 16.52,
+    "var": 0.18
+   },
+   {
+    "ticker": "WEGE3",
+    "nome": "WEGE3",
+    "preco": 48.1,
+    "var": -3.9
+   },
+   {
+    "ticker": "ABEV3",
+    "nome": "ABEV3",
+    "preco": 15.38,
+    "var": 0.85
+   },
+   {
+    "ticker": "B3SA3",
+    "nome": "B3SA3",
+    "preco": 14.1,
+    "var": -1.4
+   }
+  ]
+ },
+ "balanca": {
+  "meses": [
+   "2025-10",
+   "2025-11",
+   "2025-12",
+   "2026-01",
+   "2026-02",
+   "2026-03",
+   "2026-04",
+   "2026-05",
+   "2026-06",
+   "2026-07",
+   "2026-08",
+   "2026-09"
+  ],
+  "exportacoes": [
+   31.64,
+   28.32,
+   30.86,
+   24.7,
+   26.35,
+   31.9,
+   34.42,
+   31.65,
+   35.64,
+   33.7,
+   32.86,
+   34.58
+  ],
+  "importacoes": [
+   25.75,
+   23.28,
+   22.35,
+   21.76,
+   23.0,
+   26.23,
+   24.61,
+   25.11,
+   27.56,
+   28.2,
+   26.72,
+   27.72
+  ]
+ },
+ "focus": [
+  {
+   "indicador": "IPCA",
+   "ano": 2026,
+   "mediana": 5.2166,
+   "data": "2026-10-30"
+  },
+  {
+   "indicador": "IPCA",
+   "ano": 2027,
+   "mediana": 4.7646,
+   "data": "2026-10-30"
+  },
+  {
+   "indicador": "IPCA",
+   "ano": 2028,
+   "mediana": 4.0,
+   "data": "2026-10-30"
+  },
+  {
+   "indicador": "PIB Total",
+   "ano": 2026,
+   "mediana": 1.7607,
+   "data": "2026-10-30"
+  },
+  {
+   "indicador": "PIB Total",
+   "ano": 2027,
+   "mediana": 1.198,
+   "data": "2026-10-30"
+  },
+  {
+   "indicador": "PIB Total",
+   "ano": 2028,
+   "mediana": 1.8,
+   "data": "2026-10-30"
+  },
+  {
+   "indicador": "Câmbio",
+   "ano": 2026,
+   "mediana": 5.3428,
+   "data": "2026-10-30"
+  },
+  {
+   "indicador": "Câmbio",
+   "ano": 2027,
+   "mediana": 5.4,
+   "data": "2026-10-30"
+  },
+  {
+   "indicador": "Câmbio",
+   "ano": 2028,
+   "mediana": 5.4,
+   "data": "2026-10-30"
+  },
+  {
+   "indicador": "Selic",
+   "ano": 2026,
+   "mediana": 13.5,
+   "data": "2026-10-30"
+  },
+  {
+   "indicador": "Selic",
+   "ano": 2027,
+   "mediana": 12.5,
+   "data": "2026-10-30"
+  },
+  {
+   "indicador": "Selic",
+   "ano": 2028,
+   "mediana": 11.0,
+   "data": "2026-10-30"
+  }
+ ],
+ "noticias": [
+  {
+   "titulo": "Smart Fit, GPA e C&A sobem forte, Méliuz e Meli caem após 3T; veja análises",
+   "fonte": "InfoMoney",
+   "link": "https://www.infomoney.com.br/mercados/smart-fit-gpa-e-ca-sobem-forte-meliuz-e-meli-caem-apos-3t-veja-analises/",
+   "data": "2026-11-05T15:46:28+00:00"
+  },
+  {
+   "titulo": "Governo Lula estuda corte permanente no teto de gastos para conter dívida, diz jornal",
+   "fonte": "InfoMoney",
+   "link": "https://www.infomoney.com.br/politica/governo-lula-estuda-corte-permanente-no-teto-de-gastos-para-conter-divida-diz-jornal/",
+   "data": "2026-11-05T15:32:56+00:00"
+  },
+  {
+   "titulo": "Durigan diz que é preciso dar condições para a queda dos juros",
+   "fonte": "Agência Brasil",
+   "link": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/durigan-diz-que-e-preciso-dar-condicoes-para-queda-dos-juros",
+   "data": "2026-11-05T15:30:00+00:00"
+  },
+  {
+   "titulo": "Ibovespa opera volátil, em meio à queda em NY e cautela fiscal, apesar de commodities",
+   "fonte": "InfoMoney",
+   "link": "https://www.infomoney.com.br/mercados/ibovespa-opera-volatil-em-meio-a-queda-em-ny-e-cautela-fiscal-apesar-de-commodities/",
+   "data": "2026-11-05T15:24:16+00:00"
+  },
+  {
+   "titulo": "Durigan vê juros muito altos, mas evita criticar decisão do Copom",
+   "fonte": "InfoMoney",
+   "link": "https://www.infomoney.com.br/politica/durigan-ve-juros-muito-altos-mas-evita-criticar-decisao-do-copom/",
+   "data": "2026-11-05T15:22:29+00:00"
+  },
+  {
+   "titulo": "Bolsonaro pede visitas de Marinho e Tereza Cristina em meio à disputa pelo Senado",
+   "fonte": "InfoMoney",
+   "link": "https://www.infomoney.com.br/politica/bolsonaro-pede-visitas-de-marinho-e-tereza-cristina-em-meio-a-disputa-pelo-senado/",
+   "data": "2026-11-05T15:18:23+00:00"
+  },
+  {
+   "titulo": "FGC informa ‘acesso não autorizado’ a seu sistema e vazamento de dados pessoais",
+   "fonte": "InfoMoney",
+   "link": "https://www.infomoney.com.br/politica/fgc-informa-acesso-nao-autorizado-a-seu-sistema-e-vazamento-de-dados-pessoais/",
+   "data": "2026-11-05T15:13:00+00:00"
+  },
+  {
+   "titulo": "XP vê dólar a R$ 5,50 em 2027 e diz que rumo do real dependerá do cenário fiscal",
+   "fonte": "InfoMoney",
+   "link": "https://www.infomoney.com.br/mercados/xp-ve-dolar-a-r-550-em-2027-e-diz-que-rumo-do-real-dependera-do-cenario-fiscal/",
+   "data": "2026-11-05T15:09:55+00:00"
+  },
+  {
+   "titulo": "Ibovespa Hoje Ao Vivo: Bolsa oscila com balanços no radar e manutenção da Selic",
+   "fonte": "InfoMoney",
+   "link": "https://www.infomoney.com.br/mercados/ibovespa-hoje-bolsa-de-valores-ao-vivo-05112026/",
+   "data": "2026-11-05T15:07:44+00:00"
+  },
+  {
+   "titulo": "IBGE abre seleção para mais de 27 mil recenseadores temporários",
+   "fonte": "Agência Brasil",
+   "link": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/ibge-abre-selecao-para-mais-de-27-mil-recenseadores-temporarios",
+   "data": "2026-11-05T15:04:00+00:00"
+  },
+  {
+   "titulo": "De perfumes à IA: quais são os negócios e investimentos do Cristiano Ronaldo?",
+   "fonte": "InfoMoney",
+   "link": "https://www.infomoney.com.br/business/de-perfumes-a-ia-quais-sao-os-negocios-e-investimentos-do-cristiano-ronaldo/",
+   "data": "2026-11-05T15:03:52+00:00"
+  },
+  {
+   "titulo": "Setor de serviços amplia contração no Brasil em outubro - CNN Brasil",
+   "fonte": "Google Notícias",
+   "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOS3FiSU5WVmRVSkhxWmtTMnFjalpkVUF1RGhDV2RvZDR1OGFWM0pYZXJWSDBENFp1NzIxMFpxVVpjQlFyb2Q4NThaN29WY2I5ZEl0cFRKNFVXUkgyNWpmUW1xNkdyN0YwS3pYT2xSa3VhU2JMX0JlNl92N3MxTjVscmY0bWZFaGxteHNLNGRJanE3Yk15cVVkUF9B?oc=5",
+   "data": "2026-11-05T15:03:27+00:00"
+  },
+  {
+   "titulo": "Partidos árabes sinalizam apoio para derrubar Netanyahu",
+   "fonte": "InfoMoney",
+   "link": "https://www.infomoney.com.br/mundo/partidos-arabes-sinalizam-apoio-para-derrubar-netanyahu/",
+   "data": "2026-11-05T15:02:31+00:00"
+  },
+  {
+   "titulo": "Sem reformas fiscais, Brasil pode ficar na lanterna do crescimento na América Latina em 2027 - O GLOBO",
+   "fonte": "Google Notícias",
+   "link": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxPWWNyaTVoUzFkQ1ZYZGtzRTI3WlBRS0plc2JBT2owQWRfZnJ2ZWx6NElaYl9SN1FLbUNrU0pTLXA4cVFmWVRnR2FKVlRiQkN6bEI5QlBEMzVEV0VVLUxhZTZ4VlJLMnlzQ0Z3dnRsbXpWREIxdHRjdHJteWt4TDFjRTJwNmZ0Q29UcjYwMkVWUDFOV2dvOHJIc2RiZG5tTDNpVHpEdlppcHl3UzByanpIbWdXc2lCbVFucVY2NzZSV05qYmFkbi0wVFB6aWdaRWlYYnZURWJRc3c2TTctbFZ3azBQLWnSAfMBQVVfeXFMT3pVdkVweFBkZXBuNWFLNDA3bFFvMGRjS3hUOWFzTUFTX0VlX2JnblhSV1dyYzlCR19LMFdFbFNCYXU4di1Jc1pQM210TEpTRUtJTDRVa3p0amQ2WFVmYkNkTkZHSjJ2NnVGSEc5d1hKc3BQaWs4T2NhQzZTbi10UktXYWU1ZjYtZGVSVUxyei0zUVFnU0VnX29nRXFSS1ZTcW93Mk5SeFJCREdhNU42eXF4WlcwbVA0aGowcGc3c0JROU5ILUo4T3RFQnhHSGRBa2daa1VJNUNEN2ZsbUJfNHBjVndKU2hjU0M2VnZjSHBLNmxJ?oc=5",
+   "data": "2026-11-05T15:00:00+00:00"
+  },
+  {
+   "titulo": "Ministro diz que novos impostos não trazem aumento de carga tributária",
+   "fonte": "Agência Brasil",
+   "link": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/ministro-diz-que-novos-impostos-nao-trazem-aumento-de-carga-tributaria",
+   "data": "2026-11-05T14:17:00+00:00"
+  },
+  {
+   "titulo": "Produção da indústria recua 0,8% em setembro; 4ª queda em cinco meses - Agência Brasil",
+   "fonte": "Google Notícias",
+   "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNdy1mVTVobnJtcWo1UFlWbnNuLV9wTlhXRUlnLUd4MnEyREpsLTlmMG5YZlgtQWxuZFpya3J4Y3p4VGo0M2Z4Mi1MaWdJUG0tRnJVUXRqMWd1LXF3ZWJsTVRlWHNDQmhxZlhSUFRPMjBkS0R4TEtYM2VybDNHdk9hSEF6WW9YU2xrUW9teW91R3djZ1lMZm9BZndBUU0yY2J6bFozT05kYlJOSWNLZGhuODJMVU5jZWJGOG9mZ0l5TWpFQQ?oc=5",
+   "data": "2026-11-05T13:45:00+00:00"
+  },
+  {
+   "titulo": "Produção da indústria recua 0,8% em setembro; 4ª queda em cinco meses",
+   "fonte": "Agência Brasil",
+   "link": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/producao-da-industria-recua-08-em-setembro-4a-queda-em-cinco-meses",
+   "data": "2026-11-05T13:45:00+00:00"
+  },
+  {
+   "titulo": "Governo publica MP das alíquotas do Imposto Seletivo para 2027",
+   "fonte": "Agência Brasil",
+   "link": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/governo-publica-mp-das-aliquotas-do-imposto-seletivo-para-2027",
+   "data": "2026-11-05T12:37:00+00:00"
+  },
+  {
+   "titulo": "Produção industrial no Brasil recua 0,8% em setembro e frustra projeção do mercado - InfoMoney",
+   "fonte": "Google Notícias",
+   "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNTm54NVJTQ25iYnlIMmRPeUlfVlZHa3EtMUR2NWlZUmJJbUowV2RJMkEyVTNmcmQyYk02Ty1KT0Z1V3dGUVozV3paZ3lQSzM0UFIxeG12WFNqUDN1Y0R5Y09JakJPS0RaS2ZYemtneGtoQXVCWmRycFl2RmhWU0xwVkIyeVZMNW1pZmlXWjRJeXMxMDRSUjhjMEJYX2lpbzlFOVZ5R0J2TmZpLTg5TUxFQ2hZTjBlNDBnYWF30gHAAUFVX3lxTE1TRDZZWGpJWUhKLWZqOEpJc3lsSkp1dWx4M1F0N2tmZnF3aEYtTmNMRld2a3VRQ0MzY1V0bU5Eci0xaHlPQTZiSEVkbnBwQklrVDFLNE8tbUtsN3FYOUs3RTdnVi1ETWpnNHdBNDE5c3JWOFZaZ25YUjVxYXliX3NYVWhpalRSOGlRZmhscThYSy1pX0xFeF9UdjlZS21LZjNwajJFR1dpMlNrZWFtT19BaFp2dnBzcFZsQkVRZjNaSg?oc=5",
+   "data": "2026-11-05T12:13:15+00:00"
+  },
+  {
+   "titulo": "Produção industrial no Brasil recua mais do que o esperado em setembro - Terra",
+   "fonte": "Google Notícias",
+   "link": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxPNGR5cl9mZGo1VEVRMzNVVEJxT2xNQVBLakVJSlI3M0NITF8ySGFyckdqSWxBdFZaUXBMd3JYbHloTVRBbDk4ajF0WVFER3R3eXlxOG5kOUY4MEZaSlJKa3lYaURkZG5jcHNrMW1tWTVGXzRzVU9ncjVMb1lFX2F3OU44SmFCV3d5T0hQbEctdkNMVVFlR0M5bk1TVlN0MVVwR2xEYzJlMFMwa3FHQS0wVVZzVDAxenNMMDJzay12OEQ4NWcxdnB5eTRLR3hpX1o5d1VpRTZQMjRia0lVb2xZTjRVcm0?oc=5",
+   "data": "2026-11-05T12:13:00+00:00"
+  },
+  {
+   "titulo": "Vitória democrata no Senado amplia pressão sobre tarifas de Trump ao Brasil - Folha de S.Paulo",
+   "fonte": "Google Notícias",
+   "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPekNWWU5UWi1NNy1zMkhYNFNkYkhMU2c3NUVyQXVUeVZfNl9Ic1dvVEtRSEJ5dlg0SmhuXy05M3pDNjdHNU1rWGZJUXhaN2RQOXd6REFNTkVCdG13OFFLSWs2N2l5SUFLdnllNjZZTUlKYWVSOVZySTgtNDlLZFJFajNiU3U4UHREcVdtdFd2M1VFaXRXc1BfN1IzYy11STJmbi1iRmthNGk3VTJsV2VKNjhiVWNFQlJhWThiaVpka0U1QWs2cFE?oc=5",
+   "data": "2026-11-05T02:00:00+00:00"
+  },
+  {
+   "titulo": "Anatel publica novas regras para prevenir fraudes por meio de SMS",
+   "fonte": "Agência Brasil",
+   "link": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/anatel-publica-novas-regras-para-prevenir-fraudes-por-meio-de-sms",
+   "data": "2026-11-04T23:42:00+00:00"
+  },
+  {
+   "titulo": "Dólar cai a R$ 5,45 após eleições nos EUA e antes do Copom",
+   "fonte": "Agência Brasil",
+   "link": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/dolar-cai-r-545-apos-eleicoes-nos-eua-e-antes-do-copom",
+   "data": "2026-11-04T23:17:00+00:00"
+  },
+  {
+   "titulo": "Setor produtivo critica manutenção da Selic em 13,75% ao ano",
+   "fonte": "Agência Brasil",
+   "link": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/setor-produtivo-critica-manutencao-da-selic-em-1375-ao-ano",
+   "data": "2026-11-04T22:34:00+00:00"
+  },
+  {
+   "titulo": "Fenabrave prevê aumento de 12,8% na venda de veículos novos em 2026",
+   "fonte": "Agência Brasil",
+   "link": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/fenabrave-preve-aumento-de-128-na-venda-de-veiculos-novos-em-2026",
+   "data": "2026-11-04T22:11:00+00:00"
+  },
+  {
+   "titulo": "Banco Central surpreende e mantém juros básicos em 13,75% ao ano - Agência Brasil",
+   "fonte": "Google Notícias",
+   "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNV0FpY3VSWGM5cGFQUEN5Zmh4YmpzSUdMM09fdHlmdEtRRGhNTVRnNkpQX2FKTjVqRVh6WDVBbVpxZkJUT3dBYzJNLU9qUERxN2hfM1VnNkZLTmlWaHYwOVNrSVFsSmZBQXkzS1ZDcEVERHZvUUVsdlhWX0NScDkwU0xuNVg3ZmZDbndvSzhISzdWY3VrVGxqWk9kZnZQRXVIZDFwMW9RdGJNUjVZR3c?oc=5",
+   "data": "2026-11-04T21:33:00+00:00"
+  },
+  {
+   "titulo": "Banco Central surpreende e mantém juros básicos em 13,75% ao ano",
+   "fonte": "Agência Brasil",
+   "link": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/bc-surpreende-e-mantem-juros-basicos-em-1375-ao-ano",
+   "data": "2026-11-04T21:33:00+00:00"
+  },
+  {
+   "titulo": "Brasil cria 121,3 mil postos de trabalho em setembro, aponta Caged - Agência Brasil",
+   "fonte": "Google Notícias",
+   "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPdDl4VEVVa1JzTTFKdzN3QTJqYlZ5VlZnenpDaXdsWkVzYVVCdldMa3dCYURlQmw5b0hwR1NLQVlQNk1yVkNoS3Z5V3U2cmYwTW1jaTM3Y3VHVkd3MnBuWWVYb3VoTGpXNHhnUE1sa05IT0R1aXBYdmtMMlc0QnZLbFhDbXBsRUpYbXhKdXZGc1ZtTXhMNXpqOXR0WFlqSHJRVGFwVWlvdmtlVUpLX0xzbHNaRUZCZmpXYUFMWmdsSQ?oc=5",
+   "data": "2026-11-04T19:33:00+00:00"
+  },
+  {
+   "titulo": "Brasil registra pior setembro na criação de empregos formais desde o início da série histórica, diz Caged - Folha de S.Paulo",
+   "fonte": "Google Notícias",
+   "link": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxPYmNrYWxETDkwalRXYnFPR1FJdEtzSlNLbEtIelZwQnB1aUFybzZGYTVIRHNnbXhqX3ZCc3NjZURNRmU1NVk0VHZjY09UeUZzVTRZNnhFT1FIdGRfeHRwdXpDRm5tOGZzVWd4NDd2YzRYdW41TDloRGZxU2VxVGtCaTZiV0N3RF9aN1hseDdFTXR6ektqd3NYbGMzbDZNQ3lQWUQtSW5xUlRkLXVUNDJXclpuV2NVNFltMWVZZThiSG9BWUUxTkFyc09BZnVwNUV6YnRSWFQybnVHdEhHRm9HaE8zb1V6YWtSSGRtTQ?oc=5",
+   "data": "2026-11-04T18:01:00+00:00"
+  },
+  {
+   "titulo": "Brasil cria 121 mil empregos formais em setembro, pior resultado para o mês desde 2020 - G1",
+   "fonte": "Google Notícias",
+   "link": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxNNGlCS1dSdm1kR3BjZGJ0ZHdnTjd0TVIzWnNhbFVibmR0cGtiS3o5V080TEluY0ZKdDRBUkRuLXE2Z0NqX1VBU29XNlJWaE03U1Q5SkY4UDFkQlZvZ29pbVk3Y1d1dE5rM2VBQ3pzSDZQYjdEZkdLbkFodEtTZjhjZWUwN21iOTZIT2pfSmtiU2RZWWM0NVE5U0tEem1XNDVkazZyS1E2RXJRVmNlcUNRM1p6bXV1SnhIazZaY1VTbk5QeDBuUDRoN29LcXBsT2VrV3dZbjhKZUlkVmJyd1RkSmxjei1nXy1LMElENVBSczDSAf8BQVVfeXFMTmdqaThYMEtVc3plazlKTk5IYWRJVkQtT2NxVHVyVzBpczhrVER2NG41YUV0Y3VpMW1HMW5UR3dkTTNzVy1UZzBGVEtKLVkweWRodGRYaVFqaDJEanluNm0tbFYxRUZ3cU9xSE8ybUhiRXQ3THFudHJQcW9fSXdBOW1WMkhHUWdkMmJqVXVsTngtdi0yRGM5NFAtZ2ZrVW9RRndiLUhCMjhlRWQxYUVMZ1IxNFg1c1lnYlpCd3FadjJuVE1Sb29IdmtNeFkwVWwtZG9HTFotSEE2bWhmNHY5SXlGX2ZvdE8wNHJucWV0MUNNNVpFeTRRbnhZUDZ4aVlN?oc=5",
+   "data": "2026-11-04T17:30:01+00:00"
+  }
+ ]
+}
