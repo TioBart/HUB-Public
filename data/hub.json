@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-05T18:55:13.116767+00:00",
+ "atualizado": "2026-11-05T18:58:14.063157+00:00",
  "juros": {
   "meses": [
    "2024-12",
@@ -195,28 +195,199 @@
     3.35,
     5.25
    ]
+  },
+  {
+   "nome": "Desemprego",
+   "valor": 5.2,
+   "unidade": "%",
+   "casas": 1,
+   "data": "2026-09-01",
+   "freq": "m",
+   "anterior": 5.3,
+   "serie": [
+    5.4,
+    5.2,
+    5.1,
+    5.4,
+    5.8,
+    6.1,
+    5.8,
+    5.6,
+    5.4,
+    5.3,
+    5.3,
+    5.2
+   ]
+  },
+  {
+   "nome": "Dólar (PTAX venda)",
+   "valor": 5.4621,
+   "unidade": "R$",
+   "casas": 4,
+   "data": "2026-11-05",
+   "freq": "d",
+   "anterior": 5.4778,
+   "serie": [
+    5.1414,
+    5.1795,
+    5.1991,
+    5.2132,
+    5.2204,
+    5.1809,
+    5.2079,
+    5.2238,
+    4.9859,
+    4.9698,
+    4.9935,
+    5.0119,
+    4.9892,
+    5.0096,
+    5.0441,
+    5.0521,
+    5.0826,
+    5.0564,
+    5.014,
+    5.0277,
+    5.0383,
+    5.0377,
+    5.5007,
+    5.3346,
+    5.342,
+    5.3744,
+    5.4212,
+    5.4935,
+    5.4778,
+    5.4621
+   ]
+  },
+  {
+   "nome": "Euro (PTAX venda)",
+   "valor": 6.1323,
+   "unidade": "R$",
+   "casas": 4,
+   "data": "2026-11-05",
+   "freq": "d",
+   "anterior": 6.1549,
+   "serie": [
+    5.8576,
+    5.8906,
+    5.928,
+    5.9253,
+    5.9178,
+    5.8777,
+    5.8495,
+    5.8815,
+    5.5897,
+    5.5975,
+    5.5867,
+    5.6093,
+    5.5844,
+    5.6092,
+    5.6111,
+    5.6609,
+    5.7088,
+    5.6682,
+    5.6317,
+    5.6411,
+    5.6494,
+    5.6422,
+    6.1487,
+    5.9449,
+    5.9515,
+    6.0,
+    6.0522,
+    6.15,
+    6.1549,
+    6.1323
+   ]
   }
  ],
  "mercado": {
-  "indices": [],
+  "indices": [
+   {
+    "nome": "Ibovespa",
+    "valor": 166637.03,
+    "unidade": "pts",
+    "casas": 0,
+    "var": -0.55
+   },
+   {
+    "nome": "Dólar",
+    "valor": 5.4621,
+    "unidade": "R$",
+    "casas": 4,
+    "var": -0.29
+   },
+   {
+    "nome": "Euro",
+    "valor": 6.1323,
+    "unidade": "R$",
+    "casas": 4,
+    "var": -0.37
+   },
+   {
+    "nome": "S&P 500",
+    "valor": 7568.92,
+    "unidade": "pts",
+    "casas": 0,
+    "var": 0.36
+   },
+   {
+    "nome": "Petróleo Brent",
+    "valor": 107.03,
+    "unidade": "US$",
+    "casas": 2,
+    "var": -0.34
+   }
+  ],
   "acoes": [
    {
     "ticker": "PETR4",
     "nome": "Petrobras PN",
-    "preco": 46.82,
-    "var": -0.64
+    "preco": 46.78,
+    "var": -0.72
    },
    {
     "ticker": "VALE3",
     "nome": "Vale ON",
-    "preco": 62.89,
-    "var": 0.87
+    "preco": 62.82,
+    "var": 0.75
    },
    {
     "ticker": "ITUB4",
     "nome": "Itaú Unibanco PN",
-    "preco": 39.75,
-    "var": 0.1
+    "preco": 39.71,
+    "var": 0
+   },
+   {
+    "ticker": "BBDC4",
+    "nome": "Bradesco PN",
+    "preco": 13.83,
+    "var": -1.64
+   },
+   {
+    "ticker": "BBAS3",
+    "nome": "Banco do Brasil ON",
+    "preco": 16.43,
+    "var": -0.36
+   },
+   {
+    "ticker": "WEGE3",
+    "nome": "WEG ON",
+    "preco": 47.91,
+    "var": -4.28
+   },
+   {
+    "ticker": "ABEV3",
+    "nome": "Ambev ON",
+    "preco": 15.39,
+    "var": 0.92
+   },
+   {
+    "ticker": "B3SA3",
+    "nome": "B3 ON",
+    "preco": 14.18,
+    "var": -0.84
    }
   ]
  },
@@ -1720,6 +1891,12 @@
  },
  "noticias": [
   {
+   "titulo": "Comissão especial aprova MP do Brasil Soberano 3, para empresas afetadas por tarifaço",
+   "fonte": "InfoMoney",
+   "link": "https://www.infomoney.com.br/politica/comissao-especial-aprova-mp-do-brasil-soberano-3-para-empresas-afetadas-por-tarifaco/",
+   "data": "2026-11-05T18:56:44+00:00"
+  },
+  {
    "titulo": "Paraguai: Câmara rejeita impeachment de vice-presidente após renúncia de Peña",
    "fonte": "InfoMoney",
    "link": "https://www.infomoney.com.br/politica/paraguai-camara-rejeita-impeachment-de-vice-presidente-apos-renuncia-de-pena/",
@@ -1778,12 +1955,6 @@
    "fonte": "InfoMoney",
    "link": "https://www.infomoney.com.br/consumo/neymar-triplex-sao-paulo-sala-cinema-cabeleireiro/",
    "data": "2026-11-05T17:45:00+00:00"
-  },
-  {
-   "titulo": "Base Exchange mira lançamento em 2027 em desafio à B3 no mercado de ações",
-   "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/mercados/base-exchange-mira-lancamento-em-2027-em-desafio-a-b3-no-mercado-de-acoes/",
-   "data": "2026-11-05T17:31:06+00:00"
   },
   {
    "titulo": "Crise no Paraguai tem risco limitado para Brasil, mas ameaça investimentos - CNN Brasil",
