@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-05T21:54:05.534059+00:00",
+ "atualizado": "2026-11-06T17:03:09.591816+00:00",
  "juros": {
   "meses": [
    "2024-12",
@@ -80,7 +80,7 @@
    null
   ],
   "selic_desde": "2026-09-17",
-  "tr_mes": 0.1696
+  "tr_mes": 0.1695
  },
  "indicadores": [
   {
@@ -89,7 +89,7 @@
    "valor": 13.75,
    "unidade": "%",
    "casas": 2,
-   "data": "2026-11-05",
+   "data": "2026-11-06",
    "freq": "m",
    "anterior": 13.75,
    "serie": [
@@ -208,7 +208,7 @@
    "valor": 13.65,
    "unidade": "%",
    "casas": 2,
-   "data": "2026-11-04",
+   "data": "2026-11-05",
    "freq": "m",
    "anterior": 13.65,
    "serie": [
@@ -2109,14 +2109,13 @@
   {
    "nome": "Reservas internacionais",
    "grupo": "Setor externo e câmbio",
-   "valor": 367.361,
+   "valor": 367.865,
    "unidade": "US$ bi",
    "casas": 1,
-   "data": "2026-11-04",
+   "data": "2026-11-05",
    "freq": "d",
-   "anterior": 365.212,
+   "anterior": 367.361,
    "serie": [
-    366.89,
     365.46,
     364.484,
     364.904,
@@ -2145,7 +2144,8 @@
     365.176,
     365.019,
     365.212,
-    367.361
+    367.361,
+    367.865
    ],
    "tabela": {
     "colunas": [
@@ -2235,9 +2235,9 @@
      ],
      [
       "2026-11",
-      367.4,
-      0.64,
-      1.88
+      367.9,
+      0.78,
+      2.02
      ]
     ]
    },
@@ -2246,14 +2246,13 @@
   {
    "nome": "Dólar (PTAX venda)",
    "grupo": "Setor externo e câmbio",
-   "valor": 5.4621,
+   "valor": 5.5013,
    "unidade": "R$",
    "casas": 4,
-   "data": "2026-11-05",
+   "data": "2026-11-06",
    "freq": "d",
-   "anterior": 5.4778,
+   "anterior": 5.4621,
    "serie": [
-    5.1414,
     5.1795,
     5.1991,
     5.2132,
@@ -2282,7 +2281,8 @@
     5.4212,
     5.4935,
     5.4778,
-    5.4621
+    5.4621,
+    5.5013
    ],
    "tabela": {
     "colunas": [
@@ -2386,10 +2386,10 @@
      ],
      [
       "2026-11",
-      5.4621,
-      0.75,
-      -0.73,
-      2.41
+      5.5013,
+      1.48,
+      -0.02,
+      3.14
      ]
     ]
    },
@@ -2398,14 +2398,13 @@
   {
    "nome": "Euro (PTAX venda)",
    "grupo": "Setor externo e câmbio",
-   "valor": 6.1323,
+   "valor": 6.1317,
    "unidade": "R$",
    "casas": 4,
-   "data": "2026-11-05",
+   "data": "2026-11-06",
    "freq": "d",
-   "anterior": 6.1549,
+   "anterior": 6.1323,
    "serie": [
-    5.8576,
     5.8906,
     5.928,
     5.9253,
@@ -2434,7 +2433,8 @@
     6.0522,
     6.15,
     6.1549,
-    6.1323
+    6.1323,
+    6.1317
    ],
    "tabela": {
     "colunas": [
@@ -2538,10 +2538,10 @@
      ],
      [
       "2026-11",
-      6.1323,
-      1.32,
-      -5.21,
-      -0.96
+      6.1317,
+      1.31,
+      -5.22,
+      -0.97
      ]
     ]
    },
@@ -2552,88 +2552,102 @@
   "indices": [
    {
     "nome": "Ibovespa",
-    "valor": 166191.45,
+    "valor": 168658.86,
     "unidade": "pts",
     "casas": 0,
-    "var": -0.82
+    "var": 1.48
+   },
+   {
+    "nome": "Dólar",
+    "valor": 5.5013,
+    "unidade": "R$",
+    "casas": 4,
+    "var": 0.72
+   },
+   {
+    "nome": "Euro",
+    "valor": 6.1317,
+    "unidade": "R$",
+    "casas": 4,
+    "var": -0.01
    },
    {
     "nome": "S&P 500",
-    "valor": 7353.73,
+    "valor": 7416.94,
     "unidade": "pts",
     "casas": 0,
-    "var": -4.36
+    "var": 0.86
    },
    {
     "nome": "Petróleo Brent",
-    "valor": 98.9,
+    "valor": 97.42,
     "unidade": "US$",
     "casas": 2,
-    "var": 4.52
+    "var": -0.89
    },
    {
     "nome": "Ouro",
-    "valor": 4097.7,
+    "valor": 4073.3,
     "unidade": "US$",
     "casas": 2,
-    "var": 0.61
+    "var": -0.98
    },
    {
     "nome": "Bitcoin",
-    "valor": 75679.58,
+    "valor": 75826.22,
     "unidade": "US$",
     "casas": 0,
-    "var": -5.88
+    "var": -0.15
    }
   ],
   "acoes": [
    {
     "ticker": "PETR4",
     "nome": "Petrobras PN",
-    "preco": 45.95,
-    "var": -2.48
+    "preco": 45.6,
+    "var": -0.76
    },
    {
     "ticker": "VALE3",
     "nome": "Vale ON",
-    "preco": 62.67,
-    "var": 0.51
+    "preco": 63.96,
+    "var": 2.06
    },
    {
     "ticker": "ITUB4",
     "nome": "Itaú Unibanco PN",
-    "preco": 39.97,
-    "var": 0.65
+    "preco": 40.65,
+    "var": 1.7
    },
    {
     "ticker": "BBDC4",
     "nome": "Bradesco PN",
-    "preco": 13.77,
-    "var": -2.06
+    "preco": 14.09,
+    "var": 2.32
    },
    {
     "ticker": "BBAS3",
     "nome": "Banco do Brasil ON",
-    "preco": 16.49,
-    "var": 0
+    "preco": 17.03,
+    "var": 3.27
    },
    {
     "ticker": "WEGE3",
     "nome": "WEG ON",
-    "preco": 48.3,
-    "var": -3.5
+    "preco": 48.49,
+    "var": 0.39
    },
    {
     "ticker": "ABEV3",
     "nome": "Ambev ON",
-    "preco": 15.48,
-    "var": 1.51
+    "preco": 15.57,
+    "var": 0.58
    },
    {
     "ticker": "B3SA3",
     "nome": "B3 ON",
-    "preco": 14.36,
-    "var": 0.42
+    "preco": 14.47,
+    "var": 0.77
    }
   ],
   "grupos": [
@@ -2643,13 +2657,12 @@
      {
       "nome": "Ibovespa",
       "simbolo": "^BVSP",
-      "valor": 166191.45,
+      "valor": 168627.89,
       "unidade": "pts",
       "casas": 0,
-      "var": -0.82,
-      "var_mes": -19.68,
+      "var": 1.47,
+      "var_mes": -18.08,
       "serie": [
-       206912.0,
        205835.0,
        204302.0,
        206220.0,
@@ -2670,19 +2683,19 @@
        167922.0,
        165529.0,
        167564.0,
-       166191.4531
+       166192.0,
+       168627.8906
       ]
      },
      {
       "nome": "Dólar comercial",
       "simbolo": "BRL=X",
-      "valor": 5.5044,
+      "valor": 5.4915,
       "unidade": "R$",
       "casas": 4,
-      "var": 0.32,
-      "var_mes": 5.39,
+      "var": 0.6,
+      "var_mes": 9.9,
       "serie": [
-       5.2231,
        4.9967,
        4.9814,
        5.0192,
@@ -2705,19 +2718,19 @@
        5.4351,
        5.4363,
        5.487,
-       5.5044
+       5.4587,
+       5.4915
       ]
      },
      {
       "nome": "Euro",
       "simbolo": "EURBRL=X",
-      "valor": 6.1742,
+      "valor": 6.1243,
       "unidade": "R$",
       "casas": 4,
-      "var": 0.52,
-      "var_mes": 5.15,
+      "var": -0.05,
+      "var_mes": 9.26,
       "serie": [
-       5.872,
        5.6054,
        5.6032,
        5.6211,
@@ -2740,19 +2753,19 @@
        6.0655,
        6.079,
        6.1425,
-       6.1742
+       6.1275,
+       6.1243
       ]
      },
      {
       "nome": "Libra",
       "simbolo": "GBPBRL=X",
-      "valor": 7.4026,
+      "valor": 7.3416,
       "unidade": "R$",
       "casas": 4,
-      "var": 0.43,
-      "var_mes": 7.03,
+      "var": -0.21,
+      "var_mes": 11.15,
       "serie": [
-       6.9166,
        6.6049,
        6.6007,
        6.6269,
@@ -2775,7 +2788,8 @@
        7.2814,
        7.278,
        7.3711,
-       7.4026
+       7.3567,
+       7.3416
       ]
      }
     ]
@@ -2786,11 +2800,11 @@
      {
       "nome": "S&P 500",
       "simbolo": "^GSPC",
-      "valor": 7353.73,
+      "valor": 7416.94,
       "unidade": "pts",
       "casas": 0,
-      "var": -4.36,
-      "var_mes": -5.95,
+      "var": 0.86,
+      "var_mes": -5.14,
       "serie": [
        7818.9302,
        7801.77,
@@ -2814,17 +2828,18 @@
        7541.3999,
        7568.9199,
        7688.6201,
-       7353.73
+       7353.73,
+       7416.9399
       ]
      },
      {
       "nome": "Nasdaq",
       "simbolo": "^IXIC",
-      "valor": 24314.998,
+      "valor": 24698.912,
       "unidade": "pts",
       "casas": 0,
-      "var": -5.52,
-      "var_mes": -11.9,
+      "var": 1.58,
+      "var_mes": -10.51,
       "serie": [
        27599.7891,
        27538.6895,
@@ -2848,17 +2863,18 @@
        25164.3105,
        25372.0098,
        25736.5098,
-       24314.998
+       24315.0,
+       24698.9121
       ]
      },
      {
       "nome": "Dow Jones",
       "simbolo": "^DJI",
-      "valor": 51523.06,
+      "valor": 51553.25,
       "unidade": "pts",
       "casas": 0,
-      "var": -3.44,
-      "var_mes": 0.0,
+      "var": 0.06,
+      "var_mes": 0.06,
       "serie": [
        51521.2812,
        51179.8711,
@@ -2882,19 +2898,19 @@
        51983.9805,
        51786.7188,
        53356.1211,
-       51523.0586
+       51523.0586,
+       51553.25
       ]
      },
      {
       "nome": "VIX (volatilidade)",
       "simbolo": "^VIX",
-      "valor": 28.18,
+      "valor": 23.89,
       "unidade": "pts",
       "casas": 2,
-      "var": 69.66,
-      "var_mes": 81.57,
+      "var": -15.22,
+      "var_mes": 59.16,
       "serie": [
-       15.52,
        15.01,
        15.08,
        15.41,
@@ -2917,7 +2933,8 @@
        21.15,
        20.83,
        16.61,
-       28.18
+       28.18,
+       23.89
       ]
      }
     ]
@@ -2928,13 +2945,12 @@
      {
       "nome": "Euro Stoxx 50",
       "simbolo": "^STOXX50E",
-      "valor": 6231.54,
+      "valor": 6170.49,
       "unidade": "pts",
       "casas": 0,
-      "var": -0.55,
-      "var_mes": -0.17,
+      "var": -0.98,
+      "var_mes": -1.62,
       "serie": [
-       6242.1401,
        6272.23,
        6180.29,
        6126.73,
@@ -2957,19 +2973,19 @@
        6176.0601,
        6144.5601,
        6265.71,
-       6231.54
+       6231.54,
+       6170.4902
       ]
      },
      {
       "nome": "DAX (Alemanha)",
       "simbolo": "^GDAXI",
-      "valor": 26325.01,
+      "valor": 25820.36,
       "unidade": "pts",
       "casas": 0,
-      "var": -0.43,
-      "var_mes": 4.24,
+      "var": -1.92,
+      "var_mes": 1.46,
       "serie": [
-       25254.2109,
        25449.1895,
        25104.3594,
        24806.9707,
@@ -2992,19 +3008,19 @@
        25981.0898,
        25864.6191,
        26437.6699,
-       26325.0098
+       26325.0098,
+       25820.3594
       ]
      },
      {
       "nome": "FTSE 100 (Reino Unido)",
       "simbolo": "^FTSE",
-      "valor": 10782.66,
+      "valor": 10673.94,
       "unidade": "pts",
       "casas": 0,
-      "var": -0.43,
-      "var_mes": 2.71,
+      "var": -1.01,
+      "var_mes": 1.25,
       "serie": [
-       10497.9004,
        10541.7002,
        10458.5,
        10441.5996,
@@ -3027,19 +3043,19 @@
        10761.2998,
        10638.4004,
        10829.2002,
-       10782.6602
+       10782.7002,
+       10673.9404
       ]
      },
      {
       "nome": "CAC 40 (França)",
       "simbolo": "^FCHI",
-      "valor": 8205.37,
+      "valor": 8139.0,
       "unidade": "pts",
       "casas": 0,
-      "var": 0.34,
-      "var_mes": 4.74,
+      "var": -0.81,
+      "var_mes": 3.48,
       "serie": [
-       7834.1001,
        7865.0698,
        7769.21,
        7729.6899,
@@ -3062,7 +3078,8 @@
        8047.6899,
        8020.3101,
        8177.8901,
-       8205.3701
+       8205.3701,
+       8139.0
       ]
      }
     ]
@@ -3073,13 +3090,12 @@
      {
       "nome": "Nikkei 225 (Japão)",
       "simbolo": "^N225",
-      "valor": 61077.9,
+      "valor": 57434.77,
       "unidade": "pts",
       "casas": 0,
-      "var": -3.18,
-      "var_mes": -12.68,
+      "var": -7.64,
+      "var_mes": -18.74,
       "serie": [
-       69946.8594,
        70683.9766,
        70035.7109,
        69042.1094,
@@ -3099,19 +3115,19 @@
        64659.4688,
        63290.1094,
        63081.8594,
-       62188.6289
+       62188.6289,
+       61077.8984
       ]
      },
      {
       "nome": "Hang Seng (Hong Kong)",
       "simbolo": "^HSI",
-      "valor": 24796.98,
+      "valor": 24481.86,
       "unidade": "pts",
       "casas": 0,
-      "var": 5.4,
-      "var_mes": 3.15,
+      "var": 2.35,
+      "var_mes": 0.83,
       "serie": [
-       24040.3398,
        24280.5605,
        24130.5,
        23785.7891,
@@ -3132,17 +3148,18 @@
        23294.4199,
        23393.3203,
        23525.9707,
-       23919.5
+       23919.5,
+       24796.9805
       ]
      },
      {
       "nome": "Xangai (China)",
       "simbolo": "000001.SS",
-      "valor": 3689.911,
+      "valor": 3649.177,
       "unidade": "pts",
       "casas": 0,
-      "var": 2.27,
-      "var_mes": -3.2,
+      "var": -1.0,
+      "var_mes": -4.27,
       "serie": [
        3811.9041,
        3813.791,
@@ -3163,17 +3180,18 @@
        3599.0171,
        3638.031,
        3608.0979,
-       3686.1731
+       3686.1731,
+       3689.9109
       ]
      },
      {
       "nome": "Kospi (Coreia do Sul)",
       "simbolo": "^KS11",
-      "valor": 5383.8,
+      "valor": 5059.69,
       "unidade": "pts",
       "casas": 0,
-      "var": -4.69,
-      "var_mes": -22.44,
+      "var": -10.98,
+      "var_mes": -27.11,
       "serie": [
        6941.3901,
        6803.8999,
@@ -3195,7 +3213,8 @@
        5730.7402,
        5859.0801,
        5648.79,
-       5683.7998
+       5683.7998,
+       5383.7998
       ]
      }
     ]
@@ -3210,9 +3229,8 @@
       "unidade": "pts",
       "casas": 0,
       "var": -0.35,
-      "var_mes": -0.72,
+      "var_mes": -1.65,
       "serie": [
-       2869488.0,
        2896853.0,
        2824123.0,
        2832472.0,
@@ -3226,13 +3244,12 @@
      {
       "nome": "IPC (México)",
       "simbolo": "^MXX",
-      "valor": 71087.56,
+      "valor": 71420.81,
       "unidade": "pts",
       "casas": 0,
-      "var": 0.38,
-      "var_mes": 9.41,
+      "var": 0.47,
+      "var_mes": 9.35,
       "serie": [
-       64975.0781,
        65312.4609,
        64653.3281,
        64986.9102,
@@ -3254,7 +3271,8 @@
        69779.2031,
        70184.3281,
        70819.7969,
-       71087.5625
+       71087.5625,
+       71420.8125
       ]
      }
     ]
@@ -3265,13 +3283,12 @@
      {
       "nome": "Treasury 3 meses",
       "simbolo": "^IRX",
-      "valor": 3.987,
+      "valor": 4.0,
       "unidade": "%",
       "casas": 2,
-      "var": -0.94,
-      "var_mes": -0.77,
+      "var": 0.33,
+      "var_mes": -0.92,
       "serie": [
-       4.018,
        4.037,
        4.037,
        4.043,
@@ -3294,19 +3311,19 @@
        3.982,
        4.025,
        4.025,
-       3.987
+       3.987,
+       4.0
       ]
      },
      {
       "nome": "Treasury 5 anos",
       "simbolo": "^FVX",
-      "valor": 4.608,
+      "valor": 4.6400003,
       "unidade": "%",
       "casas": 2,
-      "var": -1.73,
-      "var_mes": -9.04,
+      "var": 0.69,
+      "var_mes": -7.72,
       "serie": [
-       5.066,
        5.028,
        5.021,
        4.991,
@@ -3329,19 +3346,19 @@
        4.693,
        4.743,
        4.689,
-       4.608
+       4.608,
+       4.64
       ]
      },
      {
       "nome": "Treasury 10 anos",
       "simbolo": "^TNX",
-      "valor": 4.837,
+      "valor": 4.853,
       "unidade": "%",
       "casas": 2,
-      "var": -1.16,
-      "var_mes": -8.92,
+      "var": 0.33,
+      "var_mes": -7.9,
       "serie": [
-       5.311,
        5.269,
        5.277,
        5.231,
@@ -3364,19 +3381,19 @@
        4.894,
        4.952,
        4.894,
-       4.837
+       4.837,
+       4.853
       ]
      },
      {
       "nome": "Treasury 30 anos",
       "simbolo": "^TYX",
-      "valor": 5.251,
+      "valor": 5.253,
       "unidade": "%",
       "casas": 2,
-      "var": -0.59,
-      "var_mes": -7.31,
+      "var": 0.04,
+      "var_mes": -6.88,
       "serie": [
-       5.665,
        5.641,
        5.661,
        5.606,
@@ -3399,7 +3416,8 @@
        5.269,
        5.324,
        5.282,
-       5.251
+       5.251,
+       5.253
       ]
      }
     ]
@@ -3410,13 +3428,12 @@
      {
       "nome": "Petróleo Brent (US$/barril)",
       "simbolo": "BZ=F",
-      "valor": 98.9,
+      "valor": 97.42,
       "unidade": "US$",
       "casas": 2,
-      "var": 4.52,
-      "var_mes": -1.42,
+      "var": -0.89,
+      "var_mes": -3.14,
       "serie": [
-       100.32,
        100.58,
        100.2,
        104.28,
@@ -3439,19 +3456,19 @@
        104.77,
        103.6,
        94.62,
-       98.9
+       98.29,
+       97.42
       ]
      },
      {
       "nome": "Petróleo WTI (US$/barril)",
       "simbolo": "CL=F",
-      "valor": 91.05,
+      "valor": 90.17,
       "unidade": "US$",
       "casas": 2,
-      "var": 3.33,
-      "var_mes": 1.81,
+      "var": -0.39,
+      "var_mes": 0.82,
       "serie": [
-       89.43,
        89.44,
        88.28,
        91.49,
@@ -3474,19 +3491,19 @@
        96.46,
        96.09,
        88.12,
-       91.05
+       90.52,
+       90.17
       ]
      },
      {
       "nome": "Ouro (US$/onça)",
       "simbolo": "GC=F",
-      "valor": 4097.7,
+      "valor": 4073.3,
       "unidade": "US$",
       "casas": 2,
-      "var": 0.61,
-      "var_mes": -1.42,
+      "var": -0.98,
+      "var_mes": -2.72,
       "serie": [
-       4156.7998,
        4187.1001,
        4140.7002,
        4157.0,
@@ -3509,19 +3526,19 @@
        3969.6001,
        3940.3999,
        4073.0,
-       4097.7002
+       4113.5,
+       4073.3
       ]
      },
      {
       "nome": "Prata (US$/onça)",
       "simbolo": "SI=F",
-      "valor": 51.82,
+      "valor": 52.1,
       "unidade": "US$",
       "casas": 2,
-      "var": -0.58,
-      "var_mes": -14.87,
+      "var": -0.25,
+      "var_mes": -14.82,
       "serie": [
-       60.869,
        61.168,
        59.899,
        59.064,
@@ -3544,19 +3561,19 @@
        50.72,
        49.587,
        52.12,
-       51.82
+       52.233,
+       52.1
       ]
      },
      {
       "nome": "Cobre (US$/libra)",
       "simbolo": "HG=F",
-      "valor": 6.198,
+      "valor": 6.279,
       "unidade": "US$",
       "casas": 3,
-      "var": -3.2,
-      "var_mes": -5.88,
+      "var": 0.48,
+      "var_mes": -4.78,
       "serie": [
-       6.5855,
        6.5945,
        6.5965,
        6.519,
@@ -3579,7 +3596,8 @@
        6.5435,
        6.3785,
        6.403,
-       6.1975
+       6.249,
+       6.2785
       ]
      },
      {
@@ -3588,10 +3606,9 @@
       "valor": 161.91,
       "unidade": "US$",
       "casas": 2,
-      "var": 77.86,
-      "var_mes": 77.05,
+      "var": 76.08,
+      "var_mes": 77.57,
       "serie": [
-       91.45,
        91.18,
        91.13,
        90.98,
@@ -3613,7 +3630,8 @@
        90.71,
        91.25,
        91.03,
-       91.95
+       91.95,
+       93.12
       ]
      },
      {
@@ -3622,10 +3640,9 @@
       "valor": 1189.75,
       "unidade": "US¢",
       "casas": 2,
-      "var": -0.29,
-      "var_mes": -7.11,
+      "var": 0.74,
+      "var_mes": -8.69,
       "serie": [
-       1280.75,
        1303.0,
        1297.5,
        1287.5,
@@ -3648,19 +3665,19 @@
        1204.75,
        1203.0,
        1193.25,
+       1181.0,
        1189.75
       ]
      },
      {
       "nome": "Milho (US¢/bushel)",
       "simbolo": "ZC=F",
-      "valor": 440.75,
+      "valor": 441.0,
       "unidade": "US¢",
       "casas": 2,
-      "var": -0.79,
-      "var_mes": -11.36,
+      "var": 0.23,
+      "var_mes": -13.19,
       "serie": [
-       497.25,
        508.0,
        502.0,
        500.25,
@@ -3683,19 +3700,19 @@
        448.25,
        442.5,
        444.25,
-       440.75
+       440.0,
+       441.0
       ]
      },
      {
       "nome": "Café arábica (US¢/libra)",
       "simbolo": "KC=F",
-      "valor": 277.4,
+      "valor": 279.15,
       "unidade": "US¢",
       "casas": 2,
-      "var": -0.84,
-      "var_mes": -5.18,
+      "var": 0.72,
+      "var_mes": -8.31,
       "serie": [
-       292.55,
        304.45,
        292.7,
        289.05,
@@ -3718,7 +3735,8 @@
        292.1,
        283.95,
        279.75,
-       277.4
+       277.15,
+       279.15
       ]
      }
     ]
@@ -3729,13 +3747,12 @@
      {
       "nome": "Índice do dólar (DXY)",
       "simbolo": "DX-Y.NYB",
-      "valor": 101.6,
+      "valor": 102.166,
       "unidade": "pts",
       "casas": 2,
-      "var": 0.09,
-      "var_mes": -0.56,
+      "var": 0.61,
+      "var_mes": 0.33,
       "serie": [
-       102.17,
        101.83,
        102.24,
        102.14,
@@ -3758,19 +3775,19 @@
        101.75,
        101.87,
        101.51,
-       101.6
+       101.55,
+       102.166
       ]
      },
      {
       "nome": "Euro / dólar",
       "simbolo": "EURUSD=X",
-      "valor": 1.122,
+      "valor": 1.1157,
       "unidade": "US$",
       "casas": 4,
-      "var": 0.11,
-      "var_mes": -0.31,
+      "var": -0.69,
+      "var_mes": -0.54,
       "serie": [
-       1.1255,
        1.1217,
        1.1254,
        1.1201,
@@ -3793,19 +3810,19 @@
        1.1157,
        1.1192,
        1.1207,
-       1.122
+       1.1235,
+       1.1157
       ]
      },
      {
       "nome": "Dólar / iene",
       "simbolo": "JPY=X",
-      "valor": 157.713,
+      "valor": 158.222,
       "unidade": "¥",
       "casas": 2,
-      "var": -0.48,
-      "var_mes": -0.01,
+      "var": -0.09,
+      "var_mes": 0.16,
       "serie": [
-       157.734,
        157.963,
        158.296,
        158.06,
@@ -3828,19 +3845,19 @@
        157.677,
        157.915,
        158.469,
-       157.713
+       158.357,
+       158.222
       ]
      },
      {
       "nome": "Dólar / yuan",
       "simbolo": "CNY=X",
-      "valor": 6.6675,
+      "valor": 6.6639,
       "unidade": "CN¥",
       "casas": 4,
-      "var": -0.04,
-      "var_mes": -0.55,
+      "var": -0.14,
+      "var_mes": -0.61,
       "serie": [
-       6.7045,
        6.7045,
        6.7045,
        6.7045,
@@ -3863,19 +3880,19 @@
        6.661,
        6.648,
        6.6701,
-       6.6675
+       6.6731,
+       6.6639
       ]
      },
      {
       "nome": "Dólar / peso argentino",
       "simbolo": "ARS=X",
-      "valor": 1544.5,
+      "valor": 1545.0,
       "unidade": "ARS",
       "casas": 2,
-      "var": -0.4,
-      "var_mes": 1.46,
+      "var": -0.17,
+      "var_mes": 1.63,
       "serie": [
-       1522.33,
        1520.2491,
        1520.6345,
        1517.5077,
@@ -3898,19 +3915,19 @@
        1535.5938,
        1545.3833,
        1550.7114,
-       1544.5
+       1547.5695,
+       1545.0
       ]
      },
      {
       "nome": "Dólar / peso mexicano",
       "simbolo": "MXN=X",
-      "valor": 18.7488,
+      "valor": 18.6315,
       "unidade": "MXN",
       "casas": 4,
-      "var": -0.37,
-      "var_mes": 3.24,
+      "var": 0.13,
+      "var_mes": 3.16,
       "serie": [
-       18.1609,
        18.0616,
        17.9692,
        17.9747,
@@ -3933,7 +3950,8 @@
        18.7938,
        18.5709,
        18.8175,
-       18.7488
+       18.6077,
+       18.6315
       ]
      }
     ]
@@ -3944,13 +3962,12 @@
      {
       "nome": "Bitcoin",
       "simbolo": "BTC-USD",
-      "valor": 75679.58,
+      "valor": 75826.22,
       "unidade": "US$",
       "casas": 0,
-      "var": -5.88,
-      "var_mes": -11.78,
+      "var": -0.15,
+      "var_mes": -11.37,
       "serie": [
-       85786.5938,
        85557.5625,
        83275.9297,
        81676.3359,
@@ -3981,19 +3998,19 @@
        76677.2969,
        77345.0469,
        80405.2891,
-       75679.5781
+       75942.125,
+       75826.2188
       ]
      },
      {
       "nome": "Ethereum",
       "simbolo": "ETH-USD",
-      "valor": 2225.54,
+      "valor": 2228.75,
       "unidade": "US$",
       "casas": 0,
-      "var": -8.12,
-      "var_mes": -17.91,
+      "var": -0.26,
+      "var_mes": -17.38,
       "serie": [
-       2711.0315,
        2697.5164,
        2573.5273,
        2471.9126,
@@ -4024,7 +4041,8 @@
        2248.8862,
        2272.7258,
        2422.3118,
-       2225.54
+       2234.4763,
+       2228.75
       ]
      }
     ]
@@ -4283,588 +4301,588 @@
   ]
  },
  "tesouro": {
-  "data": "2026-10-30",
-  "data_comparacao": "2026-10-23",
+  "data": "2026-11-05",
+  "data_comparacao": "2026-10-30",
   "titulos": [
    {
     "tipo": "Tesouro Educa+",
     "vencimento": "2030-12-15",
-    "anos": 4.13,
-    "taxa_compra": 7.62,
-    "taxa_venda": 7.74,
-    "pu_compra": 3432.49,
-    "pu_venda": 3423.09,
-    "var_semana": 0.94
+    "anos": 4.11,
+    "taxa_compra": 7.6,
+    "taxa_venda": 7.72,
+    "pu_compra": 3437.43,
+    "pu_venda": 3428.76,
+    "var_semana": -0.02
    },
    {
     "tipo": "Tesouro Educa+",
     "vencimento": "2031-12-15",
-    "anos": 5.13,
+    "anos": 5.11,
     "taxa_compra": 7.69,
     "taxa_venda": 7.81,
-    "pu_compra": 3947.84,
-    "pu_venda": 3934.7,
-    "var_semana": 0.99
+    "pu_compra": 3952.12,
+    "pu_venda": 3939.82,
+    "var_semana": 0.0
    },
    {
     "tipo": "Tesouro Educa+",
     "vencimento": "2032-12-15",
-    "anos": 6.13,
-    "taxa_compra": 7.82,
-    "taxa_venda": 7.94,
-    "pu_compra": 3652.14,
-    "pu_venda": 3635.96,
-    "var_semana": 1.07
+    "anos": 6.11,
+    "taxa_compra": 7.84,
+    "taxa_venda": 7.96,
+    "pu_compra": 3653.81,
+    "pu_venda": 3638.42,
+    "var_semana": 0.02
    },
    {
     "tipo": "Tesouro Educa+",
     "vencimento": "2033-12-15",
-    "anos": 7.13,
-    "taxa_compra": 7.86,
-    "taxa_venda": 7.98,
-    "pu_compra": 3383.19,
-    "pu_venda": 3364.49,
-    "var_semana": 1.12
+    "anos": 7.11,
+    "taxa_compra": 7.88,
+    "taxa_venda": 8.0,
+    "pu_compra": 3384.13,
+    "pu_venda": 3366.15,
+    "var_semana": 0.02
    },
    {
     "tipo": "Tesouro Educa+",
     "vencimento": "2034-12-15",
-    "anos": 8.13,
-    "taxa_compra": 7.87,
-    "taxa_venda": 7.99,
-    "pu_compra": 3135.89,
-    "pu_venda": 3115.11,
-    "var_semana": 1.13
+    "anos": 8.11,
+    "taxa_compra": 7.91,
+    "taxa_venda": 8.03,
+    "pu_compra": 3133.02,
+    "pu_venda": 3112.93,
+    "var_semana": 0.04
    },
    {
     "tipo": "Tesouro Educa+",
     "vencimento": "2035-12-15",
-    "anos": 9.13,
-    "taxa_compra": 7.87,
-    "taxa_venda": 7.99,
-    "pu_compra": 2908.02,
-    "pu_venda": 2885.54,
-    "var_semana": 1.13
+    "anos": 9.11,
+    "taxa_compra": 7.92,
+    "taxa_venda": 8.04,
+    "pu_compra": 2902.55,
+    "pu_venda": 2880.75,
+    "var_semana": 0.05
    },
    {
     "tipo": "Tesouro Educa+",
     "vencimento": "2036-12-15",
-    "anos": 10.13,
-    "taxa_compra": 7.85,
-    "taxa_venda": 7.97,
-    "pu_compra": 2700.64,
-    "pu_venda": 2676.8,
-    "var_semana": 1.11
+    "anos": 10.11,
+    "taxa_compra": 7.91,
+    "taxa_venda": 8.03,
+    "pu_compra": 2692.45,
+    "pu_venda": 2669.27,
+    "var_semana": 0.06
    },
    {
     "tipo": "Tesouro Educa+",
     "vencimento": "2037-12-15",
-    "anos": 11.13,
-    "taxa_compra": 7.82,
-    "taxa_venda": 7.94,
-    "pu_compra": 2511.13,
-    "pu_venda": 2486.22,
-    "var_semana": 1.08
+    "anos": 11.11,
+    "taxa_compra": 7.88,
+    "taxa_venda": 8.0,
+    "pu_compra": 2502.12,
+    "pu_venda": 2477.84,
+    "var_semana": 0.06
    },
    {
     "tipo": "Tesouro Educa+",
     "vencimento": "2038-12-15",
-    "anos": 12.13,
-    "taxa_compra": 7.79,
-    "taxa_venda": 7.91,
-    "pu_compra": 2336.65,
-    "pu_venda": 2310.9,
-    "var_semana": 1.07
+    "anos": 12.11,
+    "taxa_compra": 7.84,
+    "taxa_venda": 7.96,
+    "pu_compra": 2329.0,
+    "pu_venda": 2303.85,
+    "var_semana": 0.05
    },
    {
     "tipo": "Tesouro Educa+",
     "vencimento": "2039-12-15",
-    "anos": 13.13,
-    "taxa_compra": 7.73,
-    "taxa_venda": 7.85,
-    "pu_compra": 2181.78,
-    "pu_venda": 2155.35,
-    "var_semana": 1.03
+    "anos": 13.11,
+    "taxa_compra": 7.79,
+    "taxa_venda": 7.91,
+    "pu_compra": 2171.52,
+    "pu_venda": 2145.69,
+    "var_semana": 0.06
    },
    {
     "tipo": "Tesouro Educa+",
     "vencimento": "2040-12-15",
-    "anos": 14.13,
-    "taxa_compra": 7.68,
-    "taxa_venda": 7.8,
-    "pu_compra": 2036.78,
-    "pu_venda": 2009.88,
-    "var_semana": 1.02
+    "anos": 14.11,
+    "taxa_compra": 7.73,
+    "taxa_venda": 7.85,
+    "pu_compra": 2028.21,
+    "pu_venda": 2001.86,
+    "var_semana": 0.05
    },
    {
     "tipo": "Tesouro Educa+",
     "vencimento": "2041-12-15",
-    "anos": 15.13,
-    "taxa_compra": 7.62,
-    "taxa_venda": 7.74,
-    "pu_compra": 1905.32,
-    "pu_venda": 1878.05,
-    "var_semana": 0.99
+    "anos": 15.11,
+    "taxa_compra": 7.68,
+    "taxa_venda": 7.8,
+    "pu_compra": 1894.22,
+    "pu_venda": 1867.52,
+    "var_semana": 0.06
    },
    {
     "tipo": "Tesouro Educa+",
     "vencimento": "2042-12-15",
-    "anos": 16.13,
-    "taxa_compra": 7.56,
-    "taxa_venda": 7.68,
-    "pu_compra": 1784.34,
-    "pu_venda": 1756.84,
-    "var_semana": 0.96
+    "anos": 16.11,
+    "taxa_compra": 7.63,
+    "taxa_venda": 7.75,
+    "pu_compra": 1770.73,
+    "pu_venda": 1743.84,
+    "var_semana": 0.07
    },
    {
     "tipo": "Tesouro Educa+",
     "vencimento": "2043-12-15",
-    "anos": 17.13,
-    "taxa_compra": 7.51,
-    "taxa_venda": 7.63,
-    "pu_compra": 1670.52,
-    "pu_venda": 1642.94,
-    "var_semana": 0.94
+    "anos": 17.11,
+    "taxa_compra": 7.59,
+    "taxa_venda": 7.71,
+    "pu_compra": 1654.47,
+    "pu_venda": 1627.52,
+    "var_semana": 0.08
    },
    {
     "tipo": "Tesouro Educa+",
     "vencimento": "2044-12-15",
-    "anos": 18.13,
-    "taxa_compra": 7.45,
-    "taxa_venda": 7.57,
-    "pu_compra": 1567.78,
-    "pu_venda": 1540.17,
-    "var_semana": 0.9
+    "anos": 18.11,
+    "taxa_compra": 7.56,
+    "taxa_venda": 7.68,
+    "pu_compra": 1544.89,
+    "pu_venda": 1518.04,
+    "var_semana": 0.11
    },
    {
     "tipo": "Tesouro Educa+",
     "vencimento": "2045-12-15",
-    "anos": 19.13,
-    "taxa_compra": 7.41,
-    "taxa_venda": 7.53,
-    "pu_compra": 1468.62,
-    "pu_venda": 1441.15,
-    "var_semana": 0.87
+    "anos": 19.11,
+    "taxa_compra": 7.53,
+    "taxa_venda": 7.65,
+    "pu_compra": 1443.5,
+    "pu_venda": 1416.82,
+    "var_semana": 0.12
    },
    {
     "tipo": "Tesouro Educa+",
     "vencimento": "2046-12-15",
-    "anos": 20.13,
-    "taxa_compra": 7.37,
-    "taxa_venda": 7.49,
-    "pu_compra": 1376.85,
-    "pu_venda": 1349.59,
-    "var_semana": 0.84
+    "anos": 20.11,
+    "taxa_compra": 7.51,
+    "taxa_venda": 7.63,
+    "pu_compra": 1347.41,
+    "pu_venda": 1321.04,
+    "var_semana": 0.14
    },
    {
     "tipo": "Tesouro Educa+",
     "vencimento": "2047-12-15",
-    "anos": 21.13,
-    "taxa_compra": 7.34,
-    "taxa_venda": 7.46,
-    "pu_compra": 1289.67,
-    "pu_venda": 1262.72,
-    "var_semana": 0.82
+    "anos": 21.11,
+    "taxa_compra": 7.5,
+    "taxa_venda": 7.62,
+    "pu_compra": 1256.14,
+    "pu_venda": 1230.2,
+    "var_semana": 0.16
    },
    {
     "tipo": "Tesouro Educa+",
     "vencimento": "2048-12-15",
-    "anos": 22.13,
-    "taxa_compra": 7.31,
-    "taxa_venda": 7.43,
-    "pu_compra": 1208.68,
-    "pu_venda": 1182.12,
-    "var_semana": 0.8
+    "anos": 22.11,
+    "taxa_compra": 7.49,
+    "taxa_venda": 7.61,
+    "pu_compra": 1171.28,
+    "pu_venda": 1145.81,
+    "var_semana": 0.18
    },
    {
     "tipo": "Tesouro IGPM+ com Juros Semestrais",
     "vencimento": "2031-01-01",
-    "anos": 4.17,
-    "taxa_compra": 7.8,
-    "taxa_venda": 7.92,
-    "pu_compra": 8006.65,
-    "pu_venda": 7962.29,
-    "var_semana": 0.08
+    "anos": 4.16,
+    "taxa_compra": 7.82,
+    "taxa_venda": 7.94,
+    "pu_compra": 8015.82,
+    "pu_venda": 7981.58,
+    "var_semana": 0.02
    },
    {
     "tipo": "Tesouro IPCA+",
     "vencimento": "2029-05-15",
-    "anos": 2.54,
-    "taxa_compra": 7.8,
-    "taxa_venda": 7.92,
-    "pu_compra": 3954.27,
-    "pu_venda": 3941.01,
-    "var_semana": 1.06
+    "anos": 2.52,
+    "taxa_compra": 7.76,
+    "taxa_venda": 7.88,
+    "pu_compra": 3962.27,
+    "pu_venda": 3949.84,
+    "var_semana": -0.04
    },
    {
     "tipo": "Tesouro IPCA+",
     "vencimento": "2032-08-15",
-    "anos": 5.79,
-    "taxa_compra": 7.89,
-    "taxa_venda": 8.01,
-    "pu_compra": 3083.9,
-    "pu_venda": 3062.48,
-    "var_semana": 1.13
+    "anos": 5.78,
+    "taxa_compra": 7.92,
+    "taxa_venda": 8.04,
+    "pu_compra": 3082.39,
+    "pu_venda": 3061.65,
+    "var_semana": 0.03
    },
    {
     "tipo": "Tesouro IPCA+",
     "vencimento": "2035-05-15",
-    "anos": 8.54,
-    "taxa_compra": 7.88,
-    "taxa_venda": 8.0,
-    "pu_compra": 2509.91,
-    "pu_venda": 2484.95,
-    "var_semana": 1.12
+    "anos": 8.52,
+    "taxa_compra": 7.94,
+    "taxa_venda": 8.06,
+    "pu_compra": 2500.9,
+    "pu_venda": 2476.57,
+    "var_semana": 0.06
    },
    {
     "tipo": "Tesouro IPCA+",
     "vencimento": "2040-08-15",
-    "anos": 13.79,
-    "taxa_compra": 7.56,
-    "taxa_venda": 7.68,
-    "pu_compra": 1757.62,
-    "pu_venda": 1729.99,
-    "var_semana": 0.98
+    "anos": 13.78,
+    "taxa_compra": 7.62,
+    "taxa_venda": 7.74,
+    "pu_compra": 1746.11,
+    "pu_venda": 1719.04,
+    "var_semana": 0.06
    },
    {
     "tipo": "Tesouro IPCA+",
     "vencimento": "2045-05-15",
-    "anos": 18.54,
-    "taxa_compra": 7.32,
-    "taxa_venda": 7.44,
-    "pu_compra": 1299.28,
-    "pu_venda": 1272.11,
-    "var_semana": 0.8
+    "anos": 18.52,
+    "taxa_compra": 7.48,
+    "taxa_venda": 7.6,
+    "pu_compra": 1265.47,
+    "pu_venda": 1239.3,
+    "var_semana": 0.16
    },
    {
     "tipo": "Tesouro IPCA+",
     "vencimento": "2050-08-15",
-    "anos": 23.79,
-    "taxa_compra": 7.27,
-    "taxa_venda": 7.39,
-    "pu_compra": 908.63,
-    "pu_venda": 884.45,
-    "var_semana": 0.79
+    "anos": 23.78,
+    "taxa_compra": 7.48,
+    "taxa_venda": 7.6,
+    "pu_compra": 868.51,
+    "pu_venda": 845.61,
+    "var_semana": 0.21
    },
    {
     "tipo": "Tesouro IPCA+ com Juros Semestrais",
     "vencimento": "2030-08-15",
-    "anos": 3.79,
+    "anos": 3.78,
     "taxa_compra": 7.84,
     "taxa_venda": 7.96,
-    "pu_compra": 4568.84,
-    "pu_venda": 4549.19,
-    "var_semana": 1.09
+    "pu_compra": 4573.88,
+    "pu_venda": 4555.18,
+    "var_semana": 0.0
    },
    {
     "tipo": "Tesouro IPCA+ com Juros Semestrais",
     "vencimento": "2032-08-15",
-    "anos": 5.79,
-    "taxa_compra": 7.86,
-    "taxa_venda": 7.98,
-    "pu_compra": 4448.28,
-    "pu_venda": 4421.84,
-    "var_semana": 1.11
+    "anos": 5.78,
+    "taxa_compra": 7.89,
+    "taxa_venda": 8.01,
+    "pu_compra": 4447.21,
+    "pu_venda": 4421.74,
+    "var_semana": 0.03
    },
    {
     "tipo": "Tesouro IPCA+ com Juros Semestrais",
     "vencimento": "2035-05-15",
-    "anos": 8.54,
-    "taxa_compra": 7.86,
-    "taxa_venda": 7.98,
-    "pu_compra": 4389.83,
-    "pu_venda": 4355.94,
-    "var_semana": 1.11
+    "anos": 8.52,
+    "taxa_compra": 7.91,
+    "taxa_venda": 8.03,
+    "pu_compra": 4381.57,
+    "pu_venda": 4348.72,
+    "var_semana": 0.05
    },
    {
     "tipo": "Tesouro IPCA+ com Juros Semestrais",
     "vencimento": "2037-05-15",
-    "anos": 10.54,
-    "taxa_compra": 7.76,
-    "taxa_venda": 7.88,
-    "pu_compra": 4339.54,
-    "pu_venda": 4301.02,
-    "var_semana": 1.03
+    "anos": 10.52,
+    "taxa_compra": 7.81,
+    "taxa_venda": 7.93,
+    "pu_compra": 4329.22,
+    "pu_venda": 4291.75,
+    "var_semana": 0.05
    },
    {
     "tipo": "Tesouro IPCA+ com Juros Semestrais",
     "vencimento": "2040-08-15",
-    "anos": 13.79,
-    "taxa_compra": 7.63,
-    "taxa_venda": 7.75,
-    "pu_compra": 4209.2,
-    "pu_venda": 4164.5,
-    "var_semana": 1.01
+    "anos": 13.78,
+    "taxa_compra": 7.68,
+    "taxa_venda": 7.8,
+    "pu_compra": 4196.03,
+    "pu_venda": 4152.43,
+    "var_semana": 0.05
    },
    {
     "tipo": "Tesouro IPCA+ com Juros Semestrais",
     "vencimento": "2045-05-15",
-    "anos": 18.54,
-    "taxa_compra": 7.47,
-    "taxa_venda": 7.59,
-    "pu_compra": 4242.42,
-    "pu_venda": 4190.71,
-    "var_semana": 0.89
+    "anos": 18.52,
+    "taxa_compra": 7.59,
+    "taxa_venda": 7.71,
+    "pu_compra": 4197.57,
+    "pu_venda": 4147.58,
+    "var_semana": 0.12
    },
    {
     "tipo": "Tesouro IPCA+ com Juros Semestrais",
     "vencimento": "2050-08-15",
-    "anos": 23.79,
-    "taxa_compra": 7.43,
-    "taxa_venda": 7.55,
-    "pu_compra": 4113.86,
-    "pu_venda": 4057.48,
-    "var_semana": 0.88
+    "anos": 23.78,
+    "taxa_compra": 7.58,
+    "taxa_venda": 7.7,
+    "pu_compra": 4050.75,
+    "pu_venda": 3996.58,
+    "var_semana": 0.15
    },
    {
     "tipo": "Tesouro IPCA+ com Juros Semestrais",
     "vencimento": "2055-05-15",
-    "anos": 28.54,
-    "taxa_compra": 7.42,
-    "taxa_venda": 7.54,
-    "pu_compra": 4144.0,
-    "pu_venda": 4084.97,
-    "var_semana": 0.91
+    "anos": 28.52,
+    "taxa_compra": 7.56,
+    "taxa_venda": 7.68,
+    "pu_compra": 4082.29,
+    "pu_venda": 4025.6,
+    "var_semana": 0.14
    },
    {
     "tipo": "Tesouro IPCA+ com Juros Semestrais",
     "vencimento": "2060-08-15",
-    "anos": 33.79,
-    "taxa_compra": 7.42,
-    "taxa_venda": 7.54,
-    "pu_compra": 4036.03,
-    "pu_venda": 3975.28,
-    "var_semana": 0.92
+    "anos": 33.78,
+    "taxa_compra": 7.56,
+    "taxa_venda": 7.68,
+    "pu_compra": 3972.14,
+    "pu_venda": 3913.9,
+    "var_semana": 0.14
    },
    {
     "tipo": "Tesouro Prefixado",
     "vencimento": "2027-01-01",
-    "anos": 0.17,
-    "taxa_compra": 13.48,
-    "taxa_venda": 13.6,
-    "pu_compra": 979.63,
-    "pu_venda": 978.97,
+    "anos": 0.16,
+    "taxa_compra": 13.58,
+    "taxa_venda": 13.7,
+    "pu_compra": 980.98,
+    "pu_venda": 980.32,
     "var_semana": 0.1
    },
    {
     "tipo": "Tesouro Prefixado",
     "vencimento": "2028-01-01",
-    "anos": 1.17,
-    "taxa_compra": 14.32,
-    "taxa_venda": 14.44,
-    "pu_compra": 856.35,
-    "pu_venda": 854.85,
-    "var_semana": 1.45
+    "anos": 1.16,
+    "taxa_compra": 14.36,
+    "taxa_venda": 14.48,
+    "pu_compra": 857.37,
+    "pu_venda": 855.88,
+    "var_semana": 0.04
    },
    {
     "tipo": "Tesouro Prefixado",
     "vencimento": "2029-01-01",
-    "anos": 2.17,
-    "taxa_compra": 14.89,
-    "taxa_venda": 15.01,
-    "pu_compra": 742.71,
-    "pu_venda": 740.64,
-    "var_semana": 2.12
+    "anos": 2.16,
+    "taxa_compra": 14.94,
+    "taxa_venda": 15.06,
+    "pu_compra": 743.25,
+    "pu_venda": 741.19,
+    "var_semana": 0.05
    },
    {
     "tipo": "Tesouro Prefixado",
     "vencimento": "2031-01-01",
-    "anos": 4.17,
-    "taxa_compra": 15.3,
-    "taxa_venda": 15.42,
-    "pu_compra": 555.37,
-    "pu_venda": 552.67,
-    "var_semana": 2.48
+    "anos": 4.16,
+    "taxa_compra": 15.27,
+    "taxa_venda": 15.39,
+    "pu_compra": 556.91,
+    "pu_venda": 554.21,
+    "var_semana": -0.03
    },
    {
     "tipo": "Tesouro Prefixado",
     "vencimento": "2032-01-01",
-    "anos": 5.17,
-    "taxa_compra": 15.38,
-    "taxa_venda": 15.5,
-    "pu_compra": 479.96,
-    "pu_venda": 477.14,
-    "var_semana": 2.48
+    "anos": 5.16,
+    "taxa_compra": 15.34,
+    "taxa_venda": 15.46,
+    "pu_compra": 481.63,
+    "pu_venda": 478.8,
+    "var_semana": -0.04
    },
    {
     "tipo": "Tesouro Prefixado com Juros Semestrais",
     "vencimento": "2027-01-01",
-    "anos": 0.17,
-    "taxa_compra": 13.53,
-    "taxa_venda": 13.65,
-    "pu_compra": 1027.37,
-    "pu_venda": 1026.67,
-    "var_semana": 0.31
+    "anos": 0.16,
+    "taxa_compra": 13.6,
+    "taxa_venda": 13.72,
+    "pu_compra": 1028.83,
+    "pu_venda": 1028.14,
+    "var_semana": 0.07
    },
    {
     "tipo": "Tesouro Prefixado com Juros Semestrais",
     "vencimento": "2029-01-01",
-    "anos": 2.17,
-    "taxa_compra": 14.77,
-    "taxa_venda": 14.89,
-    "pu_compra": 953.55,
-    "pu_venda": 951.12,
-    "var_semana": 2.17
+    "anos": 2.16,
+    "taxa_compra": 14.85,
+    "taxa_venda": 14.97,
+    "pu_compra": 953.85,
+    "pu_venda": 951.44,
+    "var_semana": 0.08
    },
    {
     "tipo": "Tesouro Prefixado com Juros Semestrais",
     "vencimento": "2031-01-01",
-    "anos": 4.17,
-    "taxa_compra": 15.29,
-    "taxa_venda": 15.41,
-    "pu_compra": 884.81,
-    "pu_venda": 881.27,
-    "var_semana": 2.44
+    "anos": 4.16,
+    "taxa_compra": 15.26,
+    "taxa_venda": 15.38,
+    "pu_compra": 887.07,
+    "pu_venda": 883.54,
+    "var_semana": -0.03
    },
    {
     "tipo": "Tesouro Prefixado com Juros Semestrais",
     "vencimento": "2033-01-01",
-    "anos": 6.17,
-    "taxa_compra": 15.42,
-    "taxa_venda": 15.54,
-    "pu_compra": 834.25,
-    "pu_venda": 829.99,
-    "var_semana": 2.49
+    "anos": 6.16,
+    "taxa_compra": 15.38,
+    "taxa_venda": 15.5,
+    "pu_compra": 836.95,
+    "pu_venda": 832.68,
+    "var_semana": -0.04
    },
    {
     "tipo": "Tesouro Prefixado com Juros Semestrais",
     "vencimento": "2035-01-01",
-    "anos": 8.17,
-    "taxa_compra": 15.39,
-    "taxa_venda": 15.51,
-    "pu_compra": 800.78,
-    "pu_venda": 796.02,
-    "var_semana": 2.45
+    "anos": 8.16,
+    "taxa_compra": 15.35,
+    "taxa_venda": 15.47,
+    "pu_compra": 803.58,
+    "pu_venda": 798.82,
+    "var_semana": -0.04
    },
    {
     "tipo": "Tesouro Prefixado com Juros Semestrais",
     "vencimento": "2037-01-01",
-    "anos": 10.17,
-    "taxa_compra": 15.23,
-    "taxa_venda": 15.35,
-    "pu_compra": 780.7,
-    "pu_venda": 775.57,
-    "var_semana": 2.33
+    "anos": 10.16,
+    "taxa_compra": 15.21,
+    "taxa_venda": 15.33,
+    "pu_compra": 782.8,
+    "pu_venda": 777.67,
+    "var_semana": -0.02
    },
    {
     "tipo": "Tesouro Renda+ Aposentadoria Extra",
     "vencimento": "2049-12-15",
-    "anos": 23.13,
-    "taxa_compra": 7.57,
-    "taxa_venda": 7.69,
-    "pu_compra": 2003.42,
-    "pu_venda": 1978.47,
-    "var_semana": 0.96
+    "anos": 23.11,
+    "taxa_compra": 7.67,
+    "taxa_venda": 7.79,
+    "pu_compra": 1985.68,
+    "pu_venda": 1961.44,
+    "var_semana": 0.1
    },
    {
     "tipo": "Tesouro Renda+ Aposentadoria Extra",
     "vencimento": "2054-12-15",
-    "anos": 28.13,
-    "taxa_compra": 7.44,
-    "taxa_venda": 7.56,
-    "pu_compra": 1420.83,
-    "pu_venda": 1395.29,
-    "var_semana": 0.89
+    "anos": 28.11,
+    "taxa_compra": 7.58,
+    "taxa_venda": 7.7,
+    "pu_compra": 1393.49,
+    "pu_venda": 1368.83,
+    "var_semana": 0.14
    },
    {
     "tipo": "Tesouro Renda+ Aposentadoria Extra",
     "vencimento": "2059-12-15",
-    "anos": 33.13,
-    "taxa_compra": 7.33,
-    "taxa_venda": 7.45,
-    "pu_compra": 1015.91,
-    "pu_venda": 992.08,
-    "var_semana": 0.85
+    "anos": 33.11,
+    "taxa_compra": 7.49,
+    "taxa_venda": 7.61,
+    "pu_compra": 986.05,
+    "pu_venda": 963.2,
+    "var_semana": 0.16
    },
    {
     "tipo": "Tesouro Renda+ Aposentadoria Extra",
     "vencimento": "2064-12-15",
-    "anos": 38.13,
-    "taxa_compra": 7.28,
-    "taxa_venda": 7.4,
-    "pu_compra": 723.52,
-    "pu_venda": 702.62,
-    "var_semana": 0.84
+    "anos": 38.11,
+    "taxa_compra": 7.46,
+    "taxa_venda": 7.58,
+    "pu_compra": 693.73,
+    "pu_venda": 673.9,
+    "var_semana": 0.18
    },
    {
     "tipo": "Tesouro Renda+ Aposentadoria Extra",
     "vencimento": "2069-12-15",
-    "anos": 43.13,
-    "taxa_compra": 7.27,
-    "taxa_venda": 7.39,
-    "pu_compra": 511.71,
-    "pu_venda": 494.17,
-    "var_semana": 0.86
+    "anos": 43.11,
+    "taxa_compra": 7.45,
+    "taxa_venda": 7.57,
+    "pu_compra": 486.57,
+    "pu_venda": 470.04,
+    "var_semana": 0.18
    },
    {
     "tipo": "Tesouro Renda+ Aposentadoria Extra",
     "vencimento": "2074-12-15",
-    "anos": 48.13,
-    "taxa_compra": 7.27,
-    "taxa_venda": 7.39,
-    "pu_compra": 361.03,
-    "pu_venda": 346.73,
-    "var_semana": 0.88
+    "anos": 48.11,
+    "taxa_compra": 7.45,
+    "taxa_venda": 7.57,
+    "pu_compra": 340.44,
+    "pu_venda": 327.06,
+    "var_semana": 0.18
    },
    {
     "tipo": "Tesouro Renda+ Aposentadoria Extra",
     "vencimento": "2079-12-15",
-    "anos": 53.13,
-    "taxa_compra": 7.28,
-    "taxa_venda": 7.4,
-    "pu_compra": 253.74,
-    "pu_venda": 242.33,
-    "var_semana": 0.89
+    "anos": 53.11,
+    "taxa_compra": 7.45,
+    "taxa_venda": 7.57,
+    "pu_compra": 238.18,
+    "pu_venda": 227.55,
+    "var_semana": 0.17
    },
    {
     "tipo": "Tesouro Renda+ Aposentadoria Extra",
     "vencimento": "2084-12-15",
-    "anos": 58.13,
-    "taxa_compra": 7.28,
-    "taxa_venda": 7.4,
-    "pu_compra": 178.94,
-    "pu_venda": 169.96,
-    "var_semana": 0.89
+    "anos": 58.11,
+    "taxa_compra": 7.45,
+    "taxa_venda": 7.57,
+    "pu_compra": 166.66,
+    "pu_venda": 158.34,
+    "var_semana": 0.17
    },
    {
     "tipo": "Tesouro Selic",
     "vencimento": "2027-03-01",
-    "anos": 0.33,
+    "anos": 0.32,
     "taxa_compra": 0.02,
     "taxa_venda": 0.03,
-    "pu_compra": 20210.04,
-    "pu_venda": 20199.05,
+    "pu_compra": 20240.75,
+    "pu_venda": 20229.76,
     "var_semana": 0.0
    },
    {
     "tipo": "Tesouro Selic",
     "vencimento": "2028-03-01",
-    "anos": 1.34,
-    "taxa_compra": 0.02,
-    "taxa_venda": 0.03,
-    "pu_compra": 20204.87,
-    "pu_venda": 20191.85,
-    "var_semana": 0.0
-   },
-   {
-    "tipo": "Tesouro Selic",
-    "vencimento": "2029-03-01",
-    "anos": 2.34,
-    "taxa_compra": 0.06,
-    "taxa_venda": 0.07,
-    "pu_compra": 20185.67,
-    "pu_venda": 20170.66,
+    "anos": 1.32,
+    "taxa_compra": 0.03,
+    "taxa_venda": 0.04,
+    "pu_compra": 20235.04,
+    "pu_venda": 20222.03,
     "var_semana": 0.01
    },
    {
     "tipo": "Tesouro Selic",
-    "vencimento": "2031-03-01",
-    "anos": 4.33,
-    "taxa_compra": 0.1,
-    "taxa_venda": 0.11,
-    "pu_compra": 20120.75,
-    "pu_venda": 20101.76,
+    "vencimento": "2029-03-01",
+    "anos": 2.32,
+    "taxa_compra": 0.06,
+    "taxa_venda": 0.07,
+    "pu_compra": 20216.19,
+    "pu_venda": 20201.19,
     "var_semana": 0.0
+   },
+   {
+    "tipo": "Tesouro Selic",
+    "vencimento": "2031-03-01",
+    "anos": 4.32,
+    "taxa_compra": 0.11,
+    "taxa_venda": 0.12,
+    "pu_compra": 20150.31,
+    "pu_venda": 20131.31,
+    "var_semana": 0.01
    }
   ]
  },
@@ -4877,7 +4895,7 @@
     "codigo": "BRA",
     "nome": "Brasil",
     "juros": 13.75,
-    "juros_data": "2026-10",
+    "juros_data": "2026-11",
     "series": {
      "pib": {
       "2025": 2.29,
@@ -6289,8 +6307,8 @@
     "pais": "Brasil",
     "banco": "Banco Central do Brasil",
     "taxa": 13.75,
-    "data": "2026-10",
-    "desde": "2026-09",
+    "data": "2026-11",
+    "desde": "2026-09-17",
     "var12": -1.25,
     "inflacao": 5.02,
     "real": 8.31
@@ -6475,82 +6493,130 @@
  },
  "noticias": [
   {
-   "titulo": "Sabesp (SBSP3) tem lucro líquido ajustado de R$ 1,107 bi no 3º tri, queda de 13,8%",
+   "titulo": "XP reduz projeção do PIB a 0,3% em 2027; dólar vai a R$ 5,50 e Selic fica em 13,75%",
    "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/mercados/sabesp-sbsp3-resultados-terceiro-trimestre-2026/",
-   "data": "2026-11-05T21:49:49+00:00"
+   "link": "https://www.infomoney.com.br/economia/xp-projecao-pib-2027-selic-dolar/",
+   "data": "2026-11-06T17:00:10+00:00"
   },
   {
-   "titulo": "Em reunião do conselho de minerais críticos, Lula fala em ter ‘economia arrumada’ para atrair investimentos - Valor Econômico",
+   "titulo": "Quem é Rafael Câmara, piloto brasileiro que estreia no GP de São Paulo?",
+   "fonte": "InfoMoney",
+   "link": "https://www.infomoney.com.br/esportes/quem-e-rafael-camara/",
+   "data": "2026-11-06T17:00:00+00:00"
+  },
+  {
+   "titulo": "Por que os grandes lançamentos do cinema estão cada vez mais longos?",
+   "fonte": "InfoMoney",
+   "link": "https://www.infomoney.com.br/consumo/por-que-os-grandes-lancamentos-do-cinema-estao-cada-vez-mais-longos/",
+   "data": "2026-11-06T17:00:00+00:00"
+  },
+  {
+   "titulo": "Leilão do Master: veja os objetos do banco que estão à venda até segunda-feira",
+   "fonte": "InfoMoney",
+   "link": "https://www.infomoney.com.br/mercados/leilao-do-master-veja-os-objetos-do-banco-que-estao-a-venda-ate-segunda-feira/",
+   "data": "2026-11-06T16:55:57+00:00"
+  },
+  {
+   "titulo": "CLT ou PJ: veja como comparar os ganhos na nova área de calculadoras do InfoMoney",
+   "fonte": "InfoMoney",
+   "link": "https://www.infomoney.com.br/minhas-financas/clt-ou-pj-veja-como-comparar-os-ganhos-na-nova-area-de-calculadoras-do-infomoney/",
+   "data": "2026-11-06T16:52:19+00:00"
+  },
+  {
+   "titulo": "Líder de seita no Quênia é condenado a 200 anos de prisão por mortes de crianças",
+   "fonte": "InfoMoney",
+   "link": "https://www.infomoney.com.br/mundo/lider-de-seita-no-quenia-e-condenado-a-200-anos-de-prisao-por-mortes-de-criancas/",
+   "data": "2026-11-06T16:50:26+00:00"
+  },
+  {
+   "titulo": "Ameaças de bomba com aviso de ‘tempo se esgotando’ interrompem TVs na Europa",
+   "fonte": "InfoMoney",
+   "link": "https://www.infomoney.com.br/mundo/ameacas-de-bomba-com-aviso-de-tempo-se-esgotando-interrompem-tvs-na-europa/",
+   "data": "2026-11-06T16:49:19+00:00"
+  },
+  {
+   "titulo": "Temporais provocam três tornados, que deixam dois mortos e afetam 70 mil no RS",
+   "fonte": "InfoMoney",
+   "link": "https://www.infomoney.com.br/brasil/temporais-provocam-tres-tornados-que-deixam-dois-mortos-e-afetam-70-mil-no-rs/",
+   "data": "2026-11-06T16:43:57+00:00"
+  },
+  {
+   "titulo": "CNPE cria grupo para elaborar estratégia nacional de eletromobilidade",
+   "fonte": "Agência Brasil",
+   "link": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/cnpe-cria-grupo-para-elaborar-estrategia-nacional-de-eletromobilidade",
+   "data": "2026-11-06T16:41:00+00:00"
+  },
+  {
+   "titulo": "Governo mantém regra do botijão cheio e com marca da distribuidora; entenda",
+   "fonte": "InfoMoney",
+   "link": "https://www.infomoney.com.br/brasil/governo-mantem-regra-do-botijao-cheio-e-com-marca-da-distribuidora-entenda/",
+   "data": "2026-11-06T16:30:40+00:00"
+  },
+  {
+   "titulo": "Saiba como consultar os seguros ativos em seu CPF de forma online e gratuita",
+   "fonte": "InfoMoney",
+   "link": "https://www.infomoney.com.br/minhas-financas/saiba-como-consultar-os-seguros-ativos-em-seu-cpf-de-forma-online-e-gratuita/",
+   "data": "2026-11-06T16:30:00+00:00"
+  },
+  {
+   "titulo": "MDIC abre consulta pública sobre acordo comercial Mercosul e Indonésia - CNN Brasil",
    "fonte": "Google Notícias",
-   "link": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxQSV93aF8wN2MyNTMzVE9XRzFWRklrc29sR3VCem1EdFRlZFYwOE4tRV9mUWN6eTVVazVrTmtSaGF4a2xEQklQZ1d3YXFiek94ejIydEhsT3R2VTU2S2pIZmotVF9xUEl1aUp5aVBaMWVJZmlXNVg0NU5EbEtRMTJ1ZWNVVlRKWTRBZ2xIRWZwcWtUbGlnbk1nbGlwODk3dmIzeTV1Q0dianlGZjlEbkF3RnR1dFlxWDNNVDJkT2hjNXFSSTV6Rl9TNmo5MnNlWjcxaTUzX1FmbzV6OXp3OWg5MGpmUVFBaXdNWDVCcmpaQzgzUdIBgAJBVV95cUxPZk1YVjZVUG9lLWNqMHBFbjJKTzdhdkdjSUVuOUJpdXNVdlV4eWZDQ3BkakhtSFpxQTJobmNFOGtFQkkxdW5tR3hnSmh5RFBob3dRY0NRdGNpTUZDckJZQldLblFfdHFGeDhLSE5FTnZMR21GaTI2MnQ1V21HYXRrMEVSVDNhd2cxWVR2UllhdnZacllSQk81d0c4VEFRYjZQRHIyYlpxdGwyTXFtSE9JWWw4SHY5eGpYRkZ4WFViemo0dWZCMmNJejVockhKNURzSzJzcWhEVzBZUld4d1doR29iWTNCbW5xMUhoaVBFTVFobWxBdHZjLV84ZEowUlNM?oc=5",
-   "data": "2026-11-05T21:47:22+00:00"
+   "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPa0N1aGNtRDl6UDViak5aOFhyVjZaYlBzWk1kam95d2x2T1VSTVFWWFZYRWNXTGNFZ3g0Q3hjdHg1ZUd4MzBkUE5kb0JhQjUyeEhsUzVyQXRuNG1xeGM4Snk2MWU3ZmFhRS1KUFB6TnBNdGFnWHZVYTB1QXZuMC16M2JiWG9Pd2d0ZFpST0hIbU04RkQ3bmZtZjRoX2RMMnVvOFlpV3JhZEZTVkI2YXp0RS1IMkw1UFJ2eEpvaFlLVnAtS21hYVc1Qg?oc=5",
+   "data": "2026-11-06T14:36:10+00:00"
   },
   {
-   "titulo": "Ibovespa fecha em queda pressionado pelo exterior, com balanços e Selic no radar",
-   "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/mercados/ibovespa-opera-volatil-em-meio-a-queda-em-ny-e-cautela-fiscal-apesar-de-commodities/",
-   "data": "2026-11-05T21:42:19+00:00"
-  },
-  {
-   "titulo": "Nasdaq tem maior queda diária em 19 meses com temor sobre regulamentações de IA",
-   "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/mercados/nasdaq-cai-com-queda-de-acoes-de-chips-e-data-centers/",
-   "data": "2026-11-05T21:34:03+00:00"
-  },
-  {
-   "titulo": "Lula defende responsabilidade fiscal e \"economia arrumada\" - Terra",
+   "titulo": "Revolut vai investir US$ 1 bi na América Latina e quer dobrar ritmo de novos clientes no Brasil - Estadão",
    "fonte": "Google Notícias",
-   "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxPNzdpdTBGb0lWS2k5WmZQN1llc2xfZ3gyY0xVV3NUTUMtR3RCOTNKMkd5ei1YZzY1NFU0cjdZbG1KZDc1UWttaUk1MFFORlRqbUR3S2xTb0F0QVlrVnIwbDMzbjVsamMzd0F4MXdOR1FkRDExN1lPQllSQlloME1Sc2lwdGV4Q25TcVlsZ0xnRmhzc1ZBUkpnTEEtREdQcVdzQTdNYldEYXUwQXdVTmozUXlCdlpSSFppQnN1cldDUFpjdWJXSWctc0dUbkxGbVhQVVU1NkY0WHp5WFU?oc=5",
-   "data": "2026-11-05T21:32:00+00:00"
+   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQdEgySEsxek82cGM4dE8zdWcwb1Vtc25fZUdfR3U1c0s5aXNfSFdlaUlzZUVJMGhBU0k0YzFvVUNIeVRDRUJaZkRCa3FremFHSnRwYmJnTXltSnVEOEtuNUhqUVlOakU1YVpWVmd6cGRwWXNvaXlFNEZXNm9EUkdyNVE2a2x3dHpidmdpUEsxR1lYYVF1c3ZBdUQtcmhWaXdVY0VTNjRmZ09SMV9wcGxfTw?oc=5",
+   "data": "2026-11-06T14:33:14+00:00"
   },
   {
-   "titulo": "Ibovespa fecha em baixa, com fiscal e queda do exterior; dólar sobe a R$ 5,48",
-   "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/mercados/ibovespa-hoje-bolsa-de-valores-ao-vivo-05112026/",
-   "data": "2026-11-05T21:28:10+00:00"
+   "titulo": "IBGE confirma crescimento de 3,4% da economia em 2024",
+   "fonte": "Agência Brasil",
+   "link": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/ibge-confirma-crescimento-de-34-da-economia-em-2024",
+   "data": "2026-11-06T13:59:00+00:00"
   },
   {
-   "titulo": "Tenda (TEND3) desaba 17,7% após resultados fracos no 3T: veja o que desanimou mercado",
-   "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/mercados/tenda-tend3-desaba-177-apos-resultados-fracos-no-3t-veja-o-que-desanimou-mercado/",
-   "data": "2026-11-05T21:18:48+00:00"
-  },
-  {
-   "titulo": "Porto (PSSA3): lucro sobe, mas resultados recorrentes recuam no 3º tri; ação cai 2,6%",
-   "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/mercados/porto-pssa3-lucro-sobe-mas-resultados-recorrentes-recuam-no-3o-tri-acao-cai-26/",
-   "data": "2026-11-05T21:17:38+00:00"
-  },
-  {
-   "titulo": "Smart Fit, GPA e C&A sobem forte, Méliuz e Meli caem após 3T; veja análises",
-   "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/mercados/smart-fit-gpa-e-ca-sobem-forte-meliuz-e-meli-caem-apos-3t-veja-analises/",
-   "data": "2026-11-05T21:16:35+00:00"
-  },
-  {
-   "titulo": "Fleury (FLRY3) tem lucro líquido de R$ 264 mi no 3º tri, alta anual de 42,9%",
-   "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/mercados/resultados-fleury-flry3-terceiro-trimestre-2026/",
-   "data": "2026-11-05T21:16:24+00:00"
-  },
-  {
-   "titulo": "Iochpe-Maxion (MYPK3) salta 10% na B3 após balanço forte e melhora operacional no 3T",
-   "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/mercados/iochpe-maxion-mypk3-dispara-na-b3-apos-resultado-forte-e-melhora-operacional-no-3t/",
-   "data": "2026-11-05T21:12:45+00:00"
-  },
-  {
-   "titulo": "TSE aceita ação contra chapa Lula-Alckmin por abuso de poder econômico",
-   "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/politica/tse-aceita-acao-contra-chapa-lula-alckmin-por-abuso-de-poder-economico/",
-   "data": "2026-11-05T20:58:23+00:00"
-  },
-  {
-   "titulo": "Durigan discutirá medidas fiscais com Lula após viagem à COP31 - Agência Brasil",
+   "titulo": "Honda anuncia investimentos de R$ 3,3 bi no Brasil até 2030 - Poder360",
    "fonte": "Google Notícias",
-   "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxObU5ucmMtcm8yWUZuSl9Sc2t6VDlQS1F4NW5oQVBtLVRwYjdfa1NaQmMwTHc0SWtuWmV4cU1RWW9EamZaRzZIcTVsTEVQVFFCeDVlWEk0ZFZ4dVZlaExaWTR5VmtGd3FvTWV4OV9yRjMxa1NaNDJWWEEzRmp0emNsSjVIbzBURlpzVVl0NzdoN2x4TzJZQnJEWXI0NFo4QWoyTG9oaUN4c0Z0VmU5TEVBRmI4cWRjMzdOV1E?oc=5",
-   "data": "2026-11-05T20:40:00+00:00"
+   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNUm8wWmE1NUtjN1FrM0tGMl9TTkdoWEppNWhYZlEweEduUkUwNXhhZm11aUJlWmpLUFA0c1h4N1RSSkk0MVhhWG9pWmd3bVNLeVJWOHpuaFQwV0VpQmZLampCTEw0ZUg5d3YzQkFORF9FZXhybFVvdkFIUC1VRUhzcU9KTl9sMm9ZUVU4MWdScllZanAtMl9WYWUxaWlVb2x5d3A0RXU5d3hkQQ?oc=5",
+   "data": "2026-11-06T12:01:40+00:00"
+  },
+  {
+   "titulo": "'Quase todo meu dinheiro está preso no banco': brasileiros que foram para o Paraguai são afetados pela crise no país - G1",
+   "fonte": "Google Notícias",
+   "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNellJTlAwU0xMdTFvdGpaanhQUzZJTmd3eFpIWHBaQm1DTll6T3lLdFhjcW9nN2l2aFFCd3BLX0hhMWZuUnZwTERaR0ZkQjAzWUh0eGhITWpkSi0yOHR6VFNDbnhIRE9jbWFjMTQ0dEgwSjVFanB5ajc4bnFuRUh5eVVDd09ScVVpQ1praXBlZFJWcTBoVXQ1ZmNWbWNUbWNHQUFiMGFIY1hIT3RDbFlQLTRoanZNREJPS2ZwTFFYOTlJQdIB0AFBVV95cUxQbTBoR1pFRngtQnV5SDBQVzlQcERZR2poSTRmRUUzY2I3ck5FYnB5dFV0RWNCbjk3cG1PVVRpaWVBWTc4cVpQQnlTLWdnYTRucTZwcm1KRTZocHZFQmlabGNCM1FsM09US3IwbzhIOXVnUnpfX2VHUnVqT0ptS04wR3B5MmVQQU82S2FjOXV3NVZmODVPTWE0eUJzbDd3b0drZ28zREF2aEkycFp1Q3RTTi02VElVeXp5T1ZBdzJVcDVJMUZ3RnlwQ3dVUF9TcFNF?oc=5",
+   "data": "2026-11-06T03:00:01+00:00"
+  },
+  {
+   "titulo": "Lula promete priorizar economia digital e inteligência artificial no novo mandato - Brasil 247",
+   "fonte": "Google Notícias",
+   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNSzRGZnpZNG13QmxMdVRaZmRfbHlSWDJvMjhPai15TWpIUkJUYVpHSDJKWFEwNnU2VkFOS1ZzZDd3UWtqbFdwZ0NjVGs4aVdaeVp6TE0yejV3RkdMczR6dmNTU1RyMGtYb29yUmZERGdoc0cydzhhN19WbV92WU1hcEhPQkFtQTE1aU5xd0tWU3VUcV81WW1OZDdpZGV3cEhnNk5CeFpBdzNBVE5iWDBlS1BvdkNkUQ?oc=5",
+   "data": "2026-11-05T23:55:12+00:00"
+  },
+  {
+   "titulo": "André Lara Resende à BBC: 'Não falei com Lula. Isso foi plantado para queimar alguém que defendeu a proposta' - BBC",
+   "fonte": "Google Notícias",
+   "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE9nUTU4SU9vN2oxbVJ1ZjBRNUM2LWpOd0gydjN2Wmk0akRPcllXYXRMQUVDV2ZWTGJwUE9FcHNDMXFvTmNBcHRlSjdqNEtsWDR6UkloU2hkNFp6ZGVYYXF1QmNUUdIBaEFVX3lxTE9ubExVX3Z1andtdVpIZEw4VzV4blZiTElrdmEzbk5sYm91YjQtYnlpRDVLZXg0OTA1Z29qdUJWbEVyNEJCX0k2TDQwN1VJYkg2QUNPbFZObDUtLXVCTnUyY3ZpazA3bmFt?oc=5",
+   "data": "2026-11-05T23:21:08+00:00"
+  },
+  {
+   "titulo": "Governo define minerais críticos prioritários para investimentos",
+   "fonte": "Agência Brasil",
+   "link": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/governo-define-minerais-criticos-prioritarios-para-investimentos",
+   "data": "2026-11-05T22:55:00+00:00"
+  },
+  {
+   "titulo": "Dólar volta a aproximar-se de R$ 5,49 em dia de instabilidade global",
+   "fonte": "Agência Brasil",
+   "link": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/dolar-volta-aproximar-se-de-r-549-em-dia-de-instabilidade-global",
+   "data": "2026-11-05T22:11:00+00:00"
+  },
+  {
+   "titulo": "Lula quer “economia arrumada” para atrair investimentos - Agência Brasil",
+   "fonte": "Google Notícias",
+   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOZWNIWXhsdlVZR3lYTFduUEJEYlh2WlFFc1RveHFFVUZCVV82Y3A5MVo5TkxTdi0tUzhLS3JwYkNNeTFNTEdSNmRyODNBbUxmbzJCQ1loZ1dYUi1qYVRhUW4tUXRqUVc4NGU2TTZCXzdpUFhyalNaRGJ0SUtTc0pQeDBncm04T0tYQkJ0bmFpRXFOWVFVVzBiRGt0SUFUdjN6ZWtVV2oxdE55STFIVkJuUQ?oc=5",
+   "data": "2026-11-05T22:07:00+00:00"
   },
   {
    "titulo": "Durigan discutirá medidas fiscais com Lula após viagem à COP31",
@@ -6577,22 +6643,10 @@
    "data": "2026-11-05T19:40:00+00:00"
   },
   {
-   "titulo": "Custo Brasil passa a incluir impacto do crime e dos juros reais na economia - VEJA",
+   "titulo": "Após acordo com Mercosul, vendas do Brasil para a União Europeia subiram US$ 6,4 bi, diz Apex - Folha de S.Paulo",
    "fonte": "Google Notícias",
-   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOekpmdnNWelJBdXJvclNkOEdNejNqQmlLNzJLeUg1Yng3SmNnd21aWXE3TDctMVhKZkFfUi1lUUNhY3Qzb2FLSTNqUU1wTnRQN0hfdEpFOFlGZUJvdHNkN3lublJDWkpKZVJ0UXUyeHQ4dEN4ajlPOGhEeTJEVURCNlV3UjFEU250cWNvX2o0Y0hIMHphZmZFdUVqdHlxU3pkT3BZZU10dXpVU1VpM0tNVA?oc=5",
-   "data": "2026-11-05T18:32:20+00:00"
-  },
-  {
-   "titulo": "Os brasileiros com dinheiro preso no Paraguai após quebra do Ueno Bank: 'Preocupada com meu negócio' - BBC",
-   "fonte": "Google Notícias",
-   "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFBVSW1UX0ZEdlNna09sc3U4V1YtUTBNVXoyWVVFUkZWS19Mai1PRXhTRldVWlRUdDl3ZDRyYVVLd3NaQVh2bWwzMjdUWnVSdElwTmh2ZW04NnpYODJtTXpkQnFxWdIBaEFVX3lxTE15YVRnM29Jdkw5Z3BFWC0xQlhTOHNwRjBjNzZJSWhfMUY0aS1xUjNIZUhWSEUwbE1YbHhKRHZCNXg4NTZpeDY5OUpQUkI3Tzc1cDh6Q3RYeU5UN05Wd3JFdDl4N2doTlRI?oc=5",
-   "data": "2026-11-05T18:29:36+00:00"
-  },
-  {
-   "titulo": "Crise no Paraguai tem risco limitado para Brasil, mas ameaça investimentos - CNN Brasil",
-   "fonte": "Google Notícias",
-   "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxOWkZXajVmUlVmX0xhY0lWdkFyM1BCVHlxLUZ6YXp3clJLZzlmRlQzU1ZhY0tzVTV6RXFHX2t6ZzBTQXRVMEp0QUZ1MlhDTWF5ejd0NEE2bDJsdkZjUXc3UkhhLUpmQXF0cmpjTEF6SlA1VklwRlFwWVEyUmxXcXJka29wbnJtT2tsWTYxdWpjQ0VTZXMxZ3JjcDhhSVpvQTR4cEFMbFgwSWdCWDVEcnJ1RUhtaEt6S3R5Y3BWRlA0U1J1UzB1QmtsVkoxaWh1bU5uNVp0YzB1dm84UlBoSjVGN1BXUmpwU1E?oc=5",
-   "data": "2026-11-05T16:59:38+00:00"
+   "link": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxQelNDdnNQdE5wVEl0U0dfX3VwNGZMdnNkbExIWDBRS3dRSVFGTllMZW1VLUhUSElmd2dDUkZta0owT1FKUV9hUnhWNVVwV0hMZElVUHhBWFNHamJRbVZRdVNnd0NKN0NaQ3FWQXp1TzdMQ0lxOHMxV0w1czM3MXhwbGtfY3VkWjdPSTl6ajR2WkxDY0tlSXNCMFFnbmcxNnRZSDYwTEFudUVsSndBdEJ6clpKa05ZeTVrU1F4aGlTcno3LWZMeE80YXV0QkFsOXR4T09oaHc1OUo?oc=5",
+   "data": "2026-11-05T17:17:00+00:00"
   },
   {
    "titulo": "Sem reformas fiscais, Brasil pode ficar na lanterna do crescimento na América Latina - InfoMoney",
@@ -6613,46 +6667,10 @@
    "data": "2026-11-05T15:04:00+00:00"
   },
   {
-   "titulo": "Ministro diz que novos impostos não trazem aumento de carga tributária",
-   "fonte": "Agência Brasil",
-   "link": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/ministro-diz-que-novos-impostos-nao-trazem-aumento-de-carga-tributaria",
-   "data": "2026-11-05T14:17:00+00:00"
-  },
-  {
-   "titulo": "Ninguém leu Lara Resende, mas o Brasil virou PhD em economia - iG Último Segundo",
+   "titulo": "Selic a 13,75% mantém Brasil com maior juro real do mundo e pressiona economia - VEJA",
    "fonte": "Google Notícias",
-   "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOeWIxbW5oWXZ0dUthWTY2QkNNYXNtWDZ2WUs4dk9OQWFnZTQtSHBHMERfaUxHandFU1hJYTFhUXFQTjNLc2pKX1B2MmIxYXBXOUtyZURTS29JZWdSVEVEc1NENzZmeVh1VHZhU2E2MFZYdzM0VmFJbnVMSWpMZ0pLNTA1b3JXeVJkUFFPZmd5OHZDLVVGU2RmTE96WlhHdXEwVzJydTQ2a1p2QnM5N0ZPZXd4MjJTVVF1aF9EdXpRYnpvYW9QMnNJ0gHMAUFVX3lxTE5KcWcwZzc1MXpjYU9QVEUzckxMZk1kaHAtOWVycHRvbTlKclhlQkQ1dld2a2l0Q1pGdVNNU0dnWDB0bTI2YXNtRFJraFBHV0lrQ3B3T1E4YUlTRHVMcm1HejRnaTRjOEx5MFFRcWI3aWxfcTJURHoxYS16cnhDY1k0UWZwUmVvX0FtRy0ydzBTMkktNDRWOGI3WnVFd2s4TzZ3Y2loUTAwTllhRFV1ME1ibVV5RDJmZVpLd25lc2FmbDg0Z0ozWXRlR1V0bw?oc=5",
-   "data": "2026-11-05T13:47:00+00:00"
-  },
-  {
-   "titulo": "Produção da indústria recua 0,8% em setembro; 4ª queda em cinco meses",
-   "fonte": "Agência Brasil",
-   "link": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/producao-da-industria-recua-08-em-setembro-4a-queda-em-cinco-meses",
-   "data": "2026-11-05T13:45:00+00:00"
-  },
-  {
-   "titulo": "Governo publica MP das alíquotas do Imposto Seletivo para 2027",
-   "fonte": "Agência Brasil",
-   "link": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/governo-publica-mp-das-aliquotas-do-imposto-seletivo-para-2027",
-   "data": "2026-11-05T12:37:00+00:00"
-  },
-  {
-   "titulo": "Vitória democrata no Senado amplia pressão sobre tarifas de Trump ao Brasil - Folha de S.Paulo",
-   "fonte": "Google Notícias",
-   "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPekNWWU5UWi1NNy1zMkhYNFNkYkhMU2c3NUVyQXVUeVZfNl9Ic1dvVEtRSEJ5dlg0SmhuXy05M3pDNjdHNU1rWGZJUXhaN2RQOXd6REFNTkVCdG13OFFLSWs2N2l5SUFLdnllNjZZTUlKYWVSOVZySTgtNDlLZFJFajNiU3U4UHREcVdtdFd2M1VFaXRXc1BfN1IzYy11STJmbi1iRmthNGk3VTJsV2VKNjhiVWNFQlJhWThiaVpka0U1QWs2cFE?oc=5",
-   "data": "2026-11-05T02:00:00+00:00"
-  },
-  {
-   "titulo": "Vitória democrata nos EUA impacta economia e investimentos no Brasil - Gazeta do Povo",
-   "fonte": "Google Notícias",
-   "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQYnlQV0pxUnR5bDFQdHlkRW5pWmZIZGt4MjZIdUZob3p0cXdzNVMyYlZneWNkTVBTSlF5Sk5IT2pWckEtUTUwSGFkaFVzbXBIanNoREI5VnJyN2FKUjkzTVM5X2JkV1J3TDlNelJWVndwNDZURFpYdkZhMmdCNzItanJvcjZpQlVLOFF1MlBvaXNkaXhjNGc2d2J6NHRxUl9xR3ZuamdKbmF0YXNzbHdWR1NSME9wd0lnazZxaThB?oc=5",
-   "data": "2026-11-05T00:56:00+00:00"
-  },
-  {
-   "titulo": "Anatel publica novas regras para prevenir fraudes por meio de SMS",
-   "fonte": "Agência Brasil",
-   "link": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/anatel-publica-novas-regras-para-prevenir-fraudes-por-meio-de-sms",
-   "data": "2026-11-04T23:42:00+00:00"
+   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNa29RQUdQTzlIWWthWnpfZ0dZZE1PYkVTd2lfa1dTRDljZ1FwQkZpRlBtR3ItZnJ1d1hqQUZEbG5BaFZhZkdrYUd6d3JNc1I0c1JFTGkzLThhdmpPYzlQRjlIc0UzM1RUQzJwZUVsZFJhNFlvbG81TVA5clZTTVdTSHp2NzV6c21KS3hqNnBjQkVMWWJjRU9Rak1tSExWdDJUWjdnV19ydUM1M0JaTUNKU013?oc=5",
+   "data": "2026-11-04T22:10:01+00:00"
   }
  ]
 }
