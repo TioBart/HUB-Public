@@ -2,7 +2,8 @@
 Coletor do Hub Econômico.
 
 Busca dados públicos (Banco Central, Focus, brapi, Yahoo Finance, FRED, FMI, Banco Mundial,
-BIS e feeds RSS) e grava tudo em data/hub.json, que é o arquivo lido pela página.
+BIS e feeds RSS). Também mantém um arquivo por empresa em data/empresas/, com perfil,
+indicadores, proventos, demonstrativos e notícias. e grava tudo em data/hub.json, que é o arquivo lido pela página.
 
 Se uma fonte falhar, o coletor mantém o último dado salvo daquela seção,
 então a página nunca fica em branco por causa de uma API fora do ar.
@@ -19,13 +20,17 @@ import json
 import os
 import re
 import sys
+import time
 from pathlib import Path
-from urllib.parse import quote
+from urllib.parse import quote, urlencode
 
 import feedparser
 import requests
 
 SAIDA = Path(__file__).resolve().parent / "data" / "hub.json"
+EMPRESAS_DIR = SAIDA.parent / "empresas"          # um arquivo por empresa: data/empresas/PETR4.json
+SUPABASE_URL = os.getenv("SUPABASE_URL", "").rstrip("/")
+SUPABASE_SERVICE_KEY = os.getenv("SUPABASE_SERVICE_KEY", "")  # só no GitHub Secrets, nunca no site
 BRAPI_TOKEN = os.getenv("BRAPI_TOKEN", "")
 FRED_KEY = os.getenv("FRED_KEY", "")
 TIMEOUT = 30
@@ -179,6 +184,37 @@ NAVEGADOR = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
 # Preços e taxas do Tesouro Direto (Tesouro Transparente, CSV oficial atualizado todo dia útil)
 TESOURO_CSV = ("https://www.tesourotransparente.gov.br/ckan/dataset/df56aa42-484a-4a59-8184-7676580c81e3/"
                "resource/796d2059-14e9-44e3-80c9-2d9e30b405c1/download/PrecoTaxaTesouroDireto.csv")
+
+# ---------------------------------------------------------------- Empresas
+UNIVERSO_N = 100                 # quantas ações mais negociadas têm dados completos
+MAX_FUNDAMENTOS_POR_EXECUCAO = 30
+MAX_NOTICIAS_POR_EXECUCAO = 40
+IDADE_FUNDAMENTOS = dt.timedelta(hours=20)
+IDADE_NOTICIAS = dt.timedelta(hours=3)
+# Usada se a lista da brapi estiver indisponível
+UNIVERSO_RESERVA = [
+    "PETR4", "PETR3", "VALE3", "ITUB4", "BBDC4", "BBAS3", "B3SA3", "ABEV3", "WEGE3", "ITSA4",
+    "BPAC11", "SUZB3", "RENT3", "RADL3", "EQTL3", "PRIO3", "GGBR4", "RAIL3", "JBSS3", "SBSP3",
+    "VBBR3", "LREN3", "UGPA3", "CSAN3", "CMIG4", "HAPV3", "RDOR3", "TOTS3", "BBSE3", "EMBR3",
+    "KLBN11", "CSNA3", "USIM5", "MGLU3", "TIMS3", "VIVT3", "ENEV3", "EGIE3", "TAEE11", "CMIN3",
+]
+SETORES_PT = {
+    "Energy": "Energia", "Basic Materials": "Materiais básicos", "Financial Services": "Serviços financeiros",
+    "Utilities": "Utilidade pública", "Consumer Cyclical": "Consumo cíclico", "Consumer Defensive": "Consumo não cíclico",
+    "Industrials": "Bens industriais", "Healthcare": "Saúde", "Technology": "Tecnologia",
+    "Communication Services": "Comunicações", "Real Estate": "Imobiliário",
+}
+RECOMENDACOES_PT = {"strong_buy": "Compra forte", "buy": "Compra", "hold": "Neutra", "underperform": "Abaixo da média",
+                    "sell": "Venda", "strong_sell": "Venda forte"}
+# Notícias para ativos de mercado (clicar na linha em Mercados): símbolo -> termo de busca
+NOTICIAS_MERCADO = {
+    "^BVSP": "Ibovespa", "BRL=X": "dólar real câmbio", "EURBRL=X": "euro real câmbio", "^GSPC": "S&P 500",
+    "^IXIC": "Nasdaq", "^DJI": "Dow Jones", "^STOXX50E": "bolsas europeias", "^N225": "Nikkei Japão bolsa",
+    "^HSI": "Hang Seng Hong Kong", "000001.SS": "bolsa de Xangai", "^TNX": "Treasuries juros EUA",
+    "BZ=F": "petróleo Brent", "CL=F": "petróleo WTI", "GC=F": "preço do ouro", "TIO=F": "minério de ferro",
+    "ZS=F": "soja preço", "KC=F": "café preço", "BTC-USD": "bitcoin", "ETH-USD": "ethereum",
+    "DX-Y.NYB": "índice do dólar DXY",
+}
 
 FEEDS = {
     "Google Notícias": "https://news.google.com/rss/search?q=economia+brasil&hl=pt-BR&gl=BR&ceid=BR:pt-419",
@@ -747,6 +783,262 @@ def secao_tesouro():
     return {"data": ultima.isoformat(), "data_comparacao": ref.isoformat() if ref else None, "titulos": titulos}
 
 
+# ================================================================ Empresas e carteiras
+
+def cotacoes_b3():
+    """Cotação de todos os papéis listados na B3 (ações, FIIs e BDRs), pela lista da brapi."""
+    params = {"limit": 5000}
+    if BRAPI_TOKEN:
+        params["token"] = BRAPI_TOKEN
+    r = HTTP.get("https://brapi.dev/api/quote/list", params=params, timeout=90)
+    r.raise_for_status()
+    out = []
+    for x in r.json().get("stocks", []):
+        t = (x.get("stock") or "").upper()
+        if not re.fullmatch(r"[A-Z0-9]{4,7}", t):
+            continue
+        out.append({"t": t, "n": (x.get("name") or t).strip(), "p": x.get("close"),
+                    "v": round(x["change"], 2) if isinstance(x.get("change"), (int, float)) else None,
+                    "vol": x.get("volume"), "mc": x.get("market_cap"), "s": x.get("sector"),
+                    "tp": x.get("type"), "logo": x.get("logo")})
+    if not out:
+        raise ValueError("lista da brapi vazia")
+    return out
+
+
+def tickers_das_carteiras():
+    """Tickers presentes nas carteiras dos usuários (só os códigos, nada mais), se o Supabase estiver configurado."""
+    if not (SUPABASE_URL and SUPABASE_SERVICE_KEY):
+        return set()
+    r = HTTP.get(f"{SUPABASE_URL}/rest/v1/preferencias", params={"select": "dados"}, timeout=30,
+                 headers={"apikey": SUPABASE_SERVICE_KEY, "Authorization": f"Bearer {SUPABASE_SERVICE_KEY}"})
+    r.raise_for_status()
+    out = set()
+    for linha in r.json():
+        for pos in ((linha.get("dados") or {}).get("carteira") or []):
+            t = str((pos or {}).get("t", "")).upper().strip()
+            if re.fullmatch(r"[A-Z0-9]{4,7}", t):
+                out.add(t)
+    return out
+
+
+def nome_busca(nome, ticker):
+    """'PETROBRAS PN N2' -> 'Petrobras', para buscar notícias."""
+    lixo = {"ON", "PN", "PNA", "PNB", "UNT", "UNIT", "NM", "N1", "N2", "ED", "EJ", "ES", "EB", "CI", "ER", "EX",
+            "MA", "MB", "S.A.", "SA", "S/A", "DRN", "DR1", "DR2", "DR3", "FII", "CI*", "ATZ"}
+    palavras = [p for p in re.split(r"\s+", nome or "") if p.upper().strip(".") not in lixo and p.upper() not in lixo]
+    limpo = " ".join(palavras).strip(" -")
+    return limpo.title() if limpo and limpo.upper() != ticker else ""
+
+
+def _google_noticias(termo, n=15):
+    url = "https://news.google.com/rss/search?" + urlencode({"q": termo + " when:30d", "hl": "pt-BR", "gl": "BR", "ceid": "BR:pt-419"})
+    feed = feedparser.parse(url, agent=HTTP.headers["User-Agent"])
+    out = []
+    for item in feed.entries[:n]:
+        quando = item.get("published_parsed") or item.get("updated_parsed")
+        titulo = (item.get("title") or "").strip()
+        fonte = (item.get("source") or {}).get("title") if isinstance(item.get("source"), dict) else None
+        if " - " in titulo:
+            base, sufixo = titulo.rsplit(" - ", 1)
+            if not fonte or sufixo.strip() == fonte:
+                titulo, fonte = base.strip(), sufixo.strip()
+        link = item.get("link") or ""
+        if titulo and link.startswith("http"):
+            out.append({"titulo": titulo, "fonte": fonte or "Google Notícias", "link": link,
+                        "data": dt.datetime(*quando[:6], tzinfo=dt.timezone.utc).isoformat() if quando else None})
+    return out
+
+
+def _num(x, casas=2, fator=1.0):
+    try:
+        if x is None:
+            return None
+        v = float(x) * fator
+        return None if v != v or v in (float("inf"), float("-inf")) else round(v, casas)
+    except (TypeError, ValueError):
+        return None
+
+
+def fundamentos_yf(ticker):
+    """Perfil, indicadores, cotação de 1 ano, proventos e demonstrativos pelo Yahoo Finance (biblioteca yfinance)."""
+    import pandas as pd
+    import yfinance as yf
+
+    t = yf.Ticker(ticker + ".SA")
+    info = t.info or {}
+    hist = t.history(period="1y", interval="1wk", auto_adjust=False)
+    preco = _num(info.get("currentPrice") or info.get("regularMarketPrice"))
+    if preco is None and hist is not None and not hist.empty:
+        preco = _num(hist["Close"].dropna().iloc[-1])
+
+    divs = t.dividends
+    proventos = []
+    if divs is not None and not divs.empty:
+        proventos = [{"d": idx.strftime("%Y-%m-%d"), "v": _num(v, 4)} for idx, v in divs.items()][-80:]
+    hoje = dt.date.today()
+    corte = (hoje - dt.timedelta(days=365)).isoformat()
+    pago_12m = round(sum(p["v"] or 0 for p in proventos if p["d"] > corte), 4)
+    por_ano = {}
+    for p in proventos:
+        a = p["d"][:4]
+        if int(a) >= hoje.year - 6:
+            por_ano[a] = round(por_ano.get(a, 0) + (p["v"] or 0), 4)
+
+    def tabela(df, mapa, n):
+        if df is None or getattr(df, "empty", True):
+            return None
+        cols = list(df.columns)[:n]
+        linhas = {}
+        for nome, candidatos in mapa:
+            for c in candidatos:
+                if c in df.index:
+                    linhas[nome] = [None if pd.isna(df.at[c, col]) else round(float(df.at[c, col]) / 1e6, 1) for col in cols]
+                    break
+        return {"periodos": [pd.Timestamp(c).strftime("%Y-%m-%d") for c in cols], "linhas": linhas} if linhas else None
+
+    DRE = [("Receita líquida", ["Total Revenue", "Operating Revenue"]), ("Lucro bruto", ["Gross Profit"]),
+           ("EBITDA", ["EBITDA", "Normalized EBITDA"]), ("EBIT", ["EBIT", "Operating Income"]),
+           ("Lucro líquido", ["Net Income", "Net Income Common Stockholders"])]
+    BAL = [("Ativo total", ["Total Assets"]), ("Caixa e equivalentes", ["Cash And Cash Equivalents", "Cash Cash Equivalents And Short Term Investments"]),
+           ("Dívida bruta", ["Total Debt"]), ("Dívida líquida", ["Net Debt"]),
+           ("Passivo total", ["Total Liabilities Net Minority Interest"]),
+           ("Patrimônio líquido", ["Stockholders Equity", "Common Stock Equity", "Total Equity Gross Minority Interest"])]
+    FC = [("Fluxo de caixa operacional", ["Operating Cash Flow"]), ("Investimentos (capex)", ["Capital Expenditure"]),
+          ("Fluxo de caixa livre", ["Free Cash Flow"]), ("Proventos pagos", ["Cash Dividends Paid", "Common Stock Dividend Paid"])]
+
+    def seguro(fn):
+        try:
+            return fn()
+        except Exception as e:  # noqa: BLE001
+            log(f"[empresa] {ticker}: {e}")
+            return None
+
+    dem = {
+        "anual": {"dre": seguro(lambda: tabela(t.income_stmt, DRE, 4)), "balanco": seguro(lambda: tabela(t.balance_sheet, BAL, 4)),
+                  "caixa": seguro(lambda: tabela(t.cashflow, FC, 4))},
+        "trimestral": {"dre": seguro(lambda: tabela(t.quarterly_income_stmt, DRE, 6)), "balanco": seguro(lambda: tabela(t.quarterly_balance_sheet, BAL, 6)),
+                       "caixa": seguro(lambda: tabela(t.quarterly_cashflow, FC, 6))},
+    }
+
+    # dívida líquida / EBITDA do último ano fechado
+    div_ebitda = None
+    try:
+        dre, bal = dem["anual"]["dre"]["linhas"], dem["anual"]["balanco"]["linhas"]
+        ebitda = dre.get("EBITDA", [None])[0]
+        dl = bal.get("Dívida líquida", [None])[0]
+        if dl is None and bal.get("Dívida bruta") and bal.get("Caixa e equivalentes"):
+            dl = (bal["Dívida bruta"][0] or 0) - (bal["Caixa e equivalentes"][0] or 0)
+        if ebitda and dl is not None:
+            div_ebitda = round(dl / ebitda, 2)
+    except (TypeError, KeyError, IndexError):
+        pass
+
+    pct = lambda k: _num(info.get(k), 2, 100)  # noqa: E731  (Yahoo entrega frações: 0,15 = 15%)
+    return {
+        "perfil": {
+            "nome": info.get("longName") or info.get("shortName") or ticker,
+            "setor": SETORES_PT.get(info.get("sector"), info.get("sector")),
+            "industria": info.get("industry"), "site": info.get("website"),
+            "funcionarios": info.get("fullTimeEmployees"), "cidade": info.get("city"), "estado": info.get("state"),
+            "descricao": info.get("longBusinessSummary"), "descricao_idioma": "en",
+        },
+        "indicadores": {
+            "preco": preco, "valor_mercado": _num(info.get("marketCap"), 0), "pl": _num(info.get("trailingPE")),
+            "pl_projetado": _num(info.get("forwardPE")), "pvp": _num(info.get("priceToBook")),
+            "ev_ebitda": _num(info.get("enterpriseToEbitda")), "dy_12m": round(pago_12m / preco * 100, 2) if preco and pago_12m else None,
+            "proventos_12m": pago_12m or None, "roe": pct("returnOnEquity"), "roa": pct("returnOnAssets"),
+            "margem_liquida": pct("profitMargins"), "margem_ebitda": pct("ebitdaMargins"), "margem_operacional": pct("operatingMargins"),
+            "payout": pct("payoutRatio"), "crescimento_receita": pct("revenueGrowth"), "lpa": _num(info.get("trailingEps")),
+            "vpa": _num(info.get("bookValue")), "beta": _num(info.get("beta")), "max_52s": _num(info.get("fiftyTwoWeekHigh")),
+            "min_52s": _num(info.get("fiftyTwoWeekLow")), "liquidez_corrente": _num(info.get("currentRatio")),
+            "divida_patrimonio": _num(info.get("debtToEquity")), "divida_liquida_ebitda": div_ebitda,
+            "preco_alvo": _num(info.get("targetMeanPrice")), "analistas": info.get("numberOfAnalystOpinions"),
+            "recomendacao": RECOMENDACOES_PT.get(info.get("recommendationKey"), None),
+        },
+        "historico": [{"d": idx.strftime("%Y-%m-%d"), "c": _num(c)} for idx, c in hist["Close"].dropna().items()] if hist is not None and not hist.empty else [],
+        "proventos": proventos[-40:], "proventos_ano": por_ano, "demonstrativos": dem,
+    }
+
+
+def _idade(iso):
+    try:
+        return dt.datetime.now(dt.timezone.utc) - dt.datetime.fromisoformat(iso)
+    except (TypeError, ValueError):
+        return dt.timedelta(days=999)
+
+
+def atualizar_empresas(hub):
+    """Mantém data/empresas/<TICKER>.json para as ações mais negociadas e as das carteiras dos usuários.
+    Os fundamentos são renovados uma vez por dia e as notícias a cada 3 horas, aos poucos, para não sobrecarregar as fontes."""
+    EMPRESAS_DIR.mkdir(parents=True, exist_ok=True)
+    cot = {c["t"]: c for c in (hub.get("cotacoes_b3") or [])}
+    acoes = sorted([c for c in cot.values() if c.get("tp") == "stock" and c.get("vol")], key=lambda c: -(c["vol"] or 0))
+    universo = [c["t"] for c in acoes[:UNIVERSO_N]] or list(UNIVERSO_RESERVA)
+    universo += [t for t in ACOES if t not in universo]
+    try:
+        carteiras = tickers_das_carteiras()
+    except Exception as e:  # noqa: BLE001
+        log(f"[carteiras] {e}")
+        carteiras = set()
+    universo += sorted(t for t in carteiras if t not in universo)
+
+    arquivos = {}
+    for t in universo:
+        f = EMPRESAS_DIR / f"{t}.json"
+        try:
+            arquivos[t] = json.loads(f.read_text(encoding="utf-8")) if f.exists() else {"ticker": t}
+        except json.JSONDecodeError:
+            arquivos[t] = {"ticker": t}
+
+    # Carteiras primeiro, depois os mais antigos
+    prioridade = lambda t: (t not in carteiras, -_idade(arquivos[t].get("fundamentos_em")).total_seconds())  # noqa: E731
+    fund = [t for t in sorted(universo, key=prioridade) if _idade(arquivos[t].get("fundamentos_em")) > IDADE_FUNDAMENTOS][:MAX_FUNDAMENTOS_POR_EXECUCAO]
+    for t in fund:
+        try:
+            arquivos[t].update(fundamentos_yf(t))
+            arquivos[t]["fundamentos_em"] = dt.datetime.now(dt.timezone.utc).isoformat()
+        except Exception as e:  # noqa: BLE001
+            log(f"[empresa] {t}: {e}")
+        time.sleep(0.6)
+
+    prioridade_n = lambda t: (t not in carteiras, -_idade(arquivos[t].get("noticias_em")).total_seconds())  # noqa: E731
+    nots = [t for t in sorted(universo, key=prioridade_n) if _idade(arquivos[t].get("noticias_em")) > IDADE_NOTICIAS][:MAX_NOTICIAS_POR_EXECUCAO]
+    for t in nots:
+        nome = nome_busca((arquivos[t].get("perfil") or {}).get("nome") or (cot.get(t) or {}).get("n", ""), t)
+        termo = f'"{t}"' + (f' OR "{nome}"' if nome else "")
+        try:
+            arquivos[t]["noticias"] = _google_noticias(termo)
+            arquivos[t]["noticias_em"] = dt.datetime.now(dt.timezone.utc).isoformat()
+        except Exception as e:  # noqa: BLE001
+            log(f"[notícias] {t}: {e}")
+        time.sleep(0.4)
+
+    for t, dados in arquivos.items():
+        c = cot.get(t)
+        if c:  # cotação do dia sempre atual, mesmo quando os fundamentos são de ontem
+            dados["cotacao"] = {"preco": c.get("p"), "var": c.get("v"), "nome": c.get("n"), "setor": c.get("s"), "logo": c.get("logo")}
+        dados["ticker"] = t
+        (EMPRESAS_DIR / f"{t}.json").write_text(json.dumps(dados, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    return sorted(t for t, d in arquivos.items() if d.get("fundamentos_em") or d.get("noticias"))
+
+
+def secao_noticias_ativos(anterior):
+    """Notícias dos principais ativos de mercado, renovadas a cada 3 horas."""
+    ant = anterior.get("noticias_ativos") or {}
+    if ant.get("em") and _idade(ant["em"]) < IDADE_NOTICIAS:
+        return ant
+    itens = {}
+    for simbolo, termo in NOTICIAS_MERCADO.items():
+        try:
+            itens[simbolo] = _google_noticias(termo, 10)
+        except Exception as e:  # noqa: BLE001
+            log(f"[notícias de mercado] {simbolo}: {e}")
+            itens[simbolo] = (ant.get("itens") or {}).get(simbolo, [])
+        time.sleep(0.3)
+    return {"em": dt.datetime.now(dt.timezone.utc).isoformat(), "itens": itens}
+
+
 def secao_noticias():
     out = []
     for fonte, url in FEEDS.items():
@@ -791,6 +1083,8 @@ def main():
         "paises": lambda: secao_paises(S),
         "juros_mundo": lambda: secao_juros_mundo(S, hub.get("paises")),
         "noticias": secao_noticias,
+        "noticias_ativos": lambda: secao_noticias_ativos(anterior),
+        "cotacoes_b3": cotacoes_b3,
     }
     for chave, fn in tarefas.items():
         try:
@@ -799,6 +1093,12 @@ def main():
             log(f"[{chave}] falhou, mantendo o dado anterior: {e}")
             if chave in anterior:
                 hub[chave] = anterior[chave]
+
+    try:
+        hub["empresas_disponiveis"] = atualizar_empresas(hub)
+    except Exception as e:  # noqa: BLE001
+        log(f"[empresas] falhou: {e}")
+        hub["empresas_disponiveis"] = anterior.get("empresas_disponiveis", [])
 
     SAIDA.parent.mkdir(parents=True, exist_ok=True)
     SAIDA.write_text(json.dumps(hub, ensure_ascii=False, indent=1), encoding="utf-8")

@@ -18,6 +18,7 @@ concurrency:
 jobs:
   coletar:
     runs-on: ubuntu-latest
+    timeout-minutes: 25
     environment:
       name: github-pages
       url: ${{ steps.deploy.outputs.page_url }}
@@ -27,10 +28,18 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install -r requirements.txt
+      # Os arquivos das empresas ficam guardados entre uma execução e outra (sem ir para o histórico do Git)
+      - uses: actions/cache@v4
+        with:
+          path: data/empresas
+          key: empresas-${{ github.run_id }}
+          restore-keys: empresas-
       - run: python coletor.py
         env:
           BRAPI_TOKEN: ${{ secrets.BRAPI_TOKEN }}
           FRED_KEY: ${{ secrets.FRED_KEY }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
       - name: Salvar dados no repositório
         run: |
           git config user.name "hub-bot"
