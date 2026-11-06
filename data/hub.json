@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-06T17:03:09.591816+00:00",
+ "atualizado": "2026-11-06T19:54:52.817393+00:00",
  "juros": {
   "meses": [
    "2024-12",
@@ -2552,10 +2552,10 @@
   "indices": [
    {
     "nome": "Ibovespa",
-    "valor": 168658.86,
+    "valor": 168357.19,
     "unidade": "pts",
     "casas": 0,
-    "var": 1.48
+    "var": 1.3
    },
    {
     "nome": "Dólar",
@@ -2573,81 +2573,81 @@
    },
    {
     "nome": "S&P 500",
-    "valor": 7416.94,
+    "valor": 7394.81,
     "unidade": "pts",
     "casas": 0,
-    "var": 0.86
+    "var": 0.56
    },
    {
     "nome": "Petróleo Brent",
-    "valor": 97.42,
+    "valor": 98.44,
     "unidade": "US$",
     "casas": 2,
-    "var": -0.89
+    "var": 0.15
    },
    {
     "nome": "Ouro",
-    "valor": 4073.3,
+    "valor": 4073.0,
     "unidade": "US$",
     "casas": 2,
     "var": -0.98
    },
    {
     "nome": "Bitcoin",
-    "valor": 75826.22,
+    "valor": 75642.55,
     "unidade": "US$",
     "casas": 0,
-    "var": -0.15
+    "var": -0.39
    }
   ],
   "acoes": [
    {
     "ticker": "PETR4",
     "nome": "Petrobras PN",
-    "preco": 45.6,
-    "var": -0.76
+    "preco": 45.02,
+    "var": -2.02
    },
    {
     "ticker": "VALE3",
     "nome": "Vale ON",
-    "preco": 63.96,
-    "var": 2.06
+    "preco": 63.86,
+    "var": 1.9
    },
    {
     "ticker": "ITUB4",
     "nome": "Itaú Unibanco PN",
-    "preco": 40.65,
-    "var": 1.7
+    "preco": 40.6,
+    "var": 1.58
    },
    {
     "ticker": "BBDC4",
     "nome": "Bradesco PN",
-    "preco": 14.09,
-    "var": 2.32
+    "preco": 14.15,
+    "var": 2.76
    },
    {
     "ticker": "BBAS3",
     "nome": "Banco do Brasil ON",
-    "preco": 17.03,
-    "var": 3.27
+    "preco": 17.1,
+    "var": 3.7
    },
    {
     "ticker": "WEGE3",
     "nome": "WEG ON",
-    "preco": 48.49,
-    "var": 0.39
+    "preco": 48.01,
+    "var": -0.6
    },
    {
     "ticker": "ABEV3",
     "nome": "Ambev ON",
-    "preco": 15.57,
-    "var": 0.58
+    "preco": 15.54,
+    "var": 0.39
    },
    {
     "ticker": "B3SA3",
     "nome": "B3 ON",
-    "preco": 14.47,
-    "var": 0.77
+    "preco": 14.46,
+    "var": 0.7
    }
   ],
   "grupos": [
@@ -2657,11 +2657,11 @@
      {
       "nome": "Ibovespa",
       "simbolo": "^BVSP",
-      "valor": 168627.89,
+      "valor": 168357.19,
       "unidade": "pts",
       "casas": 0,
-      "var": 1.47,
-      "var_mes": -18.08,
+      "var": 1.3,
+      "var_mes": -18.21,
       "serie": [
        205835.0,
        204302.0,
@@ -2684,17 +2684,17 @@
        165529.0,
        167564.0,
        166192.0,
-       168627.8906
+       168357.1875
       ]
      },
      {
       "nome": "Dólar comercial",
       "simbolo": "BRL=X",
-      "valor": 5.4915,
+      "valor": 5.5097,
       "unidade": "R$",
       "casas": 4,
-      "var": 0.6,
-      "var_mes": 9.9,
+      "var": 0.93,
+      "var_mes": 10.27,
       "serie": [
        4.9967,
        4.9814,
@@ -2719,17 +2719,17 @@
        5.4363,
        5.487,
        5.4587,
-       5.4915
+       5.5097
       ]
      },
      {
       "nome": "Euro",
       "simbolo": "EURBRL=X",
-      "valor": 6.1243,
+      "valor": 6.1361,
       "unidade": "R$",
       "casas": 4,
-      "var": -0.05,
-      "var_mes": 9.26,
+      "var": 0.14,
+      "var_mes": 9.47,
       "serie": [
        5.6054,
        5.6032,
@@ -2754,17 +2754,17 @@
        6.079,
        6.1425,
        6.1275,
-       6.1243
+       6.1361
       ]
      },
      {
       "nome": "Libra",
       "simbolo": "GBPBRL=X",
-      "valor": 7.3416,
+      "valor": 7.3546,
       "unidade": "R$",
       "casas": 4,
-      "var": -0.21,
-      "var_mes": 11.15,
+      "var": -0.03,
+      "var_mes": 11.35,
       "serie": [
        6.6049,
        6.6007,
@@ -2789,7 +2789,7 @@
        7.278,
        7.3711,
        7.3567,
-       7.3416
+       7.3546
       ]
      }
     ]
@@ -2800,11 +2800,11 @@
      {
       "nome": "S&P 500",
       "simbolo": "^GSPC",
-      "valor": 7416.94,
+      "valor": 7394.81,
       "unidade": "pts",
       "casas": 0,
-      "var": 0.86,
-      "var_mes": -5.14,
+      "var": 0.56,
+      "var_mes": -5.42,
       "serie": [
        7818.9302,
        7801.77,
@@ -2829,17 +2829,17 @@
        7568.9199,
        7688.6201,
        7353.73,
-       7416.9399
+       7394.8101
       ]
      },
      {
       "nome": "Nasdaq",
       "simbolo": "^IXIC",
-      "valor": 24698.912,
+      "valor": 24633.705,
       "unidade": "pts",
       "casas": 0,
-      "var": 1.58,
-      "var_mes": -10.51,
+      "var": 1.31,
+      "var_mes": -10.75,
       "serie": [
        27599.7891,
        27538.6895,
@@ -2864,17 +2864,17 @@
        25372.0098,
        25736.5098,
        24315.0,
-       24698.9121
+       24633.7051
       ]
      },
      {
       "nome": "Dow Jones",
       "simbolo": "^DJI",
-      "valor": 51553.25,
+      "valor": 51406.23,
       "unidade": "pts",
       "casas": 0,
-      "var": 0.06,
-      "var_mes": 0.06,
+      "var": -0.23,
+      "var_mes": -0.22,
       "serie": [
        51521.2812,
        51179.8711,
@@ -2899,17 +2899,17 @@
        51786.7188,
        53356.1211,
        51523.0586,
-       51553.25
+       51406.2305
       ]
      },
      {
       "nome": "VIX (volatilidade)",
       "simbolo": "^VIX",
-      "valor": 23.89,
+      "valor": 24.79,
       "unidade": "pts",
       "casas": 2,
-      "var": -15.22,
-      "var_mes": 59.16,
+      "var": -12.03,
+      "var_mes": 65.16,
       "serie": [
        15.01,
        15.08,
@@ -2934,7 +2934,7 @@
        20.83,
        16.61,
        28.18,
-       23.89
+       24.79
       ]
      }
     ]
@@ -3244,11 +3244,11 @@
      {
       "nome": "IPC (México)",
       "simbolo": "^MXX",
-      "valor": 71420.81,
+      "valor": 71214.61,
       "unidade": "pts",
       "casas": 0,
-      "var": 0.47,
-      "var_mes": 9.35,
+      "var": 0.18,
+      "var_mes": 9.04,
       "serie": [
        65312.4609,
        64653.3281,
@@ -3272,7 +3272,7 @@
        70184.3281,
        70819.7969,
        71087.5625,
-       71420.8125
+       71214.6094
       ]
      }
     ]
@@ -3283,11 +3283,11 @@
      {
       "nome": "Treasury 3 meses",
       "simbolo": "^IRX",
-      "valor": 4.0,
+      "valor": 4.003,
       "unidade": "%",
       "casas": 2,
-      "var": 0.33,
-      "var_mes": -0.92,
+      "var": 0.4,
+      "var_mes": -0.84,
       "serie": [
        4.037,
        4.037,
@@ -3312,17 +3312,17 @@
        4.025,
        4.025,
        3.987,
-       4.0
+       4.003
       ]
      },
      {
       "nome": "Treasury 5 anos",
       "simbolo": "^FVX",
-      "valor": 4.6400003,
+      "valor": 4.643,
       "unidade": "%",
       "casas": 2,
-      "var": 0.69,
-      "var_mes": -7.72,
+      "var": 0.76,
+      "var_mes": -7.66,
       "serie": [
        5.028,
        5.021,
@@ -3347,17 +3347,17 @@
        4.743,
        4.689,
        4.608,
-       4.64
+       4.643
       ]
      },
      {
       "nome": "Treasury 10 anos",
       "simbolo": "^TNX",
-      "valor": 4.853,
+      "valor": 4.855,
       "unidade": "%",
       "casas": 2,
-      "var": 0.33,
-      "var_mes": -7.9,
+      "var": 0.37,
+      "var_mes": -7.86,
       "serie": [
        5.269,
        5.277,
@@ -3382,17 +3382,17 @@
        4.952,
        4.894,
        4.837,
-       4.853
+       4.855
       ]
      },
      {
       "nome": "Treasury 30 anos",
       "simbolo": "^TYX",
-      "valor": 5.253,
+      "valor": 5.256,
       "unidade": "%",
       "casas": 2,
-      "var": 0.04,
-      "var_mes": -6.88,
+      "var": 0.1,
+      "var_mes": -6.83,
       "serie": [
        5.641,
        5.661,
@@ -3417,7 +3417,7 @@
        5.324,
        5.282,
        5.251,
-       5.253
+       5.256
       ]
      }
     ]
@@ -3428,11 +3428,11 @@
      {
       "nome": "Petróleo Brent (US$/barril)",
       "simbolo": "BZ=F",
-      "valor": 97.42,
+      "valor": 98.44,
       "unidade": "US$",
       "casas": 2,
-      "var": -0.89,
-      "var_mes": -3.14,
+      "var": 0.15,
+      "var_mes": -2.13,
       "serie": [
        100.58,
        100.2,
@@ -3457,17 +3457,17 @@
        103.6,
        94.62,
        98.29,
-       97.42
+       98.44
       ]
      },
      {
       "nome": "Petróleo WTI (US$/barril)",
       "simbolo": "CL=F",
-      "valor": 90.17,
+      "valor": 91.04,
       "unidade": "US$",
       "casas": 2,
-      "var": -0.39,
-      "var_mes": 0.82,
+      "var": 0.57,
+      "var_mes": 1.79,
       "serie": [
        89.44,
        88.28,
@@ -3492,17 +3492,17 @@
        96.09,
        88.12,
        90.52,
-       90.17
+       91.04
       ]
      },
      {
       "nome": "Ouro (US$/onça)",
       "simbolo": "GC=F",
-      "valor": 4073.3,
+      "valor": 4073.0,
       "unidade": "US$",
       "casas": 2,
       "var": -0.98,
-      "var_mes": -2.72,
+      "var_mes": -2.73,
       "serie": [
        4187.1001,
        4140.7002,
@@ -3527,17 +3527,17 @@
        3940.3999,
        4073.0,
        4113.5,
-       4073.3
+       4073.0
       ]
      },
      {
       "nome": "Prata (US$/onça)",
       "simbolo": "SI=F",
-      "valor": 52.1,
+      "valor": 51.91,
       "unidade": "US$",
       "casas": 2,
-      "var": -0.25,
-      "var_mes": -14.82,
+      "var": -0.62,
+      "var_mes": -15.14,
       "serie": [
        61.168,
        59.899,
@@ -3562,17 +3562,17 @@
        49.587,
        52.12,
        52.233,
-       52.1
+       51.91
       ]
      },
      {
       "nome": "Cobre (US$/libra)",
       "simbolo": "HG=F",
-      "valor": 6.279,
+      "valor": 6.26,
       "unidade": "US$",
       "casas": 3,
-      "var": 0.48,
-      "var_mes": -4.78,
+      "var": 0.18,
+      "var_mes": -5.07,
       "serie": [
        6.5945,
        6.5965,
@@ -3597,7 +3597,7 @@
        6.3785,
        6.403,
        6.249,
-       6.2785
+       6.2605
       ]
      },
      {
@@ -3637,11 +3637,11 @@
      {
       "nome": "Soja (US¢/bushel)",
       "simbolo": "ZS=F",
-      "valor": 1189.75,
+      "valor": 1194.5,
       "unidade": "US¢",
       "casas": 2,
-      "var": 0.74,
-      "var_mes": -8.69,
+      "var": 1.14,
+      "var_mes": -8.33,
       "serie": [
        1303.0,
        1297.5,
@@ -3666,17 +3666,17 @@
        1203.0,
        1193.25,
        1181.0,
-       1189.75
+       1194.5
       ]
      },
      {
       "nome": "Milho (US¢/bushel)",
       "simbolo": "ZC=F",
-      "valor": 441.0,
+      "valor": 442.25,
       "unidade": "US¢",
       "casas": 2,
-      "var": 0.23,
-      "var_mes": -13.19,
+      "var": 0.51,
+      "var_mes": -12.94,
       "serie": [
        508.0,
        502.0,
@@ -3701,17 +3701,17 @@
        442.5,
        444.25,
        440.0,
-       441.0
+       442.25
       ]
      },
      {
       "nome": "Café arábica (US¢/libra)",
       "simbolo": "KC=F",
-      "valor": 279.15,
+      "valor": 280.15,
       "unidade": "US¢",
       "casas": 2,
-      "var": 0.72,
-      "var_mes": -8.31,
+      "var": 1.08,
+      "var_mes": -7.98,
       "serie": [
        304.45,
        292.7,
@@ -3736,7 +3736,7 @@
        283.95,
        279.75,
        277.15,
-       279.15
+       280.15
       ]
      }
     ]
@@ -3747,11 +3747,11 @@
      {
       "nome": "Índice do dólar (DXY)",
       "simbolo": "DX-Y.NYB",
-      "valor": 102.166,
+      "valor": 102.281,
       "unidade": "pts",
       "casas": 2,
-      "var": 0.61,
-      "var_mes": 0.33,
+      "var": 0.72,
+      "var_mes": 0.44,
       "serie": [
        101.83,
        102.24,
@@ -3776,17 +3776,17 @@
        101.87,
        101.51,
        101.55,
-       102.166
+       102.281
       ]
      },
      {
       "nome": "Euro / dólar",
       "simbolo": "EURUSD=X",
-      "valor": 1.1157,
+      "valor": 1.1141,
       "unidade": "US$",
       "casas": 4,
-      "var": -0.69,
-      "var_mes": -0.54,
+      "var": -0.84,
+      "var_mes": -0.68,
       "serie": [
        1.1217,
        1.1254,
@@ -3811,17 +3811,17 @@
        1.1192,
        1.1207,
        1.1235,
-       1.1157
+       1.1141
       ]
      },
      {
       "nome": "Dólar / iene",
       "simbolo": "JPY=X",
-      "valor": 158.222,
+      "valor": 158.508,
       "unidade": "¥",
       "casas": 2,
-      "var": -0.09,
-      "var_mes": 0.16,
+      "var": 0.1,
+      "var_mes": 0.35,
       "serie": [
        157.963,
        158.296,
@@ -3846,17 +3846,17 @@
        157.915,
        158.469,
        158.357,
-       158.222
+       158.508
       ]
      },
      {
       "nome": "Dólar / yuan",
       "simbolo": "CNY=X",
-      "valor": 6.6639,
+      "valor": 6.6755,
       "unidade": "CN¥",
       "casas": 4,
-      "var": -0.14,
-      "var_mes": -0.61,
+      "var": 0.04,
+      "var_mes": -0.43,
       "serie": [
        6.7045,
        6.7045,
@@ -3881,7 +3881,7 @@
        6.648,
        6.6701,
        6.6731,
-       6.6639
+       6.6755
       ]
      },
      {
@@ -3922,11 +3922,11 @@
      {
       "nome": "Dólar / peso mexicano",
       "simbolo": "MXN=X",
-      "valor": 18.6315,
+      "valor": 18.624,
       "unidade": "MXN",
       "casas": 4,
-      "var": 0.13,
-      "var_mes": 3.16,
+      "var": 0.09,
+      "var_mes": 3.11,
       "serie": [
        18.0616,
        17.9692,
@@ -3951,7 +3951,7 @@
        18.5709,
        18.8175,
        18.6077,
-       18.6315
+       18.624
       ]
      }
     ]
@@ -3962,11 +3962,11 @@
      {
       "nome": "Bitcoin",
       "simbolo": "BTC-USD",
-      "valor": 75826.22,
+      "valor": 75642.55,
       "unidade": "US$",
       "casas": 0,
-      "var": -0.15,
-      "var_mes": -11.37,
+      "var": -0.39,
+      "var_mes": -11.59,
       "serie": [
        85557.5625,
        83275.9297,
@@ -3999,17 +3999,17 @@
        77345.0469,
        80405.2891,
        75942.125,
-       75826.2188
+       75642.5469
       ]
      },
      {
       "nome": "Ethereum",
       "simbolo": "ETH-USD",
-      "valor": 2228.75,
+      "valor": 2227.92,
       "unidade": "US$",
       "casas": 0,
-      "var": -0.26,
-      "var_mes": -17.38,
+      "var": -0.29,
+      "var_mes": -17.41,
       "serie": [
        2697.5164,
        2573.5273,
@@ -4042,7 +4042,7 @@
        2272.7258,
        2422.3118,
        2234.4763,
-       2228.75
+       2227.9199
       ]
      }
     ]
@@ -4944,18 +4944,6 @@
       "2017": 83.67,
       "2016": 73.42
      },
-     "conta_corrente": {
-      "2025": -2.93,
-      "2024": -2.99,
-      "2023": -1.23,
-      "2022": -2.15,
-      "2021": -2.36,
-      "2020": -1.64,
-      "2019": -3.41,
-      "2018": -2.81,
-      "2017": -1.22,
-      "2016": -1.7
-     },
      "pib_usd": {
       "2025": 2279.92,
       "2024": 2185.82,
@@ -5034,18 +5022,6 @@
       "2017": 97.21,
       "2016": 98.12
      },
-     "conta_corrente": {
-      "2025": -3.83,
-      "2024": -4.09,
-      "2023": -3.35,
-      "2022": -3.73,
-      "2021": -3.6,
-      "2020": -2.76,
-      "2019": -1.88,
-      "2018": -2.03,
-      "2017": -1.78,
-      "2016": -2.02
-     },
      "pib_usd": {
       "2025": 30769.7,
       "2024": 29298.01,
@@ -5115,18 +5091,6 @@
       "2016": 4.56
      },
      "divida": {},
-     "conta_corrente": {
-      "2025": 3.77,
-      "2024": 2.47,
-      "2023": 1.41,
-      "2022": 2.21,
-      "2021": 1.63,
-      "2020": 1.49,
-      "2019": 0.62,
-      "2018": 0.17,
-      "2017": 1.5,
-      "2016": 1.67
-     },
      "pib_usd": {
       "2025": 19498.04,
       "2024": 18729.67,
@@ -5196,18 +5160,6 @@
       "2016": 4.1
      },
      "divida": {},
-     "conta_corrente": {
-      "2025": 4.45,
-      "2024": 5.89,
-      "2023": 5.5,
-      "2022": 4.11,
-      "2021": 6.92,
-      "2020": 6.35,
-      "2019": 7.87,
-      "2018": 8.44,
-      "2017": 8.08,
-      "2016": 8.9
-     },
      "pib_usd": {
       "2025": 5050.92,
       "2024": 4685.59,
@@ -5277,18 +5229,6 @@
       "2016": 3.13
      },
      "divida": {},
-     "conta_corrente": {
-      "2025": 4.86,
-      "2024": 4.62,
-      "2023": 3.61,
-      "2022": 2.03,
-      "2021": 3.76,
-      "2020": 2.89,
-      "2019": 3.37,
-      "2018": 3.44,
-      "2017": 4.03,
-      "2016": 3.86
-     },
      "pib_usd": {
       "2025": 4435.16,
       "2024": 4190.01,
@@ -5368,18 +5308,6 @@
       "2017": 160.14,
       "2016": 155.58
      },
-     "conta_corrente": {
-      "2025": -3.13,
-      "2024": -2.95,
-      "2023": -3.58,
-      "2022": -2.07,
-      "2021": -0.75,
-      "2020": -2.93,
-      "2019": -2.66,
-      "2018": -3.89,
-      "2017": -3.47,
-      "2016": -5.46
-     },
      "pib_usd": {
       "2025": 4002.59,
       "2024": 3695.54,
@@ -5449,18 +5377,6 @@
       "2016": 10.06
      },
      "divida": {},
-     "conta_corrente": {
-      "2025": -0.33,
-      "2024": -0.33,
-      "2023": -0.93,
-      "2022": -1.43,
-      "2021": 0.24,
-      "2020": -2.0,
-      "2019": 0.59,
-      "2018": -0.74,
-      "2017": -0.47,
-      "2016": -0.54
-     },
      "pib_usd": {
       "2025": 3366.32,
       "2024": 3160.44,
@@ -5530,18 +5446,6 @@
       "2016": 11.69
      },
      "divida": {},
-     "conta_corrente": {
-      "2025": 1.15,
-      "2024": 1.1,
-      "2023": 0.25,
-      "2022": -1.83,
-      "2021": 2.04,
-      "2020": 3.94,
-      "2019": 3.23,
-      "2018": 2.57,
-      "2017": 2.48,
-      "2016": 2.46
-     },
      "pib_usd": {
       "2025": 2551.56,
       "2024": 2383.44,
@@ -5621,18 +5525,6 @@
       "2017": 54.46,
       "2016": 56.02
      },
-     "conta_corrente": {
-      "2025": -0.96,
-      "2024": -0.49,
-      "2023": -0.69,
-      "2022": -0.44,
-      "2021": -0.02,
-      "2020": -2.01,
-      "2019": -1.95,
-      "2018": -2.39,
-      "2017": -2.8,
-      "2016": -3.09
-     },
      "pib_usd": {
       "2025": 2319.9,
       "2024": 2270.08,
@@ -5705,18 +5597,6 @@
       "2018": 46.52,
       "2017": 47.58,
       "2016": 47.63
-     },
-     "conta_corrente": {
-      "2025": -0.51,
-      "2024": -0.85,
-      "2023": -0.91,
-      "2022": -2.43,
-      "2021": -1.06,
-      "2020": 1.22,
-      "2019": -1.05,
-      "2018": -2.43,
-      "2017": -1.44,
-      "2016": -0.53
      },
      "pib_usd": {
       "2025": 3956.07,
@@ -5794,18 +5674,6 @@
       "2020": 45.84,
       "2019": 41.33
      },
-     "conta_corrente": {
-      "2025": -0.51,
-      "2024": -0.92,
-      "2023": -0.57,
-      "2022": -1.02,
-      "2021": -0.34,
-      "2020": 2.4,
-      "2019": -0.3,
-      "2018": -2.06,
-      "2017": -1.8,
-      "2016": -2.27
-     },
      "pib_usd": {
       "2025": 1832.64,
       "2024": 1830.49,
@@ -5872,18 +5740,6 @@
       "2016": 8.09
      },
      "divida": {},
-     "conta_corrente": {
-      "2025": -1.14,
-      "2024": 0.92,
-      "2023": -3.44,
-      "2022": -0.63,
-      "2021": 1.36,
-      "2020": 0.7,
-      "2019": -0.78,
-      "2018": -5.16,
-      "2017": -4.84,
-      "2016": -2.71
-     },
      "pib_usd": {
       "2025": 683.1,
       "2024": 638.37,
@@ -5953,18 +5809,6 @@
       "2016": 6.93
      },
      "divida": {},
-     "conta_corrente": {
-      "2025": -1.22,
-      "2024": -1.17,
-      "2023": -3.1,
-      "2022": -8.87,
-      "2021": -7.29,
-      "2020": -1.96,
-      "2019": -5.21,
-      "2018": -4.48,
-      "2017": -2.76,
-      "2016": -2.62
-     },
      "pib_usd": {
       "2025": 357.37,
       "2024": 329.26,
@@ -6043,18 +5887,6 @@
       "2018": 71.65,
       "2017": 66.73,
       "2016": 66.91
-     },
-     "conta_corrente": {
-      "2025": -2.41,
-      "2024": -1.69,
-      "2023": -2.27,
-      "2022": -6.04,
-      "2021": -5.64,
-      "2020": -3.43,
-      "2019": -4.58,
-      "2018": -4.2,
-      "2017": -3.18,
-      "2016": -4.45
      },
      "pib_usd": {
       "2025": 457.41,
@@ -6135,18 +5967,6 @@
       "2017": 35.45,
       "2016": 36.15
      },
-     "conta_corrente": {
-      "2025": 6.57,
-      "2024": 5.33,
-      "2023": 1.76,
-      "2022": 1.29,
-      "2021": 4.32,
-      "2020": 4.39,
-      "2019": 3.41,
-      "2018": 4.25,
-      "2017": 4.4,
-      "2016": 6.2
-     },
      "pib_usd": {
       "2025": 1872.37,
       "2024": 1875.39,
@@ -6225,18 +6045,6 @@
       "2018": 59.1,
       "2017": 56.26,
       "2016": 53.74
-     },
-     "conta_corrente": {
-      "2025": -0.42,
-      "2024": -0.64,
-      "2023": -1.1,
-      "2022": -0.3,
-      "2021": 3.77,
-      "2020": 2.0,
-      "2019": -2.62,
-      "2018": -3.0,
-      "2017": -2.37,
-      "2016": -2.63
      },
      "pib_usd": {
       "2025": 427.18,
@@ -6493,52 +6301,88 @@
  },
  "noticias": [
   {
-   "titulo": "XP reduz projeção do PIB a 0,3% em 2027; dólar vai a R$ 5,50 e Selic fica em 13,75%",
+   "titulo": "Nubank e Mercado Pago suspendem transferências de criptomoedas",
    "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/economia/xp-projecao-pib-2027-selic-dolar/",
-   "data": "2026-11-06T17:00:10+00:00"
+   "link": "https://www.infomoney.com.br/onde-investir/nubank-e-mercado-pago-suspendem-transferencias-de-criptomoedas/",
+   "data": "2026-11-06T19:48:46+00:00"
   },
   {
-   "titulo": "Quem é Rafael Câmara, piloto brasileiro que estreia no GP de São Paulo?",
-   "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/esportes/quem-e-rafael-camara/",
-   "data": "2026-11-06T17:00:00+00:00"
+   "titulo": "Balança comercial tem maior superávit para outubro desde 1989",
+   "fonte": "Agência Brasil",
+   "link": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/balanca-comercial-tem-maior-superavit-para-outubro-desde-1989",
+   "data": "2026-11-06T19:43:00+00:00"
   },
   {
-   "titulo": "Por que os grandes lançamentos do cinema estão cada vez mais longos?",
+   "titulo": "Lula reitera compromisso com responsabilidade fiscal e minimiza dívida pública",
    "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/consumo/por-que-os-grandes-lancamentos-do-cinema-estao-cada-vez-mais-longos/",
-   "data": "2026-11-06T17:00:00+00:00"
+   "link": "https://www.infomoney.com.br/politica/lula-reitera-compromisso-com-responsabilidade-fiscal-e-minimiza-divida-publica/",
+   "data": "2026-11-06T19:40:48+00:00"
   },
   {
-   "titulo": "Leilão do Master: veja os objetos do banco que estão à venda até segunda-feira",
+   "titulo": "Governo retoma avaliação ambiental de bacias e inicia estudo sobre blocos em Pelotas",
    "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/mercados/leilao-do-master-veja-os-objetos-do-banco-que-estao-a-venda-ate-segunda-feira/",
-   "data": "2026-11-06T16:55:57+00:00"
+   "link": "https://www.infomoney.com.br/politica/governo-retoma-avaliacao-ambiental-de-bacias-e-inicia-estudo-sobre-blocos-em-pelotas/",
+   "data": "2026-11-06T19:40:39+00:00"
   },
   {
-   "titulo": "CLT ou PJ: veja como comparar os ganhos na nova área de calculadoras do InfoMoney",
+   "titulo": "Ministra sinaliza regulamentação do Redata para semana de 16/11, após viagem de Lula",
    "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/minhas-financas/clt-ou-pj-veja-como-comparar-os-ganhos-na-nova-area-de-calculadoras-do-infomoney/",
-   "data": "2026-11-06T16:52:19+00:00"
+   "link": "https://www.infomoney.com.br/mercados/ministra-sinaliza-regulamentacao-do-redata-para-semana-de-16-11-apos-viagem-de-lula/",
+   "data": "2026-11-06T19:36:54+00:00"
   },
   {
-   "titulo": "Líder de seita no Quênia é condenado a 200 anos de prisão por mortes de crianças",
+   "titulo": "Farol Capital chega a R$ 1 bi sob custódia e amplia atuação além do investimentos",
    "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/mundo/lider-de-seita-no-quenia-e-condenado-a-200-anos-de-prisao-por-mortes-de-criancas/",
-   "data": "2026-11-06T16:50:26+00:00"
+   "link": "https://www.infomoney.com.br/advisor/farol-capital-chega-a-r-1-bi-sob-custodia-e-amplia-atuacao-alem-do-investimentos/",
+   "data": "2026-11-06T19:35:58+00:00"
   },
   {
-   "titulo": "Ameaças de bomba com aviso de ‘tempo se esgotando’ interrompem TVs na Europa",
+   "titulo": "Rogério Marinho diz que vai procurar Lula e STF se for eleito presidente do Senado",
    "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/mundo/ameacas-de-bomba-com-aviso-de-tempo-se-esgotando-interrompem-tvs-na-europa/",
-   "data": "2026-11-06T16:49:19+00:00"
+   "link": "https://www.infomoney.com.br/politica/rogerio-marinho-diz-que-vai-procurar-lula-e-stf-se-for-eleito-presidente-do-senado/",
+   "data": "2026-11-06T19:33:09+00:00"
   },
   {
-   "titulo": "Temporais provocam três tornados, que deixam dois mortos e afetam 70 mil no RS",
+   "titulo": "MEC autoriza 100 vagas para curso de Medicina ligado à Rede D’Or no RJ",
    "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/brasil/temporais-provocam-tres-tornados-que-deixam-dois-mortos-e-afetam-70-mil-no-rs/",
-   "data": "2026-11-06T16:43:57+00:00"
+   "link": "https://www.infomoney.com.br/brasil/mec-autoriza-100-vagas-para-curso-de-medicina-ligado-a-rede-dor-no-rj/",
+   "data": "2026-11-06T19:32:04+00:00"
+  },
+  {
+   "titulo": "Pedágio free flow começa a ser instalado na Castello Branco; conheça operação",
+   "fonte": "InfoMoney",
+   "link": "https://www.infomoney.com.br/mercados/pedagio-free-flow-comeca-a-ser-instalado-na-castello-branco-conheca-operacao/",
+   "data": "2026-11-06T19:30:31+00:00"
+  },
+  {
+   "titulo": "MP Eleitoral contestou 42 candidaturas por suspeita de elo com o crime organizado",
+   "fonte": "InfoMoney",
+   "link": "https://www.infomoney.com.br/politica/mp-eleitoral-contestou-42-candidaturas-por-suspeita-de-elo-com-o-crime-organizado/",
+   "data": "2026-11-06T19:05:55+00:00"
+  },
+  {
+   "titulo": "Exportações brasileiras para os EUA crescem 87,0% em outubro ante outubro de 2025",
+   "fonte": "InfoMoney",
+   "link": "https://www.infomoney.com.br/economia/exportacoes-brasileiras-para-os-eua-crescem-870-em-outubro-ante-outubro-de-2025/",
+   "data": "2026-11-06T19:00:58+00:00"
+  },
+  {
+   "titulo": "Brasil tem superávit comercial de US$ 9,3 bilhões em outubro - Folha de S.Paulo",
+   "fonte": "Google Notícias",
+   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPQUhLMjZBdnZ0b2RQbGtkN0RGckVLTUNtRE5UYWxuOHZPZXA5UWN1NnFpaGJUZUpaX2pTcU9JakFnREp0bThKVTZCZWFzVklSdFllQVJZcW9RZDRIWW9zWnp6T0o4UnpzYXBGM0lTTk5DNEUweW11UEdfZGtqYS1MNDJtTUJFMnBVSHF4RkFsdkxQNWRiQW1HdUFwWncxVTBveEx6VWM4VHd4Y1hUWTJZ?oc=5",
+   "data": "2026-11-06T18:51:00+00:00"
+  },
+  {
+   "titulo": "TikTok avalia expandir projeto de data center no Nordeste do Brasil, diz agência - O GLOBO",
+   "fonte": "Google Notícias",
+   "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxPYmxoVF9FZk1iU3JmTC1ISHZuVFVWLXk5OW1OemFZOUJ6SUZ6cnF0eGFyclRVc3RjMnV3NUZMV3lwaVM5NzBKdWxpVFgxU3FzdVNfRUprQXFXNmlNUnBQU3FCdTFhcXMwemJIb3ljb1FObjljTGROWDBGUE5yRHM4aDByWFhPSFhaR3NUSDFQLUh3MlZUd2luM0VaWHRzOTVBYXpQWGxlSFA2YjE5Qjl2QnNsUnVVTTQwMXRvZ0VRQk5PT0daY1R0U0JiUXRKT2RSbnBReNIB4wFBVV95cUxOczJGSXBWei1VRVQ3bU44UkZzM2cyZlhkdUJRVkJxeC1OTUQ1Q083NkxLSVQ5YWRYRVVWV1pVWWxzYlVFSkFxS0dzS0RxM3cxNEZwU1VlcXM2akNuMk1DQTd2UlVETXhDRzU1U2R5SXBJLXlERlVGRkNDb19JWHRpVjNfTG9wbGFoNHlnNXBhalpXVktfX3FlUTJycGpqWnAwbFlmZngxU2tDU2JMRG4tQXVubGJhLUhVdmZEYjFjbmliSHVVN0JZNFZGbVBULXdCMnprdUZSTzJWQXBuT1cxV21mQQ?oc=5",
+   "data": "2026-11-06T18:50:21+00:00"
+  },
+  {
+   "titulo": "Dinheiro na mão de todos faz a economia crescer – Décio Lima - Brasil 247",
+   "fonte": "Google Notícias",
+   "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQUWtpeVN2NkNhWUphOWJHd2NKcWpiM3lpSExhbXVBcGhJX3B2bjhfR05mN1hiYkVLelZ3ZkxmUFRMbTB4dDZHci14SW9lallhM295LTJDLXFYWHRmbXpGcE5qS0dlUFAzN3NqMHdqNElwZFJmQXBDRkVVbGdpa2dpeVp4UTZvZw?oc=5",
+   "data": "2026-11-06T18:32:45+00:00"
   },
   {
    "titulo": "CNPE cria grupo para elaborar estratégia nacional de eletromobilidade",
@@ -6547,28 +6391,16 @@
    "data": "2026-11-06T16:41:00+00:00"
   },
   {
-   "titulo": "Governo mantém regra do botijão cheio e com marca da distribuidora; entenda",
-   "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/brasil/governo-mantem-regra-do-botijao-cheio-e-com-marca-da-distribuidora-entenda/",
-   "data": "2026-11-06T16:30:40+00:00"
-  },
-  {
-   "titulo": "Saiba como consultar os seguros ativos em seu CPF de forma online e gratuita",
-   "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/minhas-financas/saiba-como-consultar-os-seguros-ativos-em-seu-cpf-de-forma-online-e-gratuita/",
-   "data": "2026-11-06T16:30:00+00:00"
-  },
-  {
-   "titulo": "MDIC abre consulta pública sobre acordo comercial Mercosul e Indonésia - CNN Brasil",
+   "titulo": "Dario Durigan é o mais cotado para assumir o Banco do Brasil - VEJA",
    "fonte": "Google Notícias",
-   "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPa0N1aGNtRDl6UDViak5aOFhyVjZaYlBzWk1kam95d2x2T1VSTVFWWFZYRWNXTGNFZ3g0Q3hjdHg1ZUd4MzBkUE5kb0JhQjUyeEhsUzVyQXRuNG1xeGM4Snk2MWU3ZmFhRS1KUFB6TnBNdGFnWHZVYTB1QXZuMC16M2JiWG9Pd2d0ZFpST0hIbU04RkQ3bmZtZjRoX2RMMnVvOFlpV3JhZEZTVkI2YXp0RS1IMkw1UFJ2eEpvaFlLVnAtS21hYVc1Qg?oc=5",
-   "data": "2026-11-06T14:36:10+00:00"
+   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOZjhLaTlMa1JqRWdCbUU2NzdfNGp1MVJMajhwazRjNkpFcFZZdFpTZFlFdFdyaWktazBHbmJOQnJwU3ExV0VKclY2SC1palpQTjl3aVR1YmFxa2ZMSUx2SW1LZnN3aVNhUENhNFo0UGhkVEtXanNKY2F6MDRYN3h4c1J1QTJxSHJ0NUZnVWpaTDQwMGVkVEt1SXBneVk?oc=5",
+   "data": "2026-11-06T14:53:00+00:00"
   },
   {
    "titulo": "Revolut vai investir US$ 1 bi na América Latina e quer dobrar ritmo de novos clientes no Brasil - Estadão",
    "fonte": "Google Notícias",
-   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQdEgySEsxek82cGM4dE8zdWcwb1Vtc25fZUdfR3U1c0s5aXNfSFdlaUlzZUVJMGhBU0k0YzFvVUNIeVRDRUJaZkRCa3FremFHSnRwYmJnTXltSnVEOEtuNUhqUVlOakU1YVpWVmd6cGRwWXNvaXlFNEZXNm9EUkdyNVE2a2x3dHpidmdpUEsxR1lYYVF1c3ZBdUQtcmhWaXdVY0VTNjRmZ09SMV9wcGxfTw?oc=5",
-   "data": "2026-11-06T14:33:14+00:00"
+   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQbElQWmU0MnFQOTRDQ0VZVkJleXZIWWxUNHJqUG9FdlVLLVBMTzhabkpVcExmV1JWNkQ3cjNhUkRmZzZYUzQ5OV9hRkxvcUVsd3lmM0pzNlFfVmpTUDNxNlhSM2djc2wxRWpTeW44akdOZVl4SWN4aW1aT0hLV1VlZWEyb3hNcjQwNWF0NWJaTDdFNkFRYnA1azZjZFE1OVo5eUFUZFJB0gGrAUFVX3lxTE9jbVJaMERsbXhab19jNl90b0o0NTIxTGtrUWtjR2FXbHc3N09yODhhSFVnYzZWZ0NSWWk4M2c2WkF1TDNWcVd4a19Oa2dpSGh6YkRlQ1dXek9SYmpNS1g4S2tZTEJ0dEFHSU53MVFZbXd0RWk3RXJlOXlvRmEyRUNFOFM5Zmg4RkVIb3V4d1BzZ1M1Ukd2YU1KSDc3RF9BRUVuZllzVlMzb1pmSQ?oc=5",
+   "data": "2026-11-06T14:28:51+00:00"
   },
   {
    "titulo": "IBGE confirma crescimento de 3,4% da economia em 2024",
@@ -6577,22 +6409,16 @@
    "data": "2026-11-06T13:59:00+00:00"
   },
   {
+   "titulo": "Brasil Macro Mensal: Pressões inflacionárias e desafios fiscais - XP Investimentos",
+   "fonte": "Google Notícias",
+   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQWmtiSHB2YmVDMEE0Q2VFRy1iQktyRnJPcVR1Ykp1Qy1RVEZ3MGl4all0VWMyQkx1cUR1NEppWi03d2tQUTBGaTczREx6Z3FhaVpJMGF1dGg4M294WVdiV01jWEp0QVY4eGN6MHJJdkVNSEZldk44eVlNUXNBTWx3aDBKVm1TMkw4YUZSUUUyR0FPNFhUaDM1d3dGdDZlbnBrTVF3?oc=5",
+   "data": "2026-11-06T13:32:20+00:00"
+  },
+  {
    "titulo": "Honda anuncia investimentos de R$ 3,3 bi no Brasil até 2030 - Poder360",
    "fonte": "Google Notícias",
    "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNUm8wWmE1NUtjN1FrM0tGMl9TTkdoWEppNWhYZlEweEduUkUwNXhhZm11aUJlWmpLUFA0c1h4N1RSSkk0MVhhWG9pWmd3bVNLeVJWOHpuaFQwV0VpQmZLampCTEw0ZUg5d3YzQkFORF9FZXhybFVvdkFIUC1VRUhzcU9KTl9sMm9ZUVU4MWdScllZanAtMl9WYWUxaWlVb2x5d3A0RXU5d3hkQQ?oc=5",
    "data": "2026-11-06T12:01:40+00:00"
-  },
-  {
-   "titulo": "'Quase todo meu dinheiro está preso no banco': brasileiros que foram para o Paraguai são afetados pela crise no país - G1",
-   "fonte": "Google Notícias",
-   "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNellJTlAwU0xMdTFvdGpaanhQUzZJTmd3eFpIWHBaQm1DTll6T3lLdFhjcW9nN2l2aFFCd3BLX0hhMWZuUnZwTERaR0ZkQjAzWUh0eGhITWpkSi0yOHR6VFNDbnhIRE9jbWFjMTQ0dEgwSjVFanB5ajc4bnFuRUh5eVVDd09ScVVpQ1praXBlZFJWcTBoVXQ1ZmNWbWNUbWNHQUFiMGFIY1hIT3RDbFlQLTRoanZNREJPS2ZwTFFYOTlJQdIB0AFBVV95cUxQbTBoR1pFRngtQnV5SDBQVzlQcERZR2poSTRmRUUzY2I3ck5FYnB5dFV0RWNCbjk3cG1PVVRpaWVBWTc4cVpQQnlTLWdnYTRucTZwcm1KRTZocHZFQmlabGNCM1FsM09US3IwbzhIOXVnUnpfX2VHUnVqT0ptS04wR3B5MmVQQU82S2FjOXV3NVZmODVPTWE0eUJzbDd3b0drZ28zREF2aEkycFp1Q3RTTi02VElVeXp5T1ZBdzJVcDVJMUZ3RnlwQ3dVUF9TcFNF?oc=5",
-   "data": "2026-11-06T03:00:01+00:00"
-  },
-  {
-   "titulo": "Lula promete priorizar economia digital e inteligência artificial no novo mandato - Brasil 247",
-   "fonte": "Google Notícias",
-   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNSzRGZnpZNG13QmxMdVRaZmRfbHlSWDJvMjhPai15TWpIUkJUYVpHSDJKWFEwNnU2VkFOS1ZzZDd3UWtqbFdwZ0NjVGs4aVdaeVp6TE0yejV3RkdMczR6dmNTU1RyMGtYb29yUmZERGdoc0cydzhhN19WbV92WU1hcEhPQkFtQTE1aU5xd0tWU3VUcV81WW1OZDdpZGV3cEhnNk5CeFpBdzNBVE5iWDBlS1BvdkNkUQ?oc=5",
-   "data": "2026-11-05T23:55:12+00:00"
   },
   {
    "titulo": "André Lara Resende à BBC: 'Não falei com Lula. Isso foi plantado para queimar alguém que defendeu a proposta' - BBC",
@@ -6643,34 +6469,16 @@
    "data": "2026-11-05T19:40:00+00:00"
   },
   {
-   "titulo": "Após acordo com Mercosul, vendas do Brasil para a União Europeia subiram US$ 6,4 bi, diz Apex - Folha de S.Paulo",
+   "titulo": "Crise no Paraguai tem risco limitado para Brasil, mas ameaça investimentos - CNN Brasil",
    "fonte": "Google Notícias",
-   "link": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxQelNDdnNQdE5wVEl0U0dfX3VwNGZMdnNkbExIWDBRS3dRSVFGTllMZW1VLUhUSElmd2dDUkZta0owT1FKUV9hUnhWNVVwV0hMZElVUHhBWFNHamJRbVZRdVNnd0NKN0NaQ3FWQXp1TzdMQ0lxOHMxV0w1czM3MXhwbGtfY3VkWjdPSTl6ajR2WkxDY0tlSXNCMFFnbmcxNnRZSDYwTEFudUVsSndBdEJ6clpKa05ZeTVrU1F4aGlTcno3LWZMeE80YXV0QkFsOXR4T09oaHc1OUo?oc=5",
-   "data": "2026-11-05T17:17:00+00:00"
-  },
-  {
-   "titulo": "Sem reformas fiscais, Brasil pode ficar na lanterna do crescimento na América Latina - InfoMoney",
-   "fonte": "Google Notícias",
-   "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOOWZ4X3Y2dVZYNXB3MnJqTldiZFhNZTRCV1FiYnJQZEhKdVVFQ1phLUMwSkZxcWhXSDhrTmxlTlo3aUlPMlpOQmEyaUoxVTg0bjFfN3lwTjVTSU5PZzZNZVBzb2VnNlVKdUxfLWVmeFVDZnFKWnRtZEhwSGI1WFcwZjlMZ2lOZjJINGQyMEhkSlh1bWpBSFo4T2w1TDROUzRSeDE5aTJuUUxpX2ljRHJMZWE4NkRGZW1SdnNPZjhhQdIBxAFBVV95cUxPSHBBSkdiWGhHNnM5WTF3NW5pT1pIUmFCQTVPTnFTeFhBU0JXU0gxVm9MVGl1Q3UtaHBnOV8taURfMDhtQXM4eVI1ZVRLMHphWTNDdldaV2dISjRqdXV1THZ0cHpKdGV5MFB6MFV5RThnd3NpVTI1SklVSXpCSHZURjMxMUtMNUFTclpCMi1xRWFiY3RMbmt1a0VXUnJDcVRFRjVzSElySzN1SlBVT0ZpRG9hSi1ydlRxd1NyRlZJenZlNlBa?oc=5",
-   "data": "2026-11-05T16:18:46+00:00"
+   "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxOWkZXajVmUlVmX0xhY0lWdkFyM1BCVHlxLUZ6YXp3clJLZzlmRlQzU1ZhY0tzVTV6RXFHX2t6ZzBTQXRVMEp0QUZ1MlhDTWF5ejd0NEE2bDJsdkZjUXc3UkhhLUpmQXF0cmpjTEF6SlA1VklwRlFwWVEyUmxXcXJka29wbnJtT2tsWTYxdWpjQ0VTZXMxZ3JjcDhhSVpvQTR4cEFMbFgwSWdCWDVEcnJ1RUhtaEt6S3R5Y3BWRlA0U1J1UzB1QmtsVkoxaWh1bU5uNVp0YzB1dm84UlBoSjVGN1BXUmpwU1E?oc=5",
+   "data": "2026-11-05T16:59:38+00:00"
   },
   {
    "titulo": "Durigan diz que é preciso dar condições para a queda dos juros",
    "fonte": "Agência Brasil",
    "link": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/durigan-diz-que-e-preciso-dar-condicoes-para-queda-dos-juros",
    "data": "2026-11-05T15:30:00+00:00"
-  },
-  {
-   "titulo": "IBGE abre seleção para mais de 27 mil recenseadores temporários",
-   "fonte": "Agência Brasil",
-   "link": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/ibge-abre-selecao-para-mais-de-27-mil-recenseadores-temporarios",
-   "data": "2026-11-05T15:04:00+00:00"
-  },
-  {
-   "titulo": "Selic a 13,75% mantém Brasil com maior juro real do mundo e pressiona economia - VEJA",
-   "fonte": "Google Notícias",
-   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNa29RQUdQTzlIWWthWnpfZ0dZZE1PYkVTd2lfa1dTRDljZ1FwQkZpRlBtR3ItZnJ1d1hqQUZEbG5BaFZhZkdrYUd6d3JNc1I0c1JFTGkzLThhdmpPYzlQRjlIc0UzM1RUQzJwZUVsZFJhNFlvbG81TVA5clZTTVdTSHp2NzV6c21KS3hqNnBjQkVMWWJjRU9Rak1tSExWdDJUWjdnV19ydUM1M0JaTUNKU013?oc=5",
-   "data": "2026-11-04T22:10:01+00:00"
   }
  ]
 }
