@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-06T22:25:19.675274+00:00",
+ "atualizado": "2026-11-07T00:02:32.428500+00:00",
  "juros": {
   "meses": [
    "2024-12",
@@ -89,7 +89,7 @@
    "valor": 13.75,
    "unidade": "%",
    "casas": 2,
-   "data": "2026-11-06",
+   "data": "2026-11-07",
    "freq": "m",
    "anterior": 13.75,
    "serie": [
@@ -2594,10 +2594,10 @@
    },
    {
     "nome": "Bitcoin",
-    "valor": 75893.06,
+    "valor": 75786.37,
     "unidade": "US$",
     "casas": 0,
-    "var": -0.06
+    "var": -0.21
    }
   ],
   "acoes": [
@@ -2618,6 +2618,36 @@
     "nome": "Itaú Unibanco PN",
     "preco": 40.53,
     "var": 1.4
+   },
+   {
+    "ticker": "BBDC4",
+    "nome": "Bradesco PN",
+    "preco": 14.2,
+    "var": 3.12
+   },
+   {
+    "ticker": "BBAS3",
+    "nome": "Banco do Brasil ON",
+    "preco": 17.13,
+    "var": 3.88
+   },
+   {
+    "ticker": "WEGE3",
+    "nome": "WEG ON",
+    "preco": 48.19,
+    "var": -0.23
+   },
+   {
+    "ticker": "ABEV3",
+    "nome": "Ambev ON",
+    "preco": 15.48,
+    "var": 0
+   },
+   {
+    "ticker": "B3SA3",
+    "nome": "B3 ON",
+    "preco": 14.39,
+    "var": 0.21
    }
   ],
   "grupos": [
@@ -2664,9 +2694,8 @@
       "unidade": "R$",
       "casas": 4,
       "var": 0.68,
-      "var_mes": 9.99,
+      "var_mes": 10.33,
       "serie": [
-       4.9967,
        4.9814,
        5.0192,
        5.0177,
@@ -2689,7 +2718,7 @@
        5.4363,
        5.487,
        5.4587,
-       5.4959
+       5.5035
       ]
      },
      {
@@ -2699,9 +2728,8 @@
       "unidade": "R$",
       "casas": 4,
       "var": 0.07,
-      "var_mes": 9.39,
+      "var_mes": 9.44,
       "serie": [
-       5.6054,
        5.6032,
        5.6211,
        5.6221,
@@ -2724,7 +2752,7 @@
        6.079,
        6.1425,
        6.1275,
-       6.132
+       6.1728
       ]
      },
      {
@@ -2734,9 +2762,8 @@
       "unidade": "R$",
       "casas": 4,
       "var": -0.14,
-      "var_mes": 11.23,
+      "var_mes": 11.3,
       "serie": [
-       6.6049,
        6.6007,
        6.6269,
        6.6313,
@@ -2759,7 +2786,7 @@
        7.278,
        7.3711,
        7.3567,
-       7.3463
+       7.4056
       ]
      }
     ]
@@ -2915,7 +2942,7 @@
       "valor": 6170.49,
       "unidade": "pts",
       "casas": 0,
-      "var": -0.98,
+      "var": -1.52,
       "var_mes": -1.62,
       "serie": [
        6272.23,
@@ -2940,8 +2967,7 @@
        6176.0601,
        6144.5601,
        6265.71,
-       6231.54,
-       6170.4902
+       6231.54
       ]
      },
      {
@@ -2950,7 +2976,7 @@
       "valor": 25820.36,
       "unidade": "pts",
       "casas": 0,
-      "var": -1.92,
+      "var": -2.33,
       "var_mes": 1.46,
       "serie": [
        25449.1895,
@@ -2975,8 +3001,7 @@
        25981.0898,
        25864.6191,
        26437.6699,
-       26325.0098,
-       25820.3594
+       26325.0098
       ]
      },
      {
@@ -2985,7 +3010,7 @@
       "valor": 10673.94,
       "unidade": "pts",
       "casas": 0,
-      "var": -1.01,
+      "var": -1.43,
       "var_mes": 1.25,
       "serie": [
        10541.7002,
@@ -3010,8 +3035,7 @@
        10761.2998,
        10638.4004,
        10829.2002,
-       10782.7002,
-       10673.9404
+       10782.7002
       ]
      },
      {
@@ -3020,7 +3044,7 @@
       "valor": 8139.0,
       "unidade": "pts",
       "casas": 0,
-      "var": -0.81,
+      "var": -0.48,
       "var_mes": 3.48,
       "serie": [
        7865.0698,
@@ -3045,8 +3069,7 @@
        8047.6899,
        8020.3101,
        8177.8901,
-       8205.3701,
-       8139.0
+       8205.3701
       ]
      }
     ]
@@ -3753,9 +3776,8 @@
       "unidade": "US$",
       "casas": 4,
       "var": -0.82,
-      "var_mes": -0.66,
+      "var_mes": -0.98,
       "serie": [
-       1.1217,
        1.1254,
        1.1201,
        1.1213,
@@ -3778,7 +3800,7 @@
        1.1192,
        1.1207,
        1.1235,
-       1.1143
+       1.1228
       ]
      },
      {
@@ -3788,9 +3810,8 @@
       "unidade": "¥",
       "casas": 2,
       "var": 0.04,
-      "var_mes": 0.29,
+      "var_mes": 0.08,
       "serie": [
-       157.963,
        158.296,
        158.06,
        158.063,
@@ -3813,7 +3834,7 @@
        157.915,
        158.469,
        158.357,
-       158.425
+       157.498
       ]
      },
      {
@@ -3825,7 +3846,6 @@
       "var": -0.12,
       "var_mes": -0.59,
       "serie": [
-       6.7045,
        6.7045,
        6.7045,
        6.7021,
@@ -3848,7 +3868,7 @@
        6.648,
        6.6701,
        6.6731,
-       6.6648
+       6.688
       ]
      },
      {
@@ -3858,9 +3878,8 @@
       "unidade": "ARS",
       "casas": 2,
       "var": -0.17,
-      "var_mes": 1.63,
+      "var_mes": 1.6,
       "serie": [
-       1520.2491,
        1520.6345,
        1517.5077,
        1516.4976,
@@ -3883,7 +3902,7 @@
        1545.3833,
        1550.7114,
        1547.5695,
-       1545.0
+       1545.0416
       ]
      },
      {
@@ -3893,9 +3912,8 @@
       "unidade": "MXN",
       "casas": 4,
       "var": -0.05,
-      "var_mes": 2.97,
+      "var_mes": 3.5,
       "serie": [
-       18.0616,
        17.9692,
        17.9747,
        18.1867,
@@ -3918,7 +3936,7 @@
        18.5709,
        18.8175,
        18.6077,
-       18.5975
+       18.7809
       ]
      }
     ]
@@ -3929,13 +3947,12 @@
      {
       "nome": "Bitcoin",
       "simbolo": "BTC-USD",
-      "valor": 75893.06,
+      "valor": 75786.37,
       "unidade": "US$",
       "casas": 0,
-      "var": -0.06,
-      "var_mes": -11.3,
+      "var": -0.21,
+      "var_mes": -8.99,
       "serie": [
-       85557.5625,
        83275.9297,
        81676.3359,
        82546.3203,
@@ -3966,19 +3983,18 @@
        77345.0469,
        80405.2891,
        75942.125,
-       75893.0625
+       75786.3672
       ]
      },
      {
       "nome": "Ethereum",
       "simbolo": "ETH-USD",
-      "valor": 2236.9,
+      "valor": 2236.32,
       "unidade": "US$",
       "casas": 0,
-      "var": 0.11,
-      "var_mes": -17.08,
+      "var": 0.08,
+      "var_mes": -13.1,
       "serie": [
-       2697.5164,
        2573.5273,
        2471.9126,
        2485.5386,
@@ -4009,7 +4025,7 @@
        2272.7258,
        2422.3118,
        2234.4763,
-       2236.8999
+       2236.3201
       ]
      }
     ]
@@ -6460,6 +6476,48 @@
  },
  "noticias": [
   {
+   "titulo": "Peña é preso em sua casa após impeachment no Paraguai",
+   "fonte": "InfoMoney",
+   "link": "https://www.infomoney.com.br/mundo/pena-e-preso-em-sua-casa-apos-impeachment-no-paraguai/",
+   "data": "2026-11-07T00:01:32+00:00"
+  },
+  {
+   "titulo": "Brasil consolida parceria estratégica com a China e inaugura vitrine multissetorial na CIIE - Brasil 247",
+   "fonte": "Google Notícias",
+   "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPUTIzbzBSMUEwNzJNdGkyVTlyV0ozaVVod3hDT09VUXFmTDJQWE8xSXZudDNWYjMyZktaX1ZROTAydHVYTWl6WUN1M3lISlVUbE9qMjIxNXh5Zm4ydUM1Qy02dDU1azF4a0RhNEVDVURHVVlpTmp3TVFOVkgyNzR2cmpqbnNvX3hDVWk2T3l1VWl5eExVRDRTa3VFTjZxUEJwejJuYzlOQml2MFVQSDB0N2RRendscUwtQXVUc0Znc1lNSXc1dFE?oc=5",
+   "data": "2026-11-07T00:00:00+00:00"
+  },
+  {
+   "titulo": "Alliana, do Paraguai, toma posse como presidente após impeachment de Peña",
+   "fonte": "InfoMoney",
+   "link": "https://www.infomoney.com.br/mundo/alliana-do-paraguai-toma-posse-como-presidente-apos-impeachment-de-pena/",
+   "data": "2026-11-06T23:45:59+00:00"
+  },
+  {
+   "titulo": "Mineração fica livre do Imposto Seletivo em 2027, mas medida é temporária",
+   "fonte": "InfoMoney",
+   "link": "https://www.infomoney.com.br/mercados/mineracao-fica-livre-do-imposto-seletivo-em-2027-mas-medida-e-temporaria/",
+   "data": "2026-11-06T23:08:51+00:00"
+  },
+  {
+   "titulo": "Senado do Paraguai aprova impeachment do presidente Peña",
+   "fonte": "InfoMoney",
+   "link": "https://www.infomoney.com.br/mundo/senado-do-paraguai-aprova-impeachment-do-presidente-pena/",
+   "data": "2026-11-06T22:49:40+00:00"
+  },
+  {
+   "titulo": "Brasil registra maior superávit comercial para outubro em 37 anos - Jornal do Brasil",
+   "fonte": "Google Notícias",
+   "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNOGw2VkljLTVwYnNORFBHbEZXREdmeEtRVHM2NEUtd3dTcDdTNW1lMDNzRk1qcTU4T2k2THgyNmRmRUtPd3BNZ3ZqNWZvNzhhalF5eUtka3QzLUxsNVhjQjYtektkSm1hc3JFMm1VZW1xcmtKSmVGYUR1RGQ1ODBMQlM3WWdrV2d6QkRPb2hvUERrUGhMNWhwanhEWXloSjZJVEtmcERPV3VQWVQ4U3JNbVJsYWxRdm1WZm8yUm51d2hvS0EwZ2FjTNIBzgFBVV95cUxNMDlLaFJqWUduc21Zc0tDUHNqSUltTEM1Y3ZmaVFpbUtfel90STZYcUV0X3ZvNDVfdXFkb1VvaGNEdzZtTEFBTFlUVUlJN1pwZXY4MmZuWGdSQ18zME5wOWdRUUZHVDdDU1FvUFR1OFU4VWpOcFFvdUswWThuSmVReS0xTE1zVHhINGdlZk9wUy1NTExkWWw0ZTJja0VRWFgzUE9QTFVCbzUxeUxEb1I5VjQ0cFFob19YMTJYdTQyUEczRGlMSzVvb0lxazdTdw?oc=5",
+   "data": "2026-11-06T22:48:00+00:00"
+  },
+  {
+   "titulo": "Flávio admite não ter prova de fraude, mas diz que nem Lula pode se considerar eleito",
+   "fonte": "InfoMoney",
+   "link": "https://www.infomoney.com.br/politica/flavio-admite-nao-ter-prova-de-fraude-mas-diz-que-nem-lula-pode-se-considerar-eleito/",
+   "data": "2026-11-06T22:42:35+00:00"
+  },
+  {
    "titulo": "Dólar sobe para R$ 5,51, com dados de emprego nos EUA - Agência Brasil",
    "fonte": "Google Notícias",
    "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNTk9SYmJsZmF6TkxzU0FfV3JhV2N6dHcyd1FCano1MW9OWkR6MGRFU2tpUXlQclRCR3BFbGxkZlRUekZUTTQ1YmZIeUpuVktURkVGNUlmaUZpYmFGRkdCZk5GdFplN3h3Ry00UWFtREZoV3JYQ1RlYmx1YWlxUlJFZjEwXzZpbzVDbDRKWmdTUW5EbDJmQjdKdmZlWksxLTB4R0dxMEIwYl9YSlRU?oc=5",
@@ -6502,48 +6560,6 @@
    "data": "2026-11-06T21:28:30+00:00"
   },
   {
-   "titulo": "Cosan (CSAN3): ação salta mais de 10% após notícia sobre venda de fatia da Compass",
-   "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/mercados/cosan-csan3-acao-salta-8-apos-noticia-sobre-venda-de-fatia-da-compass/",
-   "data": "2026-11-06T21:26:40+00:00"
-  },
-  {
-   "titulo": "Assaí, Renner e Grendene sobem após resultados, enquanto Vivara tem queda",
-   "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/mercados/assai-renner-e-grendene-sobem-apos-resultados-enquanto-vivara-tem-forte-queda/",
-   "data": "2026-11-06T21:25:52+00:00"
-  },
-  {
-   "titulo": "Ibovespa fecha com ganhos e tem primeira semana positiva depois de três; dólar sobe",
-   "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/mercados/ibovespa-hoje-bolsa-de-valores-ao-vivo-06112026/",
-   "data": "2026-11-06T21:24:58+00:00"
-  },
-  {
-   "titulo": "Ação da Vivara (VIVA3) fecha em queda após 3º trimestre, mas longe das mínimas do dia",
-   "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/mercados/acao-da-vivara-viva3-lidera-perdas-do-ibovespa-apos-balanco-do-3o-tri/",
-   "data": "2026-11-06T21:23:51+00:00"
-  },
-  {
-   "titulo": "Ânima (ANIM3) fica longe das máximas, mas ainda fecha em alta de 1,26% após 3º tri",
-   "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/mercados/anima-anim3-analise-resultados-terceiro-trimestre-2026/",
-   "data": "2026-11-06T21:22:22+00:00"
-  },
-  {
-   "titulo": "Juros futuros fecham em queda com política econômica no radar - CNN Brasil",
-   "fonte": "Google Notícias",
-   "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPYm5pLUxxY3ZvV0pVYlI5cmVXd1NDNllEdURrVGNOWUIzZnk2ZTdXS1JSTFFjZjhhcXM0SHZzUnFrMlZDdEhzTzNQUk5SR1FKWWZTMWdpbVU4dnNvWkdOUDJ4OUdUQ3Q4MFpLc1dDLXJpT0ZnMkRwUEtGOTgtUmNsTXZqWGJvMUdNVW43Q0xuck5NTlVZc0tPNHRuZ3F5R1UzZEpBMG9MM3Y0Z19nSGNvQTU5b2Q?oc=5",
-   "data": "2026-11-06T20:10:49+00:00"
-  },
-  {
-   "titulo": "Brasil tem maior juro real do mundo, seguido por Turquia e Argentina - Agência Brasil",
-   "fonte": "Google Notícias",
-   "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNQ0tfMmlEcDh2QlNMSmRxcHRmRlhYV2Vhc3NET2pydEtyVkJ0MTAyQWZQN2N4SEZMSmh0eWFKNmRTcUJ6TzRRZ2RIR0ZOZnVHRUZRcjlIcm8yWFJpZEdXVWV3RFlKOV9ldFVrR0pPemxoSUl1dEU0RS1kNWE3YWR0cVdFUnU2RTYxMG5ReEhIQTZEcWpWWXhWdmxMajdsUTZscGt2VlVJZC1mX3Ruc1paSjN2cVBEaVdreHZ6UnlwRW1DU0U?oc=5",
-   "data": "2026-11-06T19:51:00+00:00"
-  },
-  {
    "titulo": "Brasil tem maior juro real do mundo, seguido por Turquia e Argentina",
    "fonte": "Agência Brasil",
    "link": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/brasil-tem-maior-juro-real-do-mundo-seguido-por-turquia-e-argentina",
@@ -6554,12 +6570,6 @@
    "fonte": "Agência Brasil",
    "link": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/balanca-comercial-tem-maior-superavit-para-outubro-desde-1989",
    "data": "2026-11-06T19:43:00+00:00"
-  },
-  {
-   "titulo": "Brasil tem superávit comercial de US$ 9,3 bilhões em outubro, recorde para o mês - Folha de S.Paulo",
-   "fonte": "Google Notícias",
-   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPQUhLMjZBdnZ0b2RQbGtkN0RGckVLTUNtRE5UYWxuOHZPZXA5UWN1NnFpaGJUZUpaX2pTcU9JakFnREp0bThKVTZCZWFzVklSdFllQVJZcW9RZDRIWW9zWnp6T0o4UnpzYXBGM0lTTk5DNEUweW11UEdfZGtqYS1MNDJtTUJFMnBVSHF4RkFsdkxQNWRiQW1HdUFwWncxVTBveEx6VWM4VHd4Y1hUWTJZ?oc=5",
-   "data": "2026-11-06T18:51:00+00:00"
   },
   {
    "titulo": "CNPE cria grupo para elaborar estratégia nacional de eletromobilidade",
@@ -6586,22 +6596,22 @@
    "data": "2026-11-06T13:59:00+00:00"
   },
   {
+   "titulo": "Governo já considera adiar implementação da reforma tributária - CNN Brasil",
+   "fonte": "Google Notícias",
+   "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxOX19RbjB2cmk0clRhSnp2M3pjbjRlSlVoZmg1NHZFUUNzbWlzWEdwQmRLbWdhNkZPczN1YnlTQVo1b3RQNlhPTkVnOXJWT1JMa0xENG5TUDNvZl91NFYwWUMzVlFheHNaalB4WGFiQ2UzSlNXZWY0c09IaVlYNDB4Nk8wbnB1UTNfTkQxWE9FMldwdEZJOFI2RnU3TXZYY0RtbWQ1SlZoYkZiQ0tqOGU5OUUxcWk5dnVBaGY2Z2IzdTFvVE9zZjhGZU1ydmxlOWY3dlkyS0ZrYnpCdw?oc=5",
+   "data": "2026-11-06T13:57:16+00:00"
+  },
+  {
    "titulo": "Brasil Macro Mensal: Pressões inflacionárias e desafios fiscais - XP Investimentos",
    "fonte": "Google Notícias",
    "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQWmtiSHB2YmVDMEE0Q2VFRy1iQktyRnJPcVR1Ykp1Qy1RVEZ3MGl4all0VWMyQkx1cUR1NEppWi03d2tQUTBGaTczREx6Z3FhaVpJMGF1dGg4M294WVdiV01jWEp0QVY4eGN6MHJJdkVNSEZldk44eVlNUXNBTWx3aDBKVm1TMkw4YUZSUUUyR0FPNFhUaDM1d3dGdDZlbnBrTVF3?oc=5",
    "data": "2026-11-06T13:32:20+00:00"
   },
   {
-   "titulo": "'Quase todo meu dinheiro está preso no banco': brasileiros que foram para o Paraguai são afetados pela crise no país - G1",
+   "titulo": "Risco de crise feia nos EUA é mais um motivo para o Brasil apressar conserto da economia - Folha de S.Paulo",
    "fonte": "Google Notícias",
-   "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNellJTlAwU0xMdTFvdGpaanhQUzZJTmd3eFpIWHBaQm1DTll6T3lLdFhjcW9nN2l2aFFCd3BLX0hhMWZuUnZwTERaR0ZkQjAzWUh0eGhITWpkSi0yOHR6VFNDbnhIRE9jbWFjMTQ0dEgwSjVFanB5ajc4bnFuRUh5eVVDd09ScVVpQ1praXBlZFJWcTBoVXQ1ZmNWbWNUbWNHQUFiMGFIY1hIT3RDbFlQLTRoanZNREJPS2ZwTFFYOTlJQdIB0AFBVV95cUxQbTBoR1pFRngtQnV5SDBQVzlQcERZR2poSTRmRUUzY2I3ck5FYnB5dFV0RWNCbjk3cG1PVVRpaWVBWTc4cVpQQnlTLWdnYTRucTZwcm1KRTZocHZFQmlabGNCM1FsM09US3IwbzhIOXVnUnpfX2VHUnVqT0ptS04wR3B5MmVQQU82S2FjOXV3NVZmODVPTWE0eUJzbDd3b0drZ28zREF2aEkycFp1Q3RTTi02VElVeXp5T1ZBdzJVcDVJMUZ3RnlwQ3dVUF9TcFNF?oc=5",
-   "data": "2026-11-06T03:00:01+00:00"
-  },
-  {
-   "titulo": "Na Voz do Brasil, Margareth Menezes destaca força econômica da cultura e recorde histórico da Lei Rouanet - Governo Federal",
-   "fonte": "Google Notícias",
-   "link": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxOdlhhVWpOZzFpM2R0SVJwYWxpR2Y5N3hQWGVQYXNReTlxREFnTnhWQ0Q2cFdham9yak9IdVZfb040dHJmU3o0c1ZyR3lOc1dPWWhXUVVFNXNqeUppT1N3eVRqSXk1M1dyQVdUcldMSXp1Mjd1NmJPT0ZFYjlva1R6aWY0LTU1VTNqZFFhNDY4SGRxUTFLMk5LSHllVXEtR1NrdC1zc3FGM284S2pUVjFKdVNiSVdhUFRWWmVXM2tOLXhVNS1DdXctU3pncTUtSFlCM2FYYnM3RjRRSHM2Tms2U2ZTemZOQlZ6NUtZ?oc=5",
-   "data": "2026-11-06T00:23:18+00:00"
+   "link": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxNa1h0WFRLMkJVQlFBNm9GUTdvM3JQWWFUVGJCbEk3dHozNkdsNFdFdjlGSngwWEpiczN4Rnl0RDRoZll1cFdsTjJZR2tLNW5SVUdXSWhKVFJOcU1nSC14RkRyZFU1Wm5RaG1RMkN5c0g4MUNCREpnUHZmQ0hSVWdEelZ1LU1XMnJtODVrNDBXcndfb0F6V2UyZWpxN29iUGZLMnpldmxyU2NCbFo3UzY5NFowNWJEand4ai02V3Vyb2hZeFBsVW5yUEhOYUxiNExGLTJWRkM2X2dFT3dpSW5QSnItaVV1bXgtMGxB?oc=5",
+   "data": "2026-11-06T00:18:00+00:00"
   },
   {
    "titulo": "André Lara Resende à BBC: 'Não falei com Lula. Isso foi plantado para queimar alguém que defendeu a proposta' - BBC",
@@ -6638,6 +6648,12 @@
    "fonte": "Agência Brasil",
    "link": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/mais-de-24-milhoes-de-casas-precisam-renovar-desconto-na-conta-de-luz",
    "data": "2026-11-05T19:58:00+00:00"
+  },
+  {
+   "titulo": "Brasil amplia distância e segue com o maior juro real do mundo após Copom manter Selic; veja ranking - G1",
+   "fonte": "Google Notícias",
+   "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNTmZmQWFCeHVxd0ljWmF6XzJ4cUdaZWZ3blZzTGVKdVV4UnJKR05MeWxLbXliY1FNSTItdEhzWW9PTXlGMGIwUTd4Y3ZBN0JlTURIdzdSZzhPdWVuVXkyQk03MVg5dDlWWGJUXzJFUjF0UXBWN0RLV1pYZE8zZ2VULVdzZk5DT0l10gGXAUFVX3lxTE55X0NMclp6YTM4NzBKYzZiSkgxRUUwQjRSdHZIS2hSQVltRTdkRncwRnVqTHVhQU1LZ0RWZFZwcURQQ2dqMWNITkRlSHpqR1EwekN2cWJyYV90NTdGTjRaU0xtNVBnWDhzdW4xcEZoc0podng1VklwbEItY0hpcFBJRU4tWE8tbWtlcklRQml4MmMwcnJUOUE?oc=5",
+   "data": "2026-11-04T21:31:45+00:00"
   }
  ],
  "noticias_ativos": {
