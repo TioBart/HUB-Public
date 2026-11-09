@@ -807,7 +807,7 @@ def cotacoes_b3():
 
 
 def tickers_das_carteiras():
-    """Tickers presentes nas carteiras dos usuários (só os códigos, nada mais), se o Supabase estiver configurado."""
+    """Tickers das carteiras e listas de observação dos usuários (só os códigos, nada mais), se o Supabase estiver configurado."""
     if not (SUPABASE_URL and SUPABASE_SERVICE_KEY):
         return set()
     r = HTTP.get(f"{SUPABASE_URL}/rest/v1/preferencias", params={"select": "dados"}, timeout=30,
@@ -815,8 +815,11 @@ def tickers_das_carteiras():
     r.raise_for_status()
     out = set()
     for linha in r.json():
-        for pos in ((linha.get("dados") or {}).get("carteira") or []):
-            t = str((pos or {}).get("t", "")).upper().strip()
+        dados = linha.get("dados") or {}
+        codigos = [str((pos or {}).get("t", "")) for pos in (dados.get("carteira") or [])]
+        codigos += [str(x) for x in (dados.get("observacao") or [])]
+        for t in codigos:
+            t = t.upper().strip()
             if re.fullmatch(r"[A-Z0-9]{4,7}", t):
                 out.add(t)
     return out
@@ -934,6 +937,38 @@ def fundamentos_yf(ticker):
     except (TypeError, KeyError, IndexError):
         pass
 
+    # Calendário: próxima divulgação de resultados e próximo provento anunciado
+    agenda = {}
+    def data_iso(x):
+        try:
+            if isinstance(x, (int, float)):
+                return dt.datetime.fromtimestamp(x, dt.timezone.utc).date().isoformat()
+            return pd.Timestamp(x).date().isoformat()
+        except Exception:  # noqa: BLE001
+            return None
+    try:
+        cal = t.calendar or {}
+        if isinstance(cal, dict):
+            datas = cal.get("Earnings Date") or []
+            datas = datas if isinstance(datas, (list, tuple)) else [datas]
+            datas = sorted(d for d in (data_iso(x) for x in datas) if d)
+            if datas:
+                agenda["resultado"] = datas[0]
+                agenda["resultado_ate"] = datas[-1] if len(datas) > 1 else None
+            agenda["lpa_estimado"] = _num(cal.get("Earnings Average"))
+            agenda["receita_estimada"] = _num(cal.get("Revenue Average"), 0, 1e-6)  # em R$ milhões
+            agenda["provento_ex"] = data_iso(cal.get("Ex-Dividend Date")) if cal.get("Ex-Dividend Date") else None
+            agenda["provento_pagamento"] = data_iso(cal.get("Dividend Date")) if cal.get("Dividend Date") else None
+    except Exception as e:  # noqa: BLE001
+        log(f"[agenda] {ticker}: {e}")
+    if not agenda.get("resultado"):
+        ts = info.get("earningsTimestampStart") or info.get("earningsTimestamp")
+        if ts:
+            agenda["resultado"] = data_iso(ts)
+    if not agenda.get("provento_ex") and info.get("exDividendDate"):
+        agenda["provento_ex"] = data_iso(info.get("exDividendDate"))
+    agenda = {k: v for k, v in agenda.items() if v is not None}
+
     pct = lambda k: _num(info.get(k), 2, 100)  # noqa: E731  (Yahoo entrega frações: 0,15 = 15%)
     return {
         "perfil": {
@@ -957,7 +992,7 @@ def fundamentos_yf(ticker):
             "recomendacao": RECOMENDACOES_PT.get(info.get("recommendationKey"), None),
         },
         "historico": [{"d": idx.strftime("%Y-%m-%d"), "c": _num(c)} for idx, c in hist["Close"].dropna().items()] if hist is not None and not hist.empty else [],
-        "proventos": proventos[-40:], "proventos_ano": por_ano, "demonstrativos": dem,
+        "proventos": proventos[-40:], "proventos_ano": por_ano, "demonstrativos": dem, "agenda": agenda,
     }
 
 

@@ -222,7 +222,7 @@ button.mc:hover{border-color:var(--accent)}
 
 /* ---------- Alfinetes (fixar na Minha página) ---------- */
 .fixavel{position:relative}
-.pin{position:absolute;top:8px;right:8px;z-index:3;display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 10px;border:1px solid var(--line);border-radius:999px;background:var(--panel);color:var(--ink);font:inherit;font-size:.76rem;font-weight:600;cursor:pointer;opacity:0;transform:translateY(-2px);transition:opacity .15s,transform .15s;box-shadow:0 2px 8px rgba(16,24,40,.12)}
+.pin{position:absolute;top:-13px;right:14px;z-index:3;display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 10px;border:1px solid var(--line);border-radius:999px;background:var(--panel);color:var(--ink);font:inherit;font-size:.76rem;font-weight:600;cursor:pointer;opacity:0;transform:translateY(-2px);transition:opacity .15s,transform .15s;box-shadow:0 2px 8px rgba(16,24,40,.12)}
 .pin svg{width:14px;height:14px;flex:none}
 .fixavel:hover > .pin,.fixavel:focus-within > .pin,.pin:focus-visible{opacity:1;transform:none}
 .pin[aria-pressed="true"]{opacity:1;transform:none;background:var(--accent);border-color:var(--accent);color:#fff;padding:0 8px}
@@ -336,6 +336,23 @@ tr.melhor > *{background:var(--accent-soft)}
 .aviso-dados{padding:14px 16px;border-radius:8px;background:var(--zebra);color:var(--muted);font-size:.9rem}
 
 /* ---------- Carteira ---------- */
+.abas-cart{display:flex;flex-wrap:wrap;gap:4px;padding:4px;border:1px solid var(--line);border-radius:10px;background:var(--panel);width:max-content;max-width:100%}
+.abas-cart button{font:inherit;font-size:.9rem;font-weight:500;padding:8px 16px;border:0;border-radius:7px;background:transparent;color:var(--muted);cursor:pointer}
+.abas-cart button:hover{color:var(--ink);background:var(--bg)}
+.abas-cart button[aria-selected="true"]{background:var(--accent);color:#fff}
+.aba[hidden]{display:none}
+tr.det > td{background:var(--zebra);white-space:normal;text-align:left;padding:14px 16px}
+.det-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:20px 28px}
+#obsT > thead th,#obsT > tbody > tr:not(.det) > *{padding-left:6px;padding-right:6px}
+.det-grid h4{margin:0 0 6px;font-size:.84rem}
+.det-grid table td,.det-grid table th{padding:5px 6px;font-size:.84rem}
+.cal-mes{margin:16px 0 6px;font-size:.84rem;font-weight:600;color:var(--muted)}
+.cal-mes:first-child{margin-top:0}
+.cal-item{display:grid;grid-template-columns:62px minmax(0,1fr) auto;gap:14px;align-items:center;padding:10px 0;border-top:1px solid var(--line)}
+.cal-dia{text-align:center;border:1px solid var(--line);border-radius:8px;padding:4px 0;line-height:1.1}
+.cal-dia b{display:block;font-family:var(--cond);font-size:1.4rem}
+.cal-dia span{font-size:.72rem;color:var(--muted);text-transform:uppercase}
+.tag.cinza{background:var(--zebra);color:var(--muted)}
 .cart-stat .x{font-size:1.75rem;white-space:nowrap}
 .cart-form{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end}
 .cart-form .campo{margin:0;flex:1;min-width:140px}
@@ -346,7 +363,10 @@ tr.melhor > *{background:var(--accent-soft)}
 .tick:hover{text-decoration:underline}
 tr[data-noticias]{cursor:pointer}
 tr[data-noticias]:hover > *{background:var(--zebra)}
-.ab{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.ab{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:6px 28px}
+.ab .lista li{grid-template-columns:auto minmax(0,1fr) auto;gap:12px}
+.ab .lista .val{text-align:right;white-space:nowrap}
+.ab .lista .var{min-width:64px}
 .ab h3{margin:0 0 4px;font-size:.84rem;color:var(--muted)}
 @media (max-width:900px){.emp-grid,.emp-grid2{grid-template-columns:1fr}.emp-preco{text-align:left}.emp-acao{justify-content:flex-start}}
 
@@ -444,6 +464,14 @@ footer p{margin:0 0 4px}
   <!-- ===================== CARTEIRA ===================== -->
   <section class="view pilha" id="v-carteira" hidden>
     <header class="ph"><div><h1>Minha carteira</h1><p>Registre suas ações, FIIs e outros papéis da B3 e acompanhe o resultado. Clique num ativo para ver os dados completos da empresa e as notícias sobre ele.</p></div></header>
+    <div class="abas-cart" role="tablist" aria-label="Seções da carteira" id="cartAbas">
+      <button type="button" role="tab" data-aba="posicoes" aria-selected="true">Posições</button>
+      <button type="button" role="tab" data-aba="observacao" aria-selected="false">Observação</button>
+      <button type="button" role="tab" data-aba="proventos" aria-selected="false">Proventos</button>
+      <button type="button" role="tab" data-aba="calendario" aria-selected="false">Calendário de resultados</button>
+    </div>
+
+    <div class="aba pilha" data-painel="posicoes" role="tabpanel">
     <div class="panel">
       <form id="fCart" class="cart-form" autocomplete="off">
         <div class="campo"><label for="cTick">Código do ativo</label><input id="cTick" list="listaTickers" required placeholder="Ex.: PETR4" maxlength="7" style="text-transform:uppercase"></div>
@@ -461,7 +489,34 @@ footer p{margin:0 0 4px}
       <div class="panel"><div class="ptit"><h2>Divisão por setor</h2></div><div class="chartbox" style="height:280px"><canvas id="chCartSetor" role="img" aria-label="Participação de cada setor na carteira"></canvas></div></div>
     </div>
     <div class="panel"><div class="ptit"><h2>Notícias da sua carteira</h2></div><div class="chips" id="cartChips" role="group" aria-label="Filtrar por ativo"></div><ol class="news cols" id="cartNews"></ol></div>
-    <p class="fonte">Sua carteira fica salva só para você: neste navegador e, se você entrar com seu e-mail, na sua conta. Preços com atraso. Os proventos estimados somam o que cada ação pagou por ação nos últimos 12 meses, multiplicado pela sua quantidade. Não é recomendação de investimento.</p>
+    </div>
+
+    <div class="aba pilha" data-painel="observacao" role="tabpanel" hidden>
+      <div class="panel">
+        <form id="fObs" class="cart-form" autocomplete="off">
+          <div class="campo"><label for="oTick">Código do ativo</label><input id="oTick" list="listaTickers" required placeholder="Ex.: WEGE3" maxlength="7" style="text-transform:uppercase"></div>
+          <button class="btn" type="submit">Adicionar à observação</button>
+        </form>
+        <p class="dica" id="oMsg" role="status" style="margin:10px 0 0">Acompanhe ativos sem informar quantidade nem preço. Em "Detalhes" você vê a DRE, o balanço e os proventos de cada um.</p>
+      </div>
+      <div class="panel" data-fixavel="observacao"><div class="ptit"><h2>Lista de observação</h2></div><div class="scroll"><table id="obsT"></table></div></div>
+    </div>
+
+    <div class="aba pilha" data-painel="proventos" role="tabpanel" hidden>
+      <div class="g4" id="provStats"></div>
+      <div class="panel"><div class="ptit"><h2>Proventos recebidos por mês</h2></div><p class="sub2">Estimativa dos últimos 12 meses pela quantidade que você tem hoje de cada ativo.</p><div class="chartbox" style="height:260px"><canvas id="chProv" role="img" aria-label="Proventos estimados por mês nos últimos 12 meses"></canvas></div></div>
+      <div class="g2" style="margin-top:16px">
+        <div class="panel"><div class="ptit"><h2>Próximos proventos anunciados</h2></div><div class="scroll"><table id="provProx"></table></div></div>
+        <div class="panel"><div class="ptit"><h2>Últimos pagamentos</h2></div><div class="scroll"><table id="provHist"></table></div></div>
+      </div>
+    </div>
+
+    <div class="aba pilha" data-painel="calendario" role="tabpanel" hidden>
+      <div class="panel" data-fixavel="calendario"><div class="ptit"><h2>Próximas divulgações de resultados</h2></div><p class="sub2">Ativos da sua carteira e da lista de observação. As datas são previsões do Yahoo Finance e podem mudar; a confirmação sai no site de relações com investidores de cada empresa.</p><div id="calLista"></div></div>
+      <div class="panel"><div class="ptit"><h2>Último trimestre divulgado</h2></div><p class="sub2">Comparação com o mesmo trimestre do ano anterior.</p><div class="scroll"><table id="calUlt"></table></div></div>
+    </div>
+
+    <p class="fonte">Sua carteira e sua lista de observação ficam salvas neste navegador e, se você entrar com seu e-mail, na sua conta, que só você acessa. Se o hub estiver configurado para isso, os códigos dos ativos (nunca quantidades nem preços) são lidos para decidir quais empresas coletar. Preços com atraso. Os proventos estimados somam o que cada ação pagou por ação nos últimos 12 meses, multiplicado pela sua quantidade. Não é recomendação de investimento.</p>
   </section>
 
   <!-- ===================== EMPRESA ===================== -->
@@ -567,10 +622,6 @@ footer p{margin:0 0 4px}
     <div class="panel" data-fixavel="lista:altasbaixas"><div class="ptit"><h2>Maiores altas e baixas do dia</h2></div><p class="sub2">Entre as 100 ações mais negociadas da B3. Clique no código para ver a empresa.</p><div id="mercAB"></div></div>
     <div class="g2" id="mercGrupos"></div>
     <p class="dica" style="margin:0">Clique numa linha para ver as notícias sobre o ativo.</p>
-    <div class="panel" data-fixavel="tabela:acoes">
-      <div class="ptit"><h2>Ações brasileiras acompanhadas</h2></div>
-      <div class="scroll"><table id="acoes"><thead><tr><th scope="col">Ação</th><th scope="col">Preço</th><th scope="col">Variação no dia</th></tr></thead><tbody></tbody></table></div>
-    </div>
     <p class="fonte">Cotações com atraso, via Yahoo Finance e brapi.dev, com o FRED como reserva. A coluna "1 mês" compara com o fechamento de um mês atrás. Não é recomendação de investimento.</p>
   </section>
 
@@ -1196,9 +1247,6 @@ function renderMercado(D) {
   $('mercGrupos').innerHTML = G.length ? G.map(g => `<div class="panel" data-fixavel="mercado:${esc(g.nome)}"><div class="ptit"><h2>${esc(g.nome)}</h2></div>
     <div class="scroll"><table class="cot">${htmlGrupoMercado(g)}</table></div></div>`).join('')
     : `<div class="panel"><div class="ptit"><h2>Índices, câmbio e commodities</h2></div><ul class="lista">${htmlIndices(D.mercado.indices)}</ul></div>`;
-  $('acoes').querySelector('tbody').innerHTML = (D.mercado.acoes || []).map(a => `<tr>
-      <td><div style="display:flex;align-items:center;gap:6px">${botaoPinLinha('ativo:acao:' + a.ticker)}<div><a class="tick" href="#acao-${esc(a.ticker)}">${esc(a.ticker)}</a>${a.nome && a.nome !== a.ticker ? `<span class="nm">${esc(a.nome)}</span>` : ''}</div></div></td>
-      <td>${valor(a.preco, 'R$', 2)}</td><td>${variacao(a.var)}</td></tr>`).join('');
   montarConversor(D);
   $('mercAB').innerHTML = LISTAS.altasbaixas.html(D);
 }
@@ -1548,7 +1596,7 @@ const BLOCOS = [
 ];
 const PAGINAS_INICIO = ['inicio', 'meu', 'carteira', 'juros', 'rendafixa', 'indicadores', 'mercado', 'balanca', 'expectativas', 'paises', 'noticias'];
 const CHAVE_PREFS = 'hub:prefs:v1';
-const prefsPadrao = () => ({ tema: 'auto', inicio: 'inicio', blocos: BLOCOS.map(b => ({ id: b.id, on: true })), pagina: [], travado: false, carteira: [] });
+const prefsPadrao = () => ({ tema: 'auto', inicio: 'inicio', blocos: BLOCOS.map(b => ({ id: b.id, on: true })), pagina: [], travado: false, carteira: [], observacao: [] });
 function normalizarPrefs(p) {
   const d = prefsPadrao();
   p = p && typeof p === 'object' ? p : {};
@@ -1566,7 +1614,8 @@ function normalizarPrefs(p) {
   return {
     tema: ['auto', 'claro', 'escuro'].includes(p.tema) ? p.tema : d.tema,
     inicio: PAGINAS_INICIO.includes(p.inicio) ? p.inicio : d.inicio,
-    blocos, pagina, travado: p.travado === true, carteira: normalizarCarteira(p.carteira)
+    blocos, pagina, travado: p.travado === true, carteira: normalizarCarteira(p.carteira),
+    observacao: [...new Set((Array.isArray(p.observacao) ? p.observacao : []).map(x => String(x || '').toUpperCase().trim()).filter(x => TICKER_RE.test(x)))].slice(0, 100)
   };
 }
 function normalizarCarteira(c) {
@@ -1725,6 +1774,17 @@ function infoWidget(id, D) {
       });
     });
   }
+  if (tipo === 'observacao') return W('Lista de observação', 'carteira', 4, 4, el => {
+    const L = PREFS.observacao;
+    if (!L.length) { el.innerHTML = '<p class="vazio">Sua lista de observação está vazia. <a href="#carteira">Montar lista</a></p>'; return; }
+    el.innerHTML = `<ul class="lista">${L.slice(0, 12).map(t => { const c = cotacaoAcao(D, t) || {}; return `<li><a class="tick" href="#acao-${esc(t)}">${esc(t)}</a><span class="val">${valor(c.preco, 'R$', 2)}</span><span class="var">${variacao(c.var)}</span></li>`; }).join('')}</ul>`;
+  });
+  if (tipo === 'calendario') return W('Calendário de resultados', 'carteira', 4, 4, el => {
+    const T = ativosAcompanhados();
+    if (!T.length) { el.innerHTML = '<p class="vazio">Adicione ativos na carteira ou na observação.</p>'; return; }
+    el.innerHTML = '<p class="vazio">Carregando...</p>';
+    Promise.all(T.map(carregarEmpresa)).then(E => { el.innerHTML = htmlCalendario(T, E, 8); });
+  });
   if (tipo === 'carteira') return W('Minha carteira', 'carteira', 4, 4, el => { el.innerHTML = htmlResumoCarteira(D); });
   if (tipo === 'conversor') return W('Conversor de moedas', 'mercado', 5, 4, el => montarConversorEm(el, D, 'cvw'), { minW: 3, minH: 3 });
   return null;
@@ -1830,12 +1890,12 @@ function catalogo(D) {
   return [
     ['Destaques', Object.keys(STATS).filter(k => k !== 'selicdesde').map(k => 'stat:' + k)],
     ['Gráficos', ['grafico:juros', 'grafico:curva', 'grafico:balanca', ...((D.paises && D.paises.lista) || []).map(p => 'grafico:pais:' + p.codigo)]],
-    ['Tabelas', ['tabela:selicfocus', 'tabela:jurosmundo', 'tabela:titulos', 'tabela:focus', 'tabela:acoes']],
+    ['Tabelas', ['tabela:selicfocus', 'tabela:jurosmundo', 'tabela:titulos', 'tabela:focus']],
     ['Resumos e ferramentas', [...Object.keys(LISTAS).map(k => 'lista:' + k), 'conversor']],
     ['Indicadores', (D.indicadores || []).map(x => 'indicador:' + x.nome)],
     ['Painéis de mercado', grupos(D).map(g => 'mercado:' + g.nome)],
     ['Ativos', ativosDisponiveis(D).map(a => 'ativo:' + a.id)],
-    ['Carteira', ['carteira', ...PREFS.carteira.map(p => 'empresa:' + p.t)]]
+    ['Carteira', ['carteira', 'observacao', 'calendario', ...[...new Set([...PREFS.carteira.map(p => p.t), ...PREFS.observacao])].map(t => 'empresa:' + t)]]
   ];
 }
 function renderCatalogo() {
@@ -1884,7 +1944,7 @@ $('dlgPers').addEventListener('click', e => {
   const novo = $('pBlocos').querySelector(`[data-mover="${b.dataset.mover}"][data-dir="${b.dataset.dir}"]`);
   if (novo && !novo.disabled) novo.focus();
 });
-$('pPadrao').addEventListener('click', () => { const pag = PREFS.pagina, cart = PREFS.carteira; PREFS = prefsPadrao(); PREFS.pagina = pag; PREFS.carteira = cart; salvarPrefs(); aplicarPrefs(); renderPers(); });
+$('pPadrao').addEventListener('click', () => { const pag = PREFS.pagina, cart = PREFS.carteira, obs = PREFS.observacao; PREFS = prefsPadrao(); PREFS.pagina = pag; PREFS.carteira = cart; PREFS.observacao = obs; salvarPrefs(); aplicarPrefs(); renderPers(); });
 document.querySelectorAll('dialog [data-fechar]').forEach(b => b.addEventListener('click', () => b.closest('dialog').close()));
 ['dlgPers', 'dlgLogin', 'dlgAdd', 'dlgNews'].forEach(id => $(id).addEventListener('click', e => { if (e.target === $(id)) $(id).close(); }));
 
@@ -1983,6 +2043,8 @@ function empresaDemo(t) {
     perfil: { nome: nomeCurto(c.nome || t).replace(/\s+(ON|PN|UNT|N1|N2|NM).*$/, '').replace(/\b\w/g, x => x.toUpperCase()), setor: c.setor || 'Setor de exemplo', industria: 'Indústria de exemplo', cidade: 'São Paulo', estado: 'SP', funcionarios: 1000 + Math.round(r(4) * 40000), site: 'https://example.com', descricao: 'Example company description. In the live site this text comes from Yahoo Finance and describes the business, its segments and where it operates.' },
     indicadores: { preco: p, valor_mercado: rec * 1e6 * (1 + r(5) * 3), pl: +(4 + r(6) * 18).toFixed(2), pvp: +(0.6 + r(7) * 3).toFixed(2), ev_ebitda: +(3 + r(8) * 9).toFixed(2), dy_12m: +(p12 / p * 100).toFixed(2), proventos_12m: +p12.toFixed(4), roe: +(6 + r(9) * 25).toFixed(1), roa: +(2 + r(10) * 9).toFixed(1), margem_liquida: +(4 + r(11) * 20).toFixed(1), margem_ebitda: +(10 + r(12) * 35).toFixed(1), crescimento_receita: +((r(13) - .3) * 20).toFixed(1), payout: +(25 + r(14) * 50).toFixed(0), lpa: +(p / 8).toFixed(2), vpa: +(p / 1.4).toFixed(2), beta: +(0.6 + r(15)).toFixed(2), max_52s: +(p * 1.18).toFixed(2), min_52s: +(p * 0.79).toFixed(2), liquidez_corrente: +(0.8 + r(16) * 1.5).toFixed(2), divida_patrimonio: +(20 + r(17) * 80).toFixed(0), divida_liquida_ebitda: +(r(18) * 3).toFixed(2), preco_alvo: +(p * 1.15).toFixed(2), analistas: 8 + (h % 9), recomendacao: 'Compra' },
     historico: hist, proventos: prov, proventos_ano: ano,
+    agenda: { resultado: new Date(Date.now() + (5 + (h % 70)) * 864e5).toISOString().slice(0, 10), lpa_estimado: +(p / 9).toFixed(2), receita_estimada: +(rec * 0.26).toFixed(0),
+      ...(h % 3 ? { provento_ex: new Date(Date.now() + (3 + (h % 25)) * 864e5).toISOString().slice(0, 10), provento_pagamento: new Date(Date.now() + (20 + (h % 25)) * 864e5).toISOString().slice(0, 10) } : {}) },
     demonstrativos: { anual: bloco({ per: ['2025-12-31', '2024-12-31', '2023-12-31', '2022-12-31'], k: 4 }, 1), trimestral: bloco({ per: ['2026-09-30', '2026-06-30', '2026-03-31', '2025-12-31', '2025-09-30', '2025-06-30'], k: 6 }, .25) },
     noticias: [{ titulo: `Exemplo: ${t} divulga resultado do trimestre`, fonte: 'Fonte A', link: '#', data: new Date(Date.now() - 36e5 * 5).toISOString() },
       { titulo: `Exemplo: analistas revisam preço-alvo de ${t}`, fonte: 'Fonte B', link: '#', data: new Date(Date.now() - 36e5 * 30).toISOString() },
@@ -2011,11 +2073,19 @@ function pintarCabecalho(t, cot, E) {
   cab.dataset.fixavel = 'empresa:' + t;
   cab.innerHTML = `<div class="emp-id">${cot && cot.logo ? `<img src="${esc(cot.logo)}" alt="" loading="lazy">` : `<span class="ini" aria-hidden="true">${esc(t.slice(0, 2))}</span>`}
       <div><h1>${esc(nome)}</h1><p><span class="cod">${esc(t)}</span> ${esc(setor)}</p></div></div>
-    <div class="emp-preco"><div class="x">${valor(preco, 'R$', 2)}</div><div>${cot && cot.var != null ? variacao(cot.var) + ' no dia' : ''}</div>
+    <div class="emp-preco"><div class="x">${valor(preco, 'R$', 2)}</div><div>${cot && cot.var != null ? variacao(cot.var) + ' no dia' : ''}
+      <button type="button" class="btn sec" id="empObs" style="margin-left:10px;padding:5px 12px;font-size:.82rem" aria-pressed="${PREFS.observacao.includes(t)}">${PREFS.observacao.includes(t) ? 'Em observação ✓' : 'Observar'}</button></div>
       ${pos ? `<p class="dica" style="margin:10px 0 0">Na sua carteira: ${num(pos.q, pos.q % 1 ? 2 : 0)} a ${valor(pos.pm, 'R$', 2)} de preço médio. <a href="#carteira">Ver carteira</a></p>`
         : `<form class="emp-acao" id="empAdd"><div class="campo"><label for="eQtd">Quantidade</label><input type="number" id="eQtd" min="0" step="any" required></div>
            <div class="campo"><label for="ePm">Preço médio (R$)</label><input type="number" id="ePm" min="0" step="0.01" required value="${preco != null ? (+preco).toFixed(2) : ''}"></div>
            <button class="btn" type="submit">Adicionar à carteira</button></form>`}</div>`;
+  $('empObs').addEventListener('click', () => {
+    const i = PREFS.observacao.indexOf(t);
+    if (i >= 0) PREFS.observacao.splice(i, 1); else PREFS.observacao.push(t);
+    salvarPrefs();
+    avisar(i >= 0 ? `${t} saiu da lista de observação.` : `${t} entrou na sua lista de observação.`);
+    pintarCabecalho(t, cot, E);
+  });
   const img = cab.querySelector('img');
   if (img) img.addEventListener('error', () => { const s2 = document.createElement('span'); s2.className = 'ini'; s2.textContent = t.slice(0, 2); img.replaceWith(s2); });
   const f = $('empAdd');
@@ -2060,6 +2130,7 @@ async function renderEmpresa(D) {
     g('Rentabilidade', [['ROE', pct(I.roe, 1), 'Lucro sobre o patrimônio líquido'], ['ROA', pct(I.roa, 1), 'Lucro sobre os ativos'], ['Margem líquida', pct(I.margem_liquida, 1)], ['Margem EBITDA', pct(I.margem_ebitda, 1)], ['Crescimento da receita', pct(I.crescimento_receita, 1), 'Em relação ao mesmo período do ano anterior']]),
     g('Endividamento', [['Dívida líquida / EBITDA', vazio(I.divida_liquida_ebitda) ? '–' : num(I.divida_liquida_ebitda) + 'x', 'Quantos anos de geração de caixa operacional pagariam a dívida líquida'], ['Dívida bruta / patrimônio', pct(I.divida_patrimonio, 0)], ['Liquidez corrente', num(I.liquidez_corrente), 'Ativo circulante dividido pelo passivo circulante']]),
     g('Proventos', [['Dividend yield (12 meses)', pct(I.dy_12m), 'Proventos pagos nos últimos 12 meses divididos pelo preço atual'], ['Pago por ação (12 meses)', valor(I.proventos_12m, 'R$', 2)], ['Payout', pct(I.payout, 0), 'Parte do lucro distribuída aos acionistas']]),
+    g('Agenda', [['Próximo resultado', E.agenda && E.agenda.resultado ? dia(E.agenda.resultado) + ' (previsão)' : '–'], ['Próxima data ex', E.agenda && E.agenda.provento_ex && E.agenda.provento_ex >= hojeISO() ? dia(E.agenda.provento_ex) : '–'], ['Pagamento previsto', E.agenda && E.agenda.provento_pagamento && E.agenda.provento_pagamento >= hojeISO() ? dia(E.agenda.provento_pagamento) : '–']]),
     g('Mercado', [['Mínima em 52 semanas', valor(I.min_52s, 'R$')], ['Máxima em 52 semanas', valor(I.max_52s, 'R$')], ['Beta', num(I.beta), 'Sensibilidade da ação aos movimentos da bolsa'], ['Preço-alvo médio', I.preco_alvo ? valor(I.preco_alvo, 'R$') + (I.analistas ? ` (${I.analistas} analistas)` : '') : '–'], ['Consenso dos analistas', I.recomendacao ? esc(I.recomendacao) : '–']])
   ].join('');
 
@@ -2151,7 +2222,24 @@ function htmlResumoCarteira(D) {
 const CORES_PIZZA = ['--accent', '--accent2', '#12A594', '#8E4EC6', '#E5484D', '#0091FF', '#F76B15', '#46A758', '#D6409F', '#978365', '#5B5BD6', '#AD7F58'];
 const corPizza = i => { const c = CORES_PIZZA[i % CORES_PIZZA.length]; return c.startsWith('--') ? css(c) : c; };
 let cartSeq = 0, cartEditando = null, filtroCart = 'Todos';
-async function renderCarteira(D) {
+let abaCart = 'posicoes';
+function renderCarteira(D) {
+  document.querySelectorAll('#cartAbas [data-aba]').forEach(b => b.setAttribute('aria-selected', b.dataset.aba === abaCart));
+  document.querySelectorAll('#v-carteira [data-painel]').forEach(p => { p.hidden = p.dataset.painel !== abaCart; });
+  ['cartAtivo', 'cartSetor', 'prov'].forEach(k => trocarGrafico(k, null));
+  if (abaCart === 'observacao') return renderObservacao(D);
+  if (abaCart === 'proventos') return renderProventos(D);
+  if (abaCart === 'calendario') return renderCalendario(D);
+  return renderPosicoes(D);
+}
+document.querySelectorAll('#cartAbas [data-aba]').forEach(b => b.addEventListener('click', () => { abaCart = b.dataset.aba; renderCarteira(DADOS); }));
+$('cartAbas').addEventListener('keydown', e => {
+  if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+  const bs = [...document.querySelectorAll('#cartAbas [data-aba]')], i = bs.findIndex(b => b.dataset.aba === abaCart);
+  const n = bs[(i + (e.key === 'ArrowRight' ? 1 : bs.length - 1)) % bs.length];
+  abaCart = n.dataset.aba; renderCarteira(DADOS); n.focus();
+});
+async function renderPosicoes(D) {
   const seq = ++cartSeq;
   const vazio2 = !PREFS.carteira.length;
   $('cartStats').hidden = $('cartGraficos').hidden = vazio2;
@@ -2162,7 +2250,7 @@ async function renderCarteira(D) {
     return;
   }
   const empresas = await Promise.all(PREFS.carteira.map(p => carregarEmpresa(p.t)));
-  if (seq !== cartSeq || viewAtual() !== 'carteira') return;
+  if (seq !== cartSeq || viewAtual() !== 'carteira' || abaCart !== 'posicoes') return;
   const L = posicoesCarteira(D, empresas);
   const tot = L.reduce((a, x) => a + (x.atual ?? x.custo), 0), custo = L.reduce((a, x) => a + x.custo, 0);
   const res = L.reduce((a, x) => a + (x.res || 0), 0), hoje = L.reduce((a, x) => a + (x.hoje || 0), 0);
@@ -2253,6 +2341,163 @@ $('fCart').addEventListener('submit', e => {
   limparFormCarteira();
   renderCarteira(DADOS);
 });
+
+
+/* ======================= Carteira: observação, proventos e calendário ======================= */
+const hojeISO = () => new Date().toISOString().slice(0, 10);
+const ativosAcompanhados = () => [...new Set([...PREFS.carteira.map(p => p.t), ...PREFS.observacao])];
+const origemAtivo = t => PREFS.carteira.some(p => p.t === t) ? '<span class="tag">Na carteira</span>' : '<span class="tag cinza">Em observação</span>';
+function var12m(E) {
+  const H = ((E && E.historico) || []).map(x => x.c).filter(x => !vazio(x));
+  return H.length > 1 ? (H.at(-1) / H[0] - 1) * 100 : null;
+}
+function infoAtivo(D, t, E) {
+  const c = cotacaoAcao(D, t) || (E && E.cotacao) || {};
+  return { preco: c.preco != null ? c.preco : (E && E.indicadores ? E.indicadores.preco : null), var: c.var, nome: (E && E.perfil && E.perfil.nome) || c.nome || t };
+}
+
+let obsAbertos = new Set();
+async function renderObservacao(D) {
+  const seq = ++cartSeq;
+  const L = PREFS.observacao;
+  if (!L.length) {
+    $('obsT').innerHTML = '<caption style="caption-side:top;padding:4px 0 8px">Sua lista de observação está vazia. Adicione um código no campo acima ou use o botão "Observar" na página de qualquer empresa.</caption>';
+    return;
+  }
+  const empresas = await Promise.all(L.map(carregarEmpresa));
+  if (seq !== cartSeq || abaCart !== 'observacao') return;
+  const lin = L.map((t, k) => ({ t, E: empresas[k], ...infoAtivo(D, t, empresas[k]) }));
+  $('obsT').innerHTML = `<thead><tr><th scope="col">Ativo</th><th scope="col">Preço</th><th scope="col">Dia</th><th scope="col">12 meses</th><th scope="col">Dividend yield</th><th scope="col">P/L</th><th scope="col">P/VP</th><th scope="col">ROE</th><th scope="col">Margem líquida</th><th scope="col">Dív. líq./EBITDA</th><th scope="col">Próximo resultado</th><th scope="col"><span class="nm" style="display:inline">Ações</span></th></tr></thead>
+    <tbody>${lin.map(x => {
+      const I = (x.E && x.E.indicadores) || {}, A = (x.E && x.E.agenda) || {};
+      const aberto = obsAbertos.has(x.t);
+      return `<tr><th scope="row" style="white-space:normal"><a class="tick" href="#acao-${esc(x.t)}">${esc(x.t)}</a><span class="nm">${esc(x.nome)}</span></th>
+        <td><strong>${valor(x.preco, 'R$', 2)}</strong></td><td>${variacao(x.var)}</td><td>${variacao(var12m(x.E))}</td>
+        <td>${pct(I.dy_12m)}</td><td>${num(I.pl)}</td><td>${num(I.pvp)}</td><td>${pct(I.roe, 1)}</td><td>${pct(I.margem_liquida, 1)}</td>
+        <td>${vazio(I.divida_liquida_ebitda) ? '–' : num(I.divida_liquida_ebitda) + 'x'}</td><td>${A.resultado && A.resultado >= hojeISO() ? esc(dia(A.resultado)) : '–'}</td>
+        <td><div class="cart-acoes"><button type="button" data-det="${esc(x.t)}" aria-expanded="${aberto}">${aberto ? 'Fechar' : 'Detalhes'}</button><button type="button" data-tirar-obs="${esc(x.t)}">Remover</button></div></td></tr>
+        ${aberto ? `<tr class="det"><td colspan="12">${htmlDetalhes(x.t, x.E)}</td></tr>` : ''}`;
+    }).join('')}</tbody>
+    <caption>${lin.some(x => !x.E) ? 'Alguns ativos ainda não têm dados detalhados; eles aparecem na próxima atualização se você estiver conectado. ' : ''}Clique no código para abrir a página completa da empresa.</caption>`;
+}
+function htmlDetalhes(t, E) {
+  if (!E) return '<p class="vazio">Ainda não há dados detalhados deste ativo.</p>';
+  const dem = (E.demonstrativos || {}).anual || {};
+  const tab = (tb, nomes, extra) => {
+    if (!tb || !tb.periodos) return '<p class="vazio">Sem dados.</p>';
+    const n = Math.min(3, tb.periodos.length);
+    const linhas = nomes.filter(x => tb.linhas[x]).map(x => `<tr><th scope="row">${esc(x)}</th>${tb.linhas[x].slice(0, n).map(v => `<td>${mi(v)}</td>`).join('')}</tr>`);
+    if (extra) linhas.push(extra(tb, n));
+    return `<table><thead><tr><th scope="col"></th>${tb.periodos.slice(0, n).map(d => `<th scope="col">${d.slice(0, 4)}</th>`).join('')}</tr></thead><tbody>${linhas.join('')}</tbody></table>`;
+  };
+  const margem = (tb, n) => {
+    const r = tb.linhas['Receita líquida'], l = tb.linhas['Lucro líquido'];
+    return r && l ? `<tr><th scope="row">Margem líquida</th>${r.slice(0, n).map((v, i) => `<td>${v && l[i] != null ? pct(l[i] / v * 100, 1) : '–'}</td>`).join('')}</tr>` : '';
+  };
+  const P = (E.proventos || []).slice().reverse().slice(0, 6);
+  const anos = Object.keys(E.proventos_ano || {}).sort().slice(-5);
+  return `<div class="det-grid">
+    <div><h4>DRE (anual)</h4><div class="scroll">${tab(dem.dre, ['Receita líquida', 'EBITDA', 'Lucro líquido'], margem)}</div></div>
+    <div><h4>Balanço (anual)</h4><div class="scroll">${tab(dem.balanco, ['Ativo total', 'Caixa e equivalentes', 'Dívida bruta', 'Dívida líquida', 'Patrimônio líquido'])}</div></div>
+    <div><h4>Proventos por ação</h4>${anos.length ? `<table><tbody>${anos.map(a => `<tr><th scope="row">${a}${+a === new Date().getFullYear() ? ' (até agora)' : ''}</th><td>${valor(E.proventos_ano[a], 'R$', 2)}</td></tr>`).join('')}</tbody></table>` : '<p class="vazio">Sem registro de proventos.</p>'}
+      ${P.length ? `<p class="dica" style="margin:8px 0 0">Últimos: ${P.map(x => `${esc(dia(x.d))} ${valor(x.v, 'R$', 4)}`).join('; ')}.</p>` : ''}</div>
+  </div><p style="margin:12px 0 0"><a class="tick" href="#acao-${esc(t)}">Ver a página completa de ${esc(t)}</a></p>`;
+}
+$('obsT').addEventListener('click', e => {
+  const d = e.target.closest('[data-det]'), r = e.target.closest('[data-tirar-obs]');
+  if (d) { const t = d.dataset.det; if (obsAbertos.has(t)) obsAbertos.delete(t); else obsAbertos.add(t); renderObservacao(DADOS); }
+  if (r) { const t = r.dataset.tirarObs; PREFS.observacao = PREFS.observacao.filter(x => x !== t); obsAbertos.delete(t); salvarPrefs(); avisar(`${t} saiu da lista de observação.`); renderObservacao(DADOS); }
+});
+$('fObs').addEventListener('submit', e => {
+  e.preventDefault();
+  const t = $('oTick').value.trim().toUpperCase().split(/\s/)[0];
+  if (!TICKER_RE.test(t)) { $('oMsg').textContent = 'Digite um código válido da B3, como WEGE3 ou HGLG11.'; return; }
+  if (PREFS.observacao.includes(t)) { $('oMsg').textContent = `${t} já está na lista.`; return; }
+  if (PREFS.observacao.length >= 100) { $('oMsg').textContent = 'A lista aceita até 100 ativos.'; return; }
+  PREFS.observacao.push(t); salvarPrefs();
+  $('oMsg').textContent = cotacaoAcao(DADOS, t) ? `${t} entrou na lista de observação.` : `${t} entrou na lista, mas não encontramos a cotação dele. Confira se o código está certo.`;
+  $('fObs').reset();
+  renderObservacao(DADOS);
+});
+
+async function renderProventos(D) {
+  const seq = ++cartSeq;
+  const C = PREFS.carteira, T = ativosAcompanhados();
+  const empresas = new Map((await Promise.all(T.map(async t => [t, await carregarEmpresa(t)]))));
+  if (seq !== cartSeq || abaCart !== 'proventos') return;
+  const hoje = hojeISO(), corte = new Date(Date.now() - 365 * 864e5).toISOString().slice(0, 10);
+  const pagos = [];
+  C.forEach(p => { const E = empresas.get(p.t); ((E && E.proventos) || []).forEach(x => { if (x.d > corte && x.d <= hoje) pagos.push({ t: p.t, d: x.d, v: x.v, q: p.q, total: x.v * p.q }); }); });
+  pagos.sort((a, b) => b.d.localeCompare(a.d));
+  const total = pagos.reduce((a, x) => a + x.total, 0), custo = C.reduce((a, p) => a + p.q * p.pm, 0);
+  const porAtivo = {};
+  pagos.forEach(x => { porAtivo[x.t] = (porAtivo[x.t] || 0) + x.total; });
+  const maior = Object.entries(porAtivo).sort((a, b) => b[1] - a[1])[0];
+  const card = (l, x, s2) => `<div class="panel stat cart-stat"><span class="l">${l}</span><span class="x">${x}</span><span class="s">${s2}</span></div>`;
+  $('provStats').innerHTML = C.length ? [
+    card('Recebido em 12 meses', valor(total, 'R$', 2), `${pagos.length} ${pagos.length === 1 ? 'pagamento' : 'pagamentos'}`),
+    card('Média por mês', valor(total / 12, 'R$', 2), 'Nos últimos 12 meses'),
+    card('Rendimento sobre o investido', pct(custo ? total / custo * 100 : null), 'Proventos de 12 meses sobre o custo da carteira'),
+    card('Maior pagador', maior ? esc(maior[0]) : '–', maior ? `${valor(maior[1], 'R$', 2)} em 12 meses` : 'Sem pagamentos no período')
+  ].join('') : '<div class="panel" style="grid-column:1/-1"><p class="vazio">Adicione posições na aba Posições para ver quanto sua carteira rendeu em proventos.</p></div>';
+
+  const meses = [];
+  for (let k = 11; k >= 0; k--) { const d = new Date(); d.setDate(1); d.setMonth(d.getMonth() - k); meses.push(ym(d.getFullYear(), d.getMonth() + 1)); }
+  const porMes = meses.map(m => pagos.filter(x => x.d.slice(0, 7) === m).reduce((a, x) => a + x.total, 0));
+  if (window.Chart && C.length) {
+    const { opc, acc2 } = baseGrafico();
+    trocarGrafico('prov', () => new Chart($('chProv'), { type: 'bar', data: { labels: meses.map(mes), datasets: [{ label: 'Proventos', data: porMes.map(v => +v.toFixed(2)), backgroundColor: acc2, borderRadius: 4 }] },
+      options: { ...opc(v => 'R$ ' + num(v, 0), c => valor(c.parsed.y, 'R$', 2)), plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => valor(c.parsed.y, 'R$', 2) } } } } }));
+  }
+  const prox = T.map(t => ({ t, A: (empresas.get(t) || {}).agenda || {} })).filter(x => (x.A.provento_ex && x.A.provento_ex >= hoje) || (x.A.provento_pagamento && x.A.provento_pagamento >= hoje))
+    .sort((a, b) => (a.A.provento_ex || a.A.provento_pagamento).localeCompare(b.A.provento_ex || b.A.provento_pagamento));
+  $('provProx').innerHTML = prox.length ? `<thead><tr><th scope="col">Ativo</th><th scope="col">Data ex</th><th scope="col">Pagamento</th></tr></thead><tbody>${prox.map(x => `<tr><th scope="row"><a class="tick" href="#acao-${esc(x.t)}">${esc(x.t)}</a> ${origemAtivo(x.t)}</th><td>${x.A.provento_ex ? esc(dia(x.A.provento_ex)) : '–'}</td><td>${x.A.provento_pagamento ? esc(dia(x.A.provento_pagamento)) : '–'}</td></tr>`).join('')}</tbody><caption>Para receber, é preciso ter a ação até o dia anterior à data ex. Valores por ação só aparecem depois do pagamento, no histórico.</caption>`
+    : '<caption>Nenhum provento anunciado para os ativos da carteira e da observação.</caption>';
+  $('provHist').innerHTML = pagos.length ? `<thead><tr><th scope="col">Data ex</th><th scope="col">Ativo</th><th scope="col">Por ação</th><th scope="col">Estimado para você</th></tr></thead><tbody>${pagos.slice(0, 20).map(x => `<tr><th scope="row" style="font-weight:400">${esc(dia(x.d))}</th><td><a class="tick" href="#acao-${esc(x.t)}">${esc(x.t)}</a></td><td>${valor(x.v, 'R$', 4)}</td><td><strong>${valor(x.total, 'R$', 2)}</strong></td></tr>`).join('')}</tbody><caption>Estimativa pela quantidade atual. Se você comprou depois da data ex, não recebeu aquele pagamento.</caption>`
+    : '<caption>Sem pagamentos nos últimos 12 meses para os ativos da carteira.</caption>';
+}
+
+async function renderCalendario(D) {
+  const seq = ++cartSeq;
+  const T = ativosAcompanhados();
+  if (!T.length) {
+    $('calLista').innerHTML = '<p class="vazio">Adicione ativos na carteira ou na lista de observação para ver o calendário de resultados.</p>';
+    $('calUlt').innerHTML = '';
+    return;
+  }
+  const empresas = await Promise.all(T.map(carregarEmpresa));
+  if (seq !== cartSeq || abaCart !== 'calendario') return;
+  $('calLista').innerHTML = htmlCalendario(T, empresas, 40);
+  const lin = T.map((t, k) => {
+    const tb = (((empresas[k] || {}).demonstrativos || {}).trimestral || {}).dre;
+    if (!tb || !tb.periodos || !tb.periodos.length) return { t, sem: true };
+    const r = tb.linhas['Receita líquida'] || [], l = tb.linhas['Lucro líquido'] || [];
+    return { t, per: rotuloPeriodo(tb.periodos[0], 'trimestral'), rec: r[0], recAA: r[0] != null && r[4] ? (r[0] / r[4] - 1) * 100 : null, luc: l[0], lucAA: l[0] != null && l[4] && l[4] > 0 ? (l[0] / l[4] - 1) * 100 : null };
+  });
+  $('calUlt').innerHTML = `<thead><tr><th scope="col">Ativo</th><th scope="col">Trimestre</th><th scope="col">Receita líquida</th><th scope="col">Contra o ano anterior</th><th scope="col">Lucro líquido</th><th scope="col">Contra o ano anterior</th></tr></thead>
+    <tbody>${lin.map(x => x.sem ? `<tr><th scope="row"><a class="tick" href="#acao-${esc(x.t)}">${esc(x.t)}</a></th><td colspan="5" class="muted" style="text-align:left">Sem demonstrativos trimestrais (comum em FIIs, BDRs e ETFs).</td></tr>`
+      : `<tr><th scope="row"><a class="tick" href="#acao-${esc(x.t)}">${esc(x.t)}</a></th><td>${esc(x.per)}</td><td>${mi(x.rec)}</td><td>${variacao(x.recAA)}</td><td>${mi(x.luc)}</td><td>${x.lucAA == null ? '<span class="muted">–</span>' : variacao(x.lucAA)}</td></tr>`).join('')}</tbody>
+    <caption>A comparação do lucro aparece só quando o lucro do ano anterior foi positivo.</caption>`;
+}
+function htmlCalendario(T, empresas, limite) {
+  const hoje = hojeISO();
+  const ev = T.map((t, k) => ({ t, E: empresas[k], A: ((empresas[k] || {}).agenda) || {} }));
+  const com = ev.filter(x => x.A.resultado && x.A.resultado >= hoje).sort((a, b) => a.A.resultado.localeCompare(b.A.resultado)).slice(0, limite);
+  const sem = ev.filter(x => !(x.A.resultado && x.A.resultado >= hoje));
+  let mesAtual = '';
+  const itens = com.map(x => {
+    const d = new Date(x.A.resultado + 'T12:00:00');
+    const m0 = d.toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' }), m = m0.charAt(0).toUpperCase() + m0.slice(1);
+    const cab = m !== mesAtual ? `<div class="cal-mes">${esc(m)}</div>` : '';
+    mesAtual = m;
+    const est = [x.A.lpa_estimado != null ? `LPA esperado ${valor(x.A.lpa_estimado, 'R$', 2)}` : '', x.A.receita_estimada != null ? `receita esperada ${mi(x.A.receita_estimada)}` : ''].filter(Boolean).join(', ');
+    return `${cab}<div class="cal-item"><div class="cal-dia"><b>${d.getDate()}</b><span>${esc(d.toLocaleDateString('pt-BR', { weekday: 'short' }).replace('.', ''))}</span></div>
+      <div><a class="tick" href="#acao-${esc(x.t)}">${esc(x.t)}</a> ${origemAtivo(x.t)}<div class="nm">${esc(((x.E || {}).perfil || {}).nome || '')}${x.A.resultado_ate && x.A.resultado_ate !== x.A.resultado ? `, previsto entre ${esc(dia(x.A.resultado))} e ${esc(dia(x.A.resultado_ate))}` : ''}</div></div>
+      <div class="nm" style="text-align:right">${esc(est)}</div></div>`;
+  }).join('');
+  return (itens || '<p class="vazio">Nenhuma divulgação prevista encontrada.</p>') +
+    (sem.length ? `<p class="dica" style="margin-top:14px">Sem data prevista: ${sem.map(x => `<a class="tick" href="#acao-${esc(x.t)}">${esc(x.t)}</a>`).join(', ')}.</p>` : '');
+}
 
 /* ======================= Notícias de um ativo de mercado ======================= */
 function abrirNoticias(titulo, lista) {
