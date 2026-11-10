@@ -1,0 +1,1123 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Carteira de Ações</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: ledger de corretora — faixa de resumo, gráfico + alocação lado a lado, tabela editável como peça central */
+:root{
+  --bg:#F3F4F1; --surface:#FFFFFF; --sunken:#EBEDE8; --line:#D9DCD4; --ink:#16201B; --muted:#5E6862;
+  --accent:#2747C4; --accent-soft:#E3E8FA; --infl:#B4600F; --cdi:#7B4BB8; --gain:#13794A; --gain-soft:#DDF0E5; --loss:#B8352C; --loss-soft:#F7E0DD;
+  --f-display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --f-body:"Instrument Sans", "Segoe UI", system-ui, sans-serif;
+  --f-mono:"JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --r:10px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0F1412; --surface:#171D1A; --sunken:#1F2622; --line:#2C3530; --ink:#E7ECE8; --muted:#97A39C;
+  --accent:#8EA6FF; --accent-soft:#232C4D; --infl:#EBA55E; --cdi:#BC9DF2; --gain:#5CCB8F; --gain-soft:#173426; --loss:#F08A80; --loss-soft:#3D1D1A; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0F1412; --surface:#171D1A; --sunken:#1F2622; --line:#2C3530; --ink:#E7ECE8; --muted:#97A39C;
+  --accent:#8EA6FF; --accent-soft:#232C4D; --infl:#EBA55E; --cdi:#BC9DF2; --gain:#5CCB8F; --gain-soft:#173426; --loss:#F08A80; --loss-soft:#3D1D1A; color-scheme:dark}
+
+*{box-sizing:border-box}
+.wrap > *{min-width:0}
+[hidden]{display:none!important}
+html.embutido .wrap{padding-block:4px 24px;max-width:none;padding-left:0;padding-right:0}
+html.embutido .top h1,html.embutido .top .eyebrow{display:none}
+html.embutido body{background:transparent}
+.bloqueio{max-width:560px;margin:60px auto;padding:24px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);text-align:center}
+.bloqueio a{color:var(--accent);font-weight:600}
+@media (max-width:520px){.tile .v{font-size:1.05rem}}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.45}
+.wrap{max-width:1180px;margin:0 auto;padding-block:28px 64px;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));display:flex;flex-direction:column;gap:22px}
+h1,h2{font-family:var(--f-display);font-weight:700;margin:0;text-wrap:balance;letter-spacing:-.01em}
+h1{font-size:clamp(1.7rem,3.4vw,2.3rem)}
+h2{font-size:1.15rem}
+.num{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.eyebrow{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
+.muted{color:var(--muted)}
+.gain{color:var(--gain)} .loss{color:var(--loss)}
+
+header.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:14px}
+.top .sub{color:var(--muted);margin-top:4px}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+select,input{font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:7px 10px}
+input:focus-visible,select:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+button{font:inherit;font-weight:600;cursor:pointer;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:7px 13px}
+button:hover{border-color:var(--muted)}
+button.primary{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+button.primary:hover{filter:brightness(1.08)}
+button.ghost{background:transparent;border-color:transparent;color:var(--muted);padding:5px 8px}
+button.ghost:hover{color:var(--ink);background:var(--sunken)}
+button.danger{color:var(--loss)}
+button:disabled{opacity:.45;cursor:default}
+
+.tiles{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+@media (max-width:1100px){.tiles{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;display:grid;gap:4px;min-width:0}
+.tile .v{font-family:var(--f-mono);font-size:1.35rem;font-weight:500;font-variant-numeric:tabular-nums;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tile .d{font-size:.85rem}
+@media (max-width:820px){.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+.grid2{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:12px}
+@media (max-width:820px){.grid2{grid-template-columns:minmax(0,1fr)}}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px;min-width:0}
+.panel-h{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.chart svg{display:block;width:100%;height:auto}
+.chart text{fill:var(--muted);font-family:var(--f-mono);font-size:10.5px}
+
+.alloc{display:grid;gap:7px}
+.alloc-row{display:grid;grid-template-columns:64px minmax(0,1fr) 52px;align-items:center;gap:8px;font-size:.85rem}
+.alloc-bar{height:10px;background:var(--sunken);border-radius:3px;overflow:hidden}
+.alloc-bar i{display:block;height:100%;background:var(--accent);border-radius:3px}
+
+.tablebox{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:var(--r)}
+table{border-collapse:collapse;width:100%;min-width:1180px}
+th,td{padding:9px 12px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}
+th{font-size:.72rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:600;background:var(--sunken);position:sticky;top:0}
+th:first-child,td:first-child{text-align:left}
+tbody tr:hover{background:color-mix(in srgb,var(--sunken) 55%,transparent)}
+tr.sold td{color:var(--muted)}
+tfoot td{font-weight:600;border-bottom:0;background:var(--sunken)}
+.tick{font-family:var(--f-mono);font-weight:500;background:none;border:0;padding:2px 0;color:var(--ink);border-bottom:1px dashed var(--muted);border-radius:0}
+.tick:hover{color:var(--accent);border-color:var(--accent)}
+.cell-in{width:96px;text-align:right;font-family:var(--f-mono);font-variant-numeric:tabular-nums;padding:5px 8px;background:transparent;border-color:transparent}
+.cell-in:hover{border-color:var(--line);background:var(--surface)}
+.cell-in:focus{background:var(--surface);border-color:var(--accent)}
+.cell-in.sim{border-color:var(--line);border-style:dashed}
+.chip{display:inline-block;font-size:.72rem;font-weight:600;padding:2px 7px;border-radius:999px;font-family:var(--f-body);letter-spacing:.02em}
+.chip.up{background:var(--gain-soft);color:var(--gain)} .chip.down{background:var(--loss-soft);color:var(--loss)}
+.chip.new{background:var(--accent-soft);color:var(--accent)} .chip.neutral{background:var(--sunken);color:var(--muted)}
+.weight{display:inline-flex;align-items:center;gap:6px}
+.weight i{display:inline-block;height:6px;background:var(--accent);border-radius:2px;opacity:.75}
+.rowact{display:inline-flex;gap:2px;justify-content:flex-end}
+.inline-form{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:flex-end;padding:4px 0}
+.inline-form input{width:130px}
+
+.addbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:12px;border-top:1px solid var(--line);background:var(--surface)}
+.addbar input{width:120px}
+.addbar input#add-ativo{text-transform:uppercase;width:110px}
+
+.newsnap{display:flex;flex-wrap:wrap;gap:10px;align-items:center;background:var(--accent-soft);border-radius:var(--r);padding:12px 14px}
+.delsnap{background:var(--loss-soft)}
+.perf{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:18px;align-items:start}
+@media (max-width:820px){.perf{grid-template-columns:minmax(0,1fr)}}
+.vs{display:grid;gap:12px}
+.vs-row{display:grid;grid-template-columns:110px minmax(0,1fr) auto;align-items:center;gap:10px}
+.vs-row .bar2{height:10px;background:var(--sunken);border-radius:3px;position:relative;overflow:hidden}
+.vs-row .bar2 i{position:absolute;top:0;bottom:0;border-radius:3px}
+.vs-row .bar2 .mid{position:absolute;left:50%;top:-2px;bottom:-2px;width:1px;background:var(--muted)}
+.src{font-size:.78rem;color:var(--muted)}
+.bench{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;align-items:center}
+.bench button{font-size:.8rem;font-weight:500;padding:4px 10px 4px 8px;border-radius:999px;display:inline-flex;align-items:center;gap:6px}
+.bench button::before{content:"";width:14px;height:3px;border-radius:2px;background:var(--c)}
+.bench button[aria-pressed="false"]{opacity:.5}
+.bench button[aria-pressed="true"]{border-color:var(--c)}
+.bench .fixed{font-size:.8rem;display:inline-flex;align-items:center;gap:6px;padding:4px 6px;color:var(--ink)}
+.bench .fixed::before{content:"";width:14px;height:3px;border-radius:2px;background:var(--accent)}
+.tile .v.small{font-size:1.15rem}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top, 0px);z-index:16;background:var(--bg)}
+.filterbar{position:sticky;top:env(safe-area-inset-top, 0px);z-index:15;display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;padding:10px 14px;background:color-mix(in srgb,var(--surface) 92%,transparent);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:var(--r);box-shadow:0 6px 18px -14px var(--ink)}
+.filterbar .grp{display:flex;align-items:center;gap:6px}
+.filterbar select{padding:5px 8px}
+.filterbar .sep{width:1px;align-self:stretch;background:var(--line)}
+.quick{display:flex;flex-wrap:wrap;gap:4px}
+.quick button{font-size:.8rem;padding:4px 10px;border-radius:999px;font-weight:500}
+.quick button[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+.f-info{font-size:.82rem;color:var(--muted);margin-left:auto}
+@media (max-width:820px){.f-info{margin-left:0;width:100%}.filterbar .sep{display:none}}
+button.tile{font:inherit;text-align:left;color:var(--ink);cursor:pointer;transition:border-color .15s,transform .15s}
+button.tile:hover{border-color:var(--accent);transform:translateY(-1px)}
+.tile .v.big{font-size:1.6rem}
+.tile .per{display:flex;justify-content:space-between;gap:8px;margin-top:6px;padding-top:7px;border-top:1px dashed var(--line);font-size:.82rem;color:var(--muted)}
+.tile .per b{font-family:var(--f-mono);font-weight:500;white-space:nowrap}
+.tip{position:fixed;pointer-events:none;background:var(--ink);color:var(--bg);font-size:.8rem;padding:7px 10px;border-radius:7px;z-index:40;max-width:280px;line-height:1.4;box-shadow:0 8px 20px -10px #000}
+.tip b{font-weight:600}
+.pt{cursor:pointer}.pt .guide{opacity:0}.pt:hover .guide{opacity:1}.pt:hover circle{r:5.5}
+.bar{cursor:pointer}.bar:hover{opacity:.8!important}
+.alloc-row{cursor:pointer;border-radius:6px;padding:2px 4px;margin:-2px -4px}
+.alloc-row:hover,.alloc-row:focus-visible{background:var(--sunken)}
+.alloc-row:hover .alloc-bar i{filter:brightness(1.15)}
+section,#evo-panel,#rows{scroll-margin-top:110px}
+th[data-sort]{cursor:pointer;user-select:none}
+th[data-sort]:hover{color:var(--ink)}
+th.sorted{color:var(--accent)}
+th.sorted::after{content:" ↓"}th.sorted.asc::after{content:" ↑"}
+tr.flash td{animation:flash 1.2s ease}
+@keyframes flash{from{background:var(--accent-soft)}to{background:transparent}}
+.filterchip{display:inline-flex;align-items:center;gap:6px;background:var(--accent-soft);color:var(--accent);border-radius:999px;padding:2px 4px 2px 10px;font-size:.8rem;font-weight:600}
+.filterchip button{padding:0 6px;border:0;background:none;color:inherit}
+.delsnap .del-btn{background:var(--loss);border-color:var(--loss);color:var(--surface)}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom, 0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:9px 16px;border-radius:8px;font-size:.9rem;z-index:20;max-width:calc(100% - 32px)}
+.empty{padding:28px;text-align:center;color:var(--muted)}
+.hist-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:10px}
+@media (max-width:620px){.hist-grid{grid-template-columns:minmax(0,1fr)}}
+.legend{display:flex;gap:14px;font-size:.8rem;color:var(--muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px;background:var(--c)}
+.an-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:12px}
+.an-grid .full{grid-column:1/-1}
+@media (max-width:820px){.an-grid{grid-template-columns:minmax(0,1fr)}}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px 18px}
+.stat{display:grid;gap:2px;min-width:0}
+.stat .v{font-family:var(--f-mono);font-variant-numeric:tabular-nums;font-size:1.15rem;font-weight:500}
+.stat .d{font-size:.8rem;color:var(--muted)}
+.range{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:14px}
+.range select{padding:5px 8px}
+.split{display:flex;height:12px;border-radius:3px;overflow:hidden;background:var(--sunken);margin:8px 0 6px}
+.split i{display:block;height:100%}
+.tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:4px}
+.note{font-size:.8rem;color:var(--muted);margin:8px 0 0}
+@media (prefers-reduced-motion: no-preference){.alloc-bar i,.weight i{transition:width .3s ease}}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div>
+      <div class="eyebrow">Acompanhamento de posições · B3</div>
+      <h1>Carteira de Ações</h1>
+      <div class="sub" id="sub">Carregando seus períodos…</div>
+    </div>
+    <div class="toolbar">
+      <button id="btn-new" class="primary" data-edit>+ Novo período</button>
+      <button id="btn-export">Exportar .xlsx</button>
+      <button id="btn-del" class="danger" data-edit>Excluir período</button>
+      <button id="btn-backup" title="Baixa os dados atuais (carteira.json) para você versionar no repositório">Baixar dados</button>
+      <button id="btn-import" title="Carrega um carteira.json" onclick="document.getElementById('file-import').click()">Importar</button>
+      <button id="btn-reset" title="Descarta as edições deste navegador">Restaurar</button>
+      <input type="file" id="file-import" accept="application/json,.json" hidden>
+    </div>
+  </header>
+
+  <div id="newsnap" class="newsnap" hidden>
+    <strong>Novo período</strong>
+    <span class="muted">Copia as posições abertas do período mais recente para a data de fechamento escolhida.</span>
+    <input type="date" id="new-date" aria-label="Data de fechamento do novo período">
+    <button id="new-ok" class="primary">Criar</button>
+    <button id="new-cancel" class="ghost">Cancelar</button>
+  </div>
+
+  <div id="delsnap" class="newsnap delsnap" hidden>
+    <strong id="del-title">Excluir período</strong>
+    <span id="del-msg"></span>
+    <button id="del-ok" class="primary del-btn">Excluir de vez</button>
+    <button id="del-cancel" class="ghost">Cancelar</button>
+  </div>
+
+  <section class="filterbar" aria-label="Filtro de períodos">
+    <div class="grp"><label class="eyebrow" for="f-from">De</label><select id="f-from"></select>
+      <label class="eyebrow" for="f-to">até</label><select id="f-to"></select></div>
+    <div class="quick" id="quick">
+      <button data-q="all">Tudo</button><button data-q="12">12 meses</button><button data-q="6">6 meses</button><button data-q="3">3 meses</button><button data-q="ytd">Ano atual</button>
+    </div>
+    <span class="sep"></span>
+    <div class="grp"><label class="eyebrow" for="snap-sel">Posições de</label><select id="snap-sel" aria-label="Período cujas posições são mostradas"></select></div>
+    <span class="f-info" id="f-info"></span>
+  </section>
+
+  <section class="tiles" id="tiles"></section>
+
+  <section class="grid2">
+    <div class="panel chart" id="evo-panel">
+      <div class="panel-h"><h2>Custo e valor de mercado</h2><span class="muted" id="chart-range"></span></div>
+      <div class="legend" style="margin-bottom:6px"><span style="--c:var(--accent)">Valor investido (custo)</span><span style="--c:var(--gain)">Valor de mercado</span></div>
+      <div id="evo"></div>
+    </div>
+    <div class="panel">
+      <div class="panel-h"><h2>Alocação</h2><span class="muted">por valor investido</span></div>
+      <div class="alloc" id="alloc"></div>
+    </div>
+  </section>
+
+  <section class="panel chart" id="perf-sec">
+    <div class="panel-h"><h2>Desempenho vs índices</h2><span class="src" id="perf-src"></span></div>
+    <div class="perf">
+      <div>
+        <div class="bench" id="bench"><span class="fixed">Carteira</span><span class="eyebrow" style="margin-left:6px">Comparar com</span>
+          <button data-b="ibov" style="--c:var(--muted)" aria-pressed="true">Ibovespa</button>
+          <button data-b="ipca" style="--c:var(--infl)" aria-pressed="true">IPCA (inflação)</button>
+          <button data-b="cdi" style="--c:var(--cdi)" aria-pressed="false">CDI</button></div>
+        <div id="perf-chart"></div>
+      </div>
+      <div class="vs" id="perf-stats"></div>
+    </div>
+    <p class="note">Rentabilidade ponderada pelo tempo: cada período é medido pelo método de Dietz modificado (compras e vendas contam como entrada e saída de dinheiro no meio do período) e os períodos são encadeados. Proventos são estimados pela quantidade que você tinha na data ex. Cotações de fechamento do Yahoo Finance. IPCA e CDI do Banco Central, distribuídos pelos dias de cada mês; meses com IPCA ainda não divulgado ficam sem variação.</p>
+  </section>
+
+  <section>
+    <div class="panel-h">
+      <h2 id="tbl-title">Posições</h2>
+      <span class="muted">Clique nos números para editar. A simulação de venda fica na seção abaixo.</span>
+    </div>
+    <div class="tablebox">
+      <table data-table="pos">
+        <thead><tr>
+          <th data-sort="ativo">Ativo</th><th data-sort="pm">Preço médio</th><th data-sort="qtd">Quantidade</th><th data-sort="inv">Investido</th><th data-sort="px">Cotação</th><th data-sort="mv">Valor de mercado</th><th data-sort="unr">Resultado</th><th data-sort="inv">Peso</th><th data-sort="dq">Desde a anterior</th><th></th>
+        </tr></thead>
+        <tbody id="rows"></tbody>
+        <tfoot id="foot"></tfoot>
+      </table>
+      <form class="addbar" id="addform" data-edit>
+        <strong>Adicionar ativo</strong>
+        <input id="add-ativo" placeholder="Ticker" required maxlength="8" autocomplete="off">
+        <input id="add-pm" placeholder="Preço médio" inputmode="decimal" required>
+        <input id="add-qtd" placeholder="Quantidade" inputmode="numeric" required>
+        <button class="primary" type="submit">Adicionar</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="simsec">
+    <div class="panel-h">
+      <h2>Simulação de venda</h2>
+      <span class="muted">Digite um preço simulado ou uma <strong>meta</strong> e veja o preço de venda necessário. Cálculo bruto, sem corretagem nem imposto.</span>
+    </div>
+    <div class="tablebox">
+      <table data-table="sim">
+        <thead><tr><th>Ativo</th><th>Qtd.</th><th>Preço médio</th><th>Investido</th><th>Cotação</th><th>Preço simulado</th><th>Resultado simulado</th><th>Meta</th><th>Preço para a meta</th><th>Falta para a meta</th><th>Lucro na meta</th></tr></thead>
+        <tbody id="simrows"></tbody>
+        <tfoot id="simfoot"></tfoot>
+      </table>
+    </div>
+  </section>
+
+  <section class="panel chart" id="hist" hidden>
+    <div class="panel-h"><h2 id="hist-title">Histórico</h2><button class="ghost" id="hist-close">Fechar</button></div>
+    <div class="hist-grid" id="hist-stats"></div>
+    <div class="legend"><span style="--c:var(--accent)">Preço médio</span><span style="--c:var(--line)">Quantidade</span></div>
+    <div id="hist-chart"></div>
+  </section>
+
+  <section>
+    <div class="panel-h"><h2>Análises da carteira</h2><span class="muted" id="an-sub"></span></div>
+    <div class="an-grid">
+      <div class="panel">
+        <div class="panel-h"><h2>Resultado no intervalo</h2><span class="muted" id="rg-sub"></span></div>
+        <div class="stats" id="rg-stats"></div>
+        <div id="rg-moves"></div>
+      </div>
+      <div class="panel">
+        <div class="panel-h"><h2>Concentração</h2><span class="muted" id="cc-sub"></span></div>
+        <div class="stats" id="cc-stats"></div>
+        <div id="cc-split"></div>
+      </div>
+      <div class="panel chart">
+        <div class="panel-h"><h2>Lucro realizado por mês</h2><span class="muted" id="lm-sub"></span></div>
+        <div id="lm-chart"></div>
+      </div>
+      <div class="panel chart">
+        <div class="panel-h"><h2>Movimentação por período</h2><span class="muted" id="mv-sub"></span></div>
+        <div id="mv-chart"></div>
+        <p class="note">Variação do valor investido nas posições abertas entre um período e o anterior. Compras aparecem como entrada, vendas como saída.</p>
+      </div>
+      <div class="full">
+        <div class="panel-h"><h2>Evolução por ativo</h2><span class="muted">desde a entrada na carteira até o período selecionado</span></div>
+        <div class="tablebox">
+          <table style="min-width:1100px" data-table="evo">
+            <thead><tr><th data-sort="ativo">Ativo</th><th data-sort="start">Na carteira desde</th><th data-sort="dias">Tempo</th><th data-sort="qtd">Quantidade</th><th data-sort="pm">Preço médio</th><th data-sort="dpm">Variação do PM</th><th data-sort="ap">Aportado no ativo</th><th data-sort="px">Cotação</th><th data-sort="unr">Resultado</th><th data-sort="prov">Proventos est.</th></tr></thead>
+            <tbody id="ev-rows"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="vendas-sec">
+    <div class="panel-h"><h2>Vendas realizadas</h2><span class="muted" id="sales-sum"></span></div>
+    <div class="tablebox">
+      <table style="min-width:620px" data-table="sales">
+        <thead><tr><th data-sort="ativo">Ativo</th><th data-sort="k">Data</th><th data-sort="qtd">Quantidade</th><th data-sort="inv">Investido</th><th data-sort="venda">Valor de venda</th><th data-sort="lucro">Lucro</th><th data-sort="ret">Retorno</th></tr></thead>
+        <tbody id="sales"></tbody>
+      </table>
+    </div>
+  </section>
+</div>
+<div class="toast" id="toast" hidden></div>
+<div class="tip" id="tip" hidden></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script>
+const $ = s => document.querySelector(s);
+const BRL = new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'});
+const N2 = new Intl.NumberFormat('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});
+const PCT = new Intl.NumberFormat('pt-BR',{style:'percent',minimumFractionDigits:1,maximumFractionDigits:1,signDisplay:'exceptZero'});
+const brl = v => v==null||isNaN(v) ? '—' : BRL.format(v);
+const sbrl = v => v==null||isNaN(v) ? '—' : (v>0?'+':'')+BRL.format(v);
+const fmtDate = k => { const [y,m,d]=k.split('-'); return `${d}/${m}/${y}`; };
+const parseNum = s => { if(s==null) return null; s=String(s).trim().replace(/\s/g,'').replace(/R\$/,''); if(!s) return null;
+  if(s.includes(',')) s=s.replace(/\./g,'').replace(',','.'); const n=Number(s); return isFinite(n)?n:null; };
+const cls = v => v>0?'gain':v<0?'loss':'';
+const esc = s => String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const invOf = p => p.investido!=null ? p.investido : (p.pm!=null&&p.qtd!=null ? p.pm*p.qtd : 0);
+
+let db=null, canWrite=true;
+let snaps={};          // data -> {data, posicoes:[]}
+let sim={};            // ativo -> preco
+let metas={};          // ativo -> {tipo:'pct'|'total'|'preco', valor}
+let selected=null;     // data selecionada
+let histAtivo=null;
+let pendingDel=null, sellOpen=null;
+let rgFrom=null, rgTo=null, salesMonth=null;
+let quotes=null; // {precos:{T:{data:preco}}, ibov:{data:pts}, proventos:{T:[[data,valor]]}, atualizadoEm, fonte}
+function precoAte(t,k){ const P=quotes?.precos?.[t]; if(!P) return null; if(P[k]!=null) return P[k];
+  let bd=null; for(const d in P){ if(d<=k && P[d]!=null && (!bd||d>bd)) bd=d; }
+  return bd && (Date.parse(k)-Date.parse(bd))/864e5<=10 ? P[bd] : null; }
+const priceAt=(t,k)=> precoAte(t,k) ?? precoAte(t.replace(/(\d)F$/,'$1'),k);
+function marketOf(k){ const open=openOf(k); let v=0,c=0,miss=0; for(const p of open){ const x=priceAt(p.ativo,k); if(x==null||p.qtd==null){ miss++; continue; } v+=x*p.qtd; c+=invOf(p); } return {v:open.length&&!miss?v:(miss&&v?v:null), c, miss}; }
+function provEntre(a,b){ // proventos com data ex em (a,b]
+  if(!quotes?.proventos) return {v:0,lista:[]}; const ks=keys(); let v=0; const lista=[];
+  for(const [t,evs] of Object.entries(quotes.proventos)) for(const [d,amt] of evs){ if(!(d>a&&d<=b)) continue;
+    const base=ks.filter(k=>k<=d).pop(); if(!base) continue; const p=openOf(base).find(x=>x.ativo===t); if(!p||!p.qtd) continue;
+    v+=p.qtd*amt; lista.push({t,d,q:p.qtd,amt,v:p.qtd*amt}); }
+  return {v,lista};
+}
+function periodReturn(k){ // retorno do período que termina em k
+  const p=prevKey(k); if(!p) return null;
+  const m0=marketOf(p), m1=marketOf(k); if(m0.v==null||m1.v==null||m0.miss||m1.miss) return null;
+  const sold=snaps[k].posicoes.filter(x=>x.venda!=null);
+  const proceeds=sold.reduce((a,x)=>a+x.venda,0);
+  const purchases=openTot(k)-openTot(p)+sold.reduce((a,x)=>a+invOf(x),0);
+  const div=provEntre(p,k).v;
+  const den=m0.v+0.5*purchases-0.5*proceeds; if(den<=0) return null;
+  const g=m1.v+proceeds-m0.v-purchases;
+  const ib=quotes?.ibov?.[p]&&quotes?.ibov?.[k]? quotes.ibov[k]/quotes.ibov[p]-1 : null;
+  return {r:g/den, rd:(g+div)/den, ib, g, div, purchases, proceeds};
+}
+const sorts={pos:{k:'inv',d:-1}, sales:{k:'k',d:-1}, evo:{k:'start',d:1}};
+const keysR = () => keys().filter(k=>k>=rgFrom&&k<=rgTo);
+function cmp(get,d){ return (a,b)=>{ const x=get(a), y=get(b); if(typeof x==='string'||typeof y==='string') return String(x??'').localeCompare(String(y??''))*d; return ((x??-Infinity)-(y??-Infinity))*d; }; }
+function markSort(t){ document.querySelectorAll(`table[data-table="${t}"] th[data-sort]`).forEach(th=>{ const on=th.dataset.sort===sorts[t].k; th.classList.toggle('sorted',on); th.classList.toggle('asc',on&&sorts[t].d===1); }); }
+function goHist(a){ histAtivo=a; renderHist(); $('#hist').scrollIntoView({behavior:'smooth',block:'nearest'}); }
+
+function toast(msg){ const t=$('#toast'); t.textContent=msg; t.hidden=false; clearTimeout(toast._t); toast._t=setTimeout(()=>t.hidden=true,2600); }
+const keys = () => Object.keys(snaps).sort();
+const prevKey = k => { const ks=keys(); const i=ks.indexOf(k); return i>0?ks[i-1]:null; };
+const totalOf = k => (snaps[k]?.posicoes||[]).reduce((s,p)=>s+invOf(p),0);
+
+/* ---------- Persistência ---------- */
+async function saveSnap(k){
+  if(!db) return;
+  try{ await db.doc('atualizacoes/'+k).set({data:k,posicoes:snaps[k].posicoes}); }
+  catch(e){ handleWriteErr(e); }
+}
+let simTimer=null;
+function saveSimSoon(){ clearTimeout(simTimer); simTimer=setTimeout(async()=>{ if(!db) return;
+  try{ await db.doc('config/simulacao').set({precos:sim,metas}); }catch(e){ handleWriteErr(e); } },700); }
+function handleWriteErr(e){
+  if(e && e.code==='invalid_argument'){ canWrite=false; applyWrite(); toast('Você só tem acesso de leitura a esta carteira.'); }
+  else if(e && e.code==='quota_exceeded'){ toast('Limite de armazenamento atingido. Exclua períodos antigos para continuar.'); }
+  else toast('Não foi possível salvar agora. Tente de novo em instantes.');
+}
+function applyWrite(){ document.querySelectorAll('[data-edit]').forEach(el=>el.hidden=!canWrite); }
+
+/* ---------- Render ---------- */
+function render(){
+  const ks=keys();
+  if(!ks.length){
+    $('#sub').textContent='Nenhum período ainda. Crie o primeiro em “Novo período”.';
+    $('#rows').innerHTML='<tr><td colspan="10" class="empty">Sem posições. Use “+ Novo período” e depois adicione seus ativos abaixo.</td></tr>';
+    $('#foot').innerHTML=''; $('#tiles').innerHTML=''; ['#rg-stats','#rg-moves','#cc-stats','#cc-split','#lm-chart','#mv-chart','#ev-rows'].forEach(q=>$(q).innerHTML=''); $('#evo').innerHTML=''; $('#alloc').innerHTML=''; $('#sales').innerHTML='';
+    return;
+  }
+  if(!rgFrom||!snaps[rgFrom]) rgFrom=ks.find(k=>k>=(rgFrom||''))||ks[0];
+  if(!rgTo||!snaps[rgTo]) rgTo=ks.filter(k=>k<=(rgTo||'9999')).pop()||ks[ks.length-1];
+  if(rgFrom>rgTo) [rgFrom,rgTo]=[rgTo,rgFrom];
+  if(!selected || !snaps[selected] || selected<rgFrom || selected>rgTo) selected=rgTo;
+  const kr=keysR(), latest=ks[ks.length-1];
+  const opts=(list,sel)=>list.slice().reverse().map(k=>`<option value="${k}" ${k===sel?'selected':''}>${fmtDate(k)}</option>`).join('');
+  $('#f-from').innerHTML=opts(ks,rgFrom); $('#f-to').innerHTML=opts(ks,rgTo); $('#snap-sel').innerHTML=opts(kr,selected);
+  const dias=Math.round((new Date(rgTo+'T12:00:00')-new Date(rgFrom+'T12:00:00'))/864e5);
+  $('#f-info').textContent=`${kr.length} de ${ks.length} períodos · ${dias} dias`;
+  markQuick();
+  const pk0=prevKey(selected);
+  $('#sub').textContent = `${ks.length} períodos registrados de ${fmtDate(ks[0])} a ${fmtDate(latest)} · posições ` + (pk0?`do período ${fmtDate(pk0)} a ${fmtDate(selected)}`:`até ${fmtDate(selected)}`);
+  $('#tbl-title').textContent = `Posições em ${fmtDate(selected)}`;
+  renderTiles(); renderEvo(); renderPerf(); renderAlloc(); renderTable(); renderSim(); renderSales(); renderHist(); renderAnalises();
+}
+
+function renderTiles(){
+  const k=selected, pk=prevKey(k);
+  const pos=snaps[k].posicoes, open=pos.filter(p=>p.venda==null);
+  const tot=openTot(k), ptot=pk?openTot(pk):null, d=ptot!=null?tot-ptot:null;
+  const sales=allSales(), lucro=sales.reduce((s,x)=>s+x.lucro,0);
+  const salesP=sales.filter(x=>x.k===k), lucroP=salesP.reduce((s,x)=>s+x.lucro,0);
+  const salesR=sales.filter(x=>x.k>=rgFrom&&x.k<=rgTo), lucroR=salesR.reduce((s,x)=>s+x.lucro,0);
+  const isAll=rgFrom===keys()[0]&&rgTo===keys().at(-1);
+  const m=marketOf(k), un=m.v!=null?m.v-m.c:null;
+  const pf=perfRange();
+  $('#tiles').innerHTML = `
+    <button class="tile" data-goto="#evo-panel" title="Ver evolução"><span class="eyebrow">Valor de mercado</span><span class="v big">${m.v!=null?brl(m.v):'—'}</span>
+      <span class="d ${cls(un)}">${un!=null?`${sbrl(un)} (${PCT.format(m.c?un/m.c:0)}) não realizado`:'sem cotação para este período'}</span>
+      <span class="per"><span>${m.miss?`${m.miss} ativo(s) sem cotação`:'Cotações de '+fmtDate(k)}</span></span></button>
+    <button class="tile" data-goto="#evo-panel" title="Ver evolução"><span class="eyebrow">Valor investido</span><span class="v">${brl(tot)}</span>
+      <span class="d ${cls(d)}">${d==null?'primeiro período':`${sbrl(d)} desde ${fmtDate(pk)}`}</span>
+      <span class="per"><span>Ativos na carteira</span><b>${open.length}</b></span></button>
+    <button class="tile" data-goto="#vendas-sec" title="Ver vendas"><span class="eyebrow">Lucro realizado acumulado</span><span class="v big ${cls(lucroR)}">${salesR.length?sbrl(lucroR):'R$ 0,00'}</span>
+      <span class="d muted">${salesR.length} venda(s) ${isAll?'no histórico todo':`de ${fmtDate(rgFrom)} a ${fmtDate(rgTo)}`}</span>
+      <span class="per"><span>No período ${fmtDate(k)}</span><b class="${cls(lucroP)}">${salesP.length?sbrl(lucroP):'R$ 0,00'}</b></span></button>
+    <button class="tile" data-goto="#perf-sec" title="Ver desempenho"><span class="eyebrow">Rentabilidade no intervalo</span><span class="v big ${cls(pf?.cart)}">${pf?PCT.format(pf.cart):'—'}</span>
+      <span class="d muted">${pf?`Ibov <b class="${cls(pf.ibov)}">${PCT.format(pf.ibov)}</b>${pf.ipca!=null?` · IPCA <b>${PCT.format(pf.ipca)}</b>`:''}`:'precisa de 2 períodos com cotação'}</span>
+      <span class="per"><span>Acima da inflação</span><b class="${cls(pf?.real)}">${pf?.real!=null?PCT.format(pf.real):'—'}</b></span></button>
+    <button class="tile" data-goto="#perf-sec" title="Ver proventos"><span class="eyebrow">Proventos estimados</span><span class="v ${pf?.div?'gain':''}">${pf?brl(pf.div):'—'}</span>
+      <span class="d muted">no intervalo do filtro</span>
+      <span class="per"><span>No período ${fmtDate(k)}</span><b>${pk?brl(provEntre(pk,k).v):'—'}</b></span></button>`;
+}
+
+function idxAt(ser,d,parc){ // nível acumulado do índice mensal até a data d
+  if(!ser||!d) return null; let v=1;
+  for(const m of Object.keys(ser).sort()){
+    const [y,mo]=m.split('-').map(Number); let dim=new Date(y,mo,0).getDate();
+    if(d<m+'-01') break;
+    if(parc&&parc.startsWith(m)) dim=+parc.slice(8);
+    const day=d.startsWith(m)?Math.min(+d.slice(8),dim):dim;
+    v*=Math.pow(1+ser[m]/100, day/dim);
+  }
+  return v;
+}
+function benchRel(name,a,b){ const I=quotes?.indices; if(!I?.[name]) return null; const p=name==='cdi'?I.cdiParcialAte:null; const x=idxAt(I[name],a,p), y=idxAt(I[name],b,p); return x&&y? y/x-1 : null; }
+function perfRange(){
+  if(!quotes) return null; const kr=keysR(); const base=kr[0]; let c=1, cs=1, ib=1, n=0, div=0; const pts=[{k:base,c:0,ib:0,ibov:0,ipca:0,cdi:0}];
+  for(const k of kr.slice(1)){ const ipca=benchRel('ipca',base,k), cdi=benchRel('cdi',base,k); const r=periodReturn(k);
+    if(!r){ pts.push({k,c:c-1,ib:ib-1,ibov:ib-1,ipca,cdi,gap:true}); continue; }
+    c*=1+r.rd; cs*=1+r.r; if(r.ib!=null) ib*=1+r.ib; div+=r.div; n++;
+    pts.push({k,c:c-1,ib:ib-1,ibov:ib-1,ipca,cdi,r,ripca:benchRel('ipca',prevKey(k),k),rcdi:benchRel('cdi',prevKey(k),k)}); }
+  if(!n) return null;
+  const last=pts[pts.length-1], ipca=last.ipca, cdi=last.cdi;
+  return {cart:c-1, semProv:cs-1, ibov:ib-1, ipca, cdi, real:ipca!=null?(c)/(1+ipca)-1:null, div, n, pts};
+}
+
+function renderEvo(){
+  const ks=keysR(), box=$('#evo');
+  const W=Math.max(300, box.clientWidth||640), H=220, pl=64, pr=14, pt=12, pb=26;
+  const vals=ks.map(openTot); const mvs=ks.map(k=>{ const m=marketOf(k); return m.miss?null:m.v; });
+  const max=Math.max(...vals,...mvs.filter(v=>v!=null))*1.08, min=0;
+  const x=i=> pl + (ks.length===1?0.5:i/(ks.length-1))*(W-pl-pr);
+  const y=v=> pt + (1-(v-min)/(max-min||1))*(H-pt-pb);
+  const pts=vals.map((v,i)=>`${x(i).toFixed(1)},${y(v).toFixed(1)}`);
+  const step=niceStep(max/4); let grid='';
+  for(let g=0; g<=max; g+=step){ grid+=`<line x1="${pl}" x2="${W-pr}" y1="${y(g)}" y2="${y(g)}" stroke="var(--line)" stroke-width="1"/><text x="${pl-8}" y="${y(g)+3.5}" text-anchor="end">${g>=1000?(g/1000).toLocaleString('pt-BR',{maximumFractionDigits:1})+' mil':g}</text>`; }
+  let xl=''; const every=Math.max(1,Math.ceil(ks.length/(W/90)));
+  ks.forEach((k,i)=>{ const last=ks.length-1; if((i%every===0 && last-i>=every*0.6)||i===last){ const [yy,mm]=k.split('-'); xl+=`<text x="${x(i)}" y="${H-8}" text-anchor="middle">${mm}/${yy.slice(2)}</text>`; } });
+  const si=ks.indexOf(selected);
+  const zw=ks.length>1?(W-pl-pr)/(ks.length-1):(W-pl-pr);
+  const dots=vals.map((v,i)=>{ const pv=i?vals[i-1]:null, dv=pv!=null?v-pv:null; const ns=snaps[ks[i]].posicoes.filter(p=>p.venda!=null).length;
+    const mv=mvs[i];
+    const tip=`<b>${fmtDate(ks[i])}</b><br>Investido ${brl(v)}${mv!=null?`<br>Mercado ${brl(mv)} (<span>${sbrl(mv-v)}</span>)`:''}${dv!=null?`<br>Custo ${sbrl(dv)} vs. anterior`:''}${ns?`<br>${ns} venda(s) no período`:''}<br><span style="opacity:.7">Clique para ver as posições</span>`;
+    return `<g class="pt" data-k="${ks[i]}" data-tip="${esc(tip)}"><rect x="${x(i)-zw/2}" y="${pt}" width="${zw}" height="${H-pt-pb}" fill="transparent"/><line class="guide" x1="${x(i)}" x2="${x(i)}" y1="${pt}" y2="${H-pb}" stroke="var(--accent)" stroke-dasharray="3 3"/><circle cx="${x(i)}" cy="${y(v)}" r="${i===si?5:2.5}" fill="${i===si?'var(--accent)':'var(--surface)'}" stroke="var(--accent)" stroke-width="1.5"/></g>`; }).join('');
+  box.innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Evolução do valor investido">
+    ${grid}
+    <polygon points="${pl},${y(0)} ${pts.join(' ')} ${x(vals.length-1)},${y(0)}" fill="var(--accent)" opacity=".1"/>
+    <polyline points="${pts.join(' ')}" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linejoin="round"/>
+    <polyline points="${mvs.map((v,i)=>v==null?null:`${x(i).toFixed(1)},${y(v).toFixed(1)}`).filter(Boolean).join(' ')}" fill="none" stroke="var(--gain)" stroke-width="2" stroke-linejoin="round"/>
+    ${mvs.map((v,i)=>v==null?'':`<circle cx="${x(i)}" cy="${y(v)}" r="2" fill="var(--gain)"/>`).join('')}
+    ${dots}${xl}</svg>`;
+  const lm=mvs[mvs.length-1], lv=vals[vals.length-1];
+  $('#chart-range').textContent = lm!=null ? `mercado ${sbrl(lm-lv)} sobre o custo em ${fmtDate(ks[ks.length-1])}` : (vals.length>1 ? `${sbrl(lv-vals[0])} desde ${fmtDate(ks[0])}` : '');
+  box.querySelectorAll('.pt').forEach(c=>c.addEventListener('click',()=>{ selected=c.dataset.k; pendingDel=null; sellOpen=null; render(); }));
+}
+function niceStep(raw){ const p=Math.pow(10,Math.floor(Math.log10(raw||1))); const f=raw/p; return (f<=1?1:f<=2?2:f<=2.5?2.5:f<=5?5:10)*p; }
+
+function renderAlloc(){
+  const open=snaps[selected].posicoes.filter(p=>p.venda==null);
+  const tot=open.reduce((s,p)=>s+invOf(p),0)||1;
+  const rows=open.slice().sort((a,b)=>invOf(b)-invOf(a));
+  const mx=rows.length?invOf(rows[0])/tot:1;
+  $('#alloc').innerHTML = rows.map(p=>{ const w=invOf(p)/tot;
+    return `<div class="alloc-row" role="button" tabindex="0" data-hist="${esc(p.ativo)}" data-tip="${esc(`<b>${p.ativo}</b><br>${brl(invOf(p))} · ${p.qtd} un.<br>PM ${brl(p.pm)}<br><span style='opacity:.7'>Clique para ver o histórico</span>`)}"><span class="num">${esc(p.ativo)}</span><span class="alloc-bar"><i style="width:${(w/mx*100).toFixed(1)}%"></i></span><span class="num muted" style="text-align:right">${(w*100).toFixed(1).replace('.',',')}%</span></div>`; }).join('') || '<span class="muted">Sem posições abertas.</span>';
+}
+
+function renderTable(){
+  const k=selected, pk=prevKey(k), pos=snaps[k].posicoes;
+  const prev = pk ? Object.fromEntries(snaps[pk].posicoes.map(p=>[p.ativo,p])) : {};
+  const openTot = pos.filter(p=>p.venda==null).reduce((s,p)=>s+invOf(p),0)||1;
+  const ro = canWrite?'':'readonly';
+  const sv={ativo:i=>pos[i].ativo, pm:i=>pos[i].pm, qtd:i=>pos[i].qtd, inv:i=>invOf(pos[i]),
+    dq:i=>{ const pp=prev[pos[i].ativo]; return pp?(pos[i].qtd||0)-(pp.qtd||0):1e9; },
+    px:i=>priceAt(pos[i].ativo,k), mv:i=>{ const x=priceAt(pos[i].ativo,k); return x!=null&&pos[i].venda==null?x*pos[i].qtd:null; },
+    unr:i=>{ const x=priceAt(pos[i].ativo,k); return x!=null&&pos[i].venda==null?(x*pos[i].qtd-invOf(pos[i]))/(invOf(pos[i])||1):null; },
+    res:i=>{ const p=pos[i]; if(p.venda!=null) return p.venda-invOf(p); const pr=sim[p.ativo]; return pr!=null&&p.qtd!=null?pr*p.qtd-invOf(p):null; }};
+  const order = pos.map((p,i)=>i).sort(cmp(sv[sorts.pos.k]||sv.inv, sorts.pos.d)); markSort('pos');
+  let html='';
+  for(const i of order){
+    const p=pos[i], inv=invOf(p), sold=p.venda!=null, w=sold?0:inv/openTot;
+    const px=priceAt(p.ativo,k), mv=px!=null&&p.qtd!=null?px*p.qtd:null;
+    const pp=prev[p.ativo]; let chg;
+    if(!pk) chg='<span class="chip neutral">—</span>';
+    else if(!pp) chg='<span class="chip new">novo</span>';
+    else { const dq=(p.qtd||0)-(pp.qtd||0);
+      chg = dq>0?`<span class="chip up">+${dq} un.</span>`: dq<0?`<span class="chip down">${dq} un.</span>`:'<span class="chip neutral">sem mudança</span>'; }
+    const pr=sim[p.ativo]; let simRes='<span class="muted">—</span>';
+    if(sold){ const l=p.venda-inv; simRes=`<span class="${cls(l)}">${sbrl(l)}</span> <span class="chip neutral">vendido por ${brl(p.venda)}</span>`; }
+    else if(pr!=null && p.qtd!=null){ const l=pr*p.qtd-inv; simRes=`<span class="${cls(l)}">${sbrl(l)}</span> <span class="chip ${l>=0?'up':'down'}">${PCT.format(inv?l/inv:0)}</span>`; }
+    const confirming = pendingDel===i;
+    html+=`<tr class="${sold?'sold':''}" data-i="${i}">
+      <td><button class="tick" data-hist="${esc(p.ativo)}" title="Ver histórico">${esc(p.ativo)}</button></td>
+      <td><input class="cell-in" id="pm-${k}-${i}" data-f="pm" value="${p.pm!=null?N2.format(p.pm):''}" inputmode="decimal" ${ro} aria-label="Preço médio de ${esc(p.ativo)}"></td>
+      <td><input class="cell-in" id="qtd-${k}-${i}" data-f="qtd" value="${p.qtd??''}" inputmode="numeric" ${ro} aria-label="Quantidade de ${esc(p.ativo)}"></td>
+      <td class="num">${brl(inv)}</td>
+      <td class="num">${sold?'—':px==null?'<span class="muted">sem cotação</span>':N2.format(px)}</td>
+      <td class="num">${sold||mv==null?'—':brl(mv)}</td>
+      <td class="num">${sold||mv==null?'—':`<span class="${cls(mv-inv)}">${sbrl(mv-inv)}</span> <span class="chip ${mv>=inv?'up':'down'}">${PCT.format(inv?(mv-inv)/inv:0)}</span>`}</td>
+      <td class="num"><span class="weight"><i style="width:${Math.max(2,w*120).toFixed(0)}px"></i>${sold?'—':(w*100).toFixed(1).replace('.',',')+'%'}</span></td>
+      <td>${chg}</td>
+      <td><span class="rowact" data-edit>${confirming
+        ? `<button class="ghost danger" data-act="del-ok">Remover?</button><button class="ghost" data-act="del-no">Não</button>`
+        : `<button class="ghost" data-act="sell">${sold?'Editar venda':'Vender'}</button><button class="ghost danger" data-act="del" aria-label="Remover ${esc(p.ativo)}">✕</button>`}</span></td>
+    </tr>`;
+    if(sellOpen===i) html+=`<tr data-i="${i}"><td colspan="10"><form class="inline-form" data-sellform>
+      <span>Valor total recebido na venda de <strong>${esc(p.ativo)}</strong></span>
+      <input id="sell-val" inputmode="decimal" placeholder="R$ total" value="${sold?N2.format(p.venda):(pr!=null&&p.qtd?N2.format(pr*p.qtd):'')}" required>
+      <button class="primary" type="submit">Registrar venda</button>
+      ${sold?'<button type="button" class="ghost danger" data-act="unsell">Desfazer venda</button>':''}
+      <button type="button" class="ghost" data-act="sell-cancel">Cancelar</button></form></td></tr>`;
+  }
+  $('#rows').innerHTML = html || '<tr><td colspan="10" class="empty">Nenhum ativo neste período. Adicione abaixo.</td></tr>';
+  const open=pos.filter(p=>p.venda==null);
+  const mvK=marketOf(k);
+  const simT=open.reduce((a,p)=>{ const pr=sim[p.ativo]; if(pr==null||p.qtd==null) return a; a.l+=pr*p.qtd-invOf(p); a.i+=invOf(p); return a; },{l:0,i:0});
+  $('#foot').innerHTML = `<tr><td>Total</td><td></td><td class="num">${open.reduce((s,p)=>s+(p.qtd||0),0)}</td><td class="num">${brl(open.reduce((s,p)=>s+invOf(p),0))}</td><td></td><td class="num">${mvK.v!=null?brl(mvK.v):'—'}</td><td class="num ${cls(mvK.v-mvK.c)}">${mvK.v!=null?`${sbrl(mvK.v-mvK.c)} <span class="chip ${mvK.v>=mvK.c?'up':'down'}">${PCT.format(mvK.c?(mvK.v-mvK.c)/mvK.c:0)}</span>`:''}</td><td></td><td></td><td></td></tr>`;
+  applyWrite();
+}
+
+
+/* ---------- Simulação de venda ---------- */
+const metaPh={pct:'% de lucro',total:'R$ total',preco:'R$ por ação'};
+function simCalc(p,px){
+  const q=p.qtd, inv=invOf(p), pr=sim[p.ativo], m=metas[p.ativo];
+  const simRes = pr!=null&&q!=null ? pr*q-inv : null;
+  let alvo=null;
+  if(m&&m.valor!=null&&q>0){
+    if(m.tipo==='pct') alvo=Math.ceil(inv*(1+m.valor/100)/q*100-1e-9)/100;
+    else if(m.tipo==='total') alvo=Math.ceil(m.valor/q*100-1e-9)/100;
+    else alvo=m.valor;
+    if(!(alvo>0)) alvo=null;
+  }
+  return {inv,simRes,alvo,lucro:alvo!=null?alvo*q-inv:null,falta:alvo!=null&&px?alvo/px-1:null};
+}
+function simCells(p,px){
+  const c=simCalc(p,px), inv=c.inv, dash='<span class="muted">—</span>';
+  const chip=(l)=>`<span class="chip ${l>=0?'up':'down'}">${PCT.format(inv?l/inv:0)}</span>`;
+  return {
+    res: c.simRes!=null?`<span class="${cls(c.simRes)}">${sbrl(c.simRes)}</span> ${chip(c.simRes)}`:dash,
+    alvo: c.alvo!=null?`<strong>${brl(c.alvo)}</strong>`:dash,
+    falta: c.alvo==null?dash:(px!=null&&c.alvo<=px?'<span class="chip up">já atingida</span>':(c.falta!=null?`<span class="chip neutral">+${PCT.format(c.falta).replace('+','')}</span>`:dash)),
+    lucro: c.lucro!=null?`<span class="${cls(c.lucro)}">${sbrl(c.lucro)}</span> ${chip(c.lucro)}`:dash
+  };
+}
+function simFoot(open,k){
+  const t=open.reduce((a,p)=>{ const c=simCalc(p,priceAt(p.ativo,k)); a.inv+=c.inv;
+    if(c.simRes!=null){a.s+=c.simRes;a.ns++;} if(c.lucro!=null){a.m+=c.lucro;a.nm++;} return a; },{inv:0,s:0,ns:0,m:0,nm:0});
+  const f=(v,n)=>n?`<span class="${cls(v)}">${sbrl(v)}</span>`:'';
+  $('#simfoot').innerHTML=`<tr><td>Total</td><td></td><td></td><td class="num">${brl(t.inv)}</td><td></td><td></td><td class="num">${f(t.s,t.ns)}</td><td></td><td></td><td></td><td class="num">${f(t.m,t.nm)}</td></tr>`;
+}
+function renderSim(){
+  if(!selected||!snaps[selected]) { $('#simrows').innerHTML=''; $('#simfoot').innerHTML=''; return; }
+  const k=selected, open=snaps[k].posicoes.filter(p=>p.venda==null).sort((a,b)=>invOf(b)-invOf(a));
+  $('#simrows').innerHTML = open.map(p=>{
+    const px=priceAt(p.ativo,k), c=simCells(p,px), pr=sim[p.ativo], m=metas[p.ativo]||{tipo:'pct',valor:null};
+    return `<tr data-a="${esc(p.ativo)}">
+      <td><button class="tick" data-hist="${esc(p.ativo)}" title="Ver histórico">${esc(p.ativo)}</button></td>
+      <td class="num">${p.qtd??'—'}</td><td class="num">${p.pm!=null?N2.format(p.pm):'—'}</td><td class="num">${brl(invOf(p))}</td>
+      <td class="num">${px==null?'<span class="muted">sem cotação</span>':N2.format(px)}</td>
+      <td><input class="cell-in sim" data-s="sim" id="ss-${esc(p.ativo)}" value="${pr!=null?N2.format(pr):''}" placeholder="${px!=null?N2.format(px):'R$'}" inputmode="decimal" aria-label="Preço simulado de ${esc(p.ativo)}"></td>
+      <td class="num" data-c="res">${c.res}</td>
+      <td style="white-space:nowrap"><input class="cell-in sim" data-s="meta" id="sm-${esc(p.ativo)}" value="${m.valor!=null?N2.format(m.valor):''}" placeholder="${metaPh[m.tipo]}" inputmode="decimal" aria-label="Meta de ${esc(p.ativo)}">
+        <select data-s="tipo" aria-label="Tipo da meta de ${esc(p.ativo)}"><option value="pct"${m.tipo==='pct'?' selected':''}>% de lucro</option><option value="total"${m.tipo==='total'?' selected':''}>R$ total</option><option value="preco"${m.tipo==='preco'?' selected':''}>R$ por ação</option></select></td>
+      <td class="num" data-c="alvo">${c.alvo}</td><td class="num" data-c="falta">${c.falta}</td><td class="num" data-c="lucro">${c.lucro}</td></tr>`; }).join('') || '<tr><td colspan="11" class="empty">Sem posições abertas neste período.</td></tr>';
+  simFoot(open,k);
+}
+function simEdit(e){
+  const el=e.target, tr=el.closest('tr[data-a]'); if(!tr||!el.dataset.s) return;
+  const a=tr.dataset.a, p=snaps[selected].posicoes.find(x=>x.ativo===a&&x.venda==null); if(!p) return;
+  const f=el.dataset.s;
+  if(f==='sim'){ const v=parseNum(el.value); if(v==null||v<0) delete sim[a]; else sim[a]=v; }
+  else if(f==='meta'||f==='tipo'){
+    const tipo=tr.querySelector('[data-s="tipo"]').value, v=parseNum(tr.querySelector('[data-s="meta"]').value);
+    tr.querySelector('[data-s="meta"]').placeholder=metaPh[tipo];
+    if(v==null||v<0) delete metas[a]; else metas[a]={tipo,valor:v};
+  }
+  const px=priceAt(a,selected), c=simCells(p,px);
+  for(const kk of ['res','alvo','falta','lucro']) tr.querySelector(`[data-c="${kk}"]`).innerHTML=c[kk];
+  simFoot(snaps[selected].posicoes.filter(x=>x.venda==null),selected);
+  saveSimSoon(); renderTable();
+}
+
+function allSales(){
+  const out=[];
+  for(const k of keys()) for(const p of snaps[k].posicoes) if(p.venda!=null){ const inv=invOf(p); out.push({k,ativo:p.ativo,qtd:p.qtd,inv,venda:p.venda,lucro:p.venda-inv}); }
+  return out.reverse();
+}
+function renderSales(){
+  let s=allSales().filter(x=>x.k>=rgFrom&&x.k<=rgTo);
+  if(salesMonth) s=s.filter(x=>x.k.startsWith(salesMonth));
+  const g={ativo:x=>x.ativo,k:x=>x.k,qtd:x=>x.qtd,inv:x=>x.inv,venda:x=>x.venda,lucro:x=>x.lucro,ret:x=>x.inv?x.lucro/x.inv:0};
+  s.sort(cmp(g[sorts.sales.k]||g.k, sorts.sales.d)); markSort('sales');
+  const tot=s.reduce((a,x)=>a+x.lucro,0);
+  const [my,mm]=(salesMonth||'-').split('-');
+  $('#sales-sum').innerHTML = (salesMonth?`<span class="filterchip">${MESES[+mm-1]}/${my.slice(2)}<button id="sm-clear" aria-label="Remover filtro de mês">✕</button></span> `:'') + (s.length?`Total <span class="num ${cls(tot)}">${sbrl(tot)}</span>`:'');
+  $('#sales').innerHTML = s.map(x=>`<tr><td><button class="tick" data-hist="${esc(x.ativo)}">${esc(x.ativo)}</button></td><td class="num">${fmtDate(x.k)}</td><td class="num">${x.qtd??'—'}</td><td class="num">${brl(x.inv)}</td><td class="num">${brl(x.venda)}</td>
+    <td class="num ${cls(x.lucro)}">${sbrl(x.lucro)}</td><td><span class="chip ${x.lucro>=0?'up':'down'}">${PCT.format(x.inv?x.lucro/x.inv:0)}</span></td></tr>`).join('')
+    || '<tr><td colspan="7" class="empty">Nenhuma venda neste intervalo. Amplie o filtro de períodos ou use “Vender” na tabela de posições.</td></tr>';
+}
+
+function renderHist(){
+  const box=$('#hist'); if(!histAtivo){ box.hidden=true; return; } box.hidden=false;
+  const series=keys().map(k=>({k,p:snaps[k].posicoes.find(p=>p.ativo===histAtivo)})).filter(x=>x.p);
+  $('#hist-title').textContent=`Histórico de ${histAtivo}`;
+  if(!series.length){ $('#hist-stats').innerHTML=''; $('#hist-chart').innerHTML='<p class="muted">Sem registros.</p>'; return; }
+  const f=series[0].p, l=series[series.length-1].p;
+  $('#hist-stats').innerHTML=`
+    <div class="tile"><span class="eyebrow">Primeiro registro</span><span class="v">${fmtDate(series[0].k)}</span><span class="d muted">${f.qtd??'—'} un. a ${brl(f.pm)}</span></div>
+    <div class="tile"><span class="eyebrow">Último registro</span><span class="v">${fmtDate(series[series.length-1].k)}</span><span class="d muted">${l.qtd??'—'} un. a ${brl(l.pm)}</span></div>
+    <div class="tile"><span class="eyebrow">Preço médio</span><span class="v ${cls(-(l.pm-f.pm))}">${f.pm?PCT.format((l.pm-f.pm)/f.pm):'—'}</span><span class="d muted">de ${brl(f.pm)} para ${brl(l.pm)}</span></div>`;
+  const W=Math.max(300,$('#hist-chart').clientWidth||640), H=200, pl=56, pr=40, pt=12, pb=26, n=series.length;
+  const pms=series.map(s=>s.p.pm??0), qs=series.map(s=>s.p.qtd??0);
+  const pmMax=Math.max(...pms)*1.1||1, pmMin=Math.min(...pms)*0.9, qMax=Math.max(...qs)*1.15||1;
+  const bw=Math.max(3,Math.min(26,(W-pl-pr)/n*0.6));
+  const x=i=> pl + (n===1?0.5:i/(n-1))*(W-pl-pr-bw) + bw/2;
+  const yP=v=> pt+(1-(v-pmMin)/(pmMax-pmMin||1))*(H-pt-pb), yQ=v=> pt+(1-v/qMax)*(H-pt-pb);
+  let s=`<line x1="${pl}" x2="${W-pr}" y1="${H-pb}" y2="${H-pb}" stroke="var(--line)"/>`;
+  series.forEach((d,i)=>{ s+=`<rect x="${x(i)-bw/2}" y="${yQ(qs[i])}" width="${bw}" height="${H-pb-yQ(qs[i])}" fill="var(--line)" rx="2"><title>${fmtDate(d.k)}: ${qs[i]} un.</title></rect>`; });
+  s+=`<polyline fill="none" stroke="var(--accent)" stroke-width="2" points="${pms.map((v,i)=>`${x(i)},${yP(v)}`).join(' ')}"/>`;
+  pms.forEach((v,i)=>{ s+=`<circle cx="${x(i)}" cy="${yP(v)}" r="2.5" fill="var(--accent)"><title>${fmtDate(series[i].k)}: PM ${brl(v)}</title></circle>`; });
+  [pmMin,(pmMin+pmMax)/2,pmMax].forEach(v=>{ s+=`<text x="${pl-8}" y="${yP(v)+3.5}" text-anchor="end">${N2.format(v)}</text>`; });
+  [0,qMax/2].forEach(v=>{ s+=`<text x="${W-pr+6}" y="${yQ(v)+3.5}">${Math.round(v)}</text>`; });
+  const every=Math.max(1,Math.ceil(n/(W/80)));
+  series.forEach((d,i)=>{ if((i%every===0 && n-1-i>=every*0.6)||i===n-1){ const [yy,mm]=d.k.split('-'); s+=`<text x="${x(i)}" y="${H-8}" text-anchor="middle">${mm}/${yy.slice(2)}</text>`; } });
+  $('#hist-chart').innerHTML=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Histórico de ${esc(histAtivo)}">${s}</svg>`;
+}
+
+/* ---------- Desempenho ---------- */
+let bench={ibov:true,ipca:true,cdi:false};
+const BCOL={ibov:'var(--muted)',ipca:'var(--infl)',cdi:'var(--cdi)'}, BNAME={ibov:'Ibovespa',ipca:'IPCA',cdi:'CDI'};
+const pp=v=> (v*100>0?'+':'')+(v*100).toFixed(1).replace('.',',')+' p.p.';
+function renderPerf(){
+  const box=$('#perf-chart'), st=$('#perf-stats');
+  document.querySelectorAll('#bench button').forEach(b=>b.setAttribute('aria-pressed',String(!!bench[b.dataset.b])));
+  if(quotes){ const t=new Date(quotes.atualizadoEm); $('#perf-src').textContent=`Cotações até ${t.toLocaleDateString('pt-BR')} ${t.toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'})} · Yahoo Finance e Banco Central`; }
+  const pf=perfRange();
+  if(!pf){ box.innerHTML='<p class="muted">Sem cotações suficientes neste intervalo.</p>'; st.innerHTML=''; return; }
+  const on=Object.keys(bench).filter(b=>bench[b]);
+  const P=pf.pts, W=Math.max(300,box.clientWidth||640), H=240, pl=52, pr=14, pt=12, pb=26, n=P.length;
+  const all=P.flatMap(q=>[q.c,...on.map(b=>q[b]).filter(v=>v!=null)]); let mx=Math.max(0,...all), mn=Math.min(0,...all); const pad=(mx-mn)*0.08||0.02; mx+=pad; mn-=pad;
+  const x=i=> pl+(n===1?0.5:i/(n-1))*(W-pl-pr), y=v=> pt+(mx-v)/(mx-mn)*(H-pt-pb);
+  let s=''; const step=niceStep((mx-mn)/4);
+  for(let g=Math.ceil(mn/step)*step; g<=mx; g+=step){ s+=`<line x1="${pl}" x2="${W-pr}" y1="${y(g)}" y2="${y(g)}" stroke="var(--line)"/><text x="${pl-8}" y="${y(g)+3.5}" text-anchor="end">${Math.round(g*100)}%</text>`; }
+  s+=`<line x1="${pl}" x2="${W-pr}" y1="${y(0)}" y2="${y(0)}" stroke="var(--muted)"/>`;
+  for(const b of on){ const dash=b==='ibov'?'5 3':b==='ipca'?'':'2 3'; s+=`<polyline fill="none" stroke="${BCOL[b]}" stroke-width="1.8" ${dash?`stroke-dasharray="${dash}"`:''} points="${P.map((q,i)=>q[b]==null?null:`${x(i)},${y(q[b])}`).filter(Boolean).join(' ')}"/>`; }
+  s+=`<polyline fill="none" stroke="var(--accent)" stroke-width="2.4" points="${P.map((q,i)=>`${x(i)},${y(q.c)}`).join(' ')}"/>`;
+  const zw=n>1?(W-pl-pr)/(n-1):W;
+  P.forEach((q,i)=>{ const r=q.r;
+    const lines=on.map(b=>q[b]==null?'':`<br>${BNAME[b]} ${PCT.format(q[b])}`).join('');
+    const per=r?`<br><span style="opacity:.75">No período: carteira ${PCT.format(r.rd)}${bench.ibov&&r.ib!=null?` · Ibov ${PCT.format(r.ib)}`:''}${bench.ipca&&q.ripca!=null?` · IPCA ${PCT.format(q.ripca)}`:''}${bench.cdi&&q.rcdi!=null?` · CDI ${PCT.format(q.rcdi)}`:''}${r.div?`<br>Proventos ${brl(r.div)}`:''}</span>`:(q.gap&&i?'<br>Sem cotação neste período':'');
+    const tip=`<b>${fmtDate(q.k)}</b> · acumulado<br>Carteira ${PCT.format(q.c)}${lines}${per}`;
+    s+=`<g class="pt" data-k="${q.k}" data-tip="${esc(tip)}"><rect x="${x(i)-zw/2}" y="${pt}" width="${zw}" height="${H-pt-pb}" fill="transparent"/><line class="guide" x1="${x(i)}" x2="${x(i)}" y1="${pt}" y2="${H-pb}" stroke="var(--accent)" stroke-dasharray="3 3"/>${on.map(b=>q[b]==null?'':`<circle cx="${x(i)}" cy="${y(q[b])}" r="1.8" fill="${BCOL[b]}"/>`).join('')}<circle cx="${x(i)}" cy="${y(q.c)}" r="${q.k===selected?4.5:2.5}" fill="var(--accent)"/></g>`; });
+  const every=Math.max(1,Math.ceil(n/(W/90)));
+  P.forEach((q,i)=>{ if((i%every===0&&n-1-i>=every*0.6)||i===n-1){ const [yy,mm]=q.k.split('-'); s+=`<text x="${x(i)}" y="${H-8}" text-anchor="middle">${mm}/${yy.slice(2)}</text>`; } });
+  box.innerHTML=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Rentabilidade acumulada da carteira e dos índices">${s}</svg>`;
+  box.querySelectorAll('.pt').forEach(g=>g.addEventListener('click',()=>{ selected=g.dataset.k; render(); }));
+  const rs=P.filter(q=>q.r).map(q=>({k:q.k,v:q.r.rd,ibov:q.r.ib,ipca:q.ripca,cdi:q.rcdi}));
+  const best=rs.slice().sort((a,b)=>b.v-a.v)[0], worst=rs.slice().sort((a,b)=>a.v-b.v)[0];
+  const vals=[pf.cart,pf.semProv,...on.map(b=>pf[b]).filter(v=>v!=null)];
+  const lim=Math.max(...vals.map(Math.abs),0.01);
+  const bar=(v,c)=>`<span class="bar2"><span class="mid"></span><i style="background:${c};left:${v>=0?50:50-Math.abs(v)/lim*50}%;width:${Math.abs(v)/lim*50}%"></i></span>`;
+  const row=(lbl,v,c,strong)=>`<div class="vs-row"><span class="${strong?'':'muted'}">${lbl}</span>${bar(v,c)}${strong?`<b class="num ${cls(v)}">${PCT.format(v)}</b>`:`<span class="num muted">${PCT.format(v)}</span>`}</div>`;
+  const statFor=b=>{ const v=pf[b]; if(v==null) return ''; const real=(1+pf.cart)/(1+v)-1; const beat=rs.filter(q=>q[b]!=null&&q.v>q[b]).length, tot=rs.filter(q=>q[b]!=null).length;
+    return `<div class="stat"><span class="eyebrow">vs ${BNAME[b]}</span><span class="v ${cls(pf.cart-v)}">${pp(pf.cart-v)}</span><span class="d">${b==='ipca'?`ganho real ${PCT.format(real)}`:`acima em ${beat} de ${tot} períodos`}</span></div>`; };
+  st.innerHTML=`
+    ${row('Carteira',pf.cart,'var(--accent)',true)}
+    ${row('sem proventos',pf.semProv,'color-mix(in srgb,var(--accent) 45%,transparent)',false)}
+    ${on.map(b=>pf[b]==null?'':row(BNAME[b],pf[b],BCOL[b],true)).join('')}
+    <div class="stats" style="margin-top:6px">
+      ${on.map(statFor).join('')}
+      <div class="stat"><span class="eyebrow">Melhor período</span><span class="v gain">${best?PCT.format(best.v):'—'}</span><span class="d">${best?`até ${fmtDate(best.k)}`:''}</span></div>
+      <div class="stat"><span class="eyebrow">Pior período</span><span class="v loss">${worst?PCT.format(worst.v):'—'}</span><span class="d">${worst?`até ${fmtDate(worst.k)}`:''}</span></div>
+      <div class="stat"><span class="eyebrow">Proventos estimados</span><span class="v">${brl(pf.div)}</span><span class="d">no intervalo</span></div>
+    </div>
+    ${bench.ipca&&quotes?.indices?.ipca?`<p class="note">IPCA disponível até ${(()=>{const m=Object.keys(quotes.indices.ipca).sort().pop().split('-');return MESES[+m[1]-1]+'/'+m[0];})()}.</p>`:''}`;
+}
+$('#bench').addEventListener('click',e=>{ const b=e.target.closest('button[data-b]'); if(!b) return; bench[b.dataset.b]=!bench[b.dataset.b]; renderPerf(); });
+
+/* ---------- Análises ---------- */
+const openOf = k => (snaps[k]?.posicoes||[]).filter(p=>p.venda==null);
+const openTot = k => openOf(k).reduce((s,p)=>s+invOf(p),0);
+const MESES=['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
+const pctTxt = v => (v*100).toFixed(1).replace('.',',')+'%';
+
+function renderAnalises(){
+  const ks=keys(); if(!ks.length) return;
+  $('#an-sub').textContent=`posições de ${fmtDate(selected)}`;
+  renderRange(); renderConc(); renderLucroMes(); renderMov(); renderEvoAtivos();
+}
+
+function renderRange(){
+  const ks=keys(); const inR=keysR();
+  $('#rg-sub').textContent=`${fmtDate(rgFrom)} a ${fmtDate(rgTo)}`;
+  const sales=allSales().filter(x=>x.k>=rgFrom&&x.k<=rgTo);
+  const lucro=sales.reduce((a,x)=>a+x.lucro,0), inv=sales.reduce((a,x)=>a+x.inv,0), wins=sales.filter(x=>x.lucro>0).length;
+  const t0=openTot(rgFrom), t1=openTot(rgTo), dv=t1-t0;
+  const best=sales.slice().sort((a,b)=>b.lucro-a.lucro)[0];
+  const d0=new Date(rgFrom+'T12:00:00'), d1=new Date(rgTo+'T12:00:00'), dias=Math.round((d1-d0)/864e5);
+  $('#rg-stats').innerHTML=`
+    <div class="stat"><span class="eyebrow">Lucro realizado</span><span class="v ${cls(lucro)}">${sales.length?sbrl(lucro):'R$ 0,00'}</span><span class="d">${sales.length} venda(s) em ${inR.length} período(s)</span></div>
+    <div class="stat"><span class="eyebrow">Retorno das vendas</span><span class="v ${cls(lucro)}">${inv?PCT.format(lucro/inv):'—'}</span><span class="d">${inv?`sobre ${brl(inv)} vendidos a custo`:'sem vendas no intervalo'}</span></div>
+    <div class="stat"><span class="eyebrow">Vendas com lucro</span><span class="v">${sales.length?`${wins} de ${sales.length}`:'—'}</span><span class="d">${best?`melhor: ${esc(best.ativo)} ${sbrl(best.lucro)}`:'—'}</span></div>
+    <div class="stat"><span class="eyebrow">Variação do investido</span><span class="v ${cls(dv)}">${sbrl(dv)}</span><span class="d">${brl(t0)} → ${brl(t1)}${dias?` em ${dias} dias`:''}</span></div>`;
+  const a0=new Set(openOf(rgFrom).map(p=>p.ativo)), a1=new Set(openOf(rgTo).map(p=>p.ativo));
+  const ent=[...a1].filter(a=>!a0.has(a)), sai=[...a0].filter(a=>!a1.has(a));
+  $('#rg-moves').innerHTML = (ent.length||sai.length) ? `<p class="note">Ativos que entraram e saíram da carteira no intervalo:</p><div class="tags">${ent.map(a=>`<span class="chip new">+ ${esc(a)}</span>`).join('')}${sai.map(a=>`<span class="chip down">− ${esc(a)}</span>`).join('')}</div>` : '<p class="note">A composição da carteira é a mesma no início e no fim do intervalo.</p>';
+}
+
+function renderConc(){
+  const open=openOf(selected), tot=open.reduce((s,p)=>s+invOf(p),0);
+  if(!open.length||!tot){ $('#cc-stats').innerHTML='<span class="muted">Sem posições abertas.</span>'; $('#cc-split').innerHTML=''; return; }
+  const w=open.map(p=>({a:p.ativo,w:invOf(p)/tot})).sort((a,b)=>b.w-a.w);
+  const top3=w.slice(0,3).reduce((s,x)=>s+x.w,0), hhi=w.reduce((s,x)=>s+x.w*x.w,0), nef=1/hhi;
+  const f11=w.filter(x=>/11$/.test(x.a)).reduce((s,x)=>s+x.w,0);
+  $('#cc-sub').textContent=fmtDate(selected);
+  $('#cc-stats').innerHTML=`
+    <div class="stat"><span class="eyebrow">Maior posição</span><span class="v">${esc(w[0].a)} ${pctTxt(w[0].w)}</span><span class="d">${brl(w[0].w*tot)}</span></div>
+    <div class="stat"><span class="eyebrow">3 maiores</span><span class="v">${pctTxt(top3)}</span><span class="d">${w.slice(0,3).map(x=>esc(x.a)).join(', ')}</span></div>
+    <div class="stat"><span class="eyebrow">Nº efetivo de ativos</span><span class="v">${nef.toFixed(1).replace('.',',')}</span><span class="d">de ${open.length} ativos (inverso do HHI = ${Math.round(hhi*1e4)})</span></div>`;
+  $('#cc-split').innerHTML=`<p class="note" style="margin-top:16px">Por tipo de ticker</p>
+    <div class="split"><i style="width:${(1-f11)*100}%;background:var(--accent)"></i><i style="width:${f11*100}%;background:var(--accent);opacity:.4"></i></div>
+    <div class="legend"><span style="--c:var(--accent)">Final 3 / 4 · ${pctTxt(1-f11)}</span><span style="--c:color-mix(in srgb,var(--accent) 40%,transparent)">Final 11 (FIIs e units) · ${pctTxt(f11)}</span></div>`;
+}
+
+function barChart(box, labels, vals, tips, hi, onClick){
+  const W=Math.max(300, box.clientWidth||560), H=200, pl=64, pr=10, pt=12, pb=26, n=vals.length;
+  if(!n){ box.innerHTML='<p class="muted">Sem dados no intervalo.</p>'; return; }
+  const mx=Math.max(0,...vals), mn=Math.min(0,...vals), span=(mx-mn)||1;
+  const y=v=> pt+(mx-v)/span*(H-pt-pb);
+  const slot=(W-pl-pr)/n, bw=Math.max(2,Math.min(28,slot*0.65));
+  let s='';
+  const step=niceStep(span/4);
+  for(let g=Math.ceil(mn/step)*step; g<=mx+1e-9; g+=step){ s+=`<line x1="${pl}" x2="${W-pr}" y1="${y(g)}" y2="${y(g)}" stroke="var(--line)"/><text x="${pl-8}" y="${y(g)+3.5}" text-anchor="end">${Math.abs(g)>=1000?(g/1000).toLocaleString('pt-BR',{maximumFractionDigits:1})+' mil':Math.round(g)}</text>`; }
+  vals.forEach((v,i)=>{ const x=pl+slot*i+(slot-bw)/2, y0=y(Math.max(0,v)), h=Math.max(v?1.5:0,Math.abs(y(v)-y(0)));
+    const col=v>=0?'var(--gain)':'var(--loss)';
+    s+=`<g class="bar" data-i="${i}" data-tip="${esc(tips[i])}" opacity="${hi==null||hi===i?1:.55}"><rect x="${pl+slot*i}" y="${pt}" width="${slot}" height="${H-pt-pb}" fill="transparent"/><rect x="${x}" y="${y0}" width="${bw}" height="${h}" rx="2" fill="${col}"/></g>`; });
+  s+=`<line x1="${pl}" x2="${W-pr}" y1="${y(0)}" y2="${y(0)}" stroke="var(--muted)" stroke-width="1"/>`;
+  const every=Math.max(1,Math.ceil(n/(W/70)));
+  labels.forEach((l,i)=>{ if((i%every===0 && n-1-i>=every*0.6)||i===n-1) s+=`<text x="${pl+slot*i+slot/2}" y="${H-8}" text-anchor="middle">${l}</text>`; });
+  box.innerHTML=`<svg viewBox="0 0 ${W} ${H}" role="img">${s}</svg>`;
+  if(onClick) box.querySelectorAll('.bar').forEach(g=>g.addEventListener('click',()=>onClick(+g.dataset.i)));
+}
+
+function renderLucroMes(){
+  const kr=keysR(); const sales=allSales().filter(x=>x.k>=rgFrom&&x.k<=rgTo);
+  const [y0,m0]=kr[0].split('-').map(Number), [y1,m1]=kr[kr.length-1].split('-').map(Number);
+  const labels=[], vals=[], tips=[], mk=[];
+  for(let y=y0,m=m0; y<y1||(y===y1&&m<=m1); m===12?(y++,m=1):m++){
+    const key=`${y}-${String(m).padStart(2,'0')}`; const ss=sales.filter(x=>x.k.startsWith(key)); const v=ss.reduce((a,x)=>a+x.lucro,0);
+    labels.push(`${MESES[m-1]}/${String(y).slice(2)}`); vals.push(v); mk.push(key);
+    tips.push(`<b>${MESES[m-1]}/${y}</b><br>${ss.length?`${sbrl(v)} em ${ss.length} venda(s)<br>${ss.map(x=>`${esc(x.ativo)} ${sbrl(x.lucro)}`).join('<br>')}<br><span style="opacity:.7">Clique para filtrar as vendas</span>`:'Sem vendas'}`);
+  }
+  const hi=salesMonth?mk.indexOf(salesMonth):-1;
+  barChart($('#lm-chart'),labels,vals,tips,hi>=0?hi:null,i=>{ if(!vals[i]){ toast('Nenhuma venda neste mês.'); return; } salesMonth = salesMonth===mk[i]?null:mk[i]; renderLucroMes(); renderSales(); if(salesMonth) $('#vendas-sec').scrollIntoView({behavior:'smooth',block:'start'}); });
+  const months=vals.filter(v=>v!==0).length;
+  $('#lm-sub').textContent = months?`${months} mês(es) com venda · média ${sbrl(vals.reduce((a,b)=>a+b,0)/months)}`:'sem vendas no intervalo';
+}
+
+function renderMov(){
+  const ks=keys(), kr=keysR(); const labels=[], vals=[], tips=[], kk=[];
+  for(const k of kr){ const pk=prevKey(k); if(!pk) continue;
+    const v=openTot(k)-openTot(pk); const [yy,mm,dd]=k.split('-');
+    const a=new Set(openOf(pk).map(p=>p.ativo)), b=new Set(openOf(k).map(p=>p.ativo));
+    const ent=[...b].filter(x=>!a.has(x)), sai=[...a].filter(x=>!b.has(x));
+    labels.push(`${dd}/${mm}`); vals.push(v); kk.push(k);
+    tips.push(`<b>${fmtDate(pk)} a ${fmtDate(k)}</b><br>${sbrl(v)}${ent.length?`<br>Entraram: ${ent.map(esc).join(', ')}`:''}${sai.length?`<br>Saíram: ${sai.map(esc).join(', ')}`:''}<br><span style="opacity:.7">Clique para ver as posições</span>`); }
+  const hi=kk.indexOf(selected);
+  barChart($('#mv-chart'),labels,vals,tips,hi>=0?hi:null,i=>{ selected=kk[i]; render(); $('#rows').closest('section').scrollIntoView({behavior:'smooth',block:'start'}); });
+  const pos=vals.filter(v=>v>0).reduce((a,b)=>a+b,0), neg=vals.filter(v=>v<0).reduce((a,b)=>a+b,0);
+  $('#mv-sub').textContent = vals.length?`entradas ${sbrl(pos)} · saídas ${sbrl(neg)}`:'';
+}
+
+function renderEvoAtivos(){
+  const ks=keys().filter(k=>k<=selected), open=openOf(selected);
+  const rows=open.map(p=>{
+    let start=selected;
+    for(let i=ks.length-2;i>=0;i--){ const q=snaps[ks[i]].posicoes.find(x=>x.ativo===p.ativo); if(!q||q.venda!=null) break; start=ks[i]; }
+    const f=snaps[start].posicoes.find(x=>x.ativo===p.ativo);
+    const dias=Math.round((new Date(selected+'T12:00:00')-new Date(start+'T12:00:00'))/864e5);
+    const px=priceAt(p.ativo,selected), unr=px!=null&&p.qtd?(px*p.qtd-invOf(p))/(invOf(p)||1):null;
+    const prov=provEntre(prevKey(start)||'0000',selected).lista.filter(x=>x.t===p.ativo).reduce((a,x)=>a+x.v,0);
+    return {p,f,start,dias,dpm:f.pm?(p.pm-f.pm)/f.pm:null,ap:invOf(p)-invOf(f),px,unr,unrV:px!=null&&p.qtd?px*p.qtd-invOf(p):null,prov};
+  });
+  const g={ativo:r=>r.p.ativo,start:r=>r.start,dias:r=>r.dias,qtd:r=>r.p.qtd,pm:r=>r.p.pm,dpm:r=>r.dpm,ap:r=>r.ap,px:r=>r.px,unr:r=>r.unr,prov:r=>r.prov};
+  rows.sort(cmp(g[sorts.evo.k]||g.start, sorts.evo.d)); markSort('evo');
+  const tempo=d=> d<1?'neste período': d<60?`${d} dias`: d<730?`${Math.round(d/30.4)} meses`:`${(d/365).toFixed(1).replace('.',',')} anos`;
+  $('#ev-rows').innerHTML = rows.map(r=>`<tr>
+    <td><button class="tick" data-hist="${esc(r.p.ativo)}">${esc(r.p.ativo)}</button></td>
+    <td class="num">${fmtDate(r.start)}</td><td>${tempo(r.dias)}</td>
+    <td class="num">${r.f.qtd??'—'} → ${r.p.qtd??'—'}</td>
+    <td class="num">${brl(r.f.pm)} → ${brl(r.p.pm)}</td>
+    <td>${r.dpm==null||Math.abs(r.dpm)<0.0005?'<span class="chip neutral">sem mudança</span>':`<span class="chip ${r.dpm<0?'up':'down'}">${PCT.format(r.dpm)}</span>`}</td>
+    <td class="num ${r.ap>0?'':'muted'}">${Math.abs(r.ap)<0.05?'—':sbrl(r.ap)}</td>
+    <td class="num">${r.px!=null?N2.format(r.px):'<span class="muted">—</span>'}</td>
+    <td class="num">${r.unr!=null?`<span class="${cls(r.unrV)}">${sbrl(r.unrV)}</span> <span class="chip ${r.unr>=0?'up':'down'}">${PCT.format(r.unr)}</span>`:'—'}</td>
+    <td class="num">${r.prov?brl(r.prov):'<span class="muted">—</span>'}</td></tr>`).join('')
+    || '<tr><td colspan="10" class="empty">Sem posições abertas neste período.</td></tr>';
+}
+
+/* ---------- Filtro de períodos ---------- */
+function quickRange(q){
+  const ks=keys(); const last=ks[ks.length-1]; if(!last) return null;
+  if(q==='all') return [ks[0],last];
+  if(q==='ytd'){ const y=last.slice(0,4); const f=ks.find(k=>k.startsWith(y)); return [f,last]; }
+  const d=new Date(last+'T12:00:00'); d.setMonth(d.getMonth()-(+q));
+  const lim=d.toISOString().slice(0,10); const f=ks.find(k=>k>=lim)||last; return [f,last];
+}
+function markQuick(){ document.querySelectorAll('#quick button').forEach(b=>{ const r=quickRange(b.dataset.q); b.setAttribute('aria-pressed', String(!!r&&r[0]===rgFrom&&r[1]===rgTo)); }); }
+function setRange(f,t){ rgFrom=f; rgTo=t; if(rgFrom>rgTo) [rgFrom,rgTo]=[rgTo,rgFrom]; selected=rgTo; salesMonth=null; pendingDel=null; sellOpen=null; render(); }
+$('#f-from').addEventListener('change',e=>setRange(e.target.value,rgTo));
+$('#f-to').addEventListener('change',e=>setRange(rgFrom,e.target.value));
+$('#quick').addEventListener('click',e=>{ const b=e.target.closest('button'); if(!b) return; const r=quickRange(b.dataset.q); if(r) setRange(r[0],r[1]); });
+
+/* Ordenação das tabelas */
+document.addEventListener('click',e=>{
+  const th=e.target.closest('th[data-sort]'); if(!th) return; const t=th.closest('table').dataset.table, k=th.dataset.sort;
+  sorts[t] = sorts[t].k===k ? {k,d:-sorts[t].d} : {k,d:(k==='ativo'||k==='start')?1:-1};
+  if(t==='pos') renderTable(); else if(t==='sales') renderSales(); else renderEvoAtivos();
+});
+/* Atalhos dos cards e alocação */
+$('#tiles').addEventListener('click',e=>{ const b=e.target.closest('[data-goto]'); if(b) $(b.dataset.goto).scrollIntoView({behavior:'smooth',block:'center'}); });
+$('#alloc').addEventListener('click',e=>{ const r=e.target.closest('[data-hist]'); if(r) goHist(r.dataset.hist); });
+$('#alloc').addEventListener('keydown',e=>{ const r=e.target.closest('[data-hist]'); if(r&&(e.key==='Enter'||e.key===' ')){ e.preventDefault(); goHist(r.dataset.hist); } });
+$('#sales-sum').addEventListener('click',e=>{ if(e.target.id==='sm-clear'){ salesMonth=null; renderSales(); renderLucroMes(); } });
+
+/* Tooltip */
+const tipEl=$('#tip');
+document.addEventListener('pointermove',e=>{
+  const t=e.target.closest&&e.target.closest('[data-tip]');
+  if(!t||e.pointerType==='touch'&&!t){ tipEl.hidden=true; return; }
+  tipEl.innerHTML=t.getAttribute('data-tip'); tipEl.hidden=false;
+  const r=tipEl.getBoundingClientRect(); let x=e.clientX+14, y=e.clientY+14;
+  if(x+r.width>innerWidth-8) x=e.clientX-r.width-14; if(y+r.height>innerHeight-8) y=e.clientY-r.height-14;
+  tipEl.style.left=Math.max(8,x)+'px'; tipEl.style.top=Math.max(8,y)+'px';
+});
+document.addEventListener('pointerleave',()=>tipEl.hidden=true);
+addEventListener('scroll',()=>tipEl.hidden=true,{passive:true});
+
+/* ---------- Eventos ---------- */
+$('#ev-rows').addEventListener('click',e=>{ const h=e.target.closest('[data-hist]'); if(h){ histAtivo=h.dataset.hist; renderHist(); $('#hist').scrollIntoView({behavior:'smooth',block:'nearest'}); }});
+$('#snap-sel').addEventListener('change',e=>{ selected=e.target.value; pendingDel=null; sellOpen=null; $('#delsnap').hidden=true; render(); });
+
+/* Excluir período */
+$('#btn-del').addEventListener('click',()=>{
+  if(!selected||!snaps[selected]) return;
+  const pos=snaps[selected].posicoes, vendas=pos.filter(p=>p.venda!=null).length;
+  $('#del-title').textContent=`Excluir o período de ${fmtDate(selected)}?`;
+  $('#del-msg').textContent=`${pos.length} posição(ões)`+(vendas?` e ${vendas} venda(s) registrada(s) nesta data`:'')+' serão apagadas. Os outros períodos não mudam. Não dá para desfazer.';
+  $('#newsnap').hidden=true; $('#delsnap').hidden=false; $('#del-cancel').focus();
+});
+$('#del-cancel').addEventListener('click',()=>$('#delsnap').hidden=true);
+$('#del-ok').addEventListener('click',async()=>{
+  const k=selected; if(!k||!snaps[k]||!db) return;
+  const btn=$('#del-ok'); btn.disabled=true;
+  try{
+    await db.doc('atualizacoes/'+k).delete();
+    delete snaps[k]; const ks=keys(); selected=ks.length?ks[ks.length-1]:null;
+    $('#delsnap').hidden=true; pendingDel=null; sellOpen=null; render();
+    toast(`Período de ${fmtDate(k)} excluído`);
+  }catch(e){ handleWriteErr(e); }
+  finally{ btn.disabled=false; }
+});
+$('#rows').addEventListener('change',e=>{
+  const el=e.target, tr=el.closest('tr'); if(!tr) return; const i=+tr.dataset.i;
+  if(el.dataset.sim){ const v=parseNum(el.value); if(v==null) delete sim[el.dataset.sim]; else sim[el.dataset.sim]=v; saveSimSoon(); render(); return; }
+  if(!canWrite||!el.dataset.f) return;
+  const v=parseNum(el.value); const p=snaps[selected].posicoes[i];
+  if(v==null||v<0){ toast('Digite um número válido, por exemplo 12,50.'); render(); return; }
+  p[el.dataset.f]= el.dataset.f==='qtd'?Math.round(v):v;
+  if(p.pm!=null&&p.qtd!=null) p.investido=Math.round(p.pm*p.qtd*100)/100;
+  saveSnap(selected); render(); toast(`${p.ativo} atualizado`);
+});
+$('#simrows').addEventListener('input',simEdit);
+$('#simrows').addEventListener('change',e=>{ if(e.target.dataset.s==='tipo') simEdit(e); });
+$('#simrows').addEventListener('keydown',e=>{ if(e.key==='Enter' && e.target.classList.contains('cell-in')) e.target.blur(); });
+$('#rows').addEventListener('keydown',e=>{ if(e.key==='Enter' && e.target.classList.contains('cell-in')) e.target.blur(); });
+$('#rows').addEventListener('click',e=>{
+  const h=e.target.closest('[data-hist]'); if(h){ histAtivo=h.dataset.hist; renderHist(); $('#hist').scrollIntoView({behavior:'smooth',block:'nearest'}); return; }
+  const b=e.target.closest('[data-act]'); if(!b) return; const i=+b.closest('tr').dataset.i, act=b.dataset.act, pos=snaps[selected].posicoes;
+  if(act==='del'){ pendingDel=i; sellOpen=null; }
+  else if(act==='del-no'){ pendingDel=null; }
+  else if(act==='del-ok'){ const a=pos[i].ativo; pos.splice(i,1); pendingDel=null; saveSnap(selected); toast(`${a} removido deste período`); }
+  else if(act==='sell'){ sellOpen=i; pendingDel=null; }
+  else if(act==='sell-cancel'){ sellOpen=null; }
+  else if(act==='unsell'){ delete pos[i].venda; sellOpen=null; saveSnap(selected); toast('Venda desfeita'); }
+  render();
+  if(act==='sell') setTimeout(()=>$('#sell-val')?.focus(),0);
+});
+$('#rows').addEventListener('submit',e=>{
+  e.preventDefault(); const tr=e.target.closest('tr'); const i=+tr.dataset.i; const v=parseNum($('#sell-val').value);
+  if(v==null||v<=0){ toast('Informe o valor total recebido.'); return; }
+  const p=snaps[selected].posicoes[i]; p.venda=v; sellOpen=null; saveSnap(selected); render(); toast(`Venda de ${p.ativo} registrada: ${sbrl(v-invOf(p))}`);
+});
+$('#sales').addEventListener('click',e=>{ const h=e.target.closest('[data-hist]'); if(h){ histAtivo=h.dataset.hist; renderHist(); $('#hist').scrollIntoView({behavior:'smooth',block:'nearest'}); }});
+$('#hist-close').addEventListener('click',()=>{ histAtivo=null; renderHist(); });
+
+$('#addform').addEventListener('submit',e=>{
+  e.preventDefault(); if(!selected){ toast('Crie um período primeiro.'); return; }
+  const a=$('#add-ativo').value.trim().toUpperCase(), pm=parseNum($('#add-pm').value), q=parseNum($('#add-qtd').value);
+  if(!/^[A-Z0-9]{4,8}$/.test(a)){ toast('Ticker inválido. Use algo como PETR4 ou MXRF11.'); return; }
+  if(pm==null||q==null||pm<=0||q<=0){ toast('Preço médio e quantidade precisam ser maiores que zero.'); return; }
+  const pos=snaps[selected].posicoes;
+  if(pos.some(p=>p.ativo===a&&p.venda==null)){ toast(`${a} já está neste período. Edite a linha existente.`); return; }
+  pos.push({ativo:a,pm,qtd:Math.round(q),investido:Math.round(pm*q*100)/100});
+  saveSnap(selected); e.target.reset(); render(); toast(`${a} adicionado em ${fmtDate(selected)}`);
+});
+
+$('#btn-new').addEventListener('click',()=>{ const n=$('#newsnap'); n.hidden=!n.hidden;
+  const t=new Date(); $('#new-date').value=`${t.getFullYear()}-${String(t.getMonth()+1).padStart(2,'0')}-${String(t.getDate()).padStart(2,'0')}`; });
+$('#new-cancel').addEventListener('click',()=>$('#newsnap').hidden=true);
+$('#btn-new').addEventListener('click',()=>{ $('#delsnap').hidden=true; });
+$('#new-ok').addEventListener('click',()=>{
+  const k=$('#new-date').value; if(!k){ toast('Escolha uma data.'); return; }
+  if(snaps[k]){ selected=k; $('#newsnap').hidden=true; render(); toast(`Já existe um período fechando em ${fmtDate(k)}. Abrindo ele.`); return; }
+  const ks=keys(), base=ks.filter(x=>x<k).pop() || ks[ks.length-1];
+  const posicoes = base ? snaps[base].posicoes.filter(p=>p.venda==null).map(p=>({ativo:p.ativo,pm:p.pm,qtd:p.qtd,investido:invOf(p)})) : [];
+  snaps[k]={data:k,posicoes}; if(!rgTo||k>rgTo) rgTo=k; if(!rgFrom||k<rgFrom) rgFrom=k; selected=k; $('#newsnap').hidden=true; saveSnap(k); render();
+  toast(base?`Período criado a partir de ${fmtDate(base)}. Ajuste o que mudou.`:'Período criado. Adicione seus ativos.');
+});
+
+$('#btn-export').addEventListener('click',async()=>{
+  const rows=[['Ativo','Preço Médio','Valor Investido','Quantidade','Valor de Venda','Lucro','Data']];
+  for(const k of keys()) for(const p of snaps[k].posicoes){ const inv=invOf(p);
+    rows.push([p.ativo,p.pm,Math.round(inv*100)/100,p.qtd,p.venda??null,p.venda!=null?Math.round((p.venda-inv)*100)/100:null,new Date(k+'T12:00:00')]); }
+  if(!window.XLSX){ toast('A biblioteca de exportação não carregou. Recarregue a página.'); return; }
+  const ws=XLSX.utils.aoa_to_sheet(rows,{cellDates:true}); ws['!cols']=[{wch:10},{wch:12},{wch:15},{wch:11},{wch:15},{wch:11},{wch:12}];
+  const wb=XLSX.utils.book_new(); XLSX.utils.book_append_sheet(wb,ws,'Preço médio');
+  const buf=XLSX.write(wb,{bookType:'xlsx',type:'array',cellDates:true});
+  const blob=new Blob([buf],{type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=`Acoes - Acompanhamento ${keys().pop()||''}.xlsx`; document.body.append(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(a.href),2000); toast('Planilha exportada');
+});
+
+let rz; addEventListener('resize',()=>{ clearTimeout(rz); rz=setTimeout(()=>{ if(keys().length){ renderEvo(); renderPerf(); renderHist(); renderLucroMes(); renderMov(); } },150); });
+
+/* Evita redesenhar a tabela enquanto alguém digita nela */
+let deferred=false;
+function safeRender(){ const a=document.activeElement; if(a && a.closest && a.closest('#rows') && a.tagName==='INPUT'){ deferred=true; return; } render(); }
+$('#rows').addEventListener('focusout',()=>setTimeout(()=>{ if(deferred){ deferred=false; safeRender(); } },0));
+
+/* ---------- Boot: carteira cifrada, aberta pelo código guardado pelo Hub Econômico ---------- */
+const EMBUTIDO = window.parent !== window;
+if (EMBUTIDO) document.documentElement.classList.add('embutido');
+const CHAVE_CODIGO = 'hub:carteira:codigo';
+const lerCodigo = () => { try { return sessionStorage.getItem(CHAVE_CODIGO) || localStorage.getItem(CHAVE_CODIGO); } catch (e) { return null; } };
+const b64d = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
+const hex = buf => [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2, '0')).join('');
+async function chaveBase(codigo) { return crypto.subtle.importKey('raw', new TextEncoder().encode(codigo), 'PBKDF2', false, ['deriveBits', 'deriveKey']); }
+async function idCarteira(codigo) {
+  const bits = await crypto.subtle.deriveBits({ name: 'PBKDF2', hash: 'SHA-256', salt: new TextEncoder().encode('hub-economico:carteira-id:v1'), iterations: 200000 }, await chaveBase(codigo), 128);
+  return hex(bits);
+}
+async function abrirPacote(codigo) {
+  const id = await idCarteira(codigo);
+  const r = await fetch(`data/carteiras/${id}.json`, { cache: 'no-cache' });
+  if (!r.ok) throw new Error('codigo');
+  const env = await r.json();
+  const chave = await crypto.subtle.deriveKey({ name: 'PBKDF2', hash: 'SHA-256', salt: b64d(env.salt), iterations: env.iter }, await chaveBase(codigo), { name: 'AES-GCM', length: 256 }, false, ['decrypt']);
+  const claro = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: b64d(env.iv) }, chave, b64d(env.dados));
+  return { id, pacote: JSON.parse(new TextDecoder().decode(claro)) };
+}
+let LS_KEY = 'carteira-acoes.v1';
+const store={ atualizacoes:{}, simulacao:{precos:{},metas:{}} };
+let seedCache=null;
+async function loadSeed(){ if(seedCache) return seedCache; throw new Error('seed'); }
+function avisarHub(){ if(EMBUTIDO) try{ parent.postMessage({ tipo:'carteira-alterada' }, location.origin); }catch(e){} }
+function persist(){ try{ localStorage.setItem(LS_KEY,JSON.stringify(store)); }catch(e){ toast('Não foi possível salvar no navegador (armazenamento bloqueado).'); } avisarHub(); }
+function pushState(){
+  const next={}; for(const [k,pos] of Object.entries(store.atualizacoes)) next[k]={data:k,posicoes:pos.map(p=>({...p}))};
+  snaps=next; sim={...(store.simulacao.precos||{})}; metas={...(store.simulacao.metas||{})}; safeRender();
+}
+db={
+  doc:path=>({
+    set:async v=>{ const [c,id]=path.split('/');
+      if(c==='atualizacoes') store.atualizacoes[id]=JSON.parse(JSON.stringify(v.posicoes));
+      else if(c==='config') store.simulacao={precos:v.precos||{},metas:v.metas||{}};
+      persist(); },
+    delete:async()=>{ const [c,id]=path.split('/'); if(c==='atualizacoes') delete store.atualizacoes[id]; persist(); }
+  })
+};
+function fillFromSeed(seed){ store.atualizacoes=JSON.parse(JSON.stringify(seed.atualizacoes)); store.simulacao=JSON.parse(JSON.stringify(seed.simulacao||{precos:{},metas:{}})); }
+$('#btn-backup').addEventListener('click',()=>{
+  const blob=new Blob([JSON.stringify({atualizacoes:store.atualizacoes,simulacao:store.simulacao},null,1)],{type:'application/json'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='carteira.json'; document.body.append(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(a.href),2000);
+  toast('carteira.json baixado. Para publicar, gere o arquivo cifrado com o script cifrar_carteira.py.');
+});
+$('#file-import').addEventListener('change',async e=>{
+  const f=e.target.files[0]; e.target.value=''; if(!f) return;
+  try{ const v=JSON.parse(await f.text()); if(!v.atualizacoes||typeof v.atualizacoes!=='object') throw 0; fillFromSeed(v); persist(); selected=null; pushState(); toast('Dados importados.'); }
+  catch(_){ toast('Arquivo inválido. Use um carteira.json exportado por esta página.'); }
+});
+$('#btn-reset').addEventListener('click',async()=>{
+  if(!confirm('Descartar as edições feitas neste navegador e voltar aos dados publicados?')) return;
+  try{ localStorage.removeItem(LS_KEY); }catch(_){} fillFromSeed(await loadSeed()); selected=null; pushState(); avisarHub(); toast('Dados publicados restaurados.');
+});
+
+/* Completa as cotações cifradas com os dados públicos do hub: preço de hoje, histórico semanal e proventos */
+async function complementarCotacoes(q, tickers){
+  q.precos=q.precos||{}; q.proventos=q.proventos||{}; q.indices=q.indices||{}; q.ibov=q.ibov||{};
+  const hoje=new Date().toISOString().slice(0,10);
+  let hub=null; try{ const r=await fetch('data/hub.json',{cache:'no-cache'}); if(r.ok) hub=await r.json(); }catch(e){}
+  const base=t=>t.replace(/(\d)F$/,'$1');
+  const cot=new Map(((hub&&hub.cotacoes_b3)||[]).map(c=>[c.t,c]));
+  let atualizou=false;
+  await Promise.all([...new Set(tickers.map(base))].map(async t=>{
+    let E=null; try{ const r=await fetch(`data/empresas/${encodeURIComponent(t)}.json`,{cache:'no-cache'}); if(r.ok) E=await r.json(); }catch(e){}
+    const P=q.precos[t]=q.precos[t]||{};
+    ((E&&E.historico)||[]).forEach(h=>{ if(h.c!=null && P[h.d]==null) P[h.d]=h.c; });
+    const c=cot.get(t), preco=c&&c.p!=null?c.p:(E&&E.cotacao?E.cotacao.preco:null);
+    if(preco!=null){ P[hoje]=preco; atualizou=true; }
+    if(E&&E.proventos&&E.proventos.length){
+      const ja=new Set((q.proventos[t]||[]).map(x=>x[0]));
+      q.proventos[t]=[...(q.proventos[t]||[]), ...E.proventos.filter(x=>x.v!=null&&!ja.has(x.d)).map(x=>[x.d,x.v])].sort((a,b)=>a[0].localeCompare(b[0]));
+    }
+  }));
+  if(hub){
+    const ib=((hub.mercado&&hub.mercado.indices)||[]).find(x=>x.nome==='Ibovespa');
+    if(ib&&ib.valor!=null) q.ibov[hoje]=ib.valor;
+    const ipca=(hub.indicadores||[]).find(x=>x.nome==='IPCA no mês');
+    if(ipca&&ipca.tabela){ q.indices.ipca=q.indices.ipca||{}; ipca.tabela.linhas.forEach(l=>{ if(q.indices.ipca[l[0]]==null) q.indices.ipca[l[0]]=l[1]; }); }
+    if(atualizou){ q.atualizadoEm=hub.atualizado||new Date().toISOString(); q.ultimoPregao=hoje; q.fonte=(q.fonte||'')+' + Hub Econômico'; }
+  }
+  return q;
+}
+function bloquear(msg){
+  document.querySelector('.wrap').innerHTML=`<div class="bloqueio"><h2 style="margin-bottom:8px">Carteira protegida</h2><p class="muted">${msg}</p>${EMBUTIDO?'':'<p><a href="index.html#carteira">Abrir pelo Hub Econômico</a></p>'}</div>`;
+  if(EMBUTIDO) try{ parent.postMessage({ tipo:'carteira-erro' }, location.origin); }catch(e){}
+}
+/* Tema e altura quando aberta dentro do hub */
+if(EMBUTIDO){
+  addEventListener('message',e=>{ if(e.origin!==location.origin) return; const d=e.data||{};
+    if(d.tipo==='tema'){ if(d.tema==='auto') document.documentElement.removeAttribute('data-theme'); else document.documentElement.setAttribute('data-theme',d.tema); setTimeout(()=>{ if(keys().length){ renderEvo(); renderPerf(); renderHist(); renderLucroMes(); renderMov(); } },0); } });
+  const enviarAltura=()=>{ try{ parent.postMessage({ tipo:'altura', h: Math.ceil(document.documentElement.scrollHeight) }, location.origin); }catch(e){} };
+  new ResizeObserver(enviarAltura).observe(document.body);
+  addEventListener('load',enviarAltura);
+}
+(async()=>{
+  render();
+  const codigo=lerCodigo();
+  if(!codigo){ bloquear('Informe o código da sua carteira na página Carteira do Hub Econômico.'); return; }
+  if(!(window.crypto&&crypto.subtle)){ bloquear('Este navegador não permite abrir dados cifrados. Use um navegador atualizado, por HTTPS.'); return; }
+  let aberto;
+  try{ aberto=await abrirPacote(codigo); }catch(e){ bloquear('Não foi possível abrir a carteira com o código informado.'); return; }
+  LS_KEY='carteira-acoes.v1:'+aberto.id;
+  seedCache=aberto.pacote.carteira;
+  let q=aberto.pacote.cotacoes||{};
+  let local=null; try{ local=JSON.parse(localStorage.getItem(LS_KEY)||'null'); }catch(e){}
+  if(local&&local.atualizacoes){ store.atualizacoes=local.atualizacoes; store.simulacao=local.simulacao||{precos:{},metas:{}}; }
+  else fillFromSeed(seedCache);
+  const tickers=[...new Set(Object.values(store.atualizacoes).flat().map(p=>p.ativo).filter(Boolean))];
+  try{ quotes=await complementarCotacoes(q,tickers); }catch(e){ quotes=q; }
+  pushState();
+})();
+</script>
+</body>
+</html>

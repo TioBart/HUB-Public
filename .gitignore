@@ -1,3 +1,6 @@
 data/empresas/
 __pycache__/
 .venv/
+# carteiras em texto puro nunca vão para o repositório; só os arquivos cifrados em data/carteiras/
+carteira.json
+cotacoes.json

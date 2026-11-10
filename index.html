@@ -336,6 +336,9 @@ tr.melhor > *{background:var(--accent-soft)}
 .aviso-dados{padding:14px 16px;border-radius:8px;background:var(--zebra);color:var(--muted);font-size:.9rem}
 
 /* ---------- Carteira ---------- */
+.cart-topo{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px}
+.cart-frame{display:block;width:100%;min-height:640px;border:0;background:transparent}
+.gate{max-width:640px}
 .abas-cart{display:flex;flex-wrap:wrap;gap:4px;padding:4px;border:1px solid var(--line);border-radius:10px;background:var(--panel);width:max-content;max-width:100%}
 .abas-cart button{font:inherit;font-size:.9rem;font-weight:500;padding:8px 16px;border:0;border-radius:7px;background:transparent;color:var(--muted);cursor:pointer}
 .abas-cart button:hover{color:var(--ink);background:var(--bg)}
@@ -464,31 +467,31 @@ footer p{margin:0 0 4px}
   <!-- ===================== CARTEIRA ===================== -->
   <section class="view pilha" id="v-carteira" hidden>
     <header class="ph"><div><h1>Minha carteira</h1><p>Registre suas ações, FIIs e outros papéis da B3 e acompanhe o resultado. Clique num ativo para ver os dados completos da empresa e as notícias sobre ele.</p></div></header>
-    <div class="abas-cart" role="tablist" aria-label="Seções da carteira" id="cartAbas">
-      <button type="button" role="tab" data-aba="posicoes" aria-selected="true">Posições</button>
-      <button type="button" role="tab" data-aba="observacao" aria-selected="false">Observação</button>
-      <button type="button" role="tab" data-aba="proventos" aria-selected="false">Proventos</button>
-      <button type="button" role="tab" data-aba="calendario" aria-selected="false">Calendário de resultados</button>
+    <div class="panel gate" id="cartGate">
+      <h2 style="margin:0 0 4px;font-size:1.1rem">Acesse sua carteira</h2>
+      <p class="dica">Cada carteira abre com o próprio código. Os dados ficam cifrados no site e só são decifrados aqui, no seu navegador.</p>
+      <form id="fCodigo" class="cart-form" autocomplete="off">
+        <div class="campo" style="max-width:260px"><label for="cCodigo">Código da carteira</label><input type="password" id="cCodigo" inputmode="numeric" autocomplete="off" required></div>
+        <label class="chk" style="margin:0 0 10px"><input type="checkbox" id="cLembrar"> Lembrar neste aparelho</label>
+        <button class="btn" type="submit" id="cEntrar">Abrir carteira</button>
+      </form>
+      <p class="dica" id="cCodMsg" role="status" style="margin:10px 0 0"></p>
     </div>
 
-    <div class="aba pilha" data-painel="posicoes" role="tabpanel">
-    <div class="panel">
-      <form id="fCart" class="cart-form" autocomplete="off">
-        <div class="campo"><label for="cTick">Código do ativo</label><input id="cTick" list="listaTickers" required placeholder="Ex.: PETR4" maxlength="7" style="text-transform:uppercase"></div>
-        <div class="campo"><label for="cQtd">Quantidade</label><input type="number" id="cQtd" min="0" step="any" required placeholder="100"></div>
-        <div class="campo"><label for="cPm">Preço médio (R$)</label><input type="number" id="cPm" min="0" step="0.01" required placeholder="35,20"></div>
-        <button class="btn" type="submit" id="cOk">Adicionar compra</button>
-        <button class="btn sec" type="button" id="cCancel" hidden>Cancelar edição</button>
-      </form>
-      <p class="dica" id="cMsg" role="status" style="margin:10px 0 0">Se o ativo já estiver na carteira, a compra é somada e o preço médio é recalculado.</p>
+    <div id="cartAberta" class="pilha" hidden>
+    <div class="cart-topo">
+      <div class="abas-cart" role="tablist" aria-label="Seções da carteira" id="cartAbas">
+        <button type="button" role="tab" data-aba="carteira" aria-selected="true">Carteira</button>
+        <button type="button" role="tab" data-aba="observacao" aria-selected="false">Observação</button>
+        <button type="button" role="tab" data-aba="proventos" aria-selected="false">Proventos</button>
+        <button type="button" role="tab" data-aba="calendario" aria-selected="false">Calendário de resultados</button>
+      </div>
+      <button type="button" class="btn sec" id="cFechar">Fechar carteira</button>
     </div>
-    <div class="g4" id="cartStats"></div>
-    <div class="panel" data-fixavel="carteira"><div class="ptit"><h2>Posições</h2></div><div class="scroll"><table id="cartT" class="clicavel"></table></div></div>
-    <div class="g2" id="cartGraficos">
-      <div class="panel"><div class="ptit"><h2>Divisão por ativo</h2></div><div class="chartbox" style="height:280px"><canvas id="chCartAtivo" role="img" aria-label="Participação de cada ativo na carteira"></canvas></div></div>
-      <div class="panel"><div class="ptit"><h2>Divisão por setor</h2></div><div class="chartbox" style="height:280px"><canvas id="chCartSetor" role="img" aria-label="Participação de cada setor na carteira"></canvas></div></div>
-    </div>
-    <div class="panel"><div class="ptit"><h2>Notícias da sua carteira</h2></div><div class="chips" id="cartChips" role="group" aria-label="Filtrar por ativo"></div><ol class="news cols" id="cartNews"></ol></div>
+
+    <div class="aba pilha" data-painel="carteira" role="tabpanel">
+      <iframe id="cartFrame" title="Carteira detalhada" class="cart-frame"></iframe>
+      <div class="panel"><div class="ptit"><h2>Notícias da sua carteira</h2></div><div class="chips" id="cartChips" role="group" aria-label="Filtrar por ativo"></div><ol class="news cols" id="cartNews"></ol></div>
     </div>
 
     <div class="aba pilha" data-painel="observacao" role="tabpanel" hidden>
@@ -516,7 +519,8 @@ footer p{margin:0 0 4px}
       <div class="panel"><div class="ptit"><h2>Último trimestre divulgado</h2></div><p class="sub2">Comparação com o mesmo trimestre do ano anterior.</p><div class="scroll"><table id="calUlt"></table></div></div>
     </div>
 
-    <p class="fonte">Sua carteira e sua lista de observação ficam salvas neste navegador e, se você entrar com seu e-mail, na sua conta, que só você acessa. Se o hub estiver configurado para isso, os códigos dos ativos (nunca quantidades nem preços) são lidos para decidir quais empresas coletar. Preços com atraso. Os proventos estimados somam o que cada ação pagou por ação nos últimos 12 meses, multiplicado pela sua quantidade. Não é recomendação de investimento.</p>
+    </div>
+    <p class="fonte">A carteira fica cifrada no site e só abre com o código. As edições feitas na carteira ficam salvas neste navegador; use "Baixar dados" para guardar uma cópia. A lista de observação acompanha suas preferências. Preços com atraso. Não é recomendação de investimento.</p>
   </section>
 
   <!-- ===================== EMPRESA ===================== -->
@@ -1633,6 +1637,7 @@ function salvarPrefs() {
 function aplicarTema() {
   const r = document.documentElement;
   if (PREFS.tema === 'auto') r.removeAttribute('data-theme'); else r.setAttribute('data-theme', PREFS.tema === 'escuro' ? 'dark' : 'light');
+  if (typeof temaParaCarteira === 'function' && $('cartFrame')) temaParaCarteira();
 }
 function aplicarBlocos() {
   const c = $('blocos');
@@ -1895,7 +1900,7 @@ function catalogo(D) {
     ['Indicadores', (D.indicadores || []).map(x => 'indicador:' + x.nome)],
     ['Painéis de mercado', grupos(D).map(g => 'mercado:' + g.nome)],
     ['Ativos', ativosDisponiveis(D).map(a => 'ativo:' + a.id)],
-    ['Carteira', ['carteira', 'observacao', 'calendario', ...[...new Set([...PREFS.carteira.map(p => p.t), ...PREFS.observacao])].map(t => 'empresa:' + t)]]
+    ['Carteira', ['carteira', 'observacao', 'calendario', ...[...new Set([...posicoesAtuais().map(p => p.t), ...PREFS.observacao])].map(t => 'empresa:' + t)]]
   ];
 }
 function renderCatalogo() {
@@ -1944,7 +1949,7 @@ $('dlgPers').addEventListener('click', e => {
   const novo = $('pBlocos').querySelector(`[data-mover="${b.dataset.mover}"][data-dir="${b.dataset.dir}"]`);
   if (novo && !novo.disabled) novo.focus();
 });
-$('pPadrao').addEventListener('click', () => { const pag = PREFS.pagina, cart = PREFS.carteira, obs = PREFS.observacao; PREFS = prefsPadrao(); PREFS.pagina = pag; PREFS.carteira = cart; PREFS.observacao = obs; salvarPrefs(); aplicarPrefs(); renderPers(); });
+$('pPadrao').addEventListener('click', () => { const pag = PREFS.pagina, obs = PREFS.observacao; PREFS = prefsPadrao(); PREFS.pagina = pag; PREFS.observacao = obs; salvarPrefs(); aplicarPrefs(); renderPers(); });
 document.querySelectorAll('dialog [data-fechar]').forEach(b => b.addEventListener('click', () => b.closest('dialog').close()));
 ['dlgPers', 'dlgLogin', 'dlgAdd', 'dlgNews'].forEach(id => $(id).addEventListener('click', e => { if (e.target === $(id)) $(id).close(); }));
 
@@ -2068,17 +2073,14 @@ function pintarCabecalho(t, cot, E) {
   const nome = pf.nome || (cot && cot.nome) || t;
   const setor = pf.setor || (cot && cot.setor) || '';
   const preco = cot && cot.preco != null ? cot.preco : E && E.indicadores ? E.indicadores.preco : null;
-  const pos = PREFS.carteira.find(p => p.t === t);
+  const pos = posicoesAtuais().find(p => p.t === t);
   const cab = $('empCab');
   cab.dataset.fixavel = 'empresa:' + t;
   cab.innerHTML = `<div class="emp-id">${cot && cot.logo ? `<img src="${esc(cot.logo)}" alt="" loading="lazy">` : `<span class="ini" aria-hidden="true">${esc(t.slice(0, 2))}</span>`}
       <div><h1>${esc(nome)}</h1><p><span class="cod">${esc(t)}</span> ${esc(setor)}</p></div></div>
     <div class="emp-preco"><div class="x">${valor(preco, 'R$', 2)}</div><div>${cot && cot.var != null ? variacao(cot.var) + ' no dia' : ''}
       <button type="button" class="btn sec" id="empObs" style="margin-left:10px;padding:5px 12px;font-size:.82rem" aria-pressed="${PREFS.observacao.includes(t)}">${PREFS.observacao.includes(t) ? 'Em observação ✓' : 'Observar'}</button></div>
-      ${pos ? `<p class="dica" style="margin:10px 0 0">Na sua carteira: ${num(pos.q, pos.q % 1 ? 2 : 0)} a ${valor(pos.pm, 'R$', 2)} de preço médio. <a href="#carteira">Ver carteira</a></p>`
-        : `<form class="emp-acao" id="empAdd"><div class="campo"><label for="eQtd">Quantidade</label><input type="number" id="eQtd" min="0" step="any" required></div>
-           <div class="campo"><label for="ePm">Preço médio (R$)</label><input type="number" id="ePm" min="0" step="0.01" required value="${preco != null ? (+preco).toFixed(2) : ''}"></div>
-           <button class="btn" type="submit">Adicionar à carteira</button></form>`}</div>`;
+      ${pos ? `<p class="dica" style="margin:10px 0 0">Na sua carteira: ${num(pos.q, pos.q % 1 ? 2 : 0)} a ${valor(pos.pm, 'R$', 2)} de preço médio. <a href="#carteira">Ver carteira</a></p>` : ''}</div>`;
   $('empObs').addEventListener('click', () => {
     const i = PREFS.observacao.indexOf(t);
     if (i >= 0) PREFS.observacao.splice(i, 1); else PREFS.observacao.push(t);
@@ -2088,15 +2090,6 @@ function pintarCabecalho(t, cot, E) {
   });
   const img = cab.querySelector('img');
   if (img) img.addEventListener('error', () => { const s2 = document.createElement('span'); s2.className = 'ini'; s2.textContent = t.slice(0, 2); img.replaceWith(s2); });
-  const f = $('empAdd');
-  if (f) f.addEventListener('submit', e => {
-    e.preventDefault();
-    const q = +$('eQtd').value, pm = +$('ePm').value;
-    if (!(q > 0) || !(pm >= 0)) return;
-    adicionarNaCarteira(t, q, pm, false);
-    avisar(`${t} foi adicionado à sua carteira.`);
-    pintarCabecalho(t, cot, E);
-  });
 }
 
 async function renderEmpresa(D) {
@@ -2193,44 +2186,124 @@ function graficosEmpresa(E) {
 }
 
 /* ======================= Carteira ======================= */
-function adicionarNaCarteira(t, q, pm, substituir) {
-  const L = PREFS.carteira, i = L.findIndex(p => p.t === t);
-  if (i >= 0 && !substituir) { const a = L[i], qt = a.q + q; L[i] = { t, q: qt, pm: qt ? (a.q * a.pm + q * pm) / qt : pm }; }
-  else if (i >= 0) L[i] = { t, q, pm };
-  else L.push({ t, q, pm });
-  salvarPrefs();
+/* Carteira aberta por código (dados cifrados em data/carteiras/) */
+const CHAVE_CODIGO = 'hub:carteira:codigo';
+let CARTEIRA = { aberta: false, id: null, seed: null, posicoes: [], periodo: null };
+const posicoesAtuais = () => CARTEIRA.aberta ? CARTEIRA.posicoes : [];
+const b64d = s2 => Uint8Array.from(atob(s2), c => c.charCodeAt(0));
+const paraHex = buf => [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2, '0')).join('');
+async function chaveBase(codigo) { return crypto.subtle.importKey('raw', new TextEncoder().encode(codigo), 'PBKDF2', false, ['deriveBits', 'deriveKey']); }
+async function abrirPacote(codigo) {
+  const base = await chaveBase(codigo);
+  const id = paraHex(await crypto.subtle.deriveBits({ name: 'PBKDF2', hash: 'SHA-256', salt: new TextEncoder().encode('hub-economico:carteira-id:v1'), iterations: 200000 }, base, 128));
+  const r = await fetch(`data/carteiras/${id}.json`, { cache: 'no-cache' });
+  if (r.status === 404) throw new Error('codigo');
+  if (!r.ok) throw new Error('rede');
+  const env = await r.json();
+  const chave = await crypto.subtle.deriveKey({ name: 'PBKDF2', hash: 'SHA-256', salt: b64d(env.salt), iterations: env.iter }, base, { name: 'AES-GCM', length: 256 }, false, ['decrypt']);
+  const claro = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: b64d(env.iv) }, chave, b64d(env.dados));
+  return { id, pacote: JSON.parse(new TextDecoder().decode(claro)) };
 }
+function recalcularPosicoes() {
+  if (!CARTEIRA.aberta) return;
+  let fonte = CARTEIRA.seed || {};
+  try { const l = JSON.parse(localStorage.getItem('carteira-acoes.v1:' + CARTEIRA.id) || 'null'); if (l && l.atualizacoes) fonte = l; } catch (e) { /* sem edições locais */ }
+  const ks = Object.keys(fonte.atualizacoes || {}).sort();
+  const m = new Map();
+  (ks.length ? fonte.atualizacoes[ks.at(-1)] : []).forEach(p => {
+    const q = +p.qtd;
+    if (!(q > 0)) return;
+    const t = String(p.ativo || '').toUpperCase().trim().replace(/(\d)F$/, '$1');  // fracionário (RENT3F) conta como RENT3
+    if (!TICKER_RE.test(t)) return;
+    const pm = +p.pm || (p.investido ? p.investido / q : 0), a = m.get(t);
+    m.set(t, a ? { t, q: a.q + q, pm: (a.q * a.pm + q * pm) / (a.q + q) } : { t, q, pm });
+  });
+  CARTEIRA.posicoes = [...m.values()];
+  CARTEIRA.periodo = ks.at(-1) || null;
+}
+const lerCodigoGuardado = () => { try { return sessionStorage.getItem(CHAVE_CODIGO) || localStorage.getItem(CHAVE_CODIGO); } catch (e) { return null; } };
+async function abrirCarteira(codigo, lembrar) {
+  const { id, pacote } = await abrirPacote(codigo);
+  try {
+    sessionStorage.setItem(CHAVE_CODIGO, codigo);
+    if (lembrar) localStorage.setItem(CHAVE_CODIGO, codigo); else localStorage.removeItem(CHAVE_CODIGO);
+  } catch (e) { /* armazenamento bloqueado */ }
+  CARTEIRA = { aberta: true, id, seed: pacote.carteira, posicoes: [], periodo: null };
+  recalcularPosicoes();
+  if (DADOS) renderTopo(DADOS, DADOS === DEMO);
+}
+function fecharCarteira() {
+  try { sessionStorage.removeItem(CHAVE_CODIGO); localStorage.removeItem(CHAVE_CODIGO); } catch (e) { /* ok */ }
+  CARTEIRA = { aberta: false, id: null, seed: null, posicoes: [], periodo: null };
+  $('cartFrame').removeAttribute('src');
+  $('cartFrame').dataset.carregado = '';
+  abaCart = 'carteira';
+  renderCarteira(DADOS);
+}
+$('fCodigo').addEventListener('submit', async e => {
+  e.preventDefault();
+  const codigo = $('cCodigo').value.trim();
+  if (!codigo) return;
+  if (!(window.crypto && crypto.subtle)) { $('cCodMsg').textContent = 'Este navegador não permite abrir dados cifrados. Use um navegador atualizado, por HTTPS.'; return; }
+  $('cEntrar').disabled = true; $('cCodMsg').textContent = 'Abrindo...';
+  try {
+    await abrirCarteira(codigo, $('cLembrar').checked);
+    $('cCodigo').value = ''; $('cCodMsg').textContent = '';
+    abaCart = 'carteira';
+    renderCarteira(DADOS);
+  } catch (err) {
+    $('cCodMsg').textContent = err.message === 'codigo' ? 'Código não encontrado. Confira e tente de novo.' : 'Não foi possível abrir a carteira agora. Verifique a conexão e tente de novo.';
+  } finally { $('cEntrar').disabled = false; }
+});
+$('cFechar').addEventListener('click', () => { fecharCarteira(); avisar('Carteira fechada.'); });
+// mensagens da página da carteira (mesma origem): altura, edições e erros
+addEventListener('message', e => {
+  if (e.origin !== location.origin || e.source !== $('cartFrame').contentWindow) return;
+  const d = e.data || {};
+  if (d.tipo === 'altura' && d.h) $('cartFrame').style.height = Math.max(640, d.h + 8) + 'px';
+  if (d.tipo === 'carteira-alterada') { recalcularPosicoes(); if (DADOS) renderTopo(DADOS, DADOS === DEMO); }
+  if (d.tipo === 'carteira-erro') { fecharCarteira(); $('cCodMsg').textContent = 'Não foi possível abrir a carteira. Informe o código de novo.'; }
+});
+function temaParaCarteira() {
+  const f = $('cartFrame');
+  if (!f.contentWindow || !f.dataset.carregado) return;
+  try { f.contentWindow.postMessage({ tipo: 'tema', tema: PREFS.tema === 'auto' ? 'auto' : PREFS.tema === 'escuro' ? 'dark' : 'light' }, location.origin); } catch (e) { /* ok */ }
+}
+$('cartFrame').addEventListener('load', () => { if ($('cartFrame').getAttribute('src')) { $('cartFrame').dataset.carregado = '1'; temaParaCarteira(); } });
+
 function posicoesCarteira(D, empresas) {
-  return PREFS.carteira.map((p, k) => {
+  return posicoesAtuais().map((p, k) => {
     const E = empresas ? empresas[k] : null;
     const c = cotacaoAcao(D, p.t) || (E && E.cotacao) || {};
     const preco = c.preco != null ? c.preco : (E && E.indicadores ? E.indicadores.preco : null);
     const atual = preco != null ? preco * p.q : null, custo = p.q * p.pm;
     const prov = E && E.indicadores ? E.indicadores.proventos_12m : null;
-    return { ...p, E, preco, var: c.var, nome: (E && E.perfil && E.perfil.nome) || c.nome || p.t, setor: (E && E.perfil && E.perfil.setor) || c.setor || (/11$/.test(p.t) ? 'Fundos e units' : 'Sem setor informado'),
-      atual, custo, res: atual != null ? atual - custo : null, hoje: atual != null && c.var != null ? atual - atual / (1 + c.var / 100) : null, prov12: prov != null ? prov * p.q : null };
+    return { ...p, E, preco, var: c.var, nome: (E && E.perfil && E.perfil.nome) || c.nome || p.t, atual, custo, res: atual != null ? atual - custo : null,
+      hoje: atual != null && c.var != null ? atual - atual / (1 + c.var / 100) : null, prov12: prov != null ? prov * p.q : null };
   });
 }
 function htmlResumoCarteira(D) {
+  if (!CARTEIRA.aberta) return '<p class="vazio">Carteira fechada. <a href="#carteira">Abrir com seu código</a></p>';
   const L = posicoesCarteira(D, null);
-  if (!L.length) return '<p class="vazio">Sua carteira está vazia. <a href="#carteira">Montar carteira</a></p>';
+  if (!L.length) return '<p class="vazio">Nenhuma posição aberta no período mais recente. <a href="#carteira">Ver carteira</a></p>';
   const tot = L.reduce((a, x) => a + (x.atual ?? x.custo), 0), custo = L.reduce((a, x) => a + x.custo, 0);
   const res = L.reduce((a, x) => a + (x.res || 0), 0), hoje = L.reduce((a, x) => a + (x.hoje || 0), 0);
   return `<div class="wstat"><span class="x">${valor(tot, 'R$', 2)}</span><span class="s">Resultado ${reais(res)} (${pct(custo ? res / custo * 100 : null)}), hoje ${reais(hoje)}</span></div>
     <ul class="lista" style="margin-top:8px">${L.slice().sort((a, b) => (b.atual || 0) - (a.atual || 0)).slice(0, 6).map(x => `<li><a class="tick" href="#acao-${esc(x.t)}">${esc(x.t)}</a><span class="val">${valor(x.atual, 'R$', 2)}</span><span class="var">${variacao(x.var)}</span></li>`).join('')}</ul>`;
 }
-const CORES_PIZZA = ['--accent', '--accent2', '#12A594', '#8E4EC6', '#E5484D', '#0091FF', '#F76B15', '#46A758', '#D6409F', '#978365', '#5B5BD6', '#AD7F58'];
-const corPizza = i => { const c = CORES_PIZZA[i % CORES_PIZZA.length]; return c.startsWith('--') ? css(c) : c; };
-let cartSeq = 0, cartEditando = null, filtroCart = 'Todos';
-let abaCart = 'posicoes';
+let cartSeq = 0, filtroCart = 'Todos';
+let abaCart = 'carteira';
 function renderCarteira(D) {
+  $('cartGate').hidden = CARTEIRA.aberta;
+  $('cartAberta').hidden = !CARTEIRA.aberta;
+  ['prov'].forEach(k => trocarGrafico(k, null));
+  if (!CARTEIRA.aberta) { setTimeout(() => { if (viewAtual() === 'carteira' && !CARTEIRA.aberta) $('cCodigo').focus(); }, 50); return; }
   document.querySelectorAll('#cartAbas [data-aba]').forEach(b => b.setAttribute('aria-selected', b.dataset.aba === abaCart));
   document.querySelectorAll('#v-carteira [data-painel]').forEach(p => { p.hidden = p.dataset.painel !== abaCart; });
-  ['cartAtivo', 'cartSetor', 'prov'].forEach(k => trocarGrafico(k, null));
   if (abaCart === 'observacao') return renderObservacao(D);
   if (abaCart === 'proventos') return renderProventos(D);
   if (abaCart === 'calendario') return renderCalendario(D);
-  return renderPosicoes(D);
+  return renderAbaCarteira(D);
 }
 document.querySelectorAll('#cartAbas [data-aba]').forEach(b => b.addEventListener('click', () => { abaCart = b.dataset.aba; renderCarteira(DADOS); }));
 $('cartAbas').addEventListener('keydown', e => {
@@ -2239,114 +2312,29 @@ $('cartAbas').addEventListener('keydown', e => {
   const n = bs[(i + (e.key === 'ArrowRight' ? 1 : bs.length - 1)) % bs.length];
   abaCart = n.dataset.aba; renderCarteira(DADOS); n.focus();
 });
-async function renderPosicoes(D) {
+async function renderAbaCarteira(D) {
+  const f = $('cartFrame');
+  if (!f.getAttribute('src')) f.setAttribute('src', 'carteira.html');
   const seq = ++cartSeq;
-  const vazio2 = !PREFS.carteira.length;
-  $('cartStats').hidden = $('cartGraficos').hidden = vazio2;
-  if (vazio2) {
-    $('cartT').innerHTML = '<caption style="caption-side:top;padding:4px 0 8px">Sua carteira está vazia. Adicione o primeiro ativo no formulário acima, ou abra a página de uma empresa e clique em "Adicionar à carteira".</caption>';
-    $('cartChips').innerHTML = ''; $('cartNews').innerHTML = '';
-    trocarGrafico('cartAtivo', null); trocarGrafico('cartSetor', null);
-    return;
-  }
-  const empresas = await Promise.all(PREFS.carteira.map(p => carregarEmpresa(p.t)));
-  if (seq !== cartSeq || viewAtual() !== 'carteira' || abaCart !== 'posicoes') return;
-  const L = posicoesCarteira(D, empresas);
-  const tot = L.reduce((a, x) => a + (x.atual ?? x.custo), 0), custo = L.reduce((a, x) => a + x.custo, 0);
-  const res = L.reduce((a, x) => a + (x.res || 0), 0), hoje = L.reduce((a, x) => a + (x.hoje || 0), 0);
-  const prov = L.reduce((a, x) => a + (x.prov12 || 0), 0), semProv = L.filter(x => x.prov12 == null).length;
-  const card = (l, x, s2) => `<div class="panel stat cart-stat"><span class="l">${l}</span><span class="x">${x}</span><span class="s">${s2}</span></div>`;
-  $('cartStats').innerHTML = [
-    card('Patrimônio', valor(tot, 'R$', 2), `${L.length} ${L.length === 1 ? 'ativo' : 'ativos'}, ${valor(custo, 'R$', 2)} investidos`),
-    card('Resultado', reais(res), `${pct(custo ? res / custo * 100 : null)} sobre o valor investido`),
-    card('Variação hoje', reais(hoje), `${pct(tot - hoje ? hoje / (tot - hoje) * 100 : null)} no dia`),
-    card('Proventos em 12 meses', valor(prov, 'R$', 2), `${pct(custo ? prov / custo * 100 : null)} sobre o investido${semProv ? `, sem dados de ${semProv} ${semProv === 1 ? 'ativo' : 'ativos'}` : ''}`)
-  ].join('');
-  $('cartT').innerHTML = `<thead><tr><th scope="col">Ativo</th><th scope="col">Quantidade</th><th scope="col">Preço médio</th><th scope="col">Preço atual</th><th scope="col">Dia</th><th scope="col">Valor atual</th><th scope="col">Resultado</th><th scope="col">% da carteira</th><th scope="col">Proventos 12 m</th><th scope="col"><span class="nm" style="display:inline">Ações</span></th></tr></thead>
-    <tbody>${L.slice().sort((a, b) => (b.atual ?? b.custo) - (a.atual ?? a.custo)).map(x => `<tr data-t="${esc(x.t)}" tabindex="0">
-      <th scope="row" style="white-space:normal"><a class="tick" href="#acao-${esc(x.t)}">${esc(x.t)}</a><span class="nm">${esc(x.nome)}</span></th>
-      <td>${num(x.q, x.q % 1 ? 2 : 0)}</td><td>${valor(x.pm, 'R$', 2)}</td><td>${valor(x.preco, 'R$', 2)}</td><td>${variacao(x.var)}</td>
-      <td><strong>${valor(x.atual, 'R$', 2)}</strong></td><td>${reais(x.res)}<span class="nm">${pct(x.custo && x.res != null ? x.res / x.custo * 100 : null)}</span></td>
-      <td>${pct(tot ? (x.atual ?? x.custo) / tot * 100 : null, 1)}</td><td>${valor(x.prov12, 'R$', 2)}</td>
-      <td><div class="cart-acoes"><button type="button" data-editar="${esc(x.t)}">Editar</button><button type="button" data-remover="${esc(x.t)}">Remover</button></div></td></tr>`).join('')}</tbody>`;
-
-  const N = [];
-  const vistos = new Set();
-  L.forEach(x => ((x.E && x.E.noticias) || []).forEach(n => { const k = n.link + '|' + n.titulo; if (!vistos.has(k)) { vistos.add(k); N.push({ ...n, t: x.t }); } }));
+  const P = posicoesAtuais();
+  const empresas = await Promise.all(P.map(p => carregarEmpresa(p.t)));
+  if (seq !== cartSeq || abaCart !== 'carteira') return;
+  const N = [], vistos = new Set();
+  P.forEach((p, k) => ((empresas[k] && empresas[k].noticias) || []).forEach(n => { const ch = n.link + '|' + n.titulo; if (!vistos.has(ch)) { vistos.add(ch); N.push({ ...n, t: p.t }); } }));
   N.sort((a, b) => new Date(b.data) - new Date(a.data));
-  const tks = ['Todos', ...L.map(x => x.t).filter(t => N.some(n => n.t === t))];
+  const tks = ['Todos', ...P.map(p => p.t).filter(t => N.some(n => n.t === t))];
   if (!tks.includes(filtroCart)) filtroCart = 'Todos';
   $('cartChips').innerHTML = tks.length > 1 ? tks.map(t => `<button type="button" aria-pressed="${t === filtroCart}" data-ft="${esc(t)}">${esc(t)}</button>`).join('') : '';
   const NF = N.filter(n => filtroCart === 'Todos' || n.t === filtroCart).slice(0, 40);
   $('cartNews').innerHTML = NF.length ? NF.map(n => `<li><a href="${esc(n.link)}" target="_blank" rel="noopener noreferrer">${esc(n.titulo)}</a><div class="m"><span class="cod">${esc(n.t)}</span> ${esc(n.fonte)}, ${esc(rel(n.data))}</div></li>`).join('')
     : '<li class="muted">Ainda não há notícias coletadas para os ativos da sua carteira.</li>';
-
-  if (!window.Chart) return;
-  const pizza = (canvas, pares) => new Chart(canvas, {
-    type: 'doughnut',
-    data: { labels: pares.map(p => p[0]), datasets: [{ data: pares.map(p => +p[1].toFixed(2)), backgroundColor: pares.map((_, i) => corPizza(i)), borderColor: css('--panel'), borderWidth: 2 }] },
-    options: { responsive: true, maintainAspectRatio: false, cutout: '58%', plugins: { legend: { position: 'right', labels: { usePointStyle: true, boxWidth: 8, padding: 10, color: css('--ink') } },
-      tooltip: { callbacks: { label: c => `${c.label}: ${valor(c.parsed, 'R$', 2)} (${pct(c.parsed / tot * 100, 1)})` } } } }
-  });
-  const porAtivo = L.map(x => [x.t, x.atual ?? x.custo]).sort((a, b) => b[1] - a[1]);
-  const setores = {};
-  L.forEach(x => { setores[x.setor] = (setores[x.setor] || 0) + (x.atual ?? x.custo); });
-  trocarGrafico('cartAtivo', () => pizza($('chCartAtivo'), porAtivo));
-  trocarGrafico('cartSetor', () => pizza($('chCartSetor'), Object.entries(setores).sort((a, b) => b[1] - a[1])));
 }
-$('cartChips').addEventListener('click', e => { const b = e.target.closest('[data-ft]'); if (b) { filtroCart = b.dataset.ft; renderCarteira(DADOS); } });
-$('cartT').addEventListener('click', e => {
-  const ed = e.target.closest('[data-editar]'), rm = e.target.closest('[data-remover]');
-  if (ed) {
-    const p = PREFS.carteira.find(x => x.t === ed.dataset.editar);
-    cartEditando = p.t; $('cTick').value = p.t; $('cTick').readOnly = true; $('cQtd').value = p.q; $('cPm').value = +p.pm.toFixed(2);
-    $('cOk').textContent = 'Salvar alterações'; $('cCancel').hidden = false;
-    $('cMsg').textContent = `Editando ${p.t}: os valores informados substituem os atuais.`;
-    $('cQtd').focus();
-    return;
-  }
-  if (rm) {
-    const t = rm.dataset.remover;
-    PREFS.carteira = PREFS.carteira.filter(x => x.t !== t); salvarPrefs();
-    avisar(`${t} saiu da sua carteira.`); renderCarteira(DADOS);
-    return;
-  }
-  if (e.target.closest('a,button')) return;
-  const tr = e.target.closest('tr[data-t]');
-  if (tr) location.hash = 'acao-' + tr.dataset.t;
-});
-$('cartT').addEventListener('keydown', e => { const tr = e.target.closest('tr[data-t]'); if (tr && e.key === 'Enter' && e.target === tr) location.hash = 'acao-' + tr.dataset.t; });
-function limparFormCarteira() {
-  cartEditando = null; $('fCart').reset(); $('cTick').readOnly = false;
-  $('cOk').textContent = 'Adicionar compra'; $('cCancel').hidden = true;
-}
-$('cCancel').addEventListener('click', () => { limparFormCarteira(); $('cMsg').textContent = 'Edição cancelada.'; });
-$('cTick').addEventListener('change', () => {
-  const t = $('cTick').value.trim().toUpperCase().split(/\s/)[0];
-  $('cTick').value = t;
-  const c = DADOS && cotacaoAcao(DADOS, t);
-  if (c && c.preco != null && !$('cPm').value) $('cPm').value = (+c.preco).toFixed(2);
-});
-$('fCart').addEventListener('submit', e => {
-  e.preventDefault();
-  const t = $('cTick').value.trim().toUpperCase().split(/\s/)[0], q = +$('cQtd').value, pm = +$('cPm').value;
-  if (!TICKER_RE.test(t)) { $('cMsg').textContent = 'Digite um código válido da B3, como PETR4, ITUB4 ou HGLG11.'; return; }
-  if (!(q > 0)) { $('cMsg').textContent = 'Informe uma quantidade maior que zero.'; return; }
-  if (!(pm >= 0)) { $('cMsg').textContent = 'Informe o preço médio.'; return; }
-  const editando = cartEditando === t;
-  if (!editando && PREFS.carteira.length >= 150) { $('cMsg').textContent = 'A carteira aceita até 150 ativos.'; return; }
-  const conhecido = !!cotacaoAcao(DADOS, t);
-  adicionarNaCarteira(t, q, pm, editando);
-  $('cMsg').textContent = conhecido ? `${t} ${editando ? 'atualizado' : 'adicionado'} na carteira.` : `${t} foi adicionado, mas não encontramos a cotação dele. Confira se o código está certo.`;
-  limparFormCarteira();
-  renderCarteira(DADOS);
-});
-
+$('cartChips').addEventListener('click', e => { const b = e.target.closest('[data-ft]'); if (b) { filtroCart = b.dataset.ft; renderAbaCarteira(DADOS); } });
 
 /* ======================= Carteira: observação, proventos e calendário ======================= */
 const hojeISO = () => new Date().toISOString().slice(0, 10);
-const ativosAcompanhados = () => [...new Set([...PREFS.carteira.map(p => p.t), ...PREFS.observacao])];
-const origemAtivo = t => PREFS.carteira.some(p => p.t === t) ? '<span class="tag">Na carteira</span>' : '<span class="tag cinza">Em observação</span>';
+const ativosAcompanhados = () => [...new Set([...posicoesAtuais().map(p => p.t), ...PREFS.observacao])];
+const origemAtivo = t => posicoesAtuais().some(p => p.t === t) ? '<span class="tag">Na carteira</span>' : '<span class="tag cinza">Em observação</span>';
 function var12m(E) {
   const H = ((E && E.historico) || []).map(x => x.c).filter(x => !vazio(x));
   return H.length > 1 ? (H.at(-1) / H[0] - 1) * 100 : null;
@@ -2422,7 +2410,7 @@ $('fObs').addEventListener('submit', e => {
 
 async function renderProventos(D) {
   const seq = ++cartSeq;
-  const C = PREFS.carteira, T = ativosAcompanhados();
+  const C = posicoesAtuais(), T = ativosAcompanhados();
   const empresas = new Map((await Promise.all(T.map(async t => [t, await carregarEmpresa(t)]))));
   if (seq !== cartSeq || abaCart !== 'proventos') return;
   const hoje = hojeISO(), corte = new Date(Date.now() - 365 * 864e5).toISOString().slice(0, 10);
@@ -2439,7 +2427,7 @@ async function renderProventos(D) {
     card('Média por mês', valor(total / 12, 'R$', 2), 'Nos últimos 12 meses'),
     card('Rendimento sobre o investido', pct(custo ? total / custo * 100 : null), 'Proventos de 12 meses sobre o custo da carteira'),
     card('Maior pagador', maior ? esc(maior[0]) : '–', maior ? `${valor(maior[1], 'R$', 2)} em 12 meses` : 'Sem pagamentos no período')
-  ].join('') : '<div class="panel" style="grid-column:1/-1"><p class="vazio">Adicione posições na aba Posições para ver quanto sua carteira rendeu em proventos.</p></div>';
+  ].join('') : '<div class="panel" style="grid-column:1/-1"><p class="vazio">Não há posições abertas no período mais recente da carteira.</p></div>';
 
   const meses = [];
   for (let k = 11; k >= 0; k--) { const d = new Date(); d.setDate(1); d.setMonth(d.getMonth() - k); meses.push(ym(d.getFullYear(), d.getMonth() + 1)); }
@@ -2565,6 +2553,8 @@ async function carregar() {
   const seguro = fn => { try { fn(D); } catch (e) { console.error(fn.name, e); } };
   seguro(d => renderTopo(d, demo));
   seguro(preencherTickers);
+  const codigoGuardado = lerCodigoGuardado();
+  if (codigoGuardado && window.crypto && crypto.subtle) { try { await abrirCarteira(codigoGuardado, !!localStorage.getItem(CHAVE_CODIGO)); } catch (e) { try { sessionStorage.removeItem(CHAVE_CODIGO); localStorage.removeItem(CHAVE_CODIGO); } catch (e2) { /* ok */ } } }
   [renderResumo, renderJuros, renderRendaFixa, renderIndicadores, renderMercado, renderBalanca, renderFocus, renderPaises, renderNoticias].forEach(seguro);
   aplicarBlocos();
   instalarPins();
