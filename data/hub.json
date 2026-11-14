@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-14T00:59:32.855909+00:00",
+ "atualizado": "2026-11-14T16:15:35.869704+00:00",
  "juros": {
   "meses": [
    "2024-12",
@@ -2580,24 +2580,24 @@
    },
    {
     "nome": "Petróleo Brent",
-    "valor": 96.08,
+    "valor": 95.84,
     "unidade": "US$",
     "casas": 2,
-    "var": 0.27
+    "var": 0.02
    },
    {
     "nome": "Ouro",
-    "valor": 3887.6,
+    "valor": 3886.3,
     "unidade": "US$",
     "casas": 2,
-    "var": 0.06
+    "var": 0.03
    },
    {
     "nome": "Bitcoin",
-    "valor": 68306.39,
+    "valor": 65362.84,
     "unidade": "US$",
     "casas": 0,
-    "var": -4.26
+    "var": -4.23
    }
   ],
   "acoes": [
@@ -2685,7 +2685,7 @@
        171337.0,
        172060.0,
        171324.0,
-       172457.7656
+       172458.0
       ]
      },
      {
@@ -2860,7 +2860,7 @@
        25065.8691,
        25466.1895,
        25366.0898,
-       25136.2734
+       25136.2695
       ]
      },
      {
@@ -2943,7 +2943,7 @@
       "valor": 6386.86,
       "unidade": "pts",
       "casas": 0,
-      "var": -0.1,
+      "var": -0.19,
       "var_mes": 3.56,
       "serie": [
        6167.0098,
@@ -2968,7 +2968,8 @@
        6290.4502,
        6327.8701,
        6393.3901,
-       6398.98
+       6398.98,
+       6386.8599
       ]
      },
      {
@@ -2977,7 +2978,7 @@
       "valor": 26749.95,
       "unidade": "pts",
       "casas": 0,
-      "var": 0.33,
+      "var": -0.08,
       "var_mes": 5.9,
       "serie": [
        25259.9004,
@@ -3002,7 +3003,8 @@
        26267.1895,
        26347.4492,
        26662.7695,
-       26771.8809
+       26771.8809,
+       26749.9492
       ]
      },
      {
@@ -3011,7 +3013,7 @@
       "valor": 10902.56,
       "unidade": "pts",
       "casas": 0,
-      "var": 0.62,
+      "var": 0.36,
       "var_mes": 2.37,
       "serie": [
        10650.2998,
@@ -3036,7 +3038,8 @@
        10782.9004,
        10751.5996,
        10835.5,
-       10863.0996
+       10863.0996,
+       10902.5996
       ]
      },
      {
@@ -3045,7 +3048,7 @@
       "valor": 8368.91,
       "unidade": "pts",
       "casas": 0,
-      "var": 0.43,
+      "var": 0.09,
       "var_mes": 6.91,
       "serie": [
        7827.6299,
@@ -3070,7 +3073,8 @@
        8233.2998,
        8278.5898,
        8332.8701,
-       8361.3604
+       8361.3604,
+       8368.9102
       ]
      }
     ]
@@ -3084,7 +3088,7 @@
       "valor": 61142.35,
       "unidade": "pts",
       "casas": 0,
-      "var": -0.17,
+      "var": 0.53,
       "var_mes": -9.79,
       "serie": [
        67777.5234,
@@ -3108,7 +3112,8 @@
        58775.5,
        60459.5781,
        61248.5898,
-       60819.3594
+       60819.3594,
+       61142.3516
       ]
      },
      {
@@ -3117,7 +3122,7 @@
       "valor": 23637.6,
       "unidade": "pts",
       "casas": 0,
-      "var": -2.79,
+      "var": -1.55,
       "var_mes": -2.91,
       "serie": [
        24345.2207,
@@ -3141,7 +3146,8 @@
        24448.9492,
        24557.0391,
        24315.9199,
-       24008.5508
+       24008.5508,
+       23637.5996
       ]
      },
      {
@@ -3150,7 +3156,7 @@
       "valor": 3634.353,
       "unidade": "pts",
       "casas": 0,
-      "var": -1.26,
+      "var": -0.59,
       "var_mes": -4.38,
       "serie": [
        3800.865,
@@ -3175,7 +3181,8 @@
        3660.792,
        3663.7229,
        3680.6431,
-       3655.8301
+       3655.8301,
+       3634.353
       ]
      },
      {
@@ -3184,7 +3191,7 @@
       "valor": 5290.53,
       "unidade": "pts",
       "casas": 0,
-      "var": -1.58,
+      "var": -0.98,
       "var_mes": -12.34,
       "serie": [
        6035.3501,
@@ -3209,7 +3216,8 @@
        5018.8501,
        5239.1299,
        5375.3599,
-       5342.73
+       5342.73,
+       5290.5298
       ]
      }
     ]
@@ -3344,7 +3352,7 @@
      {
       "nome": "Treasury 10 anos",
       "simbolo": "^TNX",
-      "valor": 5.1540003,
+      "valor": 5.154,
       "unidade": "%",
       "casas": 2,
       "var": 1.0,
@@ -3419,13 +3427,12 @@
      {
       "nome": "Petróleo Brent (US$/barril)",
       "simbolo": "BZ=F",
-      "valor": 96.08,
+      "valor": 95.84,
       "unidade": "US$",
       "casas": 2,
-      "var": 0.27,
-      "var_mes": -9.09,
+      "var": 0.02,
+      "var_mes": -9.64,
       "serie": [
-       105.69,
        106.06,
        105.92,
        109.86,
@@ -3448,19 +3455,18 @@
        91.49,
        92.76,
        95.82,
-       96.08
+       95.84
       ]
      },
      {
       "nome": "Petróleo WTI (US$/barril)",
       "simbolo": "CL=F",
-      "valor": 88.92,
+      "valor": 88.56,
       "unidade": "US$",
       "casas": 2,
-      "var": 0.2,
-      "var_mes": -5.54,
+      "var": -0.2,
+      "var_mes": -6.87,
       "serie": [
-       94.14,
        95.09,
        97.97,
        101.41,
@@ -3483,19 +3489,18 @@
        86.04,
        86.53,
        88.74,
-       88.92
+       88.56
       ]
      },
      {
       "nome": "Ouro (US$/onça)",
       "simbolo": "GC=F",
-      "valor": 3887.6,
+      "valor": 3886.3,
       "unidade": "US$",
       "casas": 2,
-      "var": 0.06,
-      "var_mes": -6.94,
+      "var": 0.03,
+      "var_mes": -5.39,
       "serie": [
-       4177.2998,
        4107.8999,
        4170.1001,
        4181.1001,
@@ -3518,19 +3523,18 @@
        4030.2,
        4000.5,
        3885.3,
-       3887.6001
+       3886.3
       ]
      },
      {
       "nome": "Prata (US$/onça)",
       "simbolo": "SI=F",
-      "valor": 48.65,
+      "valor": 49.121,
       "unidade": "US$",
       "casas": 2,
-      "var": -2.65,
-      "var_mes": -17.77,
+      "var": -1.7,
+      "var_mes": -11.57,
       "serie": [
-       59.161,
        55.55,
        56.837,
        56.995,
@@ -3553,19 +3557,18 @@
        51.101,
        51.881,
        49.972,
-       48.65
+       49.031
       ]
      },
      {
       "nome": "Cobre (US$/libra)",
       "simbolo": "HG=F",
-      "valor": 6.063,
+      "valor": 6.09,
       "unidade": "US$",
       "casas": 3,
-      "var": -1.93,
-      "var_mes": -9.21,
+      "var": -1.5,
+      "var_mes": -7.89,
       "serie": [
-       6.678,
        6.6115,
        6.5115,
        6.531,
@@ -3588,7 +3591,7 @@
        6.2195,
        6.2745,
        6.1825,
-       6.0635
+       6.0795
       ]
      },
      {
@@ -3597,10 +3600,9 @@
       "valor": 161.91,
       "unidade": "US$",
       "casas": 2,
-      "var": 75.7,
-      "var_mes": 78.47,
+      "var": 76.76,
+      "var_mes": 78.43,
       "serie": [
-       90.72,
        90.74,
        90.57,
        90.9,
@@ -3622,19 +3624,19 @@
        92.71,
        92.54,
        92.15,
-       91.6
+       91.6,
+       91.48
       ]
      },
      {
       "nome": "Soja (US¢/bushel)",
       "simbolo": "ZS=F",
-      "valor": 1232.75,
+      "valor": 1231.5,
       "unidade": "US¢",
       "casas": 2,
-      "var": 0.47,
-      "var_mes": -3.97,
+      "var": 0.37,
+      "var_mes": -3.58,
       "serie": [
-       1283.75,
        1277.25,
        1263.0,
        1261.25,
@@ -3657,19 +3659,18 @@
        1224.5,
        1229.0,
        1227.0,
-       1232.75
+       1243.0
       ]
      },
      {
       "nome": "Milho (US¢/bushel)",
       "simbolo": "ZC=F",
-      "valor": 446.0,
+      "valor": 445.5,
       "unidade": "US¢",
       "casas": 2,
-      "var": 0.79,
-      "var_mes": -7.61,
+      "var": 0.68,
+      "var_mes": -7.33,
       "serie": [
-       482.75,
        480.75,
        478.0,
        474.25,
@@ -3692,19 +3693,18 @@
        449.0,
        448.0,
        442.5,
-       446.0
+       445.5
       ]
      },
      {
       "nome": "Café arábica (US¢/libra)",
       "simbolo": "KC=F",
-      "valor": 274.0,
+      "valor": 279.25,
       "unidade": "US¢",
       "casas": 2,
-      "var": -2.21,
-      "var_mes": -6.39,
+      "var": -0.34,
+      "var_mes": -6.31,
       "serie": [
-       292.7,
        298.05,
        294.8,
        305.6,
@@ -3727,7 +3727,7 @@
        271.4,
        269.0,
        280.2,
-       274.0
+       278.65
       ]
      }
     ]
@@ -3742,9 +3742,8 @@
       "unidade": "pts",
       "casas": 2,
       "var": 0.23,
-      "var_mes": 1.2,
+      "var_mes": 0.84,
       "serie": [
-       102.18,
        102.55,
        102.0,
        101.84,
@@ -3767,7 +3766,7 @@
        102.23,
        102.91,
        103.17,
-       103.411
+       103.41
       ]
      },
      {
@@ -3841,11 +3840,11 @@
      {
       "nome": "Dólar / yuan",
       "simbolo": "CNY=X",
-      "valor": 6.6705,
+      "valor": 6.6621,
       "unidade": "CN¥",
       "casas": 4,
-      "var": 0.0,
-      "var_mes": -0.32,
+      "var": -0.12,
+      "var_mes": -0.45,
       "serie": [
        6.692,
        6.6926,
@@ -3869,7 +3868,8 @@
        6.6727,
        6.6703,
        6.6703,
-       6.6704
+       6.6704,
+       6.6621
       ]
      },
      {
@@ -3948,11 +3948,11 @@
      {
       "nome": "Bitcoin",
       "simbolo": "BTC-USD",
-      "valor": 68306.39,
+      "valor": 65362.84,
       "unidade": "US$",
       "casas": 0,
-      "var": -4.26,
-      "var_mes": -16.25,
+      "var": -4.23,
+      "var_mes": -19.86,
       "serie": [
        81562.4922,
        82141.4609,
@@ -3984,17 +3984,18 @@
        73720.1172,
        73964.4688,
        71342.9688,
-       68306.3906
+       68249.2734,
+       65362.8398
       ]
      },
      {
       "nome": "Ethereum",
       "simbolo": "ETH-USD",
-      "valor": 1931.27,
+      "valor": 1829.31,
       "unidade": "US$",
       "casas": 0,
-      "var": -4.24,
-      "var_mes": -20.14,
+      "var": -5.1,
+      "var_mes": -24.35,
       "serie": [
        2418.207,
        2440.48,
@@ -4026,7 +4027,8 @@
        2050.1809,
        2055.8762,
        2016.8297,
-       1931.27
+       1927.5889,
+       1829.3101
       ]
      }
     ]
@@ -4285,558 +4287,558 @@
   ]
  },
  "tesouro": {
-  "data": "2026-11-12",
+  "data": "2026-11-13",
   "data_comparacao": "2026-11-06",
   "titulos": [
    {
     "tipo": "Tesouro Educa+",
     "vencimento": "2030-12-15",
     "anos": 4.09,
-    "taxa_compra": 7.27,
-    "taxa_venda": 7.39,
-    "pu_compra": 3462.21,
-    "pu_venda": 3453.63,
-    "var_semana": -0.25
+    "taxa_compra": 7.31,
+    "taxa_venda": 7.43,
+    "pu_compra": 3381.88,
+    "pu_venda": 3452.29,
+    "var_semana": -0.21
    },
    {
     "tipo": "Tesouro Educa+",
     "vencimento": "2031-12-15",
     "anos": 5.09,
-    "taxa_compra": 7.38,
-    "taxa_venda": 7.5,
-    "pu_compra": 3985.35,
-    "pu_venda": 3973.1,
-    "var_semana": -0.24
+    "taxa_compra": 7.43,
+    "taxa_venda": 7.55,
+    "pu_compra": 3982.78,
+    "pu_venda": 3969.88,
+    "var_semana": -0.19
    },
    {
     "tipo": "Tesouro Educa+",
     "vencimento": "2032-12-15",
     "anos": 6.09,
-    "taxa_compra": 7.54,
-    "taxa_venda": 7.66,
-    "pu_compra": 3693.93,
-    "pu_venda": 3678.51,
-    "var_semana": -0.23
+    "taxa_compra": 7.6,
+    "taxa_venda": 7.72,
+    "pu_compra": 3688.7,
+    "pu_venda": 3672.69,
+    "var_semana": -0.17
    },
    {
     "tipo": "Tesouro Educa+",
     "vencimento": "2033-12-15",
     "anos": 7.09,
-    "taxa_compra": 7.6,
-    "taxa_venda": 7.72,
-    "pu_compra": 3427.94,
-    "pu_venda": 3409.85,
-    "var_semana": -0.22
+    "taxa_compra": 7.66,
+    "taxa_venda": 7.78,
+    "pu_compra": 3421.2,
+    "pu_venda": 3402.59,
+    "var_semana": -0.16
    },
    {
     "tipo": "Tesouro Educa+",
     "vencimento": "2034-12-15",
     "anos": 8.09,
-    "taxa_compra": 7.65,
-    "taxa_venda": 7.77,
-    "pu_compra": 3178.59,
-    "pu_venda": 3158.32,
-    "var_semana": -0.19
+    "taxa_compra": 7.7,
+    "taxa_venda": 7.82,
+    "pu_compra": 3172.2,
+    "pu_venda": 3151.45,
+    "var_semana": -0.14
    },
    {
     "tipo": "Tesouro Educa+",
     "vencimento": "2035-12-15",
     "anos": 9.09,
-    "taxa_compra": 7.67,
-    "taxa_venda": 7.79,
-    "pu_compra": 2950.09,
-    "pu_venda": 2928.03,
-    "var_semana": -0.18
+    "taxa_compra": 7.73,
+    "taxa_venda": 7.85,
+    "pu_compra": 2941.04,
+    "pu_venda": 2918.57,
+    "var_semana": -0.12
    },
    {
     "tipo": "Tesouro Educa+",
     "vencimento": "2036-12-15",
     "anos": 10.09,
-    "taxa_compra": 7.68,
-    "taxa_venda": 7.8,
-    "pu_compra": 2739.09,
-    "pu_venda": 2715.6,
-    "var_semana": -0.16
+    "taxa_compra": 7.73,
+    "taxa_venda": 7.85,
+    "pu_compra": 2731.06,
+    "pu_venda": 2707.19,
+    "var_semana": -0.11
    },
    {
     "tipo": "Tesouro Educa+",
     "vencimento": "2037-12-15",
     "anos": 11.09,
-    "taxa_compra": 7.68,
-    "taxa_venda": 7.8,
-    "pu_compra": 2544.9,
-    "pu_venda": 2520.27,
-    "var_semana": -0.14
+    "taxa_compra": 7.72,
+    "taxa_venda": 7.84,
+    "pu_compra": 2538.25,
+    "pu_venda": 2513.28,
+    "var_semana": -0.1
    },
    {
     "tipo": "Tesouro Educa+",
     "vencimento": "2038-12-15",
     "anos": 12.09,
-    "taxa_compra": 7.66,
-    "taxa_venda": 7.78,
-    "pu_compra": 2369.03,
-    "pu_venda": 2343.52,
-    "var_semana": -0.12
+    "taxa_compra": 7.7,
+    "taxa_venda": 7.82,
+    "pu_compra": 2361.97,
+    "pu_venda": 2336.15,
+    "var_semana": -0.08
    },
    {
     "tipo": "Tesouro Educa+",
     "vencimento": "2039-12-15",
     "anos": 13.09,
-    "taxa_compra": 7.62,
-    "taxa_venda": 7.74,
-    "pu_compra": 2210.36,
-    "pu_venda": 2184.14,
-    "var_semana": -0.1
+    "taxa_compra": 7.66,
+    "taxa_venda": 7.78,
+    "pu_compra": 2202.95,
+    "pu_venda": 2176.46,
+    "var_semana": -0.06
    },
    {
     "tipo": "Tesouro Educa+",
     "vencimento": "2040-12-15",
     "anos": 14.09,
-    "taxa_compra": 7.57,
-    "taxa_venda": 7.69,
-    "pu_compra": 2065.55,
-    "pu_venda": 2038.77,
-    "var_semana": -0.1
+    "taxa_compra": 7.61,
+    "taxa_venda": 7.73,
+    "pu_compra": 2057.85,
+    "pu_venda": 2030.85,
+    "var_semana": -0.06
    },
    {
     "tipo": "Tesouro Educa+",
     "vencimento": "2041-12-15",
     "anos": 15.09,
-    "taxa_compra": 7.53,
-    "taxa_venda": 7.65,
-    "pu_compra": 1929.72,
-    "pu_venda": 1902.58,
-    "var_semana": -0.08
+    "taxa_compra": 7.56,
+    "taxa_venda": 7.68,
+    "pu_compra": 1924.03,
+    "pu_venda": 1896.66,
+    "var_semana": -0.05
    },
    {
     "tipo": "Tesouro Educa+",
     "vencimento": "2042-12-15",
     "anos": 16.09,
-    "taxa_compra": 7.49,
-    "taxa_venda": 7.61,
-    "pu_compra": 1804.18,
-    "pu_venda": 1776.82,
-    "var_semana": -0.07
+    "taxa_compra": 7.53,
+    "taxa_venda": 7.65,
+    "pu_compra": 1796.11,
+    "pu_venda": 1768.59,
+    "var_semana": -0.03
    },
    {
     "tipo": "Tesouro Educa+",
     "vencimento": "2043-12-15",
     "anos": 17.09,
-    "taxa_compra": 7.47,
-    "taxa_venda": 7.59,
-    "pu_compra": 1683.39,
-    "pu_venda": 1656.02,
-    "var_semana": -0.06
+    "taxa_compra": 7.51,
+    "taxa_venda": 7.63,
+    "pu_compra": 1675.25,
+    "pu_venda": 1647.74,
+    "var_semana": -0.02
    },
    {
     "tipo": "Tesouro Educa+",
     "vencimento": "2044-12-15",
     "anos": 18.09,
-    "taxa_compra": 7.46,
-    "taxa_venda": 7.58,
-    "pu_compra": 1569.15,
-    "pu_venda": 1541.92,
-    "var_semana": -0.03
+    "taxa_compra": 7.49,
+    "taxa_venda": 7.61,
+    "pu_compra": 1563.21,
+    "pu_venda": 1535.83,
+    "var_semana": 0.0
    },
    {
     "tipo": "Tesouro Educa+",
     "vencimento": "2045-12-15",
     "anos": 19.09,
-    "taxa_compra": 7.45,
-    "taxa_venda": 7.57,
-    "pu_compra": 1463.04,
-    "pu_venda": 1436.06,
-    "var_semana": -0.02
+    "taxa_compra": 7.49,
+    "taxa_venda": 7.61,
+    "pu_compra": 1454.88,
+    "pu_venda": 1427.82,
+    "var_semana": 0.02
    },
    {
     "tipo": "Tesouro Educa+",
     "vencimento": "2046-12-15",
     "anos": 20.09,
-    "taxa_compra": 7.45,
-    "taxa_venda": 7.57,
-    "pu_compra": 1362.25,
-    "pu_venda": 1335.64,
-    "var_semana": 0.0
+    "taxa_compra": 7.49,
+    "taxa_venda": 7.61,
+    "pu_compra": 1354.15,
+    "pu_venda": 1327.49,
+    "var_semana": 0.04
    },
    {
     "tipo": "Tesouro Educa+",
     "vencimento": "2047-12-15",
     "anos": 21.09,
-    "taxa_compra": 7.46,
-    "taxa_venda": 7.58,
-    "pu_compra": 1266.35,
-    "pu_venda": 1240.24,
-    "var_semana": 0.02
+    "taxa_compra": 7.49,
+    "taxa_venda": 7.61,
+    "pu_compra": 1260.5,
+    "pu_venda": 1234.32,
+    "var_semana": 0.05
    },
    {
     "tipo": "Tesouro Educa+",
     "vencimento": "2048-12-15",
     "anos": 22.09,
-    "taxa_compra": 7.46,
-    "taxa_venda": 7.58,
-    "pu_compra": 1179.1,
-    "pu_venda": 1153.51,
-    "var_semana": 0.02
+    "taxa_compra": 7.5,
+    "taxa_venda": 7.62,
+    "pu_compra": 1171.22,
+    "pu_venda": 1145.63,
+    "var_semana": 0.06
    },
    {
     "tipo": "Tesouro IGPM+ com Juros Semestrais",
     "vencimento": "2031-01-01",
-    "anos": 4.14,
-    "taxa_compra": 7.62,
-    "taxa_venda": 7.74,
-    "pu_compra": 8090.58,
-    "pu_venda": 8056.41,
-    "var_semana": -0.13
+    "anos": 4.13,
+    "taxa_compra": 7.64,
+    "taxa_venda": 7.76,
+    "pu_compra": 8094.27,
+    "pu_venda": 8055.95,
+    "var_semana": -0.11
    },
    {
     "tipo": "Tesouro IPCA+",
     "vencimento": "2029-05-15",
-    "anos": 2.51,
-    "taxa_compra": 7.42,
-    "taxa_venda": 7.54,
-    "pu_compra": 3998.55,
-    "pu_venda": 3986.2,
-    "var_semana": -0.26
+    "anos": 2.5,
+    "taxa_compra": 7.47,
+    "taxa_venda": 7.59,
+    "pu_compra": 3995.96,
+    "pu_venda": 3982.95,
+    "var_semana": -0.21
    },
    {
     "tipo": "Tesouro IPCA+",
     "vencimento": "2032-08-15",
-    "anos": 5.76,
-    "taxa_compra": 7.67,
-    "taxa_venda": 7.79,
-    "pu_compra": 3127.71,
-    "pu_venda": 3106.78,
-    "var_semana": -0.19
+    "anos": 5.75,
+    "taxa_compra": 7.73,
+    "taxa_venda": 7.85,
+    "pu_compra": 3119.36,
+    "pu_venda": 3097.98,
+    "var_semana": -0.13
    },
    {
     "tipo": "Tesouro IPCA+",
     "vencimento": "2035-05-15",
     "anos": 8.5,
-    "taxa_compra": 7.72,
-    "taxa_venda": 7.84,
-    "pu_compra": 2547.74,
-    "pu_venda": 2523.04,
-    "var_semana": -0.15
+    "taxa_compra": 7.77,
+    "taxa_venda": 7.89,
+    "pu_compra": 2539.08,
+    "pu_venda": 2514.06,
+    "var_semana": -0.1
    },
    {
     "tipo": "Tesouro IPCA+",
     "vencimento": "2040-08-15",
-    "anos": 13.76,
-    "taxa_compra": 7.46,
-    "taxa_venda": 7.58,
-    "pu_compra": 1784.28,
-    "pu_venda": 1756.67,
-    "var_semana": -0.08
+    "anos": 13.75,
+    "taxa_compra": 7.49,
+    "taxa_venda": 7.61,
+    "pu_compra": 1778.37,
+    "pu_venda": 1750.57,
+    "var_semana": -0.05
    },
    {
     "tipo": "Tesouro IPCA+",
     "vencimento": "2045-05-15",
-    "anos": 18.51,
-    "taxa_compra": 7.45,
-    "taxa_venda": 7.57,
-    "pu_compra": 1273.57,
-    "pu_venda": 1247.29,
-    "var_semana": 0.02
+    "anos": 18.5,
+    "taxa_compra": 7.49,
+    "taxa_venda": 7.61,
+    "pu_compra": 1265.52,
+    "pu_venda": 1239.2,
+    "var_semana": 0.06
    },
    {
     "tipo": "Tesouro IPCA+",
     "vencimento": "2050-08-15",
-    "anos": 23.76,
-    "taxa_compra": 7.48,
-    "taxa_venda": 7.6,
-    "pu_compra": 869.6,
-    "pu_venda": 846.71,
-    "var_semana": 0.04
+    "anos": 23.75,
+    "taxa_compra": 7.51,
+    "taxa_venda": 7.63,
+    "pu_compra": 864.32,
+    "pu_venda": 841.43,
+    "var_semana": 0.07
    },
    {
     "tipo": "Tesouro IPCA+ com Juros Semestrais",
     "vencimento": "2030-08-15",
-    "anos": 3.76,
-    "taxa_compra": 7.53,
-    "taxa_venda": 7.65,
-    "pu_compra": 4624.02,
-    "pu_venda": 4605.32,
-    "var_semana": -0.24
+    "anos": 3.75,
+    "taxa_compra": 7.59,
+    "taxa_venda": 7.71,
+    "pu_compra": 4617.77,
+    "pu_venda": 4598.33,
+    "var_semana": -0.18
    },
    {
     "tipo": "Tesouro IPCA+ com Juros Semestrais",
     "vencimento": "2032-08-15",
-    "anos": 5.76,
-    "taxa_compra": 7.63,
-    "taxa_venda": 7.75,
-    "pu_compra": 4505.16,
-    "pu_venda": 4479.51,
-    "var_semana": -0.2
+    "anos": 5.75,
+    "taxa_compra": 7.69,
+    "taxa_venda": 7.81,
+    "pu_compra": 4495.37,
+    "pu_venda": 4469.04,
+    "var_semana": -0.14
    },
    {
     "tipo": "Tesouro IPCA+ com Juros Semestrais",
     "vencimento": "2035-05-15",
     "anos": 8.5,
-    "taxa_compra": 7.68,
-    "taxa_venda": 7.8,
-    "pu_compra": 4448.0,
-    "pu_venda": 4414.73,
-    "var_semana": -0.16
-   },
-   {
-    "tipo": "Tesouro IPCA+ com Juros Semestrais",
-    "vencimento": "2037-05-15",
-    "anos": 10.51,
-    "taxa_compra": 7.63,
-    "taxa_venda": 7.75,
-    "pu_compra": 4389.42,
-    "pu_venda": 4351.48,
-    "var_semana": -0.12
-   },
-   {
-    "tipo": "Tesouro IPCA+ com Juros Semestrais",
-    "vencimento": "2040-08-15",
-    "anos": 13.76,
-    "taxa_compra": 7.5,
-    "taxa_venda": 7.62,
-    "pu_compra": 4265.63,
-    "pu_venda": 4221.26,
+    "taxa_compra": 7.73,
+    "taxa_venda": 7.85,
+    "pu_compra": 4295.88,
+    "pu_venda": 4403.1,
     "var_semana": -0.11
    },
    {
     "tipo": "Tesouro IPCA+ com Juros Semestrais",
+    "vencimento": "2037-05-15",
+    "anos": 10.5,
+    "taxa_compra": 7.67,
+    "taxa_venda": 7.79,
+    "pu_compra": 4238.33,
+    "pu_venda": 4340.91,
+    "var_semana": -0.08
+   },
+   {
+    "tipo": "Tesouro IPCA+ com Juros Semestrais",
+    "vencimento": "2040-08-15",
+    "anos": 13.75,
+    "taxa_compra": 7.54,
+    "taxa_venda": 7.66,
+    "pu_compra": 4253.4,
+    "pu_venda": 4208.51,
+    "var_semana": -0.07
+   },
+   {
+    "tipo": "Tesouro IPCA+ com Juros Semestrais",
     "vencimento": "2045-05-15",
-    "anos": 18.51,
-    "taxa_compra": 7.49,
-    "taxa_venda": 7.61,
-    "pu_compra": 4243.95,
-    "pu_venda": 4193.36,
-    "var_semana": -0.04
+    "anos": 18.5,
+    "taxa_compra": 7.53,
+    "taxa_venda": 7.65,
+    "pu_compra": 4088.47,
+    "pu_venda": 4178.58,
+    "var_semana": 0.0
    },
    {
     "tipo": "Tesouro IPCA+ com Juros Semestrais",
     "vencimento": "2050-08-15",
-    "anos": 23.76,
-    "taxa_compra": 7.5,
-    "taxa_venda": 7.62,
-    "pu_compra": 4091.64,
-    "pu_venda": 4036.85,
-    "var_semana": -0.03
+    "anos": 23.75,
+    "taxa_compra": 7.54,
+    "taxa_venda": 7.66,
+    "pu_compra": 4075.76,
+    "pu_venda": 4020.64,
+    "var_semana": 0.01
    },
    {
     "tipo": "Tesouro IPCA+ com Juros Semestrais",
     "vencimento": "2055-05-15",
     "anos": 28.5,
-    "taxa_compra": 7.49,
-    "taxa_venda": 7.61,
-    "pu_compra": 4120.27,
-    "pu_venda": 4062.93,
-    "var_semana": -0.03
+    "taxa_compra": 7.53,
+    "taxa_venda": 7.65,
+    "pu_compra": 3962.41,
+    "pu_venda": 4045.92,
+    "var_semana": 0.01
    },
    {
     "tipo": "Tesouro IPCA+ com Juros Semestrais",
     "vencimento": "2060-08-15",
-    "anos": 33.76,
-    "taxa_compra": 7.51,
-    "taxa_venda": 7.63,
-    "pu_compra": 4001.28,
-    "pu_venda": 3942.53,
-    "var_semana": 0.0
+    "anos": 33.75,
+    "taxa_compra": 7.54,
+    "taxa_venda": 7.66,
+    "pu_compra": 3988.8,
+    "pu_venda": 3929.73,
+    "var_semana": 0.03
    },
    {
     "tipo": "Tesouro Prefixado",
     "vencimento": "2027-01-01",
-    "anos": 0.14,
-    "taxa_compra": 13.56,
-    "taxa_venda": 13.68,
-    "pu_compra": 983.48,
-    "pu_venda": 982.84,
-    "var_semana": -0.03
+    "anos": 0.13,
+    "taxa_compra": 13.55,
+    "taxa_venda": 13.67,
+    "pu_compra": 983.99,
+    "pu_venda": 983.36,
+    "var_semana": -0.04
    },
    {
     "tipo": "Tesouro Prefixado",
     "vencimento": "2028-01-01",
-    "anos": 1.14,
-    "taxa_compra": 14.13,
-    "taxa_venda": 14.25,
-    "pu_compra": 861.61,
-    "pu_venda": 860.13,
-    "var_semana": -0.15
+    "anos": 1.13,
+    "taxa_compra": 14.27,
+    "taxa_venda": 14.39,
+    "pu_compra": 860.87,
+    "pu_venda": 859.4,
+    "var_semana": -0.01
    },
    {
     "tipo": "Tesouro Prefixado",
     "vencimento": "2029-01-01",
     "anos": 2.14,
-    "taxa_compra": 14.65,
-    "taxa_venda": 14.77,
-    "pu_compra": 749.29,
-    "pu_venda": 747.23,
-    "var_semana": -0.13
+    "taxa_compra": 14.85,
+    "taxa_venda": 14.97,
+    "pu_compra": 746.95,
+    "pu_venda": 744.9,
+    "var_semana": 0.07
    },
    {
     "tipo": "Tesouro Prefixado",
     "vencimento": "2031-01-01",
-    "anos": 4.14,
-    "taxa_compra": 15.03,
-    "taxa_venda": 15.15,
-    "pu_compra": 563.27,
-    "pu_venda": 560.56,
-    "var_semana": -0.06
+    "anos": 4.13,
+    "taxa_compra": 15.21,
+    "taxa_venda": 15.33,
+    "pu_compra": 559.99,
+    "pu_venda": 557.29,
+    "var_semana": 0.12
    },
    {
     "tipo": "Tesouro Prefixado",
     "vencimento": "2032-01-01",
-    "anos": 5.14,
-    "taxa_compra": 15.13,
-    "taxa_venda": 15.25,
-    "pu_compra": 487.51,
-    "pu_venda": 484.65,
-    "var_semana": -0.04
+    "anos": 5.13,
+    "taxa_compra": 15.32,
+    "taxa_venda": 15.44,
+    "pu_compra": 483.7,
+    "pu_venda": 480.87,
+    "var_semana": 0.15
    },
    {
     "tipo": "Tesouro Prefixado com Juros Semestrais",
     "vencimento": "2027-01-01",
-    "anos": 0.14,
+    "anos": 0.13,
     "taxa_compra": 13.6,
     "taxa_venda": 13.72,
-    "pu_compra": 1031.44,
-    "pu_venda": 1030.77,
+    "pu_compra": 1031.96,
+    "pu_venda": 1031.29,
     "var_semana": -0.01
    },
    {
     "tipo": "Tesouro Prefixado com Juros Semestrais",
     "vencimento": "2029-01-01",
     "anos": 2.14,
-    "taxa_compra": 14.55,
-    "taxa_venda": 14.67,
-    "pu_compra": 961.19,
-    "pu_venda": 958.78,
-    "var_semana": -0.13
+    "taxa_compra": 14.75,
+    "taxa_venda": 14.87,
+    "pu_compra": 958.57,
+    "pu_venda": 956.16,
+    "var_semana": 0.07
    },
    {
     "tipo": "Tesouro Prefixado com Juros Semestrais",
     "vencimento": "2031-01-01",
-    "anos": 4.14,
-    "taxa_compra": 15.03,
-    "taxa_venda": 15.15,
-    "pu_compra": 895.41,
-    "pu_venda": 891.86,
-    "var_semana": -0.05
+    "anos": 4.13,
+    "taxa_compra": 15.2,
+    "taxa_venda": 15.32,
+    "pu_compra": 891.59,
+    "pu_venda": 888.06,
+    "var_semana": 0.12
    },
    {
     "tipo": "Tesouro Prefixado com Juros Semestrais",
     "vencimento": "2033-01-01",
     "anos": 6.14,
-    "taxa_compra": 15.2,
-    "taxa_venda": 15.32,
-    "pu_compra": 845.05,
-    "pu_venda": 840.75,
-    "var_semana": -0.02
+    "taxa_compra": 15.37,
+    "taxa_venda": 15.49,
+    "pu_compra": 840.12,
+    "pu_venda": 835.85,
+    "var_semana": 0.15
    },
    {
     "tipo": "Tesouro Prefixado com Juros Semestrais",
     "vencimento": "2035-01-01",
-    "anos": 8.14,
-    "taxa_compra": 15.2,
-    "taxa_venda": 15.32,
-    "pu_compra": 811.29,
-    "pu_venda": 806.49,
-    "var_semana": -0.02
+    "anos": 8.13,
+    "taxa_compra": 15.39,
+    "taxa_venda": 15.51,
+    "pu_compra": 804.88,
+    "pu_venda": 800.13,
+    "var_semana": 0.17
    },
    {
     "tipo": "Tesouro Prefixado com Juros Semestrais",
     "vencimento": "2037-01-01",
     "anos": 10.14,
-    "taxa_compra": 15.09,
-    "taxa_venda": 15.21,
-    "pu_compra": 789.73,
-    "pu_venda": 784.56,
-    "var_semana": 0.0
+    "taxa_compra": 15.3,
+    "taxa_venda": 15.42,
+    "pu_compra": 781.92,
+    "pu_venda": 776.83,
+    "var_semana": 0.21
    },
    {
     "tipo": "Tesouro Renda+ Aposentadoria Extra",
     "vencimento": "2049-12-15",
     "anos": 23.09,
-    "taxa_compra": 7.54,
-    "taxa_venda": 7.66,
-    "pu_compra": 2014.14,
-    "pu_venda": 1989.54,
-    "var_semana": -0.07
+    "taxa_compra": 7.58,
+    "taxa_venda": 7.7,
+    "pu_compra": 2007.14,
+    "pu_venda": 1982.33,
+    "var_semana": -0.03
    },
    {
     "tipo": "Tesouro Renda+ Aposentadoria Extra",
     "vencimento": "2054-12-15",
     "anos": 28.09,
-    "taxa_compra": 7.5,
-    "taxa_venda": 7.62,
-    "pu_compra": 1411.65,
-    "pu_venda": 1386.69,
-    "var_semana": -0.03
+    "taxa_compra": 7.54,
+    "taxa_venda": 7.66,
+    "pu_compra": 1404.14,
+    "pu_venda": 1379.1,
+    "var_semana": 0.01
    },
    {
     "tipo": "Tesouro Renda+ Aposentadoria Extra",
     "vencimento": "2059-12-15",
     "anos": 33.09,
-    "taxa_compra": 7.47,
-    "taxa_venda": 7.59,
-    "pu_compra": 991.09,
-    "pu_venda": 968.16,
-    "var_semana": 0.02
+    "taxa_compra": 7.5,
+    "taxa_venda": 7.62,
+    "pu_compra": 985.88,
+    "pu_venda": 962.93,
+    "var_semana": 0.05
    },
    {
     "tipo": "Tesouro Renda+ Aposentadoria Extra",
     "vencimento": "2064-12-15",
     "anos": 38.09,
-    "taxa_compra": 7.48,
-    "taxa_venda": 7.6,
-    "pu_compra": 691.28,
-    "pu_venda": 671.56,
-    "var_semana": 0.05
+    "taxa_compra": 7.51,
+    "taxa_venda": 7.63,
+    "pu_compra": 686.7,
+    "pu_venda": 667.01,
+    "var_semana": 0.08
    },
    {
     "tipo": "Tesouro Renda+ Aposentadoria Extra",
     "vencimento": "2069-12-15",
     "anos": 43.09,
-    "taxa_compra": 7.49,
-    "taxa_venda": 7.61,
-    "pu_compra": 481.65,
-    "pu_venda": 465.32,
-    "var_semana": 0.07
+    "taxa_compra": 7.51,
+    "taxa_venda": 7.63,
+    "pu_compra": 479.16,
+    "pu_venda": 462.84,
+    "var_semana": 0.09
    },
    {
     "tipo": "Tesouro Renda+ Aposentadoria Extra",
     "vencimento": "2074-12-15",
     "anos": 48.09,
-    "taxa_compra": 7.51,
-    "taxa_venda": 7.63,
-    "pu_compra": 334.16,
-    "pu_venda": 321.05,
-    "var_semana": 0.1
+    "taxa_compra": 7.52,
+    "taxa_venda": 7.64,
+    "pu_compra": 333.22,
+    "pu_venda": 320.1,
+    "var_semana": 0.11
    },
    {
     "tipo": "Tesouro Renda+ Aposentadoria Extra",
     "vencimento": "2079-12-15",
     "anos": 53.09,
-    "taxa_compra": 7.52,
-    "taxa_venda": 7.64,
-    "pu_compra": 232.26,
-    "pu_venda": 221.91,
-    "var_semana": 0.11
+    "taxa_compra": 7.53,
+    "taxa_venda": 7.65,
+    "pu_compra": 231.5,
+    "pu_venda": 221.16,
+    "var_semana": 0.12
    },
    {
     "tipo": "Tesouro Renda+ Aposentadoria Extra",
     "vencimento": "2084-12-15",
     "anos": 58.09,
-    "taxa_compra": 7.52,
-    "taxa_venda": 7.64,
-    "pu_compra": 161.99,
-    "pu_venda": 153.92,
-    "var_semana": 0.11
+    "taxa_compra": 7.53,
+    "taxa_venda": 7.65,
+    "pu_compra": 161.39,
+    "pu_venda": 153.32,
+    "var_semana": 0.12
    },
    {
     "tipo": "Tesouro Selic",
     "vencimento": "2027-03-01",
     "anos": 0.3,
-    "taxa_compra": 0.02,
-    "taxa_venda": 0.03,
-    "pu_compra": 20292.22,
-    "pu_venda": 20281.26,
-    "var_semana": 0.0
+    "taxa_compra": 0.03,
+    "taxa_venda": 0.04,
+    "pu_compra": 20302.53,
+    "pu_venda": 20291.56,
+    "var_semana": 0.01
    },
    {
     "tipo": "Tesouro Selic",
@@ -4844,8 +4846,8 @@
     "anos": 1.3,
     "taxa_compra": 0.03,
     "taxa_venda": 0.04,
-    "pu_compra": 20285.54,
-    "pu_venda": 20272.54,
+    "pu_compra": 20295.77,
+    "pu_venda": 20282.75,
     "var_semana": 0.0
    },
    {
@@ -4854,8 +4856,8 @@
     "anos": 2.3,
     "taxa_compra": 0.05,
     "taxa_venda": 0.06,
-    "pu_compra": 20269.0,
-    "pu_venda": 20254.0,
+    "pu_compra": 20279.34,
+    "pu_venda": 20264.35,
     "var_semana": -0.01
    },
    {
@@ -4864,8 +4866,8 @@
     "anos": 4.3,
     "taxa_compra": 0.11,
     "taxa_venda": 0.12,
-    "pu_compra": 20201.0,
-    "pu_venda": 20181.99,
+    "pu_compra": 20211.26,
+    "pu_venda": 20192.26,
     "var_semana": 0.0
    }
   ]
@@ -6477,46 +6479,76 @@
  },
  "noticias": [
   {
-   "titulo": "Gol diz que dois voos previstos dos EUA para Brasília hoje estão mantidos",
+   "titulo": "Itália multa Meta em US$ 887 milhões por acesso a dados de usuários do Android",
    "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/brasil/gol-diz-que-dois-voos-previstos-dos-eua-para-brasilia-hoje-estao-mantidos/",
-   "data": "2026-11-14T00:33:47+00:00"
+   "link": "https://www.infomoney.com.br/business/italia-multa-meta-em-us-887-milhoes-por-acesso-a-dados-de-usuarios-do-android/",
+   "data": "2026-11-14T16:15:00+00:00"
   },
   {
-   "titulo": "Falha no controle aéreo dos EUA leva Aeroporto de Guarulhos a manter voos em solo",
+   "titulo": "Petroleiro bate em cruzeiro no rio Mississippi, nos EUA, e joga passageiros na água",
    "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/brasil/falha-no-controle-aereo-dos-eua-leva-aeroporto-de-guarulhos-a-manter-voos-em-solo/",
-   "data": "2026-11-14T00:29:28+00:00"
+   "link": "https://www.infomoney.com.br/mundo/petroleiro-bate-em-cruzeiro-no-rio-mississippi-nos-eua-e-joga-passageiros-na-agua/",
+   "data": "2026-11-14T16:07:22+00:00"
   },
   {
-   "titulo": "Dia de Sorte: confira o resultado do concurso 1347 sorteado nesta quinta-feira (13)",
-   "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/consumo/dia-de-sorte-confira-o-resultado-do-concurso-1347-sorteado-nesta-quinta-feira-13/",
-   "data": "2026-11-14T00:29:06+00:00"
+   "titulo": "PIB regional: confira 6 gráficos que mostram a economia de Estados e regiões - Valor Econômico",
+   "fonte": "Google Notícias",
+   "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQNGZ6TkR2Vk5KalYtaHNnN0xaTVZfVHZuUHBudldLVGIyZDhUczc5MUg3QkNULWVyd1BSV0RpWWhNaENPVjdFclZyT1hsS3NFbnRfak5SekljTGNRWUplRmItTDZjeXFTc3pIRXp1MDA1Tm9ObGhMR3VTZi1Ba09ScEVCMXdrV2Y1b2NaYm9IeHE4MWpFcHRRV1BFVS0xVnN2MVVfS3VCOS1iX1VPVDZ3Z25RMy1Jc0N3emxrQVpwRmNqV2Vmd1hxLTd0b9IB2gFBVV95cUxNOU1nZTRNbEZFeTJOeEx6RUVfNjJ2TkdtMDcxWFFPOFh1QXZUWW91LTA3UERKZFFQTmJ6LU1ldVBaYTROOWMydTVSZEdlQXplR0U3OGdyeG1aYmw3dmFuY1JXM2xudC1CTjRTVXJUck1WUFFnY3F6emJZOEhuYUllY3NEZ3ZZdWxCZUtHb1Z0ajZDRGJJQXg3NWt3blpqLTBCLTV2cVNWdWVWN0lndjZCajdMTUdlVXNSTEJzWVp5YU1BNUVrOFAyWkxUNTlHYlRaSXNrUVlpR2Frdw?oc=5",
+   "data": "2026-11-14T16:05:21+00:00"
   },
   {
-   "titulo": "Voos cancelados nos EUA ultrapassam 3 mil; partidas do Brasil para o Canadá atrasam",
+   "titulo": "Empreendedor prevê 2027 difícil para franquias, mas vê oportunidades",
    "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/mundo/voos-cancelados-nos-eua-ultrapassam-3-mil-partidas-do-brasil-para-o-canada-atrasam/",
-   "data": "2026-11-14T00:26:19+00:00"
+   "link": "https://www.infomoney.com.br/business/empreendedor-preve-2027-dificil-para-franquias-mas-ve-oportunidades/",
+   "data": "2026-11-14T16:00:00+00:00"
   },
   {
-   "titulo": "Lotomania: confira o resultado do concurso 2999 sorteado nesta sexta-feira (13)",
+   "titulo": "América Latina discute criar sua própria agência espacial; Brasil está incluído",
    "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/consumo/lotomania-confira-o-resultado-do-concurso-2999-sorteado-nesta-sexta-feira-13/",
-   "data": "2026-11-14T00:25:17+00:00"
+   "link": "https://www.infomoney.com.br/mundo/america-latina-discute-criar-sua-propria-agencia-espacial-brasil-esta-incluido/",
+   "data": "2026-11-14T15:40:11+00:00"
   },
   {
-   "titulo": "Lotofácil hoje, concurso 3829: confira o resultado sorteado nesta sexta-feira (13)",
+   "titulo": "A regra de Jensen Huang para reuniões que pode sobreviver à sua saída da Nvidia",
    "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/consumo/lotofacil-hoje-concurso-3829-confira-o-resultado-sorteado-nesta-sexta-feira-13/",
-   "data": "2026-11-14T00:08:27+00:00"
+   "link": "https://www.infomoney.com.br/business/global/a-regra-de-jensen-huang-para-reunioes-que-pode-sobreviver-a-sua-saida-da-nvidia/",
+   "data": "2026-11-14T15:30:00+00:00"
   },
   {
-   "titulo": "Quina hoje, concurso 7167: confira o resultado sorteado nesta sexta-feira (13)",
+   "titulo": "Por que o coração nunca desenvolve câncer? Novo estudo explica",
    "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/consumo/quina-hoje-concurso-7167-confira-o-resultado-sorteado-nesta-sexta-feira-13/",
-   "data": "2026-11-14T00:04:25+00:00"
+   "link": "https://www.infomoney.com.br/saude/por-que-o-coracao-nunca-desenvolve-cancer-novo-estudo-explica/",
+   "data": "2026-11-14T15:15:00+00:00"
+  },
+  {
+   "titulo": "Nova tecnologia: por que pane de 4 horas pode afetar voos nos EUA por vários dias",
+   "fonte": "InfoMoney",
+   "link": "https://www.infomoney.com.br/consumo/nova-tecnologia-por-que-pane-de-4-horas-pode-afetar-voos-nos-eua-por-varios-dias/",
+   "data": "2026-11-14T15:00:00+00:00"
+  },
+  {
+   "titulo": "Receita cancelará dívidas de MEIs vencidas até esta sexta-feira",
+   "fonte": "InfoMoney",
+   "link": "https://www.infomoney.com.br/minhas-financas/receita-cancelara-dividas-de-meis-vencidas-ate-esta-sexta-feira/",
+   "data": "2026-11-14T14:56:15+00:00"
+  },
+  {
+   "titulo": "Pane nos EUA afeta voos da Latam, Gol e Azul no Brasil; veja o impacto e o que fazer",
+   "fonte": "InfoMoney",
+   "link": "https://www.infomoney.com.br/consumo/pane-nos-eua-afeta-voos-da-latam-gol-e-azul-no-brasil-veja-o-impacto-e-o-que-fazer/",
+   "data": "2026-11-14T14:43:08+00:00"
+  },
+  {
+   "titulo": "Endrick gera prejuízo? Por que Palmeiras pode ter “custo” de R$ 72 mi com transferência",
+   "fonte": "InfoMoney",
+   "link": "https://www.infomoney.com.br/esportes/endrick-palmeiras-custo-transferencia/",
+   "data": "2026-11-14T14:40:00+00:00"
+  },
+  {
+   "titulo": "Crise no Banco do Brasil: entenda as causas e os possíveis impactos da situação - GZH",
+   "fonte": "Google Notícias",
+   "link": "https://news.google.com/rss/articles/CBMi-gFBVV95cUxPemIyVXFSVEwwSXZkTjl5SjAwRmlZd2J3SG5YaFl3ZVlzbFQzOHlBbW9oZm82SjduNmt2SkpIMl80b2NmUUZTNDUzSWZmQW5zWkJYN0lxTDd6YWl5YkE3TjI4R09RX2NqOTFodlU1Slo4aGdCcjFkTnZyM1Z0dnlQNW9kVVV1X19kNG9MTHVnWlpybWhZdmJfbnJFWFI0MThJU21KaDdLbzNUb0xtZ3liZndSUDEwelJMUXdNeDBCN0NiYlFwZURXTXJYT2w3LXFieFZ2VFBIZ0VyVHhpMDdaY04wQWtBM2ViUVk5dFRXNENjbWNUemZDM2Jn?oc=5",
+   "data": "2026-11-14T06:56:14+00:00"
   },
   {
    "titulo": "Anac orienta passageiros a consultar aéreas sobre voos para os EUA",
@@ -6525,34 +6557,10 @@
    "data": "2026-11-14T00:00:00+00:00"
   },
   {
-   "titulo": "Falha do tráfego aéreo não será resolvida de forma rápida, diz secretário dos EUA",
-   "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/mundo/falha-do-trafego-aereo-nao-sera-resolvida-de-forma-rapida-diz-secretario-dos-eua/",
-   "data": "2026-11-13T23:54:40+00:00"
-  },
-  {
-   "titulo": "Alta do dólar: veja como a moeda americana afeta os preços e o seu bolso - Gazeta do Povo",
-   "fonte": "Google Notícias",
-   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOVW1vekFESFhuRDUtSjdIeUJ0UWFUZDZIS2RzQjRJdC0tUXNmdzlKQjhtOHh6Nk9NeGhKbFkzNWQ2NmowWGNRUnJ3UnVFdl80NmgtekRCa1NXcDA2RzVOcFU1dDlkX3ZkUEJXeEIzRFNVcDVOYWJBSVBucG5iUHdBcTVwRmNESFJBYjIwQ0xpTkFvbWZZR2hJTDA0dGpNSFY2cFU2YlZmZnVXaFllV3UweQ?oc=5",
-   "data": "2026-11-13T23:16:00+00:00"
-  },
-  {
    "titulo": "Receita cancelará dívidas de MEIs vencidas até esta sexta-feira",
    "fonte": "Agência Brasil",
    "link": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/receita-cancelara-dividas-de-meis-vencidas-ate-esta-sexta-feira",
    "data": "2026-11-13T23:08:00+00:00"
-  },
-  {
-   "titulo": "Serviço Nacional de Meteorologia dos EUA relata problemas de internet em todo o país",
-   "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/mundo/servico-nacional-de-meteorologia-dos-eua-relata-problemas-de-internet-em-todo-o-pais/",
-   "data": "2026-11-13T23:07:15+00:00"
-  },
-  {
-   "titulo": "Japão x Brasil: Veja onde assistir, horário e escalações",
-   "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/esportes/japao-brasil-onde-assistir-horario-escalacoes/",
-   "data": "2026-11-13T23:00:00+00:00"
   },
   {
    "titulo": "Governo não renova subsídio de R$ 1,40 ao diesel importado",
@@ -6573,22 +6581,10 @@
    "data": "2026-11-13T21:53:00+00:00"
   },
   {
-   "titulo": "PIB de SC cresce acima da média nacional e estado se consolida como a 6ª maior economia do Brasil - G1",
-   "fonte": "Google Notícias",
-   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxQMHZvMW5jNy16RTFyN1hOUm53a2J6clNWdTk4UEw4a2k0VWp3MEtLSlZ3TVVad04zUkFVOXJob1o2WjJaQ1dLc2F4QzlMU0ZZNlduVjVvQmd0Q0syQ2lKUTVjUmM0SzRwLWpOU0JaYXFvaUJYOVJqZHllVE4xRnRDOFVBMDJyMUlsemgxYlVHemtqMEpSQWlPTVhKLTlZd9IBrAFBVV95cUxPeFFwS19xb2x2cTd6M2daMGpTNnk3LUJMUUZ2RGx0c2x2S3F5ZlJIc1k0dzBIR2ZQdmJweF81Qml5a3F3NDdDaUdZVk5YdnhQUTBNWjJob3NqZDVMTFB2YzNzeHVUNHNGckpISmE1bktLbDlFT1pWcDZyS0oxYkJHQXBrbWREQVZSd2NrSmdudGtvOUZIRTViOUxCb29QeHM2Q0VwZWExTzRnMlM1?oc=5",
-   "data": "2026-11-13T21:09:49+00:00"
-  },
-  {
    "titulo": "Confiança da indústria atinge menor nível desde maio de 2020",
    "fonte": "Agência Brasil",
    "link": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/confianca-da-industria-atinge-menor-nivel-desde-maio-de-2020",
    "data": "2026-11-13T20:29:00+00:00"
-  },
-  {
-   "titulo": "PIB da Paraíba tem o maior crescimento do Brasil em 2024, diz IBGE - Jornal da Paraíba",
-   "fonte": "Google Notícias",
-   "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQLWwtVEswVWpQdWNWS1R1RVBSZHBnRERjYzhDYy1GZEd1OVYxMll3dEF6NFg2VG43bGVkVGlxYU44LXdReDNUVG1WY1RPblhSY0s4YkdJWlBaRGlSTjZFNTl5Z0drWGtkc2lkdUlqaWVzWTROeGUzeGxIQmJIYmg5S3FueEtuZGFCZkRwWDZsQWg1TkNXX0o4U044X3RJME9Dd1oyZkpoNNIBsAFBVV95cUxPejBfdTNPMGh5ZDM3QnN2T0NCNkVVbHVCOFQ4S3QzWGk5YXdxeS1oaHdCanhuX2tiblRlT0t0cW1teEN1dVptNGo5WUdZa1JwZEkydkFCWTZKbk9tTDB1THQwb045QmdLSkF1cU5CVGR3cTlmZXdOV2JybjczazQwa3dsV2gzLWxzSHZ2Rl9PbDJrWmNrXzFRVDFyM2NwbGstSkVtRUZ5Nk1kRGxPUmpIXw?oc=5",
-   "data": "2026-11-13T18:53:43+00:00"
   },
   {
    "titulo": "Associações do agro rebatem BB sobre alta da inadimplência",
@@ -6603,10 +6599,28 @@
    "data": "2026-11-13T18:22:00+00:00"
   },
   {
+   "titulo": "Brasil tem condições de reduzir juros para 7%, diz André Esteves - Poder360",
+   "fonte": "Google Notícias",
+   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPSWdzWFViZmNnbVAyenIyZmtkYWg3QlhCbE9LcEdWVUV0em9UTUZWazZDQXZrVlVybEZOc2EyMXI4WmprVnhNMDdlc3NheG5wRTN5TlFBeWhYRmY5cFlfekNBSE5JM1NPQ2NGU1pmREt1c21Od2dlR3RGaDVKUG9LMkluQVpHWWZpY2N0SXBpNXpOenYxQ2EyeFo0Vmt0Z1l3QjhxZWNmT1k4dw?oc=5",
+   "data": "2026-11-13T16:24:11+00:00"
+  },
+  {
    "titulo": "Galípolo: Brasil precisa de mais produtividade para crescer - SBT News",
    "fonte": "Google Notícias",
    "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQd1JMUW9IUDd5bVpuMVlObDEyWFV3c3h3QzhuUk50SW5vVGtKX09wcV9NRS0xQmlYSFk1Y3FsbmpJYU5oSERIc2twQmdhYUVNeVJhc0Zjc2phbFIzSHVPelRwNEZ4UjVCX3FSWHFkeVQ1R1lhWm1aM3ZTdEx2Y0hteU5tOERYMklLRVlDcHVnTTYwMktVb1FFdHQxZWtjT3JmYlVxQg?oc=5",
    "data": "2026-11-13T16:02:58+00:00"
+  },
+  {
+   "titulo": "Coca-Cola Brasil destaca protagonismo de brasileiros em cadeia que movimenta mais de R$ 80 bilhões na economia do país - A Crítica",
+   "fonte": "Google Notícias",
+   "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxOOXlzV1ZjY0NmTzRKcDVseUhsZ0Fsdjd5a0VOMzRYVElUZGVjQV9RLThDWDJuRXg3eXpwZ01ycDh0WnpvcEtKUDR5Ujl4Nm9CM05GZ2YxZVM2SnEyaGktdGFrbElFN3c0RXVaa2p5aTBfU0V6aWtLNjhsUEF1azdXLWFVc2pZWUFwMDB2dDRiS2x2Tk9DcGxzSzlEX3VZX296aFVpZmxlcW1Gak5xdUUwT3RXdERPckpUSU1XUGxrMkUzMUtCVkJNME5FWTdJdFMxRWNjalRYZ1FIYWc1dVZlT0dlVUg0WGM?oc=5",
+   "data": "2026-11-13T15:01:06+00:00"
+  },
+  {
+   "titulo": "Ala do PT deve resistir ao ajuste do governo que prevê economia de R$ 60 bi - CNN Brasil",
+   "fonte": "Google Notícias",
+   "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOZGJlSVFoRzIzOEZfN25aT3VsMXRCdFRWbk5FUHlVUHpzemkzX0JGUlFBek5lVE9xOThVODQyOE1KR2FpYnl5a01fQzRSelNuZWh4cjdjUkhmZGNBc2Jyd0xKN29XRzRxcHp4NEZhbnRFNVdtSVZyZjU2SGRNOWxPN0ZQQ0FUWUtkRWNsMnF6Nk1RUUtYNzY1NEoyeG9GS3FRV2I4dUtRSnhZRnlxNU9qQmktd0NJSG05MjJOS2tqTGFza18yU2p2cUVjVTM?oc=5",
+   "data": "2026-11-13T14:54:01+00:00"
   },
   {
    "titulo": "Ex-tesoureiro da Caixa é condenado por desviar quase R$ 890 mil",
@@ -6627,22 +6641,10 @@
    "data": "2026-11-13T11:42:14+00:00"
   },
   {
-   "titulo": "O que pesquisadores propõem para acabar com a pobreza extrema no Brasil? - Estadão",
+   "titulo": "Caixa Seguridade informa ataque cibernético e vazamento de dados - Agência Brasil",
    "fonte": "Google Notícias",
-   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOLU1tOGVlTkJ3TEpCbUdmODQtRWlocHhITWJpMDlpVVFlU2N4MzhaaS1XWlcyS1NqQ0x2TWhTal81YWFhcDExbnlROG4yNUtYTDlqOXNwSmgtSVV5aEY3V1VSTjVSdUcxS1VZck5WaFVjNHBRVHdLbzN0R0lTN3lpN0c4Z3RYWEF5cTczbnRrM3J5aDFEQi14U0pQT3NReF9JRlpPd1NGZll1a0Jo0gGyAUFVX3lxTE9QeF8xUnJPUnBWX2VmcEVzcXZEaDJQUkdDV0ZobW56eTFVbjhKMzE4SEdtX2tjbmgyRVZnYjZQSUZwRW5SZ3dETGppY3JhRmdNMzYzYUxraWpvVlBYd282VlYxRFJPci1fWmpJY2hhdWxsdWlURmRjVk1fRXZiT0VTWWdtM3IwY3FoV0lobTZfUEVJZURzUUktVWdkT2U2VTlESWRLR291ZVNOeklVRExVUVE?oc=5",
-   "data": "2026-11-13T03:00:00+00:00"
-  },
-  {
-   "titulo": "Senado aprova texto-base de pacote que prevê economia de até R$ 60 bi - Agência Brasil",
-   "fonte": "Google Notícias",
-   "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPcXZqUUo4LUlxeWRIbXNjVmx6YUFVcmxyUmJiVjhleFVNY181M3M1bHh0TUdnTks2dHRqTW5WMlJHbFhlZUFlRVlZRzBpbGs3aEU0MEpMRTNsejVlTXZlS2xQODVwQnc3TEI0NkhzUElkVjVZbXpGRmdPajhwaWJlX1NNX2xyQ1VGX2dLaDhBRnhIUVRyOGs4d2xtRGVMeW9EWG1VME1yR2JlLU1fZVFkZU5NRXNRRXl6VHNiVTludXFqenBq?oc=5",
-   "data": "2026-11-13T00:54:00+00:00"
-  },
-  {
-   "titulo": "Senado aprova prazo para conter supersalários e deixa economia nos órgãos - Metrópoles",
-   "fonte": "Google Notícias",
-   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNbjZQcmJMVVFkZFlwMGhwZXFmZzF1cDJqWjVnM2J5NFFwUHIwV0pkV2hBNThCaF8yS2tuR1hEY29uS1BKeG5xN1RmeHNoVUNvNFIzeTRkRkVycnFqODJDWHpHUjFjTENJS3ZDUlJMOWZqd3RrTHk4RnZEZkZRUlB3T0ZTZ1BSa05fN0daeDhWcGhXbWlBank0Y1l0YllnWTZENzUyX1dKQ2M0d1k?oc=5",
-   "data": "2026-11-13T00:53:00+00:00"
+   "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQdUc3RmM2SS1faFpSQXVEZ3dBeFM4VnpUTUFVMEV4OV9FVDRiajhTX2pMSHdaWHh4MEZ1aG9NTU91RWozZU5iNzdsZGdPZFpOUTkzcVpzS1dnSERiOGUwbjRmbVZYbWVDa2JuUFBFdTltdmNPTnBjbzlsNTE2NVNxRkJKd2JWSUtuT2dBaFFHMjZIT2JCUERRT3Jpd0xjTTE5SkNGOXVxVWNkS2w1TzFOQUFLaW9RbnRPeWt0Nkc0OA?oc=5",
+   "data": "2026-11-12T23:06:00+00:00"
   },
   {
    "titulo": "Caixa Seguridade informa ataque cibernético e vazamento de dados",
@@ -6651,14 +6653,14 @@
    "data": "2026-11-12T23:06:00+00:00"
   },
   {
-   "titulo": "Ajuste fiscal: Economia com supersalários pode virar reajuste no Judiciário - CNN Brasil",
+   "titulo": "Além das tarifas: o que o Brasil precisa fazer para proteger a indústria do aço? - InfoMoney",
    "fonte": "Google Notícias",
-   "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPQXBERTdQdWl0aEdKTDgxRDdGWlhFd25qY1k3S01LNmp5dTdhWFVvTXFqa1lLLWJtd212Z0liMlM0dHZKS0VhYVpWRlJYY3hoYy1fUUJKRWVfUy0wUlZjMzAydHZEWU0wSnpZQXBCbThvVE9wMXBaYXpYSkt2eUFrbzZ6Tl9JSXBCMkkycVFMLXFWNmp3M1V5TUR3TElOUW1EYkRERDRwQ0MyNGxyQ05uVHZaei14cm5JczhHT1p0VXh2eDlyalFUaDVjN014QQ?oc=5",
-   "data": "2026-11-12T23:04:34+00:00"
+   "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQN2h6MGVWOWVJY1pUOFdwYVBqU1cxS1lkQ3FReUdwNnBYdWpFampTTUpjeEFfclo2TjNfMUxZdDl0d1FRc2huRDhKZXdwNVZpU0Q0SXdGWTc4RVhjcFVDbERYSFRBbWp0aVB6TWtjQzBpVmhUN05wUzdZdHcwdTB2ZDRfckpSeWZ2UGxqYmFtZzhpRUNoX1U2QnpITGZ6dEdxazRPdUNJc2dBUi0wZjJuWkJhemhRczNm0gG-AUFVX3lxTE1yYkpYb0RQTGVTM2FYZkw5NkQ5VnEyaGRzV3dxbks5VjBramtIT2k5RTRITlAyOVB6a25sQUIyNWhyeXZFd2EwZTlxU2RUbzI2VGhtdl9rWTJQZkJ6ellpbzlYWURmVkxVdFBSaE83VnV3YUZIdFl2aE44Ym9wN0V4bTFSM2hOVEhfQXdDMjNRd3djZXgxTWRuM1Z5cEg1R0xaU2d4bUVGTFdwUmlRVjA0YmdRNGIzQ0lCQTkzSWc?oc=5",
+   "data": "2026-11-12T16:11:33+00:00"
   }
  ],
  "noticias_ativos": {
-  "em": "2026-11-14T01:00:21.842762+00:00",
+  "em": "2026-11-14T16:16:16.821805+00:00",
   "itens": {
    "^BVSP": [
     {
@@ -6692,10 +6694,10 @@
      "data": "2026-11-11T13:26:27+00:00"
     },
     {
-     "titulo": "Ibovespa desaba 13% após eleição, em dia de circuit breaker; dólar dispara 8%",
+     "titulo": "Ibovespa termina em queda, com inflação nos EUA e Copom; dólar dispara mais de 1%",
      "fonte": "InfoMoney",
-     "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOWDA4WW8xM2FMNUpXZTEtX0U0Qlh4bVFFa3kwaEpuMUJSNVhDN3F3TFktVUJzdzZ6RGswaUJxd1hOWllGUVZsS00yeWh1SzhOUlFScjZaUkxTRGtWcS16MldJZlo2aEVyZ1Z6Unh0M1BoUlJuMHliTTlCc0ZCN3d2OWhyQ1dkbDdwQWVROVFBcw?oc=5",
-     "data": "2026-10-26T07:00:00+00:00"
+     "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPSG9wT3Q2NktUY0lNNUpXdDVucjJZMHoyYXdXeUVERW5fLVBTZ25XWnQtaUJRSm5xOU9sMFhLeElrR2RSMVVjMzFzU1lvc0RPd2ptRnNVRFNpMkdWYUluZFFlb0hWVFJzaUJ6X3V1amp0UnY2VHhhREpxeEliRDdSSm1EaEh5WERXbVpGRi1Taw?oc=5",
+     "data": "2026-11-10T21:26:25+00:00"
     },
     {
      "titulo": "Análise Técnica do Ibovespa (IBOV) - Gráfico Diário - Relatório",
@@ -6704,34 +6706,34 @@
      "data": "2026-11-11T08:00:00+00:00"
     },
     {
-     "titulo": "ETF brasileiro sobe após tombo do Ibovespa; veja o que esperar da bolsa",
-     "fonte": "Investidor10",
-     "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPaXdpVk9WVVRCcnNuY3RxYVVaRFlmYV9uQ05hZEtWcm9KUEtpMElpeWRSWFZRRHd4d3hfZnpaZTVLTTJFeDJBSGpYdlFxa1JGTnNLMzZkdFJFc2w1dXp5aVp1RDNaVkFtOEtZZkRHNmhzY1ZHcWZyMzZLSDI3SzFqYzE5Z1NHZUJNQUp4N2xfOTNINHBEdlUtd1VnY3FVRVNiMEM1aGx2Q1ByeDFwRng0aVlsQkhNQdIBuwFBVV95cUxQT2U3ZEl1V1dEY3FvbHVUaHRna3NWRVF6cWR2Q0xIQXlBclBWYTJ5VTZBM1d1VFRTTEFDM3E5ZU1QUkdwOTBfc1BNY2hZZXhUYnFJMUdzenVyTllUdW1ycGt4QUlYZ2kyYS1tM1NMODJLbThaTWhMdzR1YkgzZ1FXd29UNk5VZDVsaE5WdVEybG52aUJiaElZb1JsY0ZOM1U2SWM2eE0xazAzUXZjaTZ0ME5TUXd0NG5USGZZ?oc=5",
-     "data": "2026-10-27T07:00:00+00:00"
-    },
-    {
      "titulo": "Ibovespa cai 2,68%, e dólar fecha em leve baixa a R$ 5,34",
      "fonte": "Agência Brasil",
      "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQSHhXUU85YmRFeFhnRElQb2N6dG1WUUFvMWFmQVdvSHdBQUV2TUpUSjJTb3lKRlYzMDVEVTdwM2xjbk1vaWZLS2xoYjRUdzZXVk9WUEZfbmlZS1dzOExCWGRhUnFvbTg4UHFOclJmcFRfYVdmenFqb2tLVHFqdlFtQnJUcFZEN1RuYURGOXFCekVfQTF3QnYzMHBRR3FSck5tLUQtVlVOTVNpZHpx?oc=5",
      "data": "2026-10-28T07:00:00+00:00"
     },
     {
-     "titulo": "Após Copom, Ibovespa fecha em leve queda diante da sangria em NY; dólar sobe a R$ 5,49",
-     "fonte": "Valor Investe",
-     "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOeG9CNW1VbkRpRDhoT003OGpuNFNTUTd4VTV3Uk02c1ZTeVozNjhuNlB4bk1ta1dOV2duZy1rb09EWFlvczJ2dGZGNXRZaTRFQzdkY0x4WHl2eVNQNFBHS0Q2Y3RUc0h5aXhkTUFrXzdxVy1QNWZmWmtHeEhSRTJ3R1lKQjFic1NaTmsyMFk3TkIzZW04Ry1HOGtBd0RGWVpDR0NwZjY2UVdTT0dDX19vejhkamhEMGhxdkZCZ0E4OU0tRDRSaXdjbXVqZTVSY2dRT0FqUnZYSdIB5gFBVV95cUxPMmY3cjRMMlptdHN1a0pkaVRja1V5Sjhlc2hWNTIzVGlUSENGbFpONTZCRDlTU09JVGdROXJkQUpsYWdycGgzV0ltN0F5NjMtaFVjcW9hZWJhQmRqekNPenpoM1g2Z0FnNnlqYmI5R2d3MXFQX05qYlJBeE5BVG1acGxLYjU1aThxTGlVc05VUGQ3SkQ0bzVqa1ltY2RHNkljWlJpVEd1OHhSaGtSRkt5WkxzYkgzRjJzVTRqMzBDYUxEQ0VGNjRJRkRmcDZINUktVUFoNUl5QUZaVWZNNFJXMzRsb05wUQ?oc=5",
-     "data": "2026-11-05T08:00:00+00:00"
+     "titulo": "Ibovespa: tombo de 18% iguala semana de 11 de Setembro e chega perto da pandemia; o que esperar?",
+     "fonte": "G1",
+     "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQeUJ5akJGX0huLTNTeldzT2VKVmFZOU1salpVZ214bEh6UVdLdGNGdDRvMi0zUU1BNDN4N0VKd2xpcVBZMi0tRldVVGQ3b1RCRHRuYlVEdDV4b3lBUXBpRHdLajFSd1pjOFk3X0twNUdqVDVpdDlzWEtpM2l6ZlFjVjh2b2lRLUt0YUJxN2c4X0FnS0Vu0gGjAUFVX3lxTE5wRHZFbFlFT2QwUFkwMXJPUEdrcVF2Z2pEQkxzZV9aM196Wk5Xd3lIcHBHV2NPYVlSRFROQUdEck9DVllnOHlpZVNqa2ZTY3doS2oyaU4tLTN1WWsxdWpyMndCTUU5emdQUHl4Rkk1bVBBWkJwcnFUSE54NkQ1TDBSbjRCYTc4REo2NG02X0QxaXZWWWpRc3NQblhwOXlueVlFLWs?oc=5",
+     "data": "2026-10-31T07:00:00+00:00"
+    },
+    {
+     "titulo": "Ibovespa retoma o caminho da vitória e tem segunda semana positiva; dólar sobe",
+     "fonte": "InfoMoney",
+     "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPUF94d1lCTTNSVFQ3NTFXUkFWUjFLV2I4Qi1rREVaaDBLZHFXT01uR2dhNjdLcV9sSWV5M3ptTXoyWHplOGsyTmRxTngwbHhXTUpmXzZ5VVF2b3QzRVdaR1hLeHFhVlN6V1dVQl8xZ3Zya1ByU0FTMnptUWlOazN4NFBMUkNNdklHcHF4QTJ3SQ?oc=5",
+     "data": "2026-11-13T21:28:53+00:00"
     }
    ],
    "BRL=X": [
     {
-     "titulo": "Dólar fecha abaixo de R$ 5 e recua 1,58% na semana",
-     "fonte": "Agência Brasil",
-     "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNSXNwX3J1R2VEeHFkMkxOMGh3cy12RzNQUDFFWS1zSDhadVB2SjRoUHJ2VEZtY1FPUWJLU1VtWUJhZXJLMkEwVXlhMUZsd01BUjVTSmp5ZE9kSC0wRTR2UF82TGd2YkRidkcxQ2p6cF93LVplNmRuRFVZUVg0WmtTZS1xdUJpUDlHdGxLa195eHYxWXNZNFFmQXB3OWlVeEZPYzYyM2dFa3c?oc=5",
-     "data": "2026-10-23T07:00:00+00:00"
+     "titulo": "Real cai 10% no mercado futuro ante dólar após reeleição de Lula",
+     "fonte": "InfoMoney",
+     "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQT0dUMFE1SlVSdGQ3Z3VzVnpkVGJuYVg0QVIzaFR5YmxhYUdXek8teUdGYWJSOUpJSkJHdWlGeUhpOUhfY00zWDVKeF9LUUMyRnczV3lxM0NCaHRxQl9tazcwX2pqSWJZeWYtVEs1ZVc1Uk9peEk1dGg3S1FhcDU5ZVBsRlUwS3dpWklmWTRMNDVVakkzcHpKV1VFd3RkTjM3M3RRYdIBqgFBVV95cUxOSlExcGx6MGdZSlpyWkJWQnEtdFNfRHJpUFgzQUo3VXRFVndWM3hmTHRZVUhoaW9wRzJCY0lTMVY2U1VEUTNNOVhISlRpYzUtR1ltUnhraG1XSng3VzBOLTVGUDFTSklxS09Ea2ZQVmNxYjNENjljOGM5STBfa0hSTm1MYzltY3RtNm5HTHBJc3V4VGVxcDlhQmxIdDkwNzZ4WW9EdEFtQ3Q3UQ?oc=5",
+     "data": "2026-10-26T07:00:00+00:00"
     },
     {
      "titulo": "Dólar: como a vitória de Flávio ou Lula pode impactar o câmbio, segundo analistas",
-     "fonte": "Bloomberg Linea Brasil",
+     "fonte": "Bloomberg Línea Brasil",
      "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNODJRcEZqSXpyaDQ3YzdfdFZKSWEydHB2WFZ0MDdQQXFjZ2dwSUE4LXNrMTBKTThqNXFLSm1jLWlpLWRIMi1USW1PM3cybm5xMk9jTG5zT1ctY052bEhKaDhoNzl4VS1KVEZ1N01Ia283ZDBybzYwd1N4MlU4WnFWUk0tMjFkWVhQOTlJNEdLZVRidjFHcl91R1FFVTFXNTMwejRSN2JpSDAxbkNmb1hWOGJPNnl1VGN4Wnl3akZqclrSAdQBQVVfeXFMTUFCZ1pWN1R1RVJqRVJSWEhpemd1WjVLVk9KaEE5SDRrOVZtdGpsRWY3bk94aWhrM0dLSUU4MVlLRFNZQzBZUGNfdTEwUGxMZWdmZWZvZjQxMDNkcl9RaHc5aDQ1NFRKYXlKSC1jd1hrOWt1QVJsNHF6eUp2a09lN3BQT1FnYUxScGFvODcwZWF2XzVtaldBb0ItWC15Z3NpYVNGaHdoZXR4WHNyUk9vSzJ2bVF4NlZsdG9LM0hBQWdqN05TQzd0SUpkYWxxMVYwd2R1SFc?oc=5",
      "data": "2026-10-23T07:00:00+00:00"
     },
@@ -6760,41 +6762,53 @@
      "data": "2026-10-26T07:00:00+00:00"
     },
     {
+     "titulo": "Dólar futuro sobe a R$ 5,58 e ETF do Ibovespa cai 27% após vitória de Lula",
+     "fonte": "UOL Economia",
+     "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPQ203LXo0ZmFDaDhNa2xLSVc0Q2hnek93MlBkTjVTclFMLUR3UzZGZmkxR2FhTmdHMVhWQUhnTWdpV0g5dmlLbTZYQ1dqYlFlQXdLUEtqOGFQTHVzeF9HaGhZc2ZkRHc2aWNrMnQ5bnBwSkJzX1pheG1Majh1UFZMR2k2RXk5R0ZVVnkwUmkzTFpHSHF2cXVDeHBybEtKRzRVZmQwalhpSEhOSEFsTl9UTXk5T3IxU1FSc1RfZE5OekZxaVJGQkdlX2d6YXM4MS1WUmI2Vk54ZENpZw?oc=5",
+     "data": "2026-10-26T07:00:00+00:00"
+    },
+    {
+     "titulo": "BTG projeta queda de 30% do Ibovespa em dólar e juro real em 8%",
+     "fonte": "Brazil Journal",
+     "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNTGM5aDZMUHBjNkx3SU9NdGYtOWIybFdyZ1dCSXBYTDBhdWJ0a1JBVXd2cE85UjQxbmNicERGUm0xNVhRekxjUElmU1VtcUxySTJUY0swSjlZVUp0LTYwblo1SnowTTduNnNleXpwOWVPZXNIdDh3a19Ea08zM0xiX1FON0xJUFRDcE5peHBSTnY?oc=5",
+     "data": "2026-10-26T07:00:00+00:00"
+    },
+    {
+     "titulo": "Real despenca mais de 11% no mercado futuro com reeleição de Lula (PT) à Presidência",
+     "fonte": "Money Times",
+     "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQMEt1V0VsMWZqX0V0WG5LLXF1V09YX1NQelVsbWMxWDYwUUJvbEpJY0diNHFQX3BycUdtNzlYc1VDbkZNWEpIakxZcHpoaTl5MXdGRHFRX2JFcWdFTVVHWmdBZ1FSa0p5RFlpcWFJLWJFUHBEVlNWZVlNZy1kalBoekpDYWw4cFN4UnZpVXVQU1kxYVFRTUZ6LU5sYXM5TE5XU2YtTWo0TUJpMmJSZlF5Y0hR?oc=5",
+     "data": "2026-10-25T07:00:00+00:00"
+    },
+    {
      "titulo": "Dólar hoje: moeda se aproxima de R$ 5,60 com pressão fiscal e Ibovespa em queda no Brasil",
      "fonte": "Portal do Agronegócio",
      "link": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxNTkJhUGRCRUZIeXRUZklTRnlEQVd6Q01sWFBVNDFjUjVSbmU2X0JHUlF5dVpEWVlndGtJcEJvNXVGOUlZWmpQbTk5UFRfaHhUaUVaUmdGT1FrczBVcFptSUcweHphdTRVVlVJRFo4NnNpTFA4OG9zN1c5SkNOZnkyOU5UWmE0aUZoQkI0Z1F3bmUtOUZQYmk4SzNPR3dJRUk1RVJBeHRYb29JVnV0YnFsemYwRU8zZkJYbWt5S2h3ei16N3dWNGpYT2JrTGpWYl9RNTFIaVR6Zms1c3IxTXdHSVZPMzlrZ09XYVFzU002Y3k4Qk1VNGc?oc=5",
      "data": "2026-11-12T13:59:00+00:00"
-    },
-    {
-     "titulo": "Dólar sobe até 12,2% e testa R$ 5,60, maior cotação desde junho de 2025",
-     "fonte": "UOL Economia",
-     "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPc3lJYkdGRzRfUzBWSHF3VWNTUTdjVmN2S25Ib3ExZlVpT09sUUtwTDhwWlZ5TzZMRDlpVEVQak90c2JVanlrSVVCSUl3d21rUk91Q1JMT3BBd2JsbjBWaVBPQkpJd0gzOFUtYmJrM2dUZTRVa2wtaF9xS0w4QlFCN01tR1ZvQk1VUEw2V056MjZ6aTJlaElDS0Z6ZEdXX25YMGpZa3dQQzJKdDBSZlZpWFU4YUk0eC1RRHI0V0l6ZVZLRE5UTDFuS0F3?oc=5",
-     "data": "2026-10-26T07:00:00+00:00"
-    },
-    {
-     "titulo": "Dólar sobe a R$ 5,5860 com inflação dos EUA acima do esperado",
-     "fonte": "Money Times",
-     "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE93VE0tN2tWbm9DQjhzdll6NjdIQnRUN2JPNFpNY3NzTW5JVEFKYmZUaEJxOGRDRGRSc3k5MjhGTTJRVllTVW9YeDA0eDN4WFJUX1phaFVqQXMzYW1PRXhRaXBn?oc=5",
-     "data": "2026-11-10T20:55:18+00:00"
-    },
-    {
-     "titulo": "Dólar hoje: veja a cotação da moeda americana e faça a conversão",
-     "fonte": "Toro Blog",
-     "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTFBjdzBkNGU4YUJKUGVmS3VBNGRHMFIxYVUwQ2JJbHVwYTk1RkRpU1RzUVdkbVNYTnRpSFlTRGVrcTZmOXlpZ1Vwb21DSzZZS0I2TTlJaGVjMDUyRGttSnBDQ0xMMVhtaHdYUl8yX21ULVBiU0s1QVNTa2V0b0VUUQ?oc=5",
-     "data": "2026-11-04T08:00:00+00:00"
     }
    ],
    "EURBRL=X": [
     {
-     "titulo": "Dólar: como a vitória de Flávio ou Lula pode impactar o câmbio, segundo analistas",
-     "fonte": "Bloomberg Linea Brasil",
-     "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNODJRcEZqSXpyaDQ3YzdfdFZKSWEydHB2WFZ0MDdQQXFjZ2dwSUE4LXNrMTBKTThqNXFLSm1jLWlpLWRIMi1USW1PM3cybm5xMk9jTG5zT1ctY052bEhKaDhoNzl4VS1KVEZ1N01Ia283ZDBybzYwd1N4MlU4WnFWUk0tMjFkWVhQOTlJNEdLZVRidjFHcl91R1FFVTFXNTMwejRSN2JpSDAxbkNmb1hWOGJPNnl1VGN4Wnl3akZqclrSAdQBQVVfeXFMTUFCZ1pWN1R1RVJqRVJSWEhpemd1WjVLVk9KaEE5SDRrOVZtdGpsRWY3bk94aWhrM0dLSUU4MVlLRFNZQzBZUGNfdTEwUGxMZWdmZWZvZjQxMDNkcl9RaHc5aDQ1NFRKYXlKSC1jd1hrOWt1QVJsNHF6eUp2a09lN3BQT1FnYUxScGFvODcwZWF2XzVtaldBb0ItWC15Z3NpYVNGaHdoZXR4WHNyUk9vSzJ2bVF4NlZsdG9LM0hBQWdqN05TQzd0SUpkYWxxMVYwd2R1SFc?oc=5",
-     "data": "2026-10-23T07:00:00+00:00"
+     "titulo": "Euro Hoje (EUR) | Cotações",
+     "fonte": "Remessa Online",
+     "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFBjQ2ZFLUFBRVlWb1l4X00wYVdPcVVKdkdZTmNHYWpBZjdLU3pJYjF0cXJxQnlPMFdLVjNQMmhyX18walJnYUZPcFp2MDlyM1ZybHBGand3SUtMT2JuVWx2dGxaTQ?oc=5",
+     "data": "2026-11-09T18:14:27+00:00"
     },
     {
      "titulo": "Euro hoje: siga ao vivo o valor da cotação",
      "fonte": "GZH",
      "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPMlRubFdDVkZzZnJ1OFVCZFFZT190MjZQRVI4YUtkTDliYjZQVVBsZjJrUTRvdDNwWTI1aVQ0aFBsYmVnUlFxLTRfd1RHQlN6SlpqRDVvNG1tcU1IMzNiU19PY1ZBVnZoYmw4bE0wWklUSVlGdTByd19ucm1pWXpLWURCYmw0cEFIYkNjRUowYkxJcGx3bnZGOUo5WWhoTXYzUUhUaEJNRElvenJnbjhSRmtDOFlEUWJ6MGVncDNoMkZIUWVZ?oc=5",
+     "data": "2026-10-26T07:00:00+00:00"
+    },
+    {
+     "titulo": "Dólar: como a vitória de Flávio ou Lula pode impactar o câmbio, segundo analistas",
+     "fonte": "Bloomberg Línea Brasil",
+     "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNODJRcEZqSXpyaDQ3YzdfdFZKSWEydHB2WFZ0MDdQQXFjZ2dwSUE4LXNrMTBKTThqNXFLSm1jLWlpLWRIMi1USW1PM3cybm5xMk9jTG5zT1ctY052bEhKaDhoNzl4VS1KVEZ1N01Ia283ZDBybzYwd1N4MlU4WnFWUk0tMjFkWVhQOTlJNEdLZVRidjFHcl91R1FFVTFXNTMwejRSN2JpSDAxbkNmb1hWOGJPNnl1VGN4Wnl3akZqclrSAdQBQVVfeXFMTUFCZ1pWN1R1RVJqRVJSWEhpemd1WjVLVk9KaEE5SDRrOVZtdGpsRWY3bk94aWhrM0dLSUU4MVlLRFNZQzBZUGNfdTEwUGxMZWdmZWZvZjQxMDNkcl9RaHc5aDQ1NFRKYXlKSC1jd1hrOWt1QVJsNHF6eUp2a09lN3BQT1FnYUxScGFvODcwZWF2XzVtaldBb0ItWC15Z3NpYVNGaHdoZXR4WHNyUk9vSzJ2bVF4NlZsdG9LM0hBQWdqN05TQzd0SUpkYWxxMVYwd2R1SFc?oc=5",
+     "data": "2026-10-23T07:00:00+00:00"
+    },
+    {
+     "titulo": "Ibovespa cai mais de 13% após 'circuit breaker' e dólar fecha a R$ 5,40",
+     "fonte": "G1",
+     "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE1aYXdJdG9WVmczX0J2U2tzLS1fUHUzUUxQbl9TNjZBcDRzeWZNWWdVV3JsYlBYNFRiLUI3OE8ybmpwc0hQai1fSUxuQzgzS2V6d195SU9fbVdXRlFpbUNManFFR3dlVmFxMTNydDc0UVBIOXVDRFd5RdIBhwFBVV95cUxQeG1DclA5TEV1azFWc1NTSUotM3F0MTd3dzcwU0xfYUFtWTJ3ejc1eGdUb3ZzdEhrME81aHVSVWpvLWNTTDVEenlQWk95UTVuZDRubGF3bDIzLWFQZFpjUm5LTG9vRGNFMDFaY25FMExlazFYRThvOHZVVjgzZGRLNWVxRkp0cHc?oc=5",
      "data": "2026-10-26T07:00:00+00:00"
     },
     {
@@ -6804,10 +6818,10 @@
      "data": "2026-10-26T07:00:00+00:00"
     },
     {
-     "titulo": "O que aconteceu com a Bolsa e dólar após o segundo turno, nas últimas eleições?",
-     "fonte": "InfoMoney",
-     "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNOUxxXzZEdnByNDNmWGJWYnZSbUdDbkxVUlJZeURGM1hfY2tKODNWcnVCVW0tdVgwZ2hVd2JrTnRjN1V2RWR4TWg4OF9nQ3VESC1HV0FkZ1RuMFc4SW9FNFJCV3hLRDkxOXhvUkkwTGVYYTdpSWh0QUZtVldoOVVfY1lDeFpYSTlEOG5INTdUemI4TmkzbUVVT1R3S2FYb0JDbFVSczVPTEtQaXlXWHdwOTBXSEg5VmvSAbwBQVVfeXFMTWt0TjdublNmV1FRTG9WX0MtZDBwMmdNTkVGRTFkdUh5d25Ja1NzNGZWcHEwUnJZT19WWFR0MmdldTNTSk94QjRzNEdyY2xqWTB5UWR0Q0hGQWF0QTI4cVA0dmdpaHpNUDc0T0JsNjRCU1Q3ZS1qbjJZYnctYzRQTzFGZnBkQ0dNaU1NYXhhbkpDTmdKZEN3REZ5Tld4NGlqQm5PdVFTT0xqVXB0V2N3TFFqaFFRWDYzSEQzalU?oc=5",
-     "data": "2026-10-23T07:00:00+00:00"
+     "titulo": "Real e ativos brasileiros têm forte desvalorização com vitória de Lula",
+     "fonte": "Folha de S.Paulo",
+     "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNNFRTczVVRlFNQzNydmtfZWt2VWNUak0tTXpWVjJlT2E2Rk4yeFFTdE5YMTNUQXhtQWE0T2w2bkk0Nk5zTlc3MkstTlJzUFdHdF9FVFR3eXhySXNoY0ZOLUp3ckdtZFFXUFFTQWJnTUJYWDN1aGtpU1ozUVNwZ3YzLXlNTW1aQ1ZpRVplVHVmbUptRjJXbmVfODllN2N6MjNFZ2F2SEQtWjhWdw?oc=5",
+     "data": "2026-10-25T07:00:00+00:00"
     },
     {
      "titulo": "Eurite para BRL (EURI/BRL) hoje | 1 EURI para BRL taxa ao vivo e calculadora",
@@ -6832,18 +6846,6 @@
      "fonte": "OKX",
      "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5RXzlzTnV3TTJJcFYwYjBFaFVMYjVGV09rYnh1QWFsOW5wSXdLSS1aVHNZUFZpeHBPV2FZQ1NLVXctZF9RRURDaGFpN1hqRVlQZWNPRS1wSnQ?oc=5",
      "data": "2026-11-05T00:00:00+00:00"
-    },
-    {
-     "titulo": "Dólar cai a R$ 5,5618 com ajuste fiscal no radar",
-     "fonte": "Money Times",
-     "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBKczZ6aDJJeDdjUndmQmd5elJUTHpvV2tEUDgyR0VjMTF2eDkyWUtmZl9wSkNUNnJ1TmZrdFdhM2tFUU9UZzNTV1dQbDEyTjlUNGYyX3ZtcFo5X2tfSzhNaU13?oc=5",
-     "data": "2026-11-11T20:53:07+00:00"
-    },
-    {
-     "titulo": "EUR para PANW | Converter Euro para Palo Alto Networks, Inc.",
-     "fonte": "OKX",
-     "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9OMUdZU1F0TnhIRURlM0I2ZlIyOW02bS16ZU9zc292SmpvUmQyc1EyU24xczVXWWR0X1hOUFNzdHZVdndOZG1nS1ZlS0E3Z0hudkh2X2tTZEY?oc=5",
-     "data": "2026-11-12T00:00:00+00:00"
     }
    ],
    "^GSPC": [
@@ -6852,12 +6854,6 @@
      "fonte": "Suno - Investimentos Inteligentes",
      "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE9xWU9tZ20zcWtWSVBNaG1Yd3Z4X0ZoNEFuNlFWUk9sOXcxNlpBSElidGRXNkc2NEQzUFY3UUpaQ1B3RkhHTUZzbEZOdG9vV29CS2JDTHRhLTE4bW1EdU9QZVBNVXJSdko1UXRvWnd3LWM4UdIBd0FVX3lxTE9NcHJwdW40MG8tSUdQTGdCaTU2djlMVlFxWmZEWktfQ3BKQnFXQXlHUGZ0SDA4ai1KX1J6d2YyQjRDeW01Ml9uM3VIdEs3RXNlYzBZZXRIZDhiZmppcEFsd042d0hGcjNRVWVKUU5kQXg3b19lNTZZ?oc=5",
      "data": "2026-11-05T08:00:00+00:00"
-    },
-    {
-     "titulo": "‘S&P 10’: a concentração inédita por trás da alta da Bolsa americana",
-     "fonte": "Brazil Journal",
-     "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNVFJxS2ZyNVB4QWtveU4tLXlTMFVoSTlFdXVIRXVrVWQ3cmFDR1lGcVlZMG9TaUpxUEdOaFZmdHB5aDZqU1F3d1JFVzgwTDZ1b196a3I3R0ZZWjZTWDl6NTRkelNrRWJvM2VHRVpmQ0JkMW83SU9XS1RBZmlIUG8zWWEzVVhsc19heXRjcHBtX1dFQWh2LTZSdy1Law?oc=5",
-     "data": "2026-10-15T07:00:00+00:00"
     },
     {
      "titulo": "FactSet prevê maior alta no lucro de empresas do S&P 500 em 5 anos",
@@ -6878,16 +6874,16 @@
      "data": "2026-11-13T21:43:15+00:00"
     },
     {
-     "titulo": "S&P 500 fecha em alta, com operadores migrando da IA para setor de saúde",
-     "fonte": "InfoMoney",
-     "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNcWdDaHJzeVRJcVVVblN3Mm9IbVJRc2RfMUpoTnQyZjN0M2ZYUTFtV3BPbzRsRi0zcWVXZUVLV25xY1dlOTg2bXZicDE1MXdDanZEdGZZaHdiaWpReGJwbEw4SGNEblJNZ3l2d1R1MWZFNHJ4MHpONlQ1cV8wbW9RU09wNnItbV9HbVNSM1FvYXZsMW5lNTlib0ozNGgwUms1NXA0SF8zNVlKNTd1S0HSAbMBQVVfeXFMUFh5TzVYRDFBdWRONk4xNG9iTVRTWUlZZDYydXNrREI2NkhobV9XblRMRTF5NHdjYm1XVEtGYWZkcFZJbENwYVJ2eHBaeXhUeUt4ZFMxQ2RsZHp1SlMzOFJfbkdYZlpzWGRyOUxudzVBc0RoQkxuRW5Nc2hYa2phUjZkaTNMSlZhbFJHd0NLVDFkVDFnZm14VllseTNTb2dCVzdWOVpYbTE0VGY1UHFHY0ExeW8?oc=5",
-     "data": "2026-10-15T07:00:00+00:00"
-    },
-    {
      "titulo": "S&P 500 e Nasdaq abrem em alta enquanto petróleo recua antes da decisão do Fed",
      "fonte": "UOL Economia",
      "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxOeUNMa1gwSlpXSDVaSnFCWU5hRWRaQ3liLTVNazZJOXNvZWt6OXA3SE5MdF8zX3NkTDdwVHpFdHF1eVhJdEptVTVWdDFJWjNCX24yb1hSRk5ZR3Q1ZUtmUTUteVVEZ0FpcG5QUlVaTlFLb3JaMEl3b2pFa3c0RFpzaTVnZXZIMHBwMlFCUVFnQnVHMnVxVC1wbE1FUHVWQURtUUtPM1FmaGtjenZKNnZGWWpLdzB0M244R2xoQ0pZOWM1ZDhfWGx4djZEcGk5c1prdHdV?oc=5",
      "data": "2026-10-27T07:00:00+00:00"
+    },
+    {
+     "titulo": "S&P 500 e Nasdaq sobem com recuperação de ações ligadas à IA antes de balanços",
+     "fonte": "InfoMoney",
+     "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQY0xBek9KcjUxcTdzdXI2eUdZV0N0c3hoTWVUcWFsSWpnV0V4WnBDZXdIQkNMekNGT1UwNGZNODRUZDhxNDcyTG1JZEhWRlBaTjdZeHZJMG1lZWRjVTdkRnFkYklPUzA5Z2hWdHFGMkE0enRGaFV2ZkExYzRFRnRMZjJhVmlOc0ZURzVqTVlXQnN0MDM3Q0Y5dlRSWlIydWJoSjBrNDNpWm5uY0U4N3M4YkV3NHBuZmPSAbwBQVVfeXFMT0pnb01MTGZuVUQ3MWl5UFdEMFdzLUFRUW9LZ3pYVUItN29uS2JEODJHMjVBVGU2cXZTSzJucGR6MGtpQUJHU1B3LTZvdGw2MzRrcVJaT2V1bWc1anVuZFZ5Z2lZU2twRE5GX0MwNm5LVWJHeWNhZlZLa1N4NGlmSWFpeVZfbWYxYWJPaW1UNWpQT3N3N01OMWVLWm0wSmxsaEFyZV9sSEZlbnQ0YnkwR3gwWldvM0U2NG1aUmc?oc=5",
+     "data": "2026-10-19T07:00:00+00:00"
     },
     {
      "titulo": "S&P 500 e Nasdaq sobem com recuperação da IA antes de novos balanços",
@@ -6900,6 +6896,12 @@
      "fonte": "Investidor10",
      "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQVTRJYWEwUGctZUpSSjItblJQMjRGR0JuaFZkZGZnOG5ZeFJOVW1CWWJ2WjdTMjdSQ2lzS3RMNEd3R2VxZEYtWW9OVEdBRkpfRlZ5R3dwUTJxSmx5cmhOOFNMdVVmX3Y4VkhLU2ZiY2hEYWNvMUJ2anBPY2hhbUs0RmJrNi1CbldZOUtzM3dtYUlVYjBGZzVkNHhUXzBvUTRmeDdlSWJiWkF0ek0wRjVFS9IBtgFBVV95cUxQQ09QYVhVYWhzUVFBZWJuMFBYWDlydk0wNnhxN1g3TlRRVElnZmVzaWw1R3Uya2hGTVZuNFEtR0ZyTkZkNVZvN2J0QWZFN1Q0RGJTeE5kSjYwa3NKWHQwa0N6S2U1UldVd1Y4NDRrRnFsNXNGcXVpMExTeUg0NXJHYldZOE1SeW8zY2hwYnRHMzRGN0JSQU1mNnpycm5CaFJJbDAyS0ZQSWFBVm1GTWVQV01sWm85Zw?oc=5",
      "data": "2026-10-20T07:00:00+00:00"
+    },
+    {
+     "titulo": "Fechamento de Wall Street: Nasdaq e S&P 500 caem com tombo da Alphabet e Caterpillar",
+     "fonte": "ADVFN",
+     "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPTHNkbEtpYnZQMFlyMWl5ajRjN2tXa3JTRTEtMEFQTlQ3V2lueHhwbUhncW0xLXJiLUk5NzVMb3hiaWxDLUUzSkNDbkZBcDY3QjFWRWsxRXhySDl3bWthSEZzN0tXeUIwVHlRZm41ajFIYUI4aHZiZWdnSFc0dVVyWHRfbkJEWVR3ZXlQV3dMZw?oc=5",
+     "data": "2026-10-29T07:00:00+00:00"
     },
     {
      "titulo": "S&P 500 e Nasdaq abrem em alta com SK Hynix impulsionando setor de semicondutores; Fed em destaque",
@@ -6916,28 +6918,22 @@
      "data": "2026-10-30T07:00:00+00:00"
     },
     {
-     "titulo": "Nasdaq cai quase 4% com tombo da Intel e temor sobre gastos com IA",
-     "fonte": "UOL Economia",
-     "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPVnNRZnVTaFNhdTA1czYyWklOZldLVjdkUmlDUUhlQ1F0QWVfc0tBSmFYTDdqaWctX2VlSTMwb2tsM0s4WFAwVGdVcnE5MzJZRTV6MmhGMkhTNS1xWW83ZTlKcGpQN2NiNUR5UjdTcEdkaVkxQkk0dTdLNjdWNGVmQXk4cUZWUkl5S002UXBJWklfOUh5MGl3ZnZlNDNXUjh0N1J5WUFqVUFCWkdzQzAzdjMxZ1NnQS15bUMzUmFZYmVZNzF2U1ZoMUx6WFlCVXc?oc=5",
-     "data": "2026-10-30T07:00:00+00:00"
-    },
-    {
-     "titulo": "Bolsas de NY despencam e Nasdaq entra em correção com ‘sell-off’ no setor de tecnologia",
-     "fonte": "Valor Econômico",
-     "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxQcG1lRDNXaXZVVjlpaEdpdGg4Skc5SDE3STJTc3BjZzlacGZSaVp3X0FQV3VPT0Nrc0lBczV5VTRCQU5KOWt4ellqb19RWkJkNEwwX2luZW43TEpOVUQteFN5Q1dXTm0tcFVxaHlMbTh0QjVrSmNudklvNEVSUkxoRkxyd1E1WTJyTjlidnhBY0ttV3oyUnU1T2p0dDNrVG16cnJpeGFmTXV4WHR2X2I3MXRNb1dVZUI2WG9EejU2VWpxV0pDV1ZBbjNZXzY2dTJnTy13LWtudzgyQWvSAeoBQVVfeXFMTmhKa0F6c184NnlLRk1Za1l6ZVVzRGtoRjRZZGlqaWxBSEpLaktNT2pLeUE0Sl9OSlZwN2NPNlJDZ091RU1SSFR3SWRrUUlTQndQNUQwenk3VHVoeU1nb3NscnZuWFNFeWJXTnBlZGpVWHNNbFQ3WHBTOWltUDNadVRCY213cGthNGtvbVlhT183QkxacWVST1ZhYVVJM2J3b25HWm1pX29SNXY5RWNrbjNuZ1p3S0YyVUIwWDktVjJxWVcwRFZybzAtd1ptdWVmWjBMNlpBU0E1MmRmRWtiVjJfR0VWV3BLQkF3?oc=5",
-     "data": "2026-11-05T08:00:00+00:00"
-    },
-    {
      "titulo": "US$ 2,5 tri evaporam da Nasdaq com “tsunami azul” despertando temores em relação à IA",
      "fonte": "InfoMoney",
      "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNOFRGTkwtTEJyRmdxV1JiVFpIXy1JOFdmVzNtYnJzbndCV3RpUW1XVWNfeDdfamV0YkNzcHVTLWdMZ1Nsbm1HalFOcFZma3Noem1uUmVJUVNHOFlVOVV6T01kS3hjbzVBc3dhQjJNRDNXSG5GdmVMQVk0elBMeFcxVWZFWWNBRHRNY0JKbTdvX2hJdVBQcWFIQ2ZmenVIUWZTSjRiT3pTZ3VZN3BmVko3aGNxWEJVLUtQUVI4aNIBwgFBVV95cUxQTUlJVHM4WTZ6UWw5VVYyTGpOTUxkTmptRFpvWG96NjJTaC1PUjNpLUp2UkZrU0JGSVlpa0ZIS3pEYVFYUE00VUxBY0tmU3JkRGt6ZFZSM0xnRDVXVWd5WVBoMDljRGNwQkt3bk5tck1rd1djNGVCOWRPUk5qQzZBVmo0RzFyYlR6SjhnV0NNcURSOVpnalhfZUpnaHVfWElaOVM1Ul9pbG5kS3I0andmOHFfQ0RFbDlyMTZFWUo4QzBIdw?oc=5",
      "data": "2026-11-06T10:53:04+00:00"
     },
     {
-     "titulo": "Alta do petróleo pressiona bolsas globais enquanto ações de IA sustentam Nasdaq 100",
-     "fonte": "Bloomberg Linea Brasil",
-     "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQNEFiOFhYS1M1R3JoSDZpd2duS2tabHE2UGF5X3V3LVhFeTlyX3JmUVlMZWl3NlV2YkhyemFQNFFWbzlaT3gzZlFqMXh2TXo4eGFDWlZ1VlBEZ2hsd1hPLXRVcDlWdkdfUms5TWFZSjYtdjB0cjhVV1JxM0ZFcGFSdmgtel9ncFFGclFBZXdwYWdkbV8yVU1sMi1wVmRHQWduaWlwUk1rQm03Z2k3MWFQZWc3eUhoOElSX0hkbzVhX29KM3VNemfSAdoBQVVfeXFMUC1Hbm5BVWR6VmlfdmVlY3RSSVlaS1hSTmZRUnkyX0RDUUxjbUVTOHFkZEF2WDlNYmttYnRJa2VFWEFhWG5ZdWNfbWUxdDhXUnJ0VkdkeTN5aHJIMlRDeUJSTnNpZjlXU2VFLVBxTVBOTFpCUU5GaHR3Q2JMTG1iT1BHQXM0SWNVTXZFdFpaR0xHZS12clpFN3ZIRnBYRzg3ZUxYVFlhOV9ld2g5M2tWckRlQTAxdVFGUUx3eHpTcVBsN1lsMVFVQXlGanpMN01LcWd3cmRUWm9FUlE?oc=5",
-     "data": "2026-10-28T07:00:00+00:00"
+     "titulo": "Em NY, Nasdaq avança quase 3%, apesar de receios com Nvidia",
+     "fonte": "Valor Econômico",
+     "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQa0YwNmFnTGo3cWc3UTJNRmprd3ZJeno2WXByeURaOFA0RjlIazRRMVhvQUVCd1lTdndMUFUtTGJWZEtSUjlHN2lJTDNNUE1yZVlNWEZLRHRXdDBGOE1lT2FNVmJUV05TNUJ6cTcwR1UxT0p4RWExVTZYcXR5VWJCRHhxMUlwQ2tmODY4NVJUaHdVc3FfMEtITUlPRWtWU3VLYVhFdHRXS0x6TDlzYThvQjJCa0JNNF9INWRxR2530gHMAUFVX3lxTE16clRWNlI3V2tGWG1UWUFFS2tpbkhzTzBDa2RJV1lZZEpKQnFpNDVwcHdCbmU3azNvNU53T0NDd1I3bTFSVENtci14eFhoNmloQmRwVGNpOEg0Tzl5Y0tPZ3B4MlM2WFFWQVpHYTdROFFHVlFCaklYX2lqdVhMU1Vta2F1SXFUWFlOMG5Ia0hudWNsQkxTOTRGR09GTVFxSmdSa244NS1lejFFRmxjdWxoOFFRMFlmRWdsNHViNDRBVVdydUkwcWZMblRISA?oc=5",
+     "data": "2026-11-09T21:13:42+00:00"
+    },
+    {
+     "titulo": "Nasdaq cai quase 4% com tombo da Intel e temor sobre gastos com IA",
+     "fonte": "UOL Economia",
+     "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPVnNRZnVTaFNhdTA1czYyWklOZldLVjdkUmlDUUhlQ1F0QWVfc0tBSmFYTDdqaWctX2VlSTMwb2tsM0s4WFAwVGdVcnE5MzJZRTV6MmhGMkhTNS1xWW83ZTlKcGpQN2NiNUR5UjdTcEdkaVkxQkk0dTdLNjdWNGVmQXk4cUZWUkl5S002UXBJWklfOUh5MGl3ZnZlNDNXUjh0N1J5WUFqVUFCWkdzQzAzdjMxZ1NnQS15bUMzUmFZYmVZNzF2U1ZoMUx6WFlCVXc?oc=5",
+     "data": "2026-10-30T07:00:00+00:00"
     },
     {
      "titulo": "Uma empresa disparou 31% enquanto a Nasdaq desabava: quem é a AppLovin (APP)? - Suno - Investimentos Inteligentes",
@@ -6946,28 +6942,34 @@
      "data": "2026-11-06T19:25:48+00:00"
     },
     {
+     "titulo": "Alta do petróleo pressiona bolsas globais enquanto ações de IA sustentam Nasdaq 100",
+     "fonte": "Bloomberg Línea Brasil",
+     "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQNEFiOFhYS1M1R3JoSDZpd2duS2tabHE2UGF5X3V3LVhFeTlyX3JmUVlMZWl3NlV2YkhyemFQNFFWbzlaT3gzZlFqMXh2TXo4eGFDWlZ1VlBEZ2hsd1hPLXRVcDlWdkdfUms5TWFZSjYtdjB0cjhVV1JxM0ZFcGFSdmgtel9ncFFGclFBZXdwYWdkbV8yVU1sMi1wVmRHQWduaWlwUk1rQm03Z2k3MWFQZWc3eUhoOElSX0hkbzVhX29KM3VNemfSAdoBQVVfeXFMUC1Hbm5BVWR6VmlfdmVlY3RSSVlaS1hSTmZRUnkyX0RDUUxjbUVTOHFkZEF2WDlNYmttYnRJa2VFWEFhWG5ZdWNfbWUxdDhXUnJ0VkdkeTN5aHJIMlRDeUJSTnNpZjlXU2VFLVBxTVBOTFpCUU5GaHR3Q2JMTG1iT1BHQXM0SWNVTXZFdFpaR0xHZS12clpFN3ZIRnBYRzg3ZUxYVFlhOV9ld2g5M2tWckRlQTAxdVFGUUx3eHpTcVBsN1lsMVFVQXlGanpMN01LcWd3cmRUWm9FUlE?oc=5",
+     "data": "2026-10-28T07:00:00+00:00"
+    },
+    {
+     "titulo": "Nasdaq se recupera, mas tem quarta queda semanal consecutiva",
+     "fonte": "Notícias Agrícolas",
+     "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxNMTEzOGVZYkRnR3Q5NVl1a3ZrVHFxdV92blQzRUtNc2RIN1V5ZkZFNXE4RlRsV2RySEdKTktNVzdHTjJvaC1yQi1kQXpKNWVNVU5Vc3F5NWtNQlBRRHNwTnpDUFMzd0FTazJMTmtQRWw4S2R6aFRMUUNaaGhwMkdzZ0YzMWZQY3kwQ0tyT0FjVWpfd0xLRlRSXzdOZzlmRG5QWUFUWXFqYm9RYm9ZanJtMXl0QTdwNlZYZG1yT2xya3A1eTgxQnEtaEEtSVlqQVVU0gHWAUFVX3lxTFB0OFlFWGZsU2wtZ2FqZC1HSXJvbDVEa1JKd3V5N1V2VjNNLTVkcGRXYmdfWm5DV1VDN240cU1fclBfNDZvTENZWERYRDBoNHlGb0xkR1NnbmVOY0dhdEIxMDVjQ24tbnFtM1ZzYmUtanZ3MGRDanFmTUliWTk2enFLOC1KclE3Rm81dGlTR2huOFgxVDVVU3NsQnZ6ZXpFQktjVS1UMGVkMDFFTFVyWm5MUzBHY0lQem5ObDZINllOOXFVMEdSOWdWUEIwRldydTFrNC1Vc1E?oc=5",
+     "data": "2026-11-06T21:28:03+00:00"
+    },
+    {
+     "titulo": "Bolsas de NY operam mistas com Nasdaq em recuperação de tombo na véspera",
+     "fonte": "CNN Brasil",
+     "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNM3hMWFhTa0p4WVhaa1dtcU5YUzU2RzhWbWMzUjJuSThQV3NlRGRlR0Zjd1ZXZEVxZS1CbHpQdlI5bjlMOGoxM0ZPMF9HaUdSeTB2enVlc1V6aHJKdjJTUFE0Tzk5OGFxUjdLNmFpRnpRbFdoVlJSNXNvWjVqZzMzLVV3S0FOUGlpMVJRTHhSU2VST1BJc0xVRXN3dkdkNEVVamc?oc=5",
+     "data": "2026-11-06T14:55:56+00:00"
+    },
+    {
+     "titulo": "Bolsas de NY despencam e Nasdaq entra em correção com ‘sell-off’ no setor de tecnologia",
+     "fonte": "Valor Econômico",
+     "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxQcG1lRDNXaXZVVjlpaEdpdGg4Skc5SDE3STJTc3BjZzlacGZSaVp3X0FQV3VPT0Nrc0lBczV5VTRCQU5KOWt4ellqb19RWkJkNEwwX2luZW43TEpOVUQteFN5Q1dXTm0tcFVxaHlMbTh0QjVrSmNudklvNEVSUkxoRkxyd1E1WTJyTjlidnhBY0ttV3oyUnU1T2p0dDNrVG16cnJpeGFmTXV4WHR2X2I3MXRNb1dVZUI2WG9EejU2VWpxV0pDV1ZBbjNZXzY2dTJnTy13LWtudzgyQWvSAeoBQVVfeXFMTmhKa0F6c184NnlLRk1Za1l6ZVVzRGtoRjRZZGlqaWxBSEpLaktNT2pLeUE0Sl9OSlZwN2NPNlJDZ091RU1SSFR3SWRrUUlTQndQNUQwenk3VHVoeU1nb3NscnZuWFNFeWJXTnBlZGpVWHNNbFQ3WHBTOWltUDNadVRCY213cGthNGtvbVlhT183QkxacWVST1ZhYVVJM2J3b25HWm1pX29SNXY5RWNrbjNuZ1p3S0YyVUIwWDktVjJxWVcwRFZybzAtd1ptdWVmWjBMNlpBU0E1MmRmRWtiVjJfR0VWV3BLQkF3?oc=5",
+     "data": "2026-11-05T08:00:00+00:00"
+    },
+    {
      "titulo": "Nasdaq cai 2,60%, com dúvidas sobre IA levando a vendas no setor de tecnologia",
      "fonte": "InfoMoney",
      "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQUzFXcE1LYzIzeWlMRkVrOXdWVGZEZ21xZFdFT0Z2eWtNWlhLXzFyLUstd3lsYW1QTTdaSkl0VHJXSENhQWhuQXM5cFZHYWFrRk16Ny1CVTAtaFUxeEVyY202aV9mRW1lWWZCaUFqRFJOcVhxVkdBTldTZDdieGNLdGtMaFpNbjhOV0RCSnY1bUhBallvVnMyYzVyZEFTaXREeG1oRmllcTlSemNnb2tjS2k1WldLZG1RYms2dFpMNWLSAcYBQVVfeXFMTUcwZDRGUk1ncW01aUdVYTZ0c0JFVFgtSm91ems0YVdfWkllTWhDaEVVR2lsZjhHZlFWdTVSa0huclNIV3VVakFEVVVfUmk4Ykdnd29PcUZRNlZCbzlteDJ4RmNUbGdoNlk4b1cxRFRBQ2NhMXF5Z0NIRHY4ejJNdUxWNjlOYklRX3BzdVU2UFFNM0JWSGloeTZWVVpFeXhTS2s5bGRjVFBYbTREZDE4ZTBrRG9jdmptbjRJOG1Sd2FqZURhbnN3?oc=5",
      "data": "2026-10-22T07:00:00+00:00"
-    },
-    {
-     "titulo": "Nasdaq e S&P sobem com tecnologia; Apple derruba Dow em sessão cautelosa",
-     "fonte": "Valor Econômico",
-     "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNQVJ0ckpIMG9OV3NSWlExWTBtMFkzcWdqSFk1MzNTa0RhNkp2aWR3WGpaaGJzZ29qYjY2QnNUWHAwcEk2WUZBaVRuZ3BBTkZLWEpNazZXM2lib3djckE0Wkt4YkkzM0k0LUIxckVUTHo2dWdwR0JqcEVlN2F2c2txNmw2LW52OE5DdVFqYmZHUW13cmQ3ek54aXIwWi1LeWpGUlVMaVpwekFRZW5tWHNJMVZ3T0VlajJwRi1IWU9ITU1fMWdZZWtsNGpPa9IB2gFBVV95cUxNMDBWWlB0SlRWLUt5cmNRR292QU9GbU5mTmo5ODAyZ3VJVnVUZ2lBZ1VWYTU5a3M1a0dSY2ttZDEzLXZ3SjZzSHEtNVAtYnZvZHltSERmemJROHdnaTkzeUNhU1A1SGRYVDR1Y01mNERFZmUyTnlnVTJxNURNRTc4b1BjMjRyb29nVHMzaHFOTDN1aENINnNWWHdyLXFrbDZRTHJBZHk1UGxvTUhTZEhRbUdOUDYyd0VmVWFwQ3phdUQxemFodHJZbmdicHVDTVBIa0xuRXczbkJ5Zw?oc=5",
-     "data": "2026-11-03T08:00:00+00:00"
-    },
-    {
-     "titulo": "Nasdaq se aproxima da menor nível em um mês com aprofundamento da queda de ações de IA",
-     "fonte": "UOL Economia",
-     "link": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxNb1lGOU1Dd1BUV0pPVXlFaG5WOElZcHV2N05lS1N3eDV2Z0k1SGxNWkdCZTBlNnhvN1FKalpiZTFtcEZhWkZ4YkxrYmRfLURqMEtnS3ZEb2dZWWc4Q1dJbUJqanlLQnBMYTVmY01oenJmU3lFMGpDMXR3ZEZqMWlNWDRmQUFfR3dKWTZ5WXJJd2kxUk5nZGJhbTlFVGx3VDdpdGlMQmJWZXROek5ZQi1jeTRNM2kyTDFxNFJ1R1lUMGRpbnd0cUlXYk9pRExEVTFDd1JVYkNROFI3SEZoeW1tV3paNTR4NHhEZ3hKYw?oc=5",
-     "data": "2026-10-15T07:00:00+00:00"
-    },
-    {
-     "titulo": "Nasdaq recua após balanços de Alphabet e Samsung ampliarem dúvidas sobre gastos com IA",
-     "fonte": "Bloomberg Linea Brasil",
-     "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxOZmRxZVNJbk1ZcTdvVkl0eWZ5QUxkN0dfZ0htY2dLQU9uUV9uelczX09MdGhJVnhLMVZScXIwdk5QMmFwcDhzbldCUW5GXzI3ZzZ5c1Naa19Cdkd1Z0hBWnlZOG5aYXZWbURna1lScjU3b2xfcUVuTHFuaUJ3ZlRySDhqMDR6UGxZYTlzVnJPeExRdVBaYnFtRldOc28xS3RUVmF5eWFoUVVYQWpwQUlOOWN6VGpETERDMW1IUnBwRHZ6OE15OERjekZn0gHeAUFVX3lxTE45VU5RZXhRLWJvREV0LUpNbHZVTnpiajUtbHZzRXpzUkRYVUVmVWVDVEVpNFQxRlloZkM5REs5TlBkQWRoU1Y3RXFmbGpjX3Z2ZmlTQlA0eUZNeURnR3dxSkJRaGNjekVpR095WWhzNndlZ2N1U2FfQzh3ejVMZ2J5aXRjVTk1bENSdVcxeDFNRmRvY2lNalJIQWdSYnozM3RYT2hibFVnOXZ3ZlFjdjJVamdvOEY0YTg0MUtEN2xFYnBDUTJjZ1lSY0RXV3EzWE5mR0lFWnN5TWp1VGhLZw?oc=5",
-     "data": "2026-10-29T07:00:00+00:00"
     }
    ],
    "^DJI": [
@@ -6982,12 +6984,6 @@
      "fonte": "Valor Econômico",
      "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPTUU5T1ZOQXkxNFVVakhNZWpMdmRRYmFFNFc5Vk84dmFEUWYyVTdPNnYxZ2R0cTNYMWx0ZVFhUWU3M25GZW55ZTVXdG5FWEpPS1JGVTlBLUNabndmLXNveGU5UkRueGdpLTl3TjNJTDhiZWJISmJ6VEZBOU9ScFAwelZITXVUcHNtdkdHX3B4RVA3cVBmay1jcVF0WHRYdy1oOGU1ZmsxT2FBbGZvSzVRTTl5VGRYeDg4bHNsQ0pudGg2VkVLOThiZnhFeFVsVjRNU2530gHiAUFVX3lxTFBxU18xaFBEeTQ0V3lwOU5KMkRMWDZDM0FZb2VQWG03YjRXcFVEcEpJSFl4SElmMmw1bGdZcTBkOU5LVXZoRkdpc1VoYWxLRlkxcnppdlVfN01lUW5GS2xCYzRNRUF0c2Nma3J0dzVpUnhBNWprbE82azktUEhhOHN2bGdjUklLZmgxeTlUc05YTUUzWnlIanhjeW5YT1JjRFk2c2tuNTYyaWpUS1lRSVVNaThPWF90V2Zfbmx1SWdFYWx4Zjh5ak01VHJzS0lpbExwNVp4Vm5JLUlLNW9WUVZwQ0E?oc=5",
      "data": "2026-11-04T08:00:00+00:00"
-    },
-    {
-     "titulo": "Nasdaq salta 1,1% com recuperação das ações de tecnologia; Dow Jones cai",
-     "fonte": "ADVFN",
-     "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOaTdjeVhKVWtueU9NWk1yS0hLQlZXbVloaWFIeW1WdzBBa05WYjZsMFk3U3pNVU1qRWNvcmtNR2ZtYkRxOW9fNzB1eUxoZ3JUcm9hQmF6U1pxZl9oTm9lY2dlODc0emFhS0pwd013bURrRjh5YmNjeDNDdWdNVkFPdWEtdDlRM0JreGNKcE4zS0R2cWkyWFNCb1Q3Z2VTVlhyZGxsVmFNOXcxUmp1WXc?oc=5",
-     "data": "2026-10-19T07:00:00+00:00"
     },
     {
      "titulo": "Dow Jones sobe 2,7% após vitória democrata no Congresso; Nasdaq avança",
@@ -7008,16 +7004,22 @@
      "data": "2026-11-09T11:12:27+00:00"
     },
     {
+     "titulo": "Dow Jones sobe com bancos, mas Nasdaq cai pressionado por tecnologia e IA",
+     "fonte": "ADVFN",
+     "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxQNnJxUU1JekNLMGRKTUpfczVMNWlPVlg4MERZWTJoeEZFNlM2SDdyMEFZRkZDRjNvcHJpWC1vVVNjMkxBaDFBbG9BRk5QWlRibE93ZzBhMjhfQ1VfVWNzeU1ZRnZ5LVFoWmpXZjhZLUgtM01tYjhreFZRSjVBbTR1TV95MlZBVm92ODE0YXVLUG5kTkFULVFaOEQ0X3lFQQ?oc=5",
+     "data": "2026-11-05T08:00:00+00:00"
+    },
+    {
      "titulo": "E.U.A. - Ações fecharam o pregão em alta e o Índice Dow Jones Industrial Average avançou 2,15% - Investing.com Brasil - Finanças, Câmbio e Investimentos",
      "fonte": "Investing.com Brasil - Finanças, Câmbio e Investimentos",
      "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxPZGFPam0yLV9vdTNlN1UwUEE1WmJPTXNtTENGWS1kcWxuLWJka1RZUzNUaThqd0JNelNNS0pBZGNOQ3Z6Ymw2cHV4X21VMWZidWliNUYwcm9GaE85RHowWC1IUzBMVlVBMDFZWVlqbTF2emJ6NjNnUFY2aUZCaE5nRDVON1Q0U3JEU3otLWtqQnF0QmdValFBbUtsektwSHR3VmZ0ZVR2NGFOWXBUZVpVdmo4RzViVWctMnkzQ0kweTdmN1FTY2hyTGZDWjVZQ2M1QjFwWW9JSlp1UXFt?oc=5",
      "data": "2026-11-09T21:30:00+00:00"
     },
     {
-     "titulo": "Dow Jones sobe com bancos, mas Nasdaq cai pressionado por tecnologia e IA",
+     "titulo": "Nasdaq salta 1,1% com recuperação das ações de tecnologia; Dow Jones cai",
      "fonte": "ADVFN",
-     "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxQNnJxUU1JekNLMGRKTUpfczVMNWlPVlg4MERZWTJoeEZFNlM2SDdyMEFZRkZDRjNvcHJpWC1vVVNjMkxBaDFBbG9BRk5QWlRibE93ZzBhMjhfQ1VfVWNzeU1ZRnZ5LVFoWmpXZjhZLUgtM01tYjhreFZRSjVBbTR1TV95MlZBVm92ODE0YXVLUG5kTkFULVFaOEQ0X3lFQQ?oc=5",
-     "data": "2026-11-05T08:00:00+00:00"
+     "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOaTdjeVhKVWtueU9NWk1yS0hLQlZXbVloaWFIeW1WdzBBa05WYjZsMFk3U3pNVU1qRWNvcmtNR2ZtYkRxOW9fNzB1eUxoZ3JUcm9hQmF6U1pxZl9oTm9lY2dlODc0emFhS0pwd013bURrRjh5YmNjeDNDdWdNVkFPdWEtdDlRM0JreGNKcE4zS0R2cWkyWFNCb1Q3Z2VTVlhyZGxsVmFNOXcxUmp1WXc?oc=5",
+     "data": "2026-10-19T07:00:00+00:00"
     },
     {
      "titulo": "Dow Jones hoje fecha em leve alta, mas Nvidia e ações de tecnologia pressionam Wall Street",
@@ -7026,10 +7028,10 @@
      "data": "2026-11-13T12:10:36+00:00"
     },
     {
-     "titulo": "Dow Jones Futuro cai à espera do payroll; Nikkei despenca 6% no Japão",
+     "titulo": "Dow Jones Futuro sobe à espera de dados de inflação ao consumidor nos EUA",
      "fonte": "InfoMoney",
-     "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPNDA5Nlc3Wkx6RjFMLUtzV0tuMTYxTzlsMWFMVldlY3E3dVhBRGJfUXNvd1NZMHc2UW42LThnaFBLUjAzZWtkc2ZrYWlEdUhuMnZhS0dETlpZenBBcmoyZ3VOcXlDWEdJcGhKdkJuMDFUU2gzYjJFQ1ZhdG95SjNZRC1TMjJ3SGJHOXJlSDRfVlJMVm9PZ05zUDhERjRWa0FneEtKVjBPazFNd9IBrwFBVV95cUxOMFF2bV9BZUxLT25qTFFtVG0tVEphcmQ5VURUalQ0dVRPTGpSSnVYaEtLa3dDUlRsNi1CX2NuMnhzSlR4dHc4T0VYeEJxYlAxSFFFYnBCc2xJZS12RVZPVHU5LVVhV21KOFRoWDA3eVE4NzItX2RCckpPTmFOaEZBWmNRUVFlRll4UFZ4d1ZfUVB6eDB4TVUzX25vM0xUUU5zc01sMzRIVFFETERVUkVn?oc=5",
-     "data": "2026-11-06T08:38:30+00:00"
+     "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOd1k3WXJyN1dtczZ4TGFpc01XVHdLUDM1dmFhWElxbEJPY1diUWpmaDN6dGdab3h3dGJKQXFRQXBwb2NOUW5ucExCVzZfWUw1eEJoVERhbXVFY04xZXFNREJqTEp4aHVocVVXS1VabktPZkZ4aF9CTWV3YTZqa3YxdWFiMW8yYVRkWHladjZyMWttRzBCYy1zcFAwYnlWYnJXcURRM01peUpvQ3ZBeF9hRjNR0gG3AUFVX3lxTFByVU5VR0N3eGE1NHF1Ry1abjJoc055cHRWZGxtSjFxUTZXdGJGQ1gtQjhKMWtTa2Q5c1k1a096WGFSb1pod2tIRUVwVDRmTEloekVQb0dScE1Oc3pOMU1mVFBaWmZQdmFEeVdNVU1HVF9nXzhSeTJCRkhHSkg4TENaZkZUeVNLeDV3TE5leVhxODNpSTEzUTF5XzZZSEFRTm5sSG80RExpZGlKUkpqTzhDQnRMdm9ncw?oc=5",
+     "data": "2026-11-10T08:48:10+00:00"
     }
    ],
    "^STOXX50E": [
@@ -7046,6 +7048,12 @@
      "data": "2026-11-11T17:30:00+00:00"
     },
     {
+     "titulo": "Bolsas europeias fecham sem direção única. Setor de tecnologia e ações de defesa pressionam os mercados",
+     "fonte": "ADVFN",
+     "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQYW9DbERvYXJScjh0SDlHWGdpOEU4ek5rekhEeG1BRVRjZVZkelZZY1VBb1g0MVpNOEtweXRMUjhyQmx6d1ZJVkxNcWIwaUxSNFdVWWd3ejdlVGJMZG16YkRmcDVwZ3l6MFJVMTZPMWtrTFJMU200eDZOYk9xRmhHc1lWdm9wbWR4WXA0OEVxVlhnVnV1MTFBUDd2Q3oyQ3VOSy12TGdRbC1Ca0o5Wk5fV3VJVDRHYy05dk16NldKenBsZGFRWWZ4eHQ3UzlSUzRXYjF0Tg?oc=5",
+     "data": "2026-11-05T18:00:35+00:00"
+    },
+    {
      "titulo": "Bolsas europeias caem com distúrbios na França e cautela na Espanha",
      "fonte": "ISTOÉ DINHEIRO",
      "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNTkpBUmVWUk0wTTF1ZVIzZGp6alBCR0ZpVXBocTVUMDZOaTZoSWFmZFNPN1pCal9SVGFzc1A0NG40NmxFZndpb1IxS0R2WXJib1NnMUUybUVlYnhFODNvODRRVnVTTzFwLThXSHdOMkk5bS0wRDBxS3U5SXJ6bml2el9oSQ?oc=5",
@@ -7058,22 +7066,10 @@
      "data": "2026-11-10T18:43:15+00:00"
     },
     {
-     "titulo": "Bolsas europeias operam mistas e Paris tenta defender alta",
-     "fonte": "InfoMoney",
-     "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxNaXlkcHA4ZFZlSHpYX1QxU3VIdFJSU0llMWFnTWdOQW9WQW9sV2lDLVlTZWJDa0luckh1X0JhOTA0RDBNYkNYOEZRcFZ0VHpsa0xRZzdObVFEZ18wejUtN2pVeU1QYy1qeF93dWY5WUZxR2tucWpPZnM0LTA2b1pkR3dPSDJfRFFDb2xvRlBPTWt5TjJXTXN1aUxHSUJkUdIBowFBVV95cUxNYUxSRG5BTHFHVG0wQlhuWXI3MFp6WkVJT1kwc2phWGlRbEZIamtOQi1lR3lTckx4YVFsekFqR3ZybnhkSGZLN2tyajNvUkhVUDhIa0xJSHJORjV1dFZKREsyMV9henEyM2gwNFp5UDVoeHREeDhNTGdQQTNtZ1htQXpLLWpBZml6WS1IVTBsYUtaLUNNNTZfNUhjd2Jkdmoybm40?oc=5",
-     "data": "2026-11-02T08:00:00+00:00"
-    },
-    {
      "titulo": "Informações Financeiras - Enfoque - Informações Financeiras",
      "fonte": "Enfoque - Informações Financeiras",
      "link": "https://news.google.com/rss/articles/CBMigwRBVV95cUxOQ25jOE1NVEtiZFZnWGJpc2JUX1hBaExteXcxOTRZbDNpUHAyRHVjVlp6dDIycnRTUFZmeXlzcnQ5UVNObW5PVnJkQ0RJZHk4TnJrMWx0MkNPVEU3Ni1qc3N0NDZNQ0YtQ3U3eWQwTmJRdnFfU3pyQkFWRFItSmFWZWtuYzdqT28wZUFFNnNrUmpKY2dRSHdQdjRfVXo4ZzdkS2Vfald4YVpDMHMxelVPaERKQ2llWV9mUWNvdWx0MFJLYUZQc3p4RTV1c3NTMENpOG5lMUp3V25VVWRzaDA5aW5OQk1NUmQxUXBMMHJtNHZGZ0V2MnYtWHdJUmhuVEEyYzRVRVBUTzM2d3Y2empmckhkMzc0dDYxaHI2V3dhM3FNNklsYkJkOEtqM29MNzFJdVFxWUZ1cEw5ajBvNkowYzJpay0xX1lnSnBBZFVoVEhfV0wzWTdKV3d2SXZISGFNY3AwLWFUZEtlYXQyT0NveTNZcnRZQXVvZXh5Ym5HZGhkM0JQc19QOUtPem1zc3M0LUwzU245U2VIbmcwLUtFclJ6N1RDU1d6d1kzNnVVUWVQRXpWOWl0aUNmcnBFSENPaExGVlJST0dLTUU3dnQzZnBWanhqN2c4LWxRLXJtWDU4N2pzQjhDb0RFY3BpTm9kNzdPSjVZQkpKWXV1dExBTEZ1MA?oc=5",
      "data": "2026-10-26T16:58:54+00:00"
-    },
-    {
-     "titulo": "Bolsas europeias divergem após inflação dos EUA; DAX cai e FTSE 100 sobe",
-     "fonte": "ADVFN",
-     "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQbGg1SkFlTU9QQUpDZlFUdjdCOUVmV1JPX3d2MHFZbFFsZzRTWTlWWEw0cG53Zzlnay1jaG5mbjZjaXJRZkxXUmFaUWVxT2RDX3VKMGgzVWVwdzZIaXU0elF2UGw1SzEzaWg5bHNld3ZoLS1TTkoyQW9taTNxR1NEamFRVy01bUo0RzZVUGFxU0xLbHhfbmdnLWkzTVFkems?oc=5",
-     "data": "2026-10-15T07:00:00+00:00"
     },
     {
      "titulo": "Bolsas europeias operam mistas e Paris tenta defender alta",
@@ -7086,6 +7082,12 @@
      "fonte": "Valor Econômico",
      "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxQbmgwN1B5Um9wMUEyUWo0RW5ZVThJem5aUmU0dkkyaVVxeWJvRFRfaHhhTUFibVJwLU1HeDdfU19rS2ZqTEFnNjB3MDBTMGxQVWpueHJtcXdVR2NYZTQ4RkpiN3l5NmppTkROejFubW1Hdktkc0hqMkN0YUV4TEN4Sk1zYzJ5dllZX1Zyc3k3ODRkbEVRcExhSUk4QW9XdFJqd2Q5Szc2Zmg3a0lOaGZSbGdZcEZSR2NTUzlLU0ZESHpPbjRsU0htdHlwZWRZTTVYY0dHV1A1aFRaeVHSAeoBQVVfeXFMUFpMV0kzbXhLX19jVGpPS0pGY0UtaGw1cmFEM3pKWmZPRDJsY1ZqRUZqU0xoNENHbk0zUngwbmx4SUtyTWNOWWtaUHJMc2pHMnZERWRTOXpadndrLTlTYnR1ZlBvenh5SDd4UHFqcE55X01oMnFiampSeHhLQkxxcVJlZUFaZkFMZnZBM2t5WTNSUmVoQlBVZzY4QWpMenFWMkxlWl92YWt4VnhDVG0ycmhlcTFkckxweFZsRXVZZWswV3JCTUZrZGZpX3d0aXhXblhoUUxQUDE4eURydG1wVUNMc0F1NUZ1M3RR?oc=5",
      "data": "2026-11-05T17:37:26+00:00"
+    },
+    {
+     "titulo": "Bolsas europeias oscilam com cautela sobre juros e alta do petróleo",
+     "fonte": "TradeMap",
+     "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBTRE1KTjJFRzRDOWlGeDhOVWZTRmtyaEg0cktSUUticjQxQzVDWS1ZZFA0UXRKNHgtLXZXOUtCTVF2dENkYUw5RUZEN2R5VUl3WjQxUExHZHc?oc=5",
+     "data": "2026-10-28T07:00:00+00:00"
     },
     {
      "titulo": "Enfoque - Informações Financeiras - Enfoque - Informações Financeiras",
@@ -7105,19 +7107,13 @@
      "titulo": "Bolsas do Japão têm maior queda desde tarifas de Trump com temor sobre IA; Coreia do Sul aciona circuit breaker",
      "fonte": "Folha de S.Paulo",
      "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxPSkdwOC1meFJLWGZFdDFwVlhwWGZuY05YNndDTVdDTnpibDhCQjBzSjdKWEpKZzVtWThqQjJBZF96WWxBWkowTkpRak9XR1NiNm9QSVNwNXYzdkhnQ3BIQzlpWjh2ajhxbTdrTEhsTlBIRmk2eXBsZ2RjTzdtRUM1eWtaNjFsT2dzZTV0aXBRUkMxc0tDeGtPV3hDUXB6TFBVbGJDOGktcUtpY1dYa2JCc0ZYM3dkNkFVMkVnUFNMWExLakY2SXlaVkY4UnZVOW82Y1ZWSnFOMUktU2s?oc=5",
-     "data": "2026-11-06T15:28:00+00:00"
+     "data": "2026-11-06T08:00:00+00:00"
     },
     {
      "titulo": "Bolsas da Ásia: Nikkei entra em bear market e mercados despencam com liquidação tech",
      "fonte": "InfoMoney",
      "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQNWNFNUkzUEx5aVk1UHpMTnpkdnFvZVF3YTVsQzFtNEZNWTFVQ21VVTdhRklIczM4b01IQVpldGp2S0lORm1ZUlg5LXVHWm1YTUwyQ1F2TllRd0RfdnU2SkZTSlVXX0tydW1HVXhmbXNtNUp4Zkd2RE9COFYtcGFJSm13ZTktcWo2eFczV0FrSHhKOWZmandWek8tNnEtZnFjdkMxeXdmMzZGR0dqUlpIMFBqN1pUT3RWSHA2NmVvTdIBxAFBVV95cUxObjBqMFVTZk1nRVQ2NTFIS1ZvamZDdlViTDJadXdydU4tSUdlZkhJdEtPY2k3VHhzVTFlTU5BRXM3SUtrNW50cngwY3NsRjA2SF9xVTNqYUNXOHMwVE5CZ0R0WWFsLUREdlFsbU9XcUdlNVYteWozQUVjdFpuM05rY0xKWXVNZk1ndWtJMm5yTm9nWHpFYmtNSjRIMi10bmlWdXQ5bEZsTDFUOHg0cW03TjVuY3hIaVBZODRZYzFKc3lnWXNo?oc=5",
-     "data": "2026-11-06T10:48:02+00:00"
-    },
-    {
-     "titulo": "Bolsas da Ásia fecham em baixa; tecnologia pesa em Seul e Taiwan",
-     "fonte": "Estadão",
-     "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNc21xNWdCTTFHMHloSFNWdGNQVVM4Uk9xQzByZlUzdWRkU0F3NzF4enNGTVNjamdTQXJESzM1QkNjdlpVYlVUNXU0ZUtPV0JMbEMwTW1KMEhkczB6Q2toWUFMeWdGOU54SnRmYVRCUW0tQWRhaGdhS01CaFZRMWQ3VlRoSkpGTWZFNGFZRzZJUUk5eXVJVng4YVlzQUxsNHFsa0NTbjF3aWgybUpKZEtGUVVfY0IzLWJtb1lMbFkwVXZ4R2dEaC1R0gHMAUFVX3lxTE9IUG9ueFNfQ1JLdi1xMFk1cktOYzlvYTBBaGo0eXc1TFNqbGM1RjBzM3lCTS1ENUNYZGxNZEx3cUhobXZJYjZQZ2VjOHRDR1RSZFdrb2JoaXBEcVVXVFZSVi1rbW15UF9PWkYzMnUyaFA4WDZKYzZXcVc1R0ZmVlo2cjdlN1prVV83T2NhOTBXQVBfM293WUxvUlJqRHJ1dHdHQUtwVnJPaUFib2ZhdEdhWThEa1JWUExXU3VoWGJMVXBraVhMejZVdkszMA?oc=5",
-     "data": "2026-11-03T09:54:28+00:00"
+     "data": "2026-11-06T08:00:00+00:00"
     },
     {
      "titulo": "Bolsas da Ásia: Nikkei entra em \"bear market\" e mercados despencam com tech",
@@ -7126,10 +7122,10 @@
      "data": "2026-11-06T11:51:33+00:00"
     },
     {
-     "titulo": "Bolsas asiáticas fecham mistas à espera de decisões de juros nos EUA, Europa e Japão",
-     "fonte": "Vero Notícias",
-     "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQZ2F2d1FOU09HVFJNQlZuNlUyczVEWGNjaVVWUzRfUVZBX3VFVVAtbFVGcFRSTjc2dnNGbGwxMzY1d3dBWUhvZG9lbTMzNTYxaFVETE4xMlFVTUJZNnNxMGtuVTEtemZBNTh0UXRfdG9ZY3BkZmZMT2dQSXNqZ3hURVNlUk9vU3JUNjZ3NGFwQlpBY1A5Q2E5RThIZ2I4SUZCVThZRUhBeGF6OE92ak1oOU51OGRZUzVPWUE?oc=5",
-     "data": "2026-10-26T07:00:00+00:00"
+     "titulo": "Bolsas da Ásia fecham em baixa; tecnologia pesa em Seul e Taiwan",
+     "fonte": "Estadão",
+     "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNc21xNWdCTTFHMHloSFNWdGNQVVM4Uk9xQzByZlUzdWRkU0F3NzF4enNGTVNjamdTQXJESzM1QkNjdlpVYlVUNXU0ZUtPV0JMbEMwTW1KMEhkczB6Q2toWUFMeWdGOU54SnRmYVRCUW0tQWRhaGdhS01CaFZRMWQ3VlRoSkpGTWZFNGFZRzZJUUk5eXVJVng4YVlzQUxsNHFsa0NTbjF3aWgybUpKZEtGUVVfY0IzLWJtb1lMbFkwVXZ4R2dEaC1R0gHMAUFVX3lxTE9IUG9ueFNfQ1JLdi1xMFk1cktOYzlvYTBBaGo0eXc1TFNqbGM1RjBzM3lCTS1ENUNYZGxNZEx3cUhobXZJYjZQZ2VjOHRDR1RSZFdrb2JoaXBEcVVXVFZSVi1rbW15UF9PWkYzMnUyaFA4WDZKYzZXcVc1R0ZmVlo2cjdlN1prVV83T2NhOTBXQVBfM293WUxvUlJqRHJ1dHdHQUtwVnJPaUFib2ZhdEdhWThEa1JWUExXU3VoWGJMVXBraVhMejZVdkszMA?oc=5",
+     "data": "2026-11-03T08:00:00+00:00"
     },
     {
      "titulo": "Alphabet pressiona techs e bolsas asiáticas fecham em baixa, com Kospi em queda de 3,48% e Nikkei em recuo de 2,12%",
@@ -7138,16 +7134,22 @@
      "data": "2026-10-30T07:00:00+00:00"
     },
     {
+     "titulo": "Bolsas do Japão e da Coreia do Sul recuam no início do pregão; Kospi cai mais de 1%, Nikkei 225 recua mais de 1,7%, SoftBank cai mais de 4%",
+     "fonte": "TradingKey",
+     "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxQR0VVdXBZUDlOWWpxMnp4V0ZNdEhMOWx1MVpob1djSGhRUmFrWE45Q1FiSXJLMkpKM2V2NkVrNmxYanhjRUwyejhiTHg4SVVuVmpPbGN1TDk3azNoZWJ4ZV9HazRBcEJfZTZ3aVpBN1I4cWZHQlFSVE9iaFZCVm5scGYwMGZZTXA0clcyRFBoTnNxb0x2U0lGQkktTEcxekRUdEFQanJFd2FVRUNxX0xlZTRlU2g1OVF2WnZpb2tZaC1SeXlzVHJiWFZYa2ZXbFRlRkxaSU9FME1odw?oc=5",
+     "data": "2026-10-18T07:00:00+00:00"
+    },
+    {
+     "titulo": "Bolsas de valores sobem na Ásia e Ibovespa abre em alta; inflação dos EUA concentra atenções",
+     "fonte": "Portal do Agronegócio",
+     "link": "https://news.google.com/rss/articles/CBMi-wFBVV95cUxPbkc0MDJqNUctMUh4SWJ0YlVhQnNzTVc2bWFJYmRYNGROUnZwZzhkdXhEb3dnM29BSU5LYkg1OXRzSFp5MUpYTHF2UTR4Sm9jQWcwRHdiZlVweDFrUjVFeXdDSHo1U0oxd0lnN0lLUlQ0VDhsR0I0LU5NdksyWUk0ZG45blFSNmdKUklfay15dHlnbnNKWEZYRlFNMlM1YnpvQTFpazU3eDRzUExhTTNzRXdQdDQ0UEJnN3dtVjJxbVdRRXVyTDlMQ05IV19rVm4td2s0V3VTRU1HbjlaVWdYcmNLZmdYTlJyUUNIU0tmUTFhOXBvSGpaTjUzZw?oc=5",
+     "data": "2026-11-10T14:05:00+00:00"
+    },
+    {
      "titulo": "Nikkei 225 despenca com queda em ações de semicondutores",
      "fonte": "Radio Shiga",
      "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPUlhybDRONXBEenhFX0tKSF9VWVZaOTROdzhhN09Gc0pQV2dNNklZSFpUaHJJU0pvMHJxLWVjV3BraTBQWjh4NGlGVGw5bW0xZVllSDA3SzFvcEFmXzE2MmFuZm5ZMXJFMFpMeEMwYU9nWWQxUGdFZkE3bXppVTE2VkRRU2JNMUY2X1F4WmdOdkJQV3N0YUE?oc=5",
      "data": "2026-10-23T07:00:00+00:00"
-    },
-    {
-     "titulo": "Bolsas do Japão e da Coreia do Sul abrem em queda generalizada; Kospi cai quase 3%, Nikkei 225 recua mais de 1%, Samsung cai mais de 5%, Kioxia cai mais de 7%",
-     "fonte": "TradingKey",
-     "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxORDBRMzM5OTVBR3N5Zm1qVWRDTW9YeXFGYVU4cndXUklGV3ZGQjdwa3pRdXMyck9pTkZTRURNODdhaFMwcjJwOVFad1R2d2FEc2hmQmpGMWpNc2NyMFllc0FjYThvTlMzQjVsakZTWmFuVFA3Y29oeV9mZzRITjE4MjBJY29UY2NidnNzLW1xLUxldHlHeUdKaUxGbFJCWENqRlU2VEF2LWlxeUVoa1VMNkR0Sl9PTzh5VEQ2cnUzTl9oWUtubm1JLXRGVC0yM3c?oc=5",
-     "data": "2026-10-22T07:00:00+00:00"
     },
     {
      "titulo": "Bolsas globais despencam com mercados tomados por pânico em torno de IA",
@@ -7170,16 +7172,10 @@
      "data": "2026-11-11T10:23:41+00:00"
     },
     {
-     "titulo": "As ações de Hong Kong reagiram positivamente à vitória democrata e à intervenção no mercado",
-     "fonte": "EBC Financial Group",
-     "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQRXFaWWt6aHRMVGg2WS1zYnhRSkZZd25VSFlDWV9HZDNMZUN5dkZtTWUweE5Mc3BUSFpNOEtyQmhLalh6eFFqTkJ3QUQwODdSN2xrcmwxeFF0dE00TWQ1YktYeU8xSURCTE5OX05UWjVIN2poTkFIcEQwRWp5RW1faERxY3Bkam8zRTVoaEQ3M2tjcHVLLUIyZmRsSy1UYzVWSzVDVVF1TWNZNGR4MWNFeC1YRzdFYURxX2xwTw?oc=5",
-     "data": "2026-11-10T11:17:00+00:00"
-    },
-    {
      "titulo": "Ações da China e de Hong Kong fecham com tendências divergentes",
-     "fonte": "Notícias Agrícolas",
-     "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxNU1RoX1Q0VFl1UlhwZGFwaUlZNmdKQ2F6amU3SzhIeWJPcjRYZzNtdjJEWkFub1ZfVWN5WkRnd3BDbkFHbjEzNFVTSmRoc1cwTEsySEZEZWtRN0V6bzlJaUZ5ZTJDWnE0ZVFVN29Lc1gzN2xvOF94bEdyV3k3SXRrQzh6a1YxQVQ5MWNFLXpxQW9Uc2ZxT2RnM2dZQUFqbHkyUGsyTmZ5MzEya0ZfMTZtbExSdTQ2QVE0U3ByT3RhampLZ0xoZE03MUw3N1M3RXRZYW80aTRoWGYzNVXSAdsBQVVfeXFMTVNUaF9UNFRZdVJYcGRhcGlJWTZnSkNhemplN0s4SHliT3I0WGczbXYyRFpBbm9WX1VjeVpEZ3dwQ25BR24xMzRVU0pkaHNXMExLMkhGRGVrUTdFem85SWlGeWUyQ1pxNGVRVTdvS3NYMzdsbzhfeGxHcld5N0l0a0M4emtWMUFUOTFjRS16cUFvVHNmcU9kZzNnWUFBamx5MlBrMk5meTMxMmtGXzE2bWxMUnU0NkFRNFNwck90YWpqS2dMaGRNNzFMNzdTN0V0WWFvNGk0aFhmMzVV?oc=5",
-     "data": "2026-11-11T09:31:44+00:00"
+     "fonte": "Portal do Holanda",
+     "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOZ25TZUlNdm0tSHp1QlY4MEZSU0tlc0ZsUUdRS25aSmJHZDJyMHVGWU5rNzlJUEhwZWRWU21qZVp5eFBHRzVmZHg2Qzk0VnFmTGdHNjVfR2hNMkxSWUMydVp2eE1xU3JsMjRMV0xfaVNpSDlHZGIyaDlyZllMUFozTkM1NHpHRjZJRDhCMi1tcERiTjdsTzJvM3loTHNlT0YwNS1sNlZ3RGVrd3Jxdzd1UVF3?oc=5",
+     "data": "2026-11-11T04:31:00+00:00"
     },
     {
      "titulo": "Ações da China e de Hong Kong caem conforme investidores avaliam escândalo envolvendo a Nvidia",
@@ -7206,15 +7202,21 @@
      "data": "2026-11-03T08:00:00+00:00"
     },
     {
-     "titulo": "Ações da China e de Hong Kong fecham em alta apoiadas pela valorização do setor de tecnologia",
-     "fonte": "BOL",
-     "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxNNGNUWG0tRFV5TUx1YjBxVVJPdXNJLWE0ODJFQ3FZNGNVQnozTnl3eUFHUGM2czFtYkhoeWNvYXBtdmh3d0M1eTlEQlNCQWhSWnNVbTV6U2FNZkhKZzRPNmNVOXdXRmhDM08yUGhfeG1fSGpIb3NEb1VDTTFsdjNOZlFpRldDS29QYUdzNzk3YU56LWJ3OHdjVy1NUEo1bndmdWVXSnotbWlRT00xMjdMVW45ZDViT3dKc1VGT0dFajloWXVLYVk2OTY5QlFzQm1teDZ1c1Brc1BTQTZuR2NxVDh30gHiAUFVX3lxTE00Y1RYbS1EVXlNTHViMHFVUk91c0ktYTQ4MkVDcVk0Y1VCejNOeXd5QUdQYzZzMW1iSGh5Y29hcG12aHd3QzV5OURCU0JBaFJac1VtNXpTYU1mSEpnNE82Y1U5d1dGaEMzTzJQaF94bV9Iakhvc0RvVUNNMWx2M05mUWlGV0NLb1BhR3M3OTdhTnotYnc4d2NXLU1QSjVud2Z1ZVdKei1taVFPTTEyN0xVbjlkNWJPd0pzVUZPR0VqOWhZdUthWTY5NjlCUXNCbW14NnVzUGtzUFNBNm5HY3FUOHc?oc=5",
-     "data": "2026-11-10T09:32:45+00:00"
+     "titulo": "Ações da China e de Hong Kong despencam à medida que queda no setor de tecnologia global se intensifica",
+     "fonte": "Portal do Holanda",
+     "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxOd2VrbzVGRkViRzFzM2ppNFVBR0U1Q1AxUGVESnBhMjd2OWtSdWdXZFhrSlNWU1lPbVVRYUV1YUpBWlpnLTkxWXNSN0ZVRDBwbEJuNl84enNwVUVDdjI5cXBvZ0FvMjZTaWw3VTIxMk5KUVp1SGMyLXY0dHgyMGJLenNoR2dDWF9DYWFjdXpLcWJfazVvMVhJM3lJODN0bDliamtjZW9xMTNjMk9xak15QzZjQUlBRzNETWxaYXphSW1YTWJPb1cyZUg2T1otR1dNcExldXFhNzJsZGpQYUdpaWl1UzlDdW8?oc=5",
+     "data": "2026-11-06T04:38:00+00:00"
     },
     {
      "titulo": "China está a mobilizar fundos estatais para travar queda das bolsas",
      "fonte": "Jornal de Negócios",
      "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQNXh5RFdoamN2SmJiVTVRa1RoUkVUTzh2cTYyNEJaeHo4Q0NXT25SVmRfV0NqZmZOMXk4TktLT3hEcm0yb3JPRURpTExXeUJRTzFlRXMtYXVNMG84WWZOemxLNWlRS0lkMnd6Vi1nQ1Rmc1JzWWttUC1rb0xWZ2xfQlhrYWxMcFRCX3hFT1JiLXFISEVqTnE1OFJkQ0NLZUNCRldCVFEyVy1QVTNmdTgtY3h0TlMtMmFfTXc3T2R2MNIBugFBVV95cUxQMFRpUktGQlNSNzJhR0xYYnYwWkJ0Y0dfczJJU3NkbzNaaEJKUDNjbnlqbG9JZ2k4RXI0c052a0dnNmhTVzRnSGFXUEpoWjNrUUJfTFk5TUNOVWk4alVRZVJoRmdLOXJtR3hieUZwQmtPSWFkQVNIeUpNOVJLRzBfOUttNFQ2OXRZa0ZOUXEtYk10VzBlRk9XLUVWT2ltUVQwOHA5QXgxNWNNenFWUWhfX3czdGc3Z1pLcEE?oc=5",
+     "data": "2026-10-29T07:00:00+00:00"
+    },
+    {
+     "titulo": "Bolsas asiáticas fecham em queda com pressão do setor de tecnologia",
+     "fonte": "CNN Brasil",
+     "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPMnByc1ptVF9jdGNKejZmVHJOa0dFT1FXSTctTHlGaXhEVG5FZ1g3Vjc3UUtUT014V1o2cXBmaUdrWDJDM3d4b0FNYlEyVEY3VHllR1VMVE9Jc1Etd1JTVlRZMFlXWmk0VzctSDZobnpfVmVRRUdfVUxzZDYyaG80UEdnamxSREpIclVSN21Dc1N0cXNSektpbnhwNG1OUE9DR0NQemZuR2xWTUN0OW9xTERWbl9Za3BreHFiZg?oc=5",
      "data": "2026-10-29T07:00:00+00:00"
     }
    ],
@@ -7226,21 +7228,15 @@
      "data": "2026-10-19T07:00:00+00:00"
     },
     {
-     "titulo": "DeepSeek capta US$ 15 bi e acelera planos de IPO na Bolsa de Xangai",
-     "fonte": "Bora Investir",
-     "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQRzV2YnphZU1tNDdSWkgtLThCM1JhbExkQnpZMmZsZm9sbE52ejB5X21nQTV0SDRVZHc1SkdEbEdsTFFuSFhzdWNDRjc0YWlYTVZvWi11akdmT2V4SHc0YlhnZ1d1V3JoaGYyci1NakVJTG9TS3Q5Q0NBZ3dlLXNXOURaeTV5UDBvMFdtbS1HYWVDY0ZONTNHcFlxQm5pRjVTeWtGZFVveDVnSVRCUFRtYkxySUFZdw?oc=5",
-     "data": "2026-10-22T07:00:00+00:00"
-    },
-    {
      "titulo": "China acende alerta para IA com perdas de R$ 480 bilhões",
      "fonte": "Meio e Mensagem",
      "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxORVl4U01CQTlqalhVT0lEaGtXSnNzM0dGVTQ2UGRWMExsaUpPU0VoNmtYRmdoa3daS2tQLWdoV0F1SXB6TUhTakJCR0wzdERxSGZvUGdHQUtLOWxjclR1cXZDcTBIUnk0Q3l4cFdaZTRmalJsLURoVUpqLVVZVzQweW5zWThydjRGUnBmakktclFhTks4UnlpUExB?oc=5",
      "data": "2026-10-28T07:00:00+00:00"
     },
     {
-     "titulo": "Por que a bolsa da China entrou em bear market",
-     "fonte": "Exame",
-     "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE90UGRQd1F3bVBWeWR6bzBoYl9vOS10RnVDaVJDYTFTOHlidFprQm5PX2dBWDhSM3IxczV4c3ZiSlV6dFgxc2tEQVFVY2hYSlNiX1BfVWhNSjQzYkxtRXJYYnk0V0VKTmFEcmJIVHUxaWpQM0dTdmQ3eFVCdF9sZw?oc=5",
+     "titulo": "DeepSeek capta US$ 15 bi e acelera planos de IPO na Bolsa de Xangai",
+     "fonte": "Bora Investir",
+     "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQRzV2YnphZU1tNDdSWkgtLThCM1JhbExkQnpZMmZsZm9sbE52ejB5X21nQTV0SDRVZHc1SkdEbEdsTFFuSFhzdWNDRjc0YWlYTVZvWi11akdmT2V4SHc0YlhnZ1d1V3JoaGYyci1NakVJTG9TS3Q5Q0NBZ3dlLXNXOURaeTV5UDBvMFdtbS1HYWVDY0ZONTNHcFlxQm5pRjVTeWtGZFVveDVnSVRCUFRtYkxySUFZdw?oc=5",
      "data": "2026-10-22T07:00:00+00:00"
     },
     {
@@ -7248,6 +7244,12 @@
      "fonte": "CNN Brasil",
      "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPMnByc1ptVF9jdGNKejZmVHJOa0dFT1FXSTctTHlGaXhEVG5FZ1g3Vjc3UUtUT014V1o2cXBmaUdrWDJDM3d4b0FNYlEyVEY3VHllR1VMVE9Jc1Etd1JTVlRZMFlXWmk0VzctSDZobnpfVmVRRUdfVUxzZDYyaG80UEdnamxSREpIclVSN21Dc1N0cXNSektpbnhwNG1OUE9DR0NQemZuR2xWTUN0OW9xTERWbl9Za3BreHFiZg?oc=5",
      "data": "2026-10-29T07:00:00+00:00"
+    },
+    {
+     "titulo": "Por que a bolsa da China entrou em bear market",
+     "fonte": "Exame",
+     "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE90UGRQd1F3bVBWeWR6bzBoYl9vOS10RnVDaVJDYTFTOHlidFprQm5PX2dBWDhSM3IxczV4c3ZiSlV6dFgxc2tEQVFVY2hYSlNiX1BfVWhNSjQzYkxtRXJYYnk0V0VKTmFEcmJIVHUxaWpQM0dTdmQ3eFVCdF9sZw?oc=5",
+     "data": "2026-10-22T07:00:00+00:00"
     },
     {
      "titulo": "Bolsas da China sobem 0,9% após dois dias de queda com recuperação de empresas de IA - 28/10/2026 - Economia",
@@ -7268,60 +7270,24 @@
      "data": "2026-10-22T07:00:00+00:00"
     },
     {
-     "titulo": "IPO vem aí? DeepSeek capta US$ 15 bilhões em nova rodada de financiamento antes de abrir capital em Xangai",
-     "fonte": "Seu Dinheiro",
-     "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPVjR4ejM0d3ZqWm1DTHdQWEFhZzVPWW14M21oYjZsMGg1YUExdHJLaDM4QjlMWlRRY3QwN25aMkpnZFQzVUVFMFVYckp6b2RwOFU5VExRUXl0d01ZRGYwUXNyUmp2WUljVmJfQm1FNm9ENVpqb29mWjdLYUpNeGFlLWhRbjlFcXZYT18zWVB5SnRfM0wtOERTM3ZZY0NheFh4UDZJMkk1eHQ1b3VmZWR4ZlZaZnRNZVlvSDNkQmRBNDRyeDRKQnNESFh1MXBLQ1JxRmd5eU54dlRLQQ?oc=5",
-     "data": "2026-10-22T07:00:00+00:00"
-    },
-    {
      "titulo": "Ações da China e de Hong Kong fecham em alta apoiadas pela valorização do setor de tecnologia Por Reuters - Investing.com Brasil - Finanças, Câmbio e Investimentos",
      "fonte": "Investing.com Brasil - Finanças, Câmbio e Investimentos",
      "link": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxPUTNxZmYwM3NnT2lpTzlsZjNQbU5mLUR4aWNPUUJodmczOTVVRUJIaVJycE9pU3NlTXN3TWFZZjdzMGxjYlVYVE1SN3BuVFdKYnpqd2pTaGJ2dmxBSzVMNGRJd0kySjdsZFBZenhJeldDZXE3dFRRU2ZVbGF5WlNlMTdoZVEtT2RmNUlERVluQktPV2RPMjl4SUlUMU0zVEtNU3hITkE5cXhRUEpnLU1janRHdHlFNVhfeXZ0eDZINW5XQl9tRk1hTHlaX0RXSVVDWlJaNGZCdnhWakpCT2ZScE1HOA?oc=5",
      "data": "2026-11-10T09:32:00+00:00"
+    },
+    {
+     "titulo": "IPO vem aí? DeepSeek capta US$ 15 bilhões em nova rodada de financiamento antes de abrir capital em Xangai",
+     "fonte": "Seu Dinheiro",
+     "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPVjR4ejM0d3ZqWm1DTHdQWEFhZzVPWW14M21oYjZsMGg1YUExdHJLaDM4QjlMWlRRY3QwN25aMkpnZFQzVUVFMFVYckp6b2RwOFU5VExRUXl0d01ZRGYwUXNyUmp2WUljVmJfQm1FNm9ENVpqb29mWjdLYUpNeGFlLWhRbjlFcXZYT18zWVB5SnRfM0wtOERTM3ZZY0NheFh4UDZJMkk1eHQ1b3VmZWR4ZlZaZnRNZVlvSDNkQmRBNDRyeDRKQnNESFh1MXBLQ1JxRmd5eU54dlRLQQ?oc=5",
+     "data": "2026-10-22T07:00:00+00:00"
     }
    ],
    "^TNX": [
-    {
-     "titulo": "Treasuries a 5,29% ou Tesouro Prefixado a 13%? Veja onde ganhar mais e como diversificar",
-     "fonte": "Estadão",
-     "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxPbTBxLUVHRFZnRFRMOERzZWdTTzJoWVdjZFBiZU02ZjJrTTJsS3A0bEJLZFAxYjFyOHBmZ0d6NzZhTjRmb0pIemJWTnNZMGxvWjF0R3F2NDNKbnhIWEMtWVBpckUyMS1sbDBfRklNdG14aTdxNmNlREY5ejZBTHRXNTVZUDhELWtnV1hCOUNtUlFlNkVOWnBHODRMeVcyWm0wWWJObkpqQzd6Z3JwR1VPU240VHhxRFJqMm1rLXA0UDBSRFpZU1VsOXh6UWl4NWFEUFk3cVZGYnhvdTDSAeABQVVfeXFMTzRlLVdSWUJpOU1sczZDU2RCUFZIcmZDY1A0TUs3TENzQmVKeTJwUGlZSV9qTS1YMDU5RHY2aEVLb1VlOWpmcXBWNXhULWtHQVpCSlQtaE5teUEzVHc1MFFNU2Q4azc2NE45NXowWUJVb0hHb2RIQ3JEa0RzT3NkQ3FKd2VrS1dUU0RFUG9ocmlPdjQwSlNFbzVYSWZlR0p1anpkZVRob01CUG9XSTlwdmJyYmExc3pBdkJtYVRsQWxURmtyeS1sNFpxZldDQWRES2EyTVZSUlVLT2xnRlpPN1g?oc=5",
-     "data": "2026-10-15T07:00:00+00:00"
-    },
     {
      "titulo": "Juros futuros sobem com pressão do cenário político e dos Treasuries",
      "fonte": "CNN Brasil",
      "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPSFJ2Vk9FbDJPc1JjZTdkb2Z4eC1qb1BjX09DUllZcXJZZks3ZzBOOHBrb05oakdHU0hUV29hZ0hVbnk4c3M5NkJ0Z1lPTGRBVldzaUZ1SkgyN2hxT3E3V04yejVzR2M2R083ZVdHZmVsa0pqdmQtOTRaeXl6M3ZscFozNDFDc1otNUNpWU1nX0MydzFQN2Z4U0g4MDFZdERodndIWXEtNjgyODc1LW5QbnAwc1h2NnVDUVE5TVVB?oc=5",
      "data": "2026-10-28T07:00:00+00:00"
-    },
-    {
-     "titulo": "Enfoque - Informações Financeiras - Enfoque - Informações Financeiras",
-     "fonte": "Enfoque - Informações Financeiras",
-     "link": "https://news.google.com/rss/articles/CBMirgRBVV95cUxQck95REpHcko5U1RKX1JoUlpLWW92UXYyZzA1QTJDazRVZjZ2VWZXcW53azNkVUFpS3hkRlhRS1NxelFlQVhSS04tbGRoa21haWhrd2J6STJISk9nMDJTYUZTX1lNSlhxWm1YYVhLWkpZS0RENUNFanFXNlk4cENpa3MybUozbGEzRGJBOU9HbEJsT3pDXzJ6eUxjeTBCa0FSY1RvVlRfT2k4ZVZHT2JodGFHVDZWQUZadFpCSXRtY3E5a3A5TWxzOW9MNW5oWm5LN1daR0w5ZlN5cTRPdnpXbWh2VTdyTEQtRnR4cy1lOU9iVHI0b2hJdUZiXy1XUFJNaTFFWGlGQUU4bHZucG1BakVqSnBMOVpSZ05McTJOT3JRb1lwb1ZzWVdmc3NqQnBVNURSZm8yRFFQakFoTWR5bExLYVVBUk1jeEtQYzRPTlpXU0FWTFV6a2x1STJFTmZjejdGTUVxeldMdUtTWVRjelAxOFBrQWl3a3JBQjJLSUx4bVJHSUdnMXJ6dlByeC00MGtOeGcyTzBDelQzUzdoSnJjbzFLVko4ZjNCak5sZkVTcnNtUWdmQ2Z5UmFxUkhPeFNyaE11bW84alk3cTJDMXh2cExyUWVpZkV4TVRJSUlFQmUycnFsR3c2dF8yanQxRXdWMjA0TUszLTl3NnZzZktKUUN0c0IyeUxjZ0kyWEhEeTdwTENfeE1CeW1sY3lPdDVGZWtjNGlicnduUlE?oc=5",
-     "data": "2026-11-04T08:00:00+00:00"
-    },
-    {
-     "titulo": "Juros dos Treasuries de longo prazo aceleram alta após sinal ‘fraco’ do Tesouro sobre a redução de vendas de títulos",
-     "fonte": "Valor Econômico",
-     "link": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxQSlRMcXY2dDEtWXZpWG9QTm5RaS0xTG9MdTU5Rm1mLWZtdHVlWmdIYk1zOVkzRjlaTHdBUWpBYTRyVVVZVTgyLWpIVVZfby1SWnBESXNQUzZEN3J2ZU5ReUlDQmJQMjlqM3ZDQXlkYXU3VnlSUzZoSkdZRnBSZjVnTWlyblpiM0c5a1J3Qm1mdUhOMHVkRkJkVDJoSEpzdl9CdmFleGlKV3hzWDQyYzk5c0ZpNGZmcHItRk1HVXZWSjF0Umo1a3hkQlBJdjQzZXBFT3phNHRrZGU0OXpBNzdlTklBbnVrVTBwdFZUR1p3S0JuNFozU0hkQ2ZuOFXSAYsCQVVfeXFMUG9vY1dteXpfY0FseXNQby11cXpnZHo0YzRYVjhuYnBiczJNbVRuNGJNUUpwLVZ0Y0hYdHRMazZiaGFvbzlNU0dlTjJNQTIxTkxwa2NsdkczRWI2MF9sUVBwQ1lwM2RDaUlTcWhHYVF5V2dJYlh6MVVqcnBkRW5pcno3c2M3cExiRTBYSDloS0g4V3lNbVZDVHdxSGtNaTFkTlR5RTV4Q0ZELWR3NDE5cGFjTmhqdV9WQVRrNVBLY29XclhTOVF2T3VLdDA2ZkV1UGtZVU9fVERWMFBWT3lzTUptajlsT0Q4RnZncFJ3WlJJR2dTTDBzN1gwODMwTVctakh1WGZDcTJueGxR?oc=5",
-     "data": "2026-10-16T07:00:00+00:00"
-    },
-    {
-     "titulo": "Rali dos Treasuries ganha força com correção em ações de tecnologia",
-     "fonte": "InfoMoney",
-     "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNMnRpUWpsa0VUNmsxYTFEMFhyY2dWeF81NXRnNnRDTEtQenRnTnBUZFJXMEpPei1sV3dXd1FOYkktN0Vvc2dMWlJPLV9QaEROQWpKUTRBLVRGRXhNY1RHVEpaSGtMY3NmUFJxcWNWOGwzalJfcjQwMU4zdDZvSE9BYjdtTTZGQ1UzOVZrVGo4YUVlcVBvQkktcUdHS1VnendCTEtWZ2xZdlZoZ9IBrwFBVV95cUxNa09zYklSNkh6RTE2eWxhWGNGUk9TN1RPODlVRm1FRDd0ZkdYSjhyV0xwTzEtbDZuZk5paUg1UzRsUlBGZGMwbDBvT1NGZ0FCR1lqTXRUMFc3dHo0c2Znb2Q5Z0ZtTXVxQmFPd0NMZFdSeThlZ3Awd1VPUE03bHJndTJmS3M0Y0FxUllwQ3dzVVBJRkpHSk8tcmRRY0NqeVd6YXI5cmItVndCMFpldlNN?oc=5",
-     "data": "2026-10-15T07:00:00+00:00"
-    },
-    {
-     "titulo": "Taxas longas mostram ligeira alta com pressão dos Treasuries e ata 'dovish'",
-     "fonte": "UOL Economia",
-     "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxNV2YzZi1ZdTlxS3Zqckc3UDhUWk9VRHFQZzg2SFdLcmNvcmlwS0UzenNfM3lWNUlULXhGWVQ3NnlYeWZIZktfVlI5NmNuTjdHdkFwdEhZM3M1cDIteXBtdHpaUkNNTm53Y0ZNMzVyNTJCV0hQdkxVd09fWkZfcllWdXZjZGQzOEZHN25ZOEo3aG9mUjI2UldrazAxUDM5YmNpMEhUSlBlMDZUbklQbEI2d0UzdGFicG43TkN0Ny1BYkw4cHZkNzZzek1pbmt2V1JzV1JKSV9vbXhrZw?oc=5",
-     "data": "2026-11-10T21:30:00+00:00"
-    },
-    {
-     "titulo": "Aliados dos EUA reduzem compras de Treasuries em mais de 60%, com queda maior na Ásia",
-     "fonte": "Bloomberg Linea Brasil",
-     "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOOGR1SnRaTlVndzJ6bVJENWxXVVkzNDhuUWdpV3NtMHFYYTVoa1BnYUd3Wmx3NlJNSkoxNGRwV0syWE5FNXY3S08wOHRyek1iT1Q1Z1FQMzdnXzlNd3FPWmhRRUZHWkRreC04TjJHTXZuU1V5enRERmhMaW1DclpBWmRnZHNzclpwT0M4VU95TVhWU1dLTnRJNUdhVllqT1hVTDRvSENIMVM5SVhNUkRacUZubEI0Y3ZiWTdqa1pQVmV0RkF2X0HSAdoBQVVfeXFMT2dTa2E4WjdaQ3dXVkU3Y0YybmIxUVBKMWViQjVKVEIzaDBmYjFZaVl3a1FpM3dDbHJxYzU2R21kdFJjYlhqU1gzcGVjTGUtRW9hcHA4UWxvRnpMRjFWZG9LMXc4Vms2NHFiTzBtY1VXMnJuMVRfYmVkQS1BMnU0RGV6RmFpX0o0dUFYTGlZWDJQYjNnUll6TS1MWVE0dUhYYlVRcm5tYzhDb0RBTW5QZ3ZaZjl0VVF1NS1feEhFYjVMeVpXWER5YV9DNUZOTGpzQ2VCSTNOYnljVmc?oc=5",
-     "data": "2026-10-29T07:00:00+00:00"
     },
     {
      "titulo": "Emissões longas das ‘big techs’ já equivalem a 13% da oferta de Treasuries",
@@ -7340,6 +7306,42 @@
      "fonte": "InfoMoney",
      "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNZUU0Vm5CUEZuTDIyeGFfQTNiS3NjRkpBdFJTRGRZZkdtUGdRYWFsYmlwNm1aWGNGU2tRdVI4WW9xZEVIcm1RQ2VZZ25scnducTNQNktCZjZRN1lySFhZQkRPNmVnVklBY3FvLXk5MW1KVUhNZVp6REl6WWJ5VThadlVZczBNVjBOd256XzR5TjRqQzlZV3ctSndTZEZ3QjFNM3ZGYm1RYUM1ZzNjZXNVMDVn0gG3AUFVX3lxTE5jekZXdnlodlBrdXd0bDZEWjdnaldXM1RfTXY5ZXVxLTZMUU03UDVRLTBhYkJDd1RDejJ4Zmp2QTJHT3B2VENTR2ZQN2xsYVNlMzVRWXhtU2NPZlEydU1QWnl2OG1mNW9fYW9STmpsSlNfbE1KNEx6SFV1aEdkdmdCQUpIVmh1cWFEN1dXd3BUbC1lX3NGdnhPYXRwbWVaT1E2amk0VmZNZWdVTkdTaWNDT2ZrYlhZcw?oc=5",
      "data": "2026-10-23T07:00:00+00:00"
+    },
+    {
+     "titulo": "Ibovespa recua com fiscal no Brasil e juros nos EUA; dólar atinge maior nível em 17 meses",
+     "fonte": "Exame",
+     "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQZjVPVTJ1UHlhMTgxV3lDY0lBM1VHYUN5RVJUSUlPVEh6N24xSHR0QUkwcVZSX2V5dVNLemNFWkVOVmY1bGFNTUd2dmpDODl2b1dub2dKejBsUFhiUloySi1vVV9OYjROZVVpTjJEbjJOeEhINlBCTXM1VUxjWUU3Z1VvcGRlenVIbFlQbHl1MW93N0NacTZIT2RfdnMwU0Rxakh1SWN0MGhkZlJNeWNnVE5iWHVaR201dU5CZWRNX3o?oc=5",
+     "data": "2026-11-12T21:40:39+00:00"
+    },
+    {
+     "titulo": "Taxas longas mostram ligeira alta com pressão dos Treasuries e ata 'dovish'",
+     "fonte": "UOL Economia",
+     "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxNV2YzZi1ZdTlxS3Zqckc3UDhUWk9VRHFQZzg2SFdLcmNvcmlwS0UzenNfM3lWNUlULXhGWVQ3NnlYeWZIZktfVlI5NmNuTjdHdkFwdEhZM3M1cDIteXBtdHpaUkNNTm53Y0ZNMzVyNTJCV0hQdkxVd09fWkZfcllWdXZjZGQzOEZHN25ZOEo3aG9mUjI2UldrazAxUDM5YmNpMEhUSlBlMDZUbklQbEI2d0UzdGFicG43TkN0Ny1BYkw4cHZkNzZzek1pbmt2V1JzV1JKSV9vbXhrZw?oc=5",
+     "data": "2026-11-10T21:30:00+00:00"
+    },
+    {
+     "titulo": "Aliados dos EUA reduzem compras de Treasuries em mais de 60%, com queda maior na Ásia",
+     "fonte": "Bloomberg Linea Brasil",
+     "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOOGR1SnRaTlVndzJ6bVJENWxXVVkzNDhuUWdpV3NtMHFYYTVoa1BnYUd3Wmx3NlJNSkoxNGRwV0syWE5FNXY3S08wOHRyek1iT1Q1Z1FQMzdnXzlNd3FPWmhRRUZHWkRreC04TjJHTXZuU1V5enRERmhMaW1DclpBWmRnZHNzclpwT0M4VU95TVhWU1dLTnRJNUdhVllqT1hVTDRvSENIMVM5SVhNUkRacUZubEI0Y3ZiWTdqa1pQVmV0RkF2X0HSAdoBQVVfeXFMT2dTa2E4WjdaQ3dXVkU3Y0YybmIxUVBKMWViQjVKVEIzaDBmYjFZaVl3a1FpM3dDbHJxYzU2R21kdFJjYlhqU1gzcGVjTGUtRW9hcHA4UWxvRnpMRjFWZG9LMXc4Vms2NHFiTzBtY1VXMnJuMVRfYmVkQS1BMnU0RGV6RmFpX0o0dUFYTGlZWDJQYjNnUll6TS1MWVE0dUhYYlVRcm5tYzhDb0RBTW5QZ3ZaZjl0VVF1NS1feEhFYjVMeVpXWER5YV9DNUZOTGpzQ2VCSTNOYnljVmc?oc=5",
+     "data": "2026-10-29T07:00:00+00:00"
+    },
+    {
+     "titulo": "Ouro recua nesta segunda com avanço do dólar e dos juros dos Treasuries nos EUA",
+     "fonte": "BPMoney",
+     "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOdkpFRXdlaENJVUhyS1VMRWhhSUhjbWRKYzVXbDBRSjB5eHRXa05PZElLczRSU0Y4WExnS053YndqMnA0dHZKWDhVTlhFZW94U29MSm1STkVSdDFRNUxRNG5OcFRtRzZVdXZBcFF0VmlweVZzaVZmSmREd09rMHJvXzJhYVQ4bkZxbjNiOA?oc=5",
+     "data": "2026-10-19T07:00:00+00:00"
+    },
+    {
+     "titulo": "Ouro cai com pressão dos Treasuries e alta do dólar global",
+     "fonte": "Money Times",
+     "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9rT01STTFETk9XcGxGZ2xOTFJJcnpUN25JSWNtVFBXU1Ftc0JNQ3VNYmJsT1FCaDhuM1NyRlNHMUNPVm54RV9CS3Q5MG51VVR4TU9waTdDVXJIcE5RWkE?oc=5",
+     "data": "2026-10-19T07:00:00+00:00"
+    },
+    {
+     "titulo": "Juros dos Treasuries de longo prazo aceleram alta após sinal ‘fraco’ do Tesouro sobre a redução de vendas de títulos",
+     "fonte": "Valor Econômico",
+     "link": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxQSlRMcXY2dDEtWXZpWG9QTm5RaS0xTG9MdTU5Rm1mLWZtdHVlWmdIYk1zOVkzRjlaTHdBUWpBYTRyVVVZVTgyLWpIVVZfby1SWnBESXNQUzZEN3J2ZU5ReUlDQmJQMjlqM3ZDQXlkYXU3VnlSUzZoSkdZRnBSZjVnTWlyblpiM0c5a1J3Qm1mdUhOMHVkRkJkVDJoSEpzdl9CdmFleGlKV3hzWDQyYzk5c0ZpNGZmcHItRk1HVXZWSjF0Umo1a3hkQlBJdjQzZXBFT3phNHRrZGU0OXpBNzdlTklBbnVrVTBwdFZUR1p3S0JuNFozU0hkQ2ZuOFXSAYsCQVVfeXFMUG9vY1dteXpfY0FseXNQby11cXpnZHo0YzRYVjhuYnBiczJNbVRuNGJNUUpwLVZ0Y0hYdHRMazZiaGFvbzlNU0dlTjJNQTIxTkxwa2NsdkczRWI2MF9sUVBwQ1lwM2RDaUlTcWhHYVF5V2dJYlh6MVVqcnBkRW5pcno3c2M3cExiRTBYSDloS0g4V3lNbVZDVHdxSGtNaTFkTlR5RTV4Q0ZELWR3NDE5cGFjTmhqdV9WQVRrNVBLY29XclhTOVF2T3VLdDA2ZkV1UGtZVU9fVERWMFBWT3lzTUptajlsT0Q4RnZncFJ3WlJJR2dTTDBzN1gwODMwTVctakh1WGZDcTJueGxR?oc=5",
+     "data": "2026-10-16T07:00:00+00:00"
     }
    ],
    "BZ=F": [
@@ -7350,16 +7352,28 @@
      "data": "2026-10-23T07:00:00+00:00"
     },
     {
-     "titulo": "Petróleo dispara e Brent chega a US$ 110 pela 1ª vez desde maio; veja o que pressiona os preços",
-     "fonte": "G1",
-     "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxPSjZ2a2VIN0xFZXRHTkc5U1NBdG9tNm9LZnYxN3ZwcldENTJ6LXV4OXo4U19aTkNGMEwwZGtHWXpBSjhTYUZEbDBwMlJTaHJiNFhvWnYxR1laSHRqM3FzLUNiMXZPc3JHTnJFVkVBWFhVX3UyNFJOT21rRVZudEkyN2pDM3BvdVl1X2VIam1pRDVKWGRMam9tZmQtQjItSGhpYXRJOVdhbUhOTFJQSmVmOEVzVlVvMHdTVkJ0QnJ4TXdrckxSVHkzWHJrSVZDUUh0UVpYcGZOWkt6b0tWY2NUVDF30gHwAUFVX3lxTE5mYVdsdW5USnllWnFSbGFwQV81TndzRXc4S0JGNGtobDRjSWZyM1kySEpvdnV2elNJZUlINVRDbmxJbFVUbHY4TnJ4SDFkWEl0aGlvLW5acmtLSXBxdjdNa3FUU2FVcllLeDJHQmVEdzhzSVlEWlMxS1N5VFVCYWJpUzVvNlJWc1VuTlYzUG1HaUgwRTgzTWNjbjZ3UFdNSkhVMmJVWG0tX2lMb19zbE9kei1EdlpGWjBha212UHFGV2VqczZJclVwdlgxYURYOUlrY01ORS1fZWpKLXlHT2UzYkdEUE4tUXlqSFUtN0lqNA?oc=5",
-     "data": "2026-10-16T07:00:00+00:00"
+     "titulo": "Petróleo Brent sobe quase 20% no mês em meio a novas tensões no Oriente Médio",
+     "fonte": "Valor Econômico",
+     "link": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxOVEhqMGpVcGg4U1NYenlnYURmZDIxcEhER1JnelQ5Q0xCb3M1RTN2VkFwTVl2Mjd1RF9sZW1jUDJaTUxOSDk5TjFieml5TUlSektma2dsVUZJQk1jUTVKOVhLQWpUNXluT0hpMFcxdW44MHZpdXlGbHp0T25vUDI4bEUwRlhxME1scVVRMlYwWVdlMHBjSkd2ZDlSN0pDMWxaUERlMjJSOHVoZDRtRWk3S2ZyNE9BMzdRMzVaWVR5WEF0bVA1NEhtcTBXMUZiSVZFbFBxNXdZSk7SAecBQVVfeXFMT296NnRDeUQ0Sk5aY3R6YmpWYXN2ZGJiODVKdXBQbjdqNXJVQ05DWXlzaWQ0akdUd3pMN0xlazJzMVBUYzhTYkhFZ2Fnekd2WnJ1dnZEb1Y3RllQQUt2aldjVEF0ekdFUGZ1Q2RNWW9mRWpvVGM0MHVfVmVna1drSVZ4bkh0Z0lqLWxFdXNidG5nTUlvRzV2cEMwaUQ2WFJPSkdnS2N3MWpZWWNkRk5nNFpkODlPVHo4Rzd4NEFEM05JRzVjTVlOT2tsS2E5TDF0Q19yeVhBcDJCZVdNODVIQ3BvalRGb1hR?oc=5",
+     "data": "2026-10-30T07:00:00+00:00"
     },
     {
      "titulo": "Petróleo Brent fecha praticamente estável enquanto EUA consideram aliviar sanções à \"frota-sombra\"",
      "fonte": "Revista RPA NEWS",
      "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQZWxzam1QeGlkNWlLN0NJbGNsMHdCTFhyQXBleHN0dGc2d25ub2pWUUNPTmk2RzU1VGVhN1h3YWlDSHVYMnVjdjl0eExiWjZsUHBRb012YW50aS1zaGJ5QnhCQ3FmNmsyX3FDcG84V0k4V050TnF6SmlyUHRNbXFybE9fZ056QmdyUFhyb2gweVRnR3IzTkVOY0NkUWNSRWp4RkQzSGVtZGZudVREVjBQc0Npbk1uVzJiSkowYkNlcWVRbDBoY3c?oc=5",
      "data": "2026-10-16T15:48:14+00:00"
+    },
+    {
+     "titulo": "Petróleo Brent dispara e fecha com alta de mais de US$ 3 após ataques a petroleiros",
+     "fonte": "NovaCana",
+     "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNOEJYOTdXcXRwb09rX3NrTmd0d3JYZWlzYkxhUGNWU1Y2Q1pqZnZyQnpFdzQyN1NoZkFmMnE3SnMycmhZWUNScW1UdVgyT1pHbUZsal9GY05LQjFsZ25fMmc0UVVsTEgtWmdNbWV0WnlLbWZnWEhwZHZaclBNMG5sdG5vb25UNUlXZHRDcnlUWGNJV2dHREtKRDRKTDdlR2xIS3VDbVdTS0ZfS3lMcmpvU25JLVpXWTg?oc=5",
+     "data": "2026-11-06T10:54:52+00:00"
+    },
+    {
+     "titulo": "Petróleo Brent atinge US$ 111 com relatos de ataques à Arábia Saudita",
+     "fonte": "Bora Investir",
+     "link": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxNWGVTbF96eHJzdUJfMjhkbGpKdmg0S1EyWFlpTmpKS3VuRkc0aTBwVjFHT1l6RW9QeFlPamlhc3NQb2xFMU13QVJaSnU0U1F4TDlNS1JrQkduUmtwb3owa09RMWFKNzlTMlhSb2tzZ1YwRmpkR00tUm43MTZDV3hjWDRWSjdzYVVvc0VqZ3JIb1drdDZHSGlwWXFkZndsNVY3bnhfTk93YmQzT05PZ3ozT3gzeDlqTUIwODdMNHF6NmE0ZWE0U1VSdkU4VlE5SG9PTTNRWXBnLTJSN2p2dGFKTVl6U0U?oc=5",
+     "data": "2026-10-20T07:00:00+00:00"
     },
     {
      "titulo": "Petróleo brent sobe 4% e atinge maior valor desde maio",
@@ -7380,12 +7394,6 @@
      "data": "2026-10-19T07:00:00+00:00"
     },
     {
-     "titulo": "Petróleo Brent atinge US$ 111 com relatos de ataques à Arábia Saudita",
-     "fonte": "Bora Investir",
-     "link": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxNWGVTbF96eHJzdUJfMjhkbGpKdmg0S1EyWFlpTmpKS3VuRkc0aTBwVjFHT1l6RW9QeFlPamlhc3NQb2xFMU13QVJaSnU0U1F4TDlNS1JrQkduUmtwb3owa09RMWFKNzlTMlhSb2tzZ1YwRmpkR00tUm43MTZDV3hjWDRWSjdzYVVvc0VqZ3JIb1drdDZHSGlwWXFkZndsNVY3bnhfTk93YmQzT05PZ3ozT3gzeDlqTUIwODdMNHF6NmE0ZWE0U1VSdkU4VlE5SG9PTTNRWXBnLTJSN2p2dGFKTVl6U0U?oc=5",
-     "data": "2026-10-20T07:00:00+00:00"
-    },
-    {
      "titulo": "Petróleo Brent sobe 3,3% com tensões no Oriente Médio",
      "fonte": "SBT News",
      "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPVExHNHZINV9GU1BLM2RwT1NMUG9zYlZLSHZ4cnlvdEN2UlNDdUlEM3R3WEdzUm5UYWtBY1RsWjVrWUdzeVlxYk9teFF0WHhMN205MEpPVUxZY2l3Y1ZOUU5BQVp1S0FNNURHS2UzMmhPeVgtSXB6QlhNOEJLUHUwbk5obGdQWmpwVUpsWVpzRHU0eTFKaEYtUEtqb25CV213UEVN?oc=5",
@@ -7396,12 +7404,6 @@
      "fonte": "ADVFN",
      "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNSUFuZ0hndGMtN0tET1dXNkpTRnF1RU04bU5BOVctZUx3c1pSWjhNbVNRWWN1S01WMzZaUkRsWGltM0Rzc2dic3ppcWIzbFdHQVNSdmg0QjJzR0d0MERfSEtpWmQxcFhKbElhb3NvWXhaRndsYTUzamx5MDJNMGNISEZyb24zLURFTHBZamp1bDhKekFiNW16NkluQVEtaXc?oc=5",
      "data": "2026-11-10T11:09:19+00:00"
-    },
-    {
-     "titulo": "Petróleo brent cai 8% com possível impacto da eleição dos EUA no conflito com Irã",
-     "fonte": "InfoMoney",
-     "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQa0xuZjd2UExyMU5LMnFtZ0NJTE9BLWpQWktSNXpoT09oUHlBZDdvUHMwdE9NMEtXS2dSYlpSZlpYdldHNnNWcmZSNVFlRTRSN05La081Y3JJQ1dmdWhnQUNfdzlBN2VuVzE5UWRhdUtYYWJGcEZ0V0g5YXlLUkNUb2d2dWNOdVNLVEdzN9IBkgFBVV95cUxPOC00OVJEOXlqMEg4aDhZNVdod3QxN0tNTTBwS2k1QlVsUm5LRVhVR2VaVFdReTJoby1LaVBXNXprRWZNZ1VQS3NrdGs2dUozOHNKbngtX3cxZ3ZwQkpRanRyUm5RTlZFQU9leDBUb3NtcnRVQ01iRXIwSVBBN1RLcnRSUkJVbnFlamtlSUE5Rms3QQ?oc=5",
-     "data": "2026-11-04T08:00:00+00:00"
     }
    ],
    "CL=F": [
@@ -7410,18 +7412,6 @@
      "fonte": "Valor Econômico",
      "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOX0c2cjFUMTNaSGRtelptMnN1UTFaYmFpX1ZUSWN2RGNYcTBzeUNSZFJodWQ3MTRlUDVSS2tRcmlyZXcxS3Q1S2taa0x2TExvTVNEaHZNUndQdFRmNTBTcTBDcGtEazVvUWpkVWxTamVXSHh6QURCV3VpQlRmS0FmQUZ5OG8tR0xiYUIybkpiVkMtZjdPSUtIb1RKN0x3UFljc2NMdzFKcnZnOXJSbi1BS2VMNkEtNlR6eENRYk13TkdQUU5sZXhyZWdIelBHYmJVWFB3YU1OYWZpUzjSAdsBQVVfeXFMTl9HNnIxVDEzWkhkbXpabTJzdVExWmJhaV9WVEljdkRjWHEwc3lDUmRSaHVkNzE0ZVA1UktrUXJpcmV3MUt0NUtrWmtMdkxMb01TRGh2TVJ3UHRUZjUwU3EwQ3BrRGs1b1FqZFVsU2plV0h4ekFEQld1aUJUZktBZkFGeThvLUdMYmFCMm5KYlZDLWY3T0lLSG9USjdMd1BZY3NjTHcxSnJ2ZzlyUm4tQUtlTDZBLTZUenhDUWJNd05HUFFObGV4cmVnSHpQR2JiVVhQd2FNTmFmaVM4?oc=5",
      "data": "2026-11-11T12:00:09+00:00"
-    },
-    {
-     "titulo": "Petróleo fecha sem direção única em meio a ataques no Oriente Médio e aumento da oferta",
-     "fonte": "eixos",
-     "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPenlrTzJBejBsMHVxdWNIcXJsa2F3WnlnaHB2aWVPSlNKX0NSNlp4S3dneWh4SmMyMmQ3end3VGpwSFhmVDhjaThVRGlNeHJYVXVJVy1TOTFFeUVoemMxdDBoMmszb1VpQm1fa21SU1FXWVFTYTUxRjluVlFKX1lyR3hCVG95TTFtWjlrOWFHeUVlWUJYcXVVS2hyMlpSUFRwTThJYWNOcFhVVVNOODlxUWlObC1JNHRFNkpBNGRnQlRaQQ?oc=5",
-     "data": "2026-10-15T07:00:00+00:00"
-    },
-    {
-     "titulo": "Petróleo fecha sem direção única em meio a ataques no Oriente Médio e alta da oferta",
-     "fonte": "InfoMoney",
-     "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOTkRoeUNBS1FUN01tdU10V0JpLW95S2QyWWRaMlZMWTNUNWFuVUZJWkl1MVJnUzJUbkJseDBOMFhvLVd5dzhaQUV5QW5rU0FvNy1uQVRJNUFQSTdQZzhQYm95dVEzNkp1bzQ1dGpzMmM1X3VaYk9NRVZHVFV3OVRraGJnaTBkSEhkeElqdtIBkgFBVV95cUxNd3hWNU9tUkM5eUlIZ0l5OGVFcUktdzQ5YlMzY19nS3ctZ1RzSXM3MzFiQkpwdGV5LVZONVNYYVlnX3F2UGlSMnh3Qm9xcEFDbXBKbzB2Vk9ORmNNNHJ3NnBrM1RxZVlYTFA0b2owenZXUWJTN2ZqRVVvcEdEQ2Izc2xmNXhvTU9vNUJ5QUZEMWVCdw?oc=5",
-     "data": "2026-10-15T07:00:00+00:00"
     },
     {
      "titulo": "Petróleo cai com expectativa de avanço diplomático no Oriente Médio",
@@ -7442,10 +7432,16 @@
      "data": "2026-10-20T07:00:00+00:00"
     },
     {
-     "titulo": "Governo prorroga imposto de 12% sobre exportação de petróleo até dezembro",
+     "titulo": "Petróleo fecha em alta nesta sexta-feira, mas recua 13% na semana",
      "fonte": "Money Times",
-     "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPaHI4TjNBNUtfUkJpSDVzOE9LUFZMalVPenZkWmItQ1RtVXF2bDBuZmhPR0pVXzdic1ZKRHRvZW5ldXFtcG4wM0o4cThGcWo3WklYRFZpakNTc3QweVZiaDZsUVBGaHJmd0t0ZURRM1ZaZ05RdjJGa1pvY3Vhb0J0X28xd2tsYUh5c1RnQm1yam9oYXZKaXdzcy1mbFRSV1NMTWlOcnhB?oc=5",
-     "data": "2026-11-06T13:10:00+00:00"
+     "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOVVRrdEwtdFY0TV9BSDRJTGJqdndmSy1fNDV6SDFfYmFReTBYd0tUcjFvTGZWd3BhYWk5VXY5WDkyWmRyVzhYck1DT0MzWTNNM2FFNE1UQ2JVZ0xzNm9Pa0lkSDk4OXRubnhRNmJuWmptU1FCa3FWc1Fjd0JSa3JQNTV3SHExdjE4dkl0X1Y3MjQxVmRUV1RZbDZCc3ZMRkRX?oc=5",
+     "data": "2026-11-06T08:00:00+00:00"
+    },
+    {
+     "titulo": "Petróleo brent sobe 4% e atinge maior valor desde maio por tensões no Oriente Médio",
+     "fonte": "InfoMoney",
+     "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQanB5UDJNWjZsRDlBXzF5UnlKLTlEcDZfbzAxTURYXzFCYU5yNndRRVo3MjdWM0dGU0l1d1JrNGo5MlY1QzRkS2RzQ1lZUFlqMEtNRWZoUng4NmIyNjRCeDVENG1KTXRQd29Zem1wZzA2UTBuUVh1ZEdYc05hcnNiTXp6eEFrdHVBT0I5VNIBkgFBVV95cUxNTkVQMmIzbzBqWmphc1p4Z09fdFlaZWprNWJqaFJad2VzY01aclAtRlIxUVlLOXdIcS1SQlQ2R3VwVWtJZ3VlZVg1Ul9lU0wyX2Q1NEcxODdlME9RMGNzNjNub2lrWkNWNGY4S0pocFFaSjFlcmE0a3M2TWxuaW5YaHNBSkdBQ2tTczF6NTJOdkRtQQ?oc=5",
+     "data": "2026-10-22T07:00:00+00:00"
     },
     {
      "titulo": "Petróleo fecha sem direção única com ataques em Ormuz e avanço de negociações sobre Ucrânia - Suno - Investimentos Inteligentes",
@@ -7454,16 +7450,22 @@
      "data": "2026-10-21T07:00:00+00:00"
     },
     {
+     "titulo": "Petróleo fecha perto da estabilide com avaliação geopolítica e sinal de reequilíbrio pela AIE",
+     "fonte": "Folha PE",
+     "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOODR2bFRuMlJ4QllraGVObm9sNnloOTVVNGprWG9oT3VBYS01RE1vU09HQlJRbjNMQnN5bkhlRm9BbUllZ1hQVzE1R0tJaTVxM0FmY3FrTFlnbTNqenZDdVVrQVp0cndMcWZYVkV1eFhBRFo0dkpmSVp2ZUhaZ3IxaExCTEttb3AzcFdVUlZ0RWEzR1laVG5qZVBYUWZMS3YwYV9SY0hlV3c0ZHE2TXVUUXp0SXBVUdIBtgFBVV95cUxOODR2bFRuMlJ4QllraGVObm9sNnloOTVVNGprWG9oT3VBYS01RE1vU09HQlJRbjNMQnN5bkhlRm9BbUllZ1hQVzE1R0tJaTVxM0FmY3FrTFlnbTNqenZDdVVrQVp0cndMcWZYVkV1eFhBRFo0dkpmSVp2ZUhaZ3IxaExCTEttb3AzcFdVUlZ0RWEzR1laVG5qZVBYUWZMS3YwYV9SY0hlV3c0ZHE2TXVUUXp0SXBVUQ?oc=5",
+     "data": "2026-11-13T20:57:40+00:00"
+    },
+    {
      "titulo": "Petróleo Brent e WTI caminham para alta semanal com tensão no Irã",
      "fonte": "ADVFN",
      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPSWRlZ1J6d1M5NlJYaGtwQVlBblRJZFRMOExXNXdSNU9YMVdsbzdMeVFFelFCckVDVC1rdW8tQzhlSjdyY0hSNWtTYTRuVkM0SVk3Yk10Z0lGRE96QWVmRjZNN3NrUzJhU3dnZFJrY0h3bUl5T2YtNHVCcGtYeXpJcmk3YUZYZ2py?oc=5",
      "data": "2026-10-16T07:00:00+00:00"
     },
     {
-     "titulo": "Petróleo fecha perto da estabilide com avaliação geopolítica e sinal de reequilíbrio pela AIE",
-     "fonte": "Folha PE",
-     "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOODR2bFRuMlJ4QllraGVObm9sNnloOTVVNGprWG9oT3VBYS01RE1vU09HQlJRbjNMQnN5bkhlRm9BbUllZ1hQVzE1R0tJaTVxM0FmY3FrTFlnbTNqenZDdVVrQVp0cndMcWZYVkV1eFhBRFo0dkpmSVp2ZUhaZ3IxaExCTEttb3AzcFdVUlZ0RWEzR1laVG5qZVBYUWZMS3YwYV9SY0hlV3c0ZHE2TXVUUXp0SXBVUdIBtgFBVV95cUxOODR2bFRuMlJ4QllraGVObm9sNnloOTVVNGprWG9oT3VBYS01RE1vU09HQlJRbjNMQnN5bkhlRm9BbUllZ1hQVzE1R0tJaTVxM0FmY3FrTFlnbTNqenZDdVVrQVp0cndMcWZYVkV1eFhBRFo0dkpmSVp2ZUhaZ3IxaExCTEttb3AzcFdVUlZ0RWEzR1laVG5qZVBYUWZMS3YwYV9SY0hlV3c0ZHE2TXVUUXp0SXBVUQ?oc=5",
-     "data": "2026-11-13T20:57:40+00:00"
+     "titulo": "Enfoque - Informações Financeiras - Enfoque - Informações Financeiras",
+     "fonte": "Enfoque - Informações Financeiras",
+     "link": "https://news.google.com/rss/articles/CBMi7ANBVV95cUxQN19fUG1vZXBZenhESTBLSkJFVnp1Njc2UTNOQUVob2kzaXFKSkZsOXdTclV5Y2wydTAwaGY0M2RDRDkwSnVzZ0VrTERVNFdmRzRmdjRSR0YyYVFjdVlPVFhJaWlLak1lOGphRkYzMFpPbDcxaGJ1N0JkQ2YzbXpoM1NjLVdpWVlVcXJnRllWYlZrMk5yRG5pdTJHa19hZWlvbk5SM0llekZtUERpd01jaE5PMF81RTh4SnVabUZvMWhDbk1HXzVlQzVhdmI3aGxfODhMcmhrMm1naTJMRTh4R3VhSHFBeGxPcmNFbmFNTGVEN1lfeDNBOXBzTlVoX3RuUWp4NFQ2cmkwQ1BJamtySmNOOHJ6SVlsZVlwVjdQeGt4WHV6Tmt5cWppRV9IWWlMOVhpVjg3QnFMWDJNTk5qOG90VjhLWGNqeS1xemNpT1p0N2tKYXdBeEMxMnRwb0gtUmlTN0xuY3l5S3VOdG5qVUxuYnQ2M1VSdXJmY29xLWNCYV96a2V3Nl8zN09lME9JV1duRlp3Q3Q5cGFXbmtWNzVtTjh2WHlESG9nMjZkTDRKamhTNGlYTU85eWpZSl9LbmdwU3dCcUFDWTNmN3R1djZBTjZiRFdYa3dJNFd6dzh4b0RKbG53VXR4ZHQ?oc=5",
+     "data": "2026-10-23T07:00:00+00:00"
     }
    ],
    "GC=F": [
@@ -7476,26 +7478,8 @@
     {
      "titulo": "Ouro hoje: siga ao vivo o valor da cotação",
      "fonte": "GZH",
-     "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQV2lmWlM4RnQxeDYtXzB1NXh0UFlsMElsN09PeXZyX0pUaEtiR1JJNUZMa2RuX3prUi1wTUtRY0xQQUc0dGw5Q1ZPVlg4cEhMb0VsWTlvOUFVczQyNG5GZG1vOFV3UXl0NUlHMGRBLWlxSWdHR2dRRElwbWdqdXc3NnBmUjVpbXRpSHVzQi1VVFJRdFVvUjdNUHE3SDZsTTdybUx1T1hPUmJERi02RjMwVUFMdHlUYmdfRUtlam9jeVpPRjdt?oc=5",
-     "data": "2026-10-23T07:00:00+00:00"
-    },
-    {
-     "titulo": "Ouro sobe com queda do petróleo e expectativa por decisão do Fed",
-     "fonte": "CNN Brasil",
-     "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPYVA1dkc5TzNOdEdlWDMtS3UwWUJPb0JSSWs1S0djLTExemEzWDY4bDA2eW1iTk9ZNV9EdFhJYjhOMlIyU2FYTVRva1VpTGdJcjlwd0szNm1OdlVHajBIbndzTlN6NW40cF84NWoxSjIyT1FwSVdjendGcWZmS0Z6Q1VKOFFJaVJ3TDZWdF9yZk50ZWk0dmZHR3NiSDg5T0lBdlE2cXQxQk9fZlZCMWNjT3RLS29jZnct?oc=5",
-     "data": "2026-10-26T07:00:00+00:00"
-    },
-    {
-     "titulo": "Investidores preveem novo recorde para o ouro em até dois anos",
-     "fonte": "Folha de S.Paulo",
-     "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOeFloRlJZNWUzN1JSSG5jZGp4dThkYUw3WGJUZzh6VVNPcnRsdC1nUDVtWkhtbDB0T1pXSkM4U1QtUHdOYUxNTjJHN0JOMnhDVl9LemRsR3hSNHVtNm1zVkZ5ZllXVnFuLTlmLVYybjRzRWFrRFJMZzlJTzRybFo1UlpyNXJ1VXVrRFM3QVRvVm1aTDU0OV92OXN6SU5PNDZXbHcxUjFJZllpa2g4a3NnbEdqNno?oc=5",
-     "data": "2026-10-15T07:00:00+00:00"
-    },
-    {
-     "titulo": "Ouro hoje cai mais de 1% com petróleo em alta e temor de novos aumentos dos juros nos EUA",
-     "fonte": "Estadão",
-     "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxQSy1RZzRaZmZTVU8yMW10ZHBLdDJoMXhtZVdqa0pEckU1SmQ4VTlMYU02NUhLekVmN1pGc0laVUNHVWRscEtjSjI3QkNqanEtalMxVmZyRjBEUmc4ZjRaSzFXc29IelNpcmRNb0diRGkwWmlLLS00X1BrNTBmby1kZnFQOE5hLUJyTW9PUEZ5V0sxUGNzSlVpSE10TXJtcUR3aWhRNmlFazFFZGJkQkQ0Uk16RE0zZ1BhenAyMHJYbEJwN1N5N0RxS29hNlNvcFJsTmFjY3c0Q1FDWmo3YXFvM9IB5gFBVV95cUxNUnN6c3NybURhZnBrb3ZyMWtIQjlJYjJBMlhDdFJMVVdzamVlTThGQ2lkNzVsLUgtV2Q4TXBIdDNlRkJ5bXJrak5sVFZtN3hoMnhtMUNtWGdhbjdrQ29LdEV3SUlLVWpJWUlWTzB6cy1VZ1ZMSjRvMjVJWndNSkxPN0tfQW5NY1JmNmZTU2pCZ0RGek16MENzQ0hhU21xMEFWS2k1ZUdBMGFMaTBEU0JHMnpMM1JDWGxvLUR0TUgxQ2s3aExCOWZlY1lKbzVTeDdCbWtHMXpzX3AtalZESHNCLVRvUHczQQ?oc=5",
-     "data": "2026-11-03T08:00:00+00:00"
+     "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNaTdjWDJFZXAwdkJoc25TS2xjVml3bzBEQUc0aG5OZm54SjFJdkVyZzBYci1kUS14RE91MnNNbVVsT0wzbXdkWHBIX3lzZkh6WTcwTlBKSmpBUkdkOGtjYV9HNEN2NVJabVNvMWlsYmZDZzM0RzJuZlBCM0lhRmhrUldickM5V05BNFhUcXkwVlYxZmUyZENNbG5tUkdpMktMbGNweG4xQ0U1S3drY1lnRUVzODM3NUFfalpFcFYxbVlXbjR0?oc=5",
+     "data": "2026-10-27T07:00:00+00:00"
     },
     {
      "titulo": "Preço do ouro atinge mínima do ano. Hora de comprar?",
@@ -7504,16 +7488,28 @@
      "data": "2026-10-31T07:00:00+00:00"
     },
     {
-     "titulo": "Preço do ouro recua para mínima de duas semanas antes de decisão do Fed",
-     "fonte": "ADVFN",
-     "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPXy1jNHpkTi14VkJUN2pHTWdQQjljZ29sWHN0dE1uc2hxSzMwZGMyRU56b2wzSkZrOEpaZEFaUm15Yno0amxtTkFzUmVmbGlQbS02dHRpRTVKdDk3U05CQWZ5UFR0OENMY0FyOG95a1diVXhGMjBFWU8tYjFQM2UtNF9jQQ?oc=5",
-     "data": "2026-10-22T07:00:00+00:00"
+     "titulo": "Ouro hoje cai mais de 1% com petróleo em alta e temor de novos aumentos dos juros nos EUA",
+     "fonte": "Estadão",
+     "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxQSy1RZzRaZmZTVU8yMW10ZHBLdDJoMXhtZVdqa0pEckU1SmQ4VTlMYU02NUhLekVmN1pGc0laVUNHVWRscEtjSjI3QkNqanEtalMxVmZyRjBEUmc4ZjRaSzFXc29IelNpcmRNb0diRGkwWmlLLS00X1BrNTBmby1kZnFQOE5hLUJyTW9PUEZ5V0sxUGNzSlVpSE10TXJtcUR3aWhRNmlFazFFZGJkQkQ0Uk16RE0zZ1BhenAyMHJYbEJwN1N5N0RxS29hNlNvcFJsTmFjY3c0Q1FDWmo3YXFvM9IB5gFBVV95cUxNUnN6c3NybURhZnBrb3ZyMWtIQjlJYjJBMlhDdFJMVVdzamVlTThGQ2lkNzVsLUgtV2Q4TXBIdDNlRkJ5bXJrak5sVFZtN3hoMnhtMUNtWGdhbjdrQ29LdEV3SUlLVWpJWUlWTzB6cy1VZ1ZMSjRvMjVJWndNSkxPN0tfQW5NY1JmNmZTU2pCZ0RGek16MENzQ0hhU21xMEFWS2k1ZUdBMGFMaTBEU0JHMnpMM1JDWGxvLUR0TUgxQ2s3aExCOWZlY1lKbzVTeDdCbWtHMXpzX3AtalZESHNCLVRvUHczQQ?oc=5",
+     "data": "2026-11-03T08:00:00+00:00"
     },
     {
      "titulo": "O ouro não tem relação P/L: então, como saber se ele está caro?",
      "fonte": "TradingKey",
      "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNcmJCS29oQzBKR25BU1ROV1pSN3Z4aURQU2xUR0FXMEZCdmZPMHVMMWJHc0xTdDBjMmotYWZTaWZiT3Nib0tKN3FtVno0Q1diSENJeVlzU3JsZEtzaWtHMmFRR1gxcFNjZjQxdUF4dXN2Vjloa3plbEZweG9WM2VncENreThPTmJGVDRFV05tTmVFbXBuMnEyZUtsckZjdHZzWnJpcXpfSTg0ajk5Szh3TnZRT0VUZEpBU2VR?oc=5",
      "data": "2026-10-21T07:00:00+00:00"
+    },
+    {
+     "titulo": "OuroLayer (OURO) Previsão de preço de 2026 a 2031",
+     "fonte": "Bybit",
+     "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1tRmZPTlM3Ni04aklFU18yVk1qMkJhUGFNX1RvZm5QaHUyOTZXS2tNcF9paE5FN3ppdl81c2xNUnRRcEJPQWFFNXFmSnhyRHJoWWM3akZUNWVHb2dnTy1DdGsteXRtQQ?oc=5",
+     "data": "2026-11-01T07:21:42+00:00"
+    },
+    {
+     "titulo": "Preço do ouro recua para mínima de duas semanas antes de decisão do Fed",
+     "fonte": "ADVFN",
+     "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPXy1jNHpkTi14VkJUN2pHTWdQQjljZ29sWHN0dE1uc2hxSzMwZGMyRU56b2wzSkZrOEpaZEFaUm15Yno0amxtTkFzUmVmbGlQbS02dHRpRTVKdDk3U05CQWZ5UFR0OENMY0FyOG95a1diVXhGMjBFWU8tYjFQM2UtNF9jQQ?oc=5",
+     "data": "2026-10-22T07:00:00+00:00"
     },
     {
      "titulo": "Entenda por que relógios de luxo podem subir de preço mesmo com queda do ouro",
@@ -7526,14 +7522,26 @@
      "fonte": "Investing.com Brasil - Finanças, Câmbio e Investimentos",
      "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNNkZfd1hGMmE4aVB6UlJ3eExYU012cS1iZjl6RlM3VE5RbVNPeEZlTkUyemVGREpmUENwcm5oeVIyS1FjTkJobnhxMWx4LVZ1NTgzUFFjaC1EXzFwTjdRdmJjX1Flc3NPc3VfamRTeU9WWVR1S3lzcnpZQ1BvdE0xMjBHVHA1RlZVVGI0SGtNazlfSS1GT3pPckczbTdtOXh2ZG5MYlViT2NJbnlnTmJuU3daUFZ6WXpURUVyOEFtbm4?oc=5",
      "data": "2026-11-13T12:11:00+00:00"
+    },
+    {
+     "titulo": "Preço do ouro na Índia hoje: ouro sobe, segundo dados da FXStreet",
+     "fonte": "www.tmgm.com",
+     "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPSE0zUGZmNno2b1BESVpoSXNIWVBGc0x5OWRsQkZiY2M5ZDFhM1hNNXEzV3FzR0VkTTFlbzJPZjBoVXkycUR6dUFtRHpFUk1oZ0JETGY5RjVlZGFTUkM0ZkNBY2ZwRW5WcVYxMnNiYWI2dmxNZklvRjlRVUlGWnV5d3NYeER4c25BQlRVb3AxX0c2VWFfZGNEVkVWeFdOcEs1UnZPTEJJSFpMc3pIVmxWWHhoc0VkM2ZQTXVGNzJnZ0hkQ3E2?oc=5",
+     "data": "2026-11-11T11:34:04+00:00"
     }
    ],
    "TIO=F": [
     {
-     "titulo": "Minério de ferro atinge menor cotação em 2 anos com preocupações sobre demanda fraca",
+     "titulo": "Minério de ferro atinge mínima em 2 anos com preocupações sobre demanda da China",
      "fonte": "InfoMoney",
-     "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOaGM0RlltQlZfbFo5UUVFNTJqSnhEZE1HTThGSk1aaTFhNzMtVm9ZS2JhVzZzWlBjVXZ0X3hMU1BYVDlvaFBEOVZpeUFTWldOYjQ0ZHFNaDQtODVURkc3OTNNMGlUYlZidUFGTW5VOHZjeGJTV0F5NGxoXy1sLVFyZXc0MmJ1ZlEzQzlaN21Id2hzNFdORDFPMXBaOXJJTW9QOS1uRjlNV3hhYzVjX0NCWURiRG8welBXQ1Q2OVRvdWzSAcYBQVVfeXFMT3RGT1FBX2lFb0M0ekt0QUoxaHh4Y0JGMW52VXhWSXk3WWN5ZEg3b0NOSS1wRGp0amxlMVBPOGVkUENrLUZRbzZIQTFHWE5Fd3NXbm1VV3ZzYnFOMk9FUkVnQWhkSmlIYlBqRTlZVjNsaFR2TDFnOXQ1cE1SRElmaWo0VjRrZjlLTUVrZXNweHQtNHNZU0tSUE5PTlplU0RSSlFoSExXczFVc0VDUDk2VldOUG1LZUkzRHF6THFhdzBELU9aMXZ3?oc=5",
-     "data": "2026-10-15T07:00:00+00:00"
+     "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPdkh2R3BUd0FmY3pIZjdQTVdtTnlMVXhuNV8xaHJJVGlzOGxzUk9FejhwTmpBSUpLWWJmVzFwNXB6eDNLVTVsclIya3VhVDZyX0VHYW1pSkRDUng2OUdlcnhraGQ1a3pLZUNIWlJ6cDBweFRHRWowc2FmUk1GbDdjdXFENEtfWmVwMHVfRWVTMGJZTmgtRGdYaW9VR1pfV2lkbk5VYk5kRm51YmhqR1AzeGhEVU5GYUZiVm1r0gHAAUFVX3lxTE4yeVpieTg2N2V6WkVfUHhNOWZsWDVMQkhNX1JGRTBHSXM4TDhoQVU0N21kenVxblNGdFdkMEtjLXVHMUx1cDFiZGFHYXhZdjdKTGNmQURYaUZqaFN2QnJpSmw5T3QwM1QzVGpfQ2ZCZ19tem1hRmp1bzdERnUyU3laVUQ3LWRpX1ljLVBZUmM4U29Wc2xaUDRYVnVvUVBRaGtUcmlWV3lScGliSFJiVVl3MWo1c3dQQWdBdEprNDliWA?oc=5",
+     "data": "2026-10-27T07:00:00+00:00"
+    },
+    {
+     "titulo": "Minério de ferro já cai 20% desde o pico de maio",
+     "fonte": "InvestNews",
+     "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPaFU0UUpEV1hyY091dUw2TzJKVnhacnBhZENzSVlPY1lYR3RPeUZVMHpwUW9nVndnMWp1NXJldmJkYmNvVzI0WVhKQm1XV2liMjR3QlJsamNtanZha3ZBUmIyNnhNbEJQUjYxZTFaM3V5emt3eGsxdDNLekI1ZG5xTVo0UEZ3Y1B6SHZN0gGQAUFVX3lxTE9TNXNSY0ZWRGpsamtHVFo5N3RVZHRnbEtPVXVJT0VORnY4eVBRVFlLNkVSckdhQjVxOVMwUlNHbllZZEVsM0w5WnVUNEpvZmxScnMwd204RkJqeUxSZzEwUWRBcWVaUjhQZGV4VzlDSU1nZTBhQWdWRXJDcTY3QUsxdjBITUpQbkRSVGs3emJaOQ?oc=5",
+     "data": "2026-11-01T07:00:00+00:00"
     },
     {
      "titulo": "Queda do minério de ferro deve pressionar mineradoras, diz colunista",
@@ -7548,27 +7556,21 @@
      "data": "2026-10-22T07:00:00+00:00"
     },
     {
-     "titulo": "Minério de ferro atinge mínima em 2 anos com preocupações sobre demanda da China",
-     "fonte": "InfoMoney",
-     "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPdkh2R3BUd0FmY3pIZjdQTVdtTnlMVXhuNV8xaHJJVGlzOGxzUk9FejhwTmpBSUpLWWJmVzFwNXB6eDNLVTVsclIya3VhVDZyX0VHYW1pSkRDUng2OUdlcnhraGQ1a3pLZUNIWlJ6cDBweFRHRWowc2FmUk1GbDdjdXFENEtfWmVwMHVfRWVTMGJZTmgtRGdYaW9VR1pfV2lkbk5VYk5kRm51YmhqR1AzeGhEVU5GYUZiVm1r0gHAAUFVX3lxTE4yeVpieTg2N2V6WkVfUHhNOWZsWDVMQkhNX1JGRTBHSXM4TDhoQVU0N21kenVxblNGdFdkMEtjLXVHMUx1cDFiZGFHYXhZdjdKTGNmQURYaUZqaFN2QnJpSmw5T3QwM1QzVGpfQ2ZCZ19tem1hRmp1bzdERnUyU3laVUQ3LWRpX1ljLVBZUmM4U29Wc2xaUDRYVnVvUVBRaGtUcmlWV3lScGliSFJiVVl3MWo1c3dQQWdBdEprNDliWA?oc=5",
-     "data": "2026-10-27T07:00:00+00:00"
-    },
-    {
      "titulo": "Minério de ferro sobe com redução da oferta e alta nos custos de frete",
      "fonte": "Notícias Agrícolas",
      "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQZmZMNW1qWkZFdHdYRUQtOEtESlBDNzZvNnYyMGVoa21ud21tWG8xZ3BlSXVSLXBmZXdMeXBUZjVxdXh5YVl4ZTJGWlBOWk91OFBIaFhzUXZaODFSZGZLMXlGbkVVRUZkek9MNTZGLS1SMnNlOWtPbmF0MVRVRXlJS3J3QlllMHZYdUw0VkdQWjBZUnczNE1QV2ZjUXBLUE12TllVTmJCekVHbnlCZkw3WE1zYmtOUzdpRW5aWTZZV3lXcFRQVUFHNTctdGFLMjF1dS00V1VYd9IB3AFBVV95cUxNWTVHWUJUSVNKenoxbS1mbVVYOG94NWpNaFZaakpWZEVaYTQ3YUUxbkY3MFlEUkxBalRac3NBd0RaMVFES1NiX1lkSzEtNGRpc1N5RW1tN0o1SmdjeThINGZXa2E5V3JEV3N3ZVk0ZkhsWEFuMFBPdEUydXkzRGZsSURkdEVGZ0tKREljWTROcFBJX3BYaG1obkJObF9hakdkYk1rQzZZOTVkcURkLTIzdDc3c01JU0VsLUVqeDhNZ3NmZWY0aldiRGRKOWdINmdyUHY0emVabmJDVnpn?oc=5",
      "data": "2026-11-08T10:52:00+00:00"
     },
     {
+     "titulo": "Minério de ferro sobe com compras na baixa e melhora nas margens do setor siderúrgico",
+     "fonte": "InfoMoney",
+     "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQZmswVkt3ZHNRc0lKdVNmUkRnTlgzY0ZLVVM1YmttVmx0Rkd5UEhQd3lXZEloSVN6VVJra1NhV2RleGxaN05yU0ZyUFlFM3AyUWtQTEhRSFRQNmNWWnVJSVVsejFqSHJwZUI5dkR2OHdGUDVoeFdGMVlSVFdfSGFXRDg0NU5VWHRWRDNtc0JXM1IzYlhCeU1tWEpTVHZncncwYkprbXFvTkU3bnFFZy1xaUlyeW1wVlk5V013Qmt6dzByZ9IBxwFBVV95cUxNTmNVV2NHcjFFbkMxRnZ1cVk4QTFHY2kzVU50cXc2ZS13WHgzWWpLaFhsX3hSb1RDNWNkNkprRFBnSkZjeXdOY1FHa1FjSmFDSVRVMllGLVJZZ25vS2FDSVFONHMtUzd5WS1tVWcxTWEwSFlEZ2F2SlU0N2hpQ2g0bFNRRnJRQ09ZVV81RC1rM2QxZHBhOWJYQ3EzczJON2kwTlZOR0RrMU8tbjFVaDlxdHdYa3RCbm1RZFBaaWxETzRRMjdPenBV?oc=5",
+     "data": "2026-10-16T07:00:00+00:00"
+    },
+    {
      "titulo": "RESULTADOS | Vale vende mais minério de ferro, mas preço 10% menor derruba resultado",
      "fonte": "Brasil Mineral",
      "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNX0ZDbmZpZU5DSC1ORXFDNUNtY2RZSE5vbGRoSHpoMDhDZXZIS0NNTjJPZUg4Q1hvUUJvS3lMSXhHOHZJaVhQLTJ5TUpaanF6N3B5UXAwYzRBRWxOcjNxZUphbVpZaWhiNENrQzVDR0hObkQ2ekRDdHpnZ2FNX2lZZWc4MkdsUW9Ld2VEYlJ4VnFMeDJWRElfVUtDUGZRM1YxQkFZWHg4OHh5bTQ?oc=5",
-     "data": "2026-10-29T07:00:00+00:00"
-    },
-    {
-     "titulo": "Na Vale, cobre ganha espaço enquanto minério de ferro perde rentabilidade",
-     "fonte": "InvestNews",
-     "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPcmJkT1R6ZkhjQXZNYmNRZjJYUjRSRHIwWEM5bDRGcGtnZmNJeHp0SGZ2Wm5QMGp1U2IxaGYzVE1xT29kQ3NhM1NyV3gyaFFUQmJGM3RjSHRneXlvLXFNVElKUUM2V3RYaEdheWNERmNuY3hHTEZ2Ym01NUE5MXBhVWk2Tkt1M28tbHBLNzVhM1ZJMkVldUkxcGl5X0g4X0pJeUF5UHA5c1ROdGxa0gGyAUFVX3lxTE83bXMxcE9qOXJpLWNFRUJ0cUYxVTFBX09tdVpyc3hsdmlmZW9hSk9Pa2VVSVBNQ05kX0JnajRRT1BZc083QVN4Mk4yZDNEd0xJajI3d2JkSTZ3QUJ0NUpVcWlhVjVDV3hxclNpN3l2NGFINm5DYWdhbXVyRDJZanRWWGs5QXgyQXgzbzdsRHluclhmNk5vUWJNWWlBNE9nU2hnVVZkenZSU0xOY3FRTlg1Y1E?oc=5",
      "data": "2026-10-29T07:00:00+00:00"
     },
     {
@@ -7578,10 +7580,10 @@
      "data": "2026-10-21T07:00:00+00:00"
     },
     {
-     "titulo": "Minério de ferro fica estável na Bolsa de Dalian",
+     "titulo": "Cerca de 10% da produção do mercado de minério de ferro está perdendo dinheiro, diz CEO da Vale",
      "fonte": "Valor Econômico",
-     "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQUDllX3B3M2NDWTgtOWZUR0NtazBEemc3aG5uenRNcmc5WGFldVZtUFVlUXoyX2pjTzQ1Y1N6dEh4RFlfZnBJdVFwQVA2ZFlYMUNjWGxmajZBU1hTcHJqN1BBLS1mblg1Y3JJWEZYbTg5OGdTSTBJRmhiSDNCbU5iSDRTWkhhakVPQnY4SGQ3UXc1RHp5bXdTTUR6UHZhdTVJcE5DUHVuY9IBtgFBVV95cUxNblNjM2ctckxfTFdXQ0VGSENkeUhwb19LRXhTTlB1UE16N1hLX2NSZHhaNlZmNjhQQ2thMmUyNUV2bk9uM2ZTWHZKNndkNG9ha19aMGpHZ3FuWk1tTDJ2cm55QmdCQWtwMl9DaGtEaTBqTVdDOFZhWnIxamRVb0NXblpJMkYta1hHa0hUYkNDZGtMQUtXaFFmSDJTRzY4ZTllQ2xkdTVCYkZfaXlxaHZXNGhRTkRhdw?oc=5",
-     "data": "2026-11-06T11:50:14+00:00"
+     "link": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxOSG16VnV0dEkyZE5KVS1YUEZPaUJwWmFhNl9SMEJhRk1YMFh3czNhVGpjY1k5NkxpbzVWYkJsU2xKN1FtSDRQbkZvc2lzaGJxdzdNNDFpRmtlMGdZYm5SaVY5OEl2UDR6UFY1QTN0TjVXdDBVRVY1NER3N0N4Nk04aVIxeTdXX1BvSW9jUFdoVjZ1cElqeTBmTXlaOXpSMENXNVczVWtLajFqRjZJWHJHWEVxbkF4R2lsY3UtQldoSXphVnNiams2aTFNMG1Ja3IwU3l2UzlkSU9ZTEUtOEhmdDNlc0hGcmFYc0h3a3M0d9IB_gFBVV95cUxNY3pkZldTeXFCVktSUklRZWFyRGhnYWZ1YXpnWXJXcGFCOUMwS2JtTUtnUl9IV05NQ1U3MTZOTkxYRllJU0lNTHV2MjRyam9xNjJJVXNxVlExLTMzNHpxV0VFZlJuUUk3WjNaLW5QdFBGUWlhZjNjeVhBZDZna2J4Yi1UeTM0MnhsQ0tBOUVDRE1kM3NNd0FlMHNfWEJCRk9OUmU1ck5PMnZtajhyX09ZRjFmdWJYZzUxY0NHNUx0UmMtU0g3TGM0VmlJcjl4Ni12UXVxazRHMThHZkQwX2xPYUptUUJoZGZEeWp2NXNIZ2l6UThRcHRKNV9MVUtOZw?oc=5",
+     "data": "2026-10-30T07:00:00+00:00"
     },
     {
      "titulo": "Vale, CSN e outras mineradoras se articulam para manter imposto zero sobre minério de ferro",
@@ -7592,16 +7594,34 @@
    ],
    "ZS=F": [
     {
+     "titulo": "Resultado da Eleição no Brasil Pressiona Preços de Soja, Café e Açúcar",
+     "fonte": "Forbes Brasil",
+     "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNZk9HZ1hHUUt2RHZ4UUZoay1UVVRWbHJicmxIMVFlYXFUc2xrZVoyOUhtdktISFhBdFc5VEhVaXdGV1lMSWhqbFJJY25YZ2YtUnZXMUYyM1Yxb3hZOHBGMERGUnUySnVOU0dhOThsZnp1WWFNMllITFdPTUJWWWF0MThFckdWaVRXZjd4VlNMbG1Ba1NMWUVIRXdCMjRZU1Z3NHJ0dFRSRWZzckpWNnhNekd3?oc=5",
+     "data": "2026-10-26T07:00:00+00:00"
+    },
+    {
+     "titulo": "ZS1! Hoje — CBOT:ZS1! Preço e Gráfico",
+     "fonte": "TradingView",
+     "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE0tT013VmJrTW93VFhEWTVPWmlyOEVYOEIxRk9WdmpIS2lFTlRjbi1PRHpXWWNGSjNhbzdLRE9jRmZtWjdKZGFXbEdNMlBiZUxzMjk4SHcxS04?oc=5",
+     "data": "2026-10-16T07:00:00+00:00"
+    },
+    {
+     "titulo": "Preço da soja sobe, com suporte da valorização do dólar",
+     "fonte": "brasilagro.com.br",
+     "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQaGJOTjZCRUpRQ3NLd2Z0aFIwSWxlUER6aEx0UndBbVNxY3hmUnhXQWhOLWdvMVNzTkdQNW5hcDl3S0hjWmZyalJ0MTc2Q0FzdDZyMzJfcUVxcTJfcjRzLTZyVDVPejdoNTE3cVJ1NnRrX0QwQmtRZHpPcHFPS2owaUJCOTBTYS1qOXNDRE5uMDdULW1nejVObmQ2T3JDcGM?oc=5",
+     "data": "2026-11-03T08:00:00+00:00"
+    },
+    {
      "titulo": "Óleo de soja cai forte em Chicago e puxa preços do grão nesta 3ª feira; milho e trigo também cedem",
      "fonte": "Notícias Agrícolas",
      "link": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxNUlA0a1dFNWtlb0dJS0l1amNsYXNpdmZTdUNzX1RrblhDaU9vLUFiMTVtcEpad1d0elE1NUpuOTZOVEl5dWZBOV84eEJnRkhYUlF2OTQtYjlTVHNSY1FYYm94T0gzODVsekx3am5ydkFya0tQWGNvblhEbnNLamVHMmNhM3BKTFpKTVdXR1BCaFg0bW5mOVo3ZnlXSTg4UlZtSjRRamlsNWxBY2tUX21VaWNEWWxLY1IwOU1ZbUMzZG0tSGpNWVlmLWhXU2tpa0dEbzRnRXJPb1R4UURjbmdoQmM3bjNVWnhMTEt5bWFCRmLSAfYBQVVfeXFMT2hyNlhTWkwtRTJiakFvNXJxVEZ2Y29zdEFwaW1raGdmZVljRnpuS3NOR1FxNEhLeWFJQzRBY2ZmclQ0MHA3NVpxSlVSTDdRYjhTam9sdGQ1OTZqbnVDMnpPWm1sSTMzTkhsd1FfU1U0TFQxUnVpR3pUSDgzTHNTZGswbUhZQlNJX05sdGcyVzhtTUd4ZWNiU2FFUTdhRFRlV19IZll4YTBQYWs2UzlTQWV2bnBmWFVNMjc0YTd5MVhZSkpKWFpBcXdRWG1TRDNodWhoZTg5dFo5OVJFU1dRVkJNNVpKaWNzb2pTWXJhSnFzQlBaSTZn?oc=5",
      "data": "2026-11-08T14:42:00+00:00"
     },
     {
-     "titulo": "Preço da soja atinge máxima do ano com impulso do dólar",
+     "titulo": "Preço da soja sobe e ultrapassa os R$ 160 no porto de Paranaguá",
      "fonte": "Globo Rural",
-     "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOWkF3UkZ0TUNHOC1wNVRsdmhRc2RoWUc2eXQzMEdSSGFndmZFZG0yajBFVkszcnYybkRHTlR4QXMzM0xjcmZqcDNidENLb08zeGdUZllLVm9vNllsV2NrUjNZUEhURXdTUndDc0Fuc2RPb0VYSmh3OVdINTU0WkRNcG1rOWlJUWVhS0d2NTA1Z1FiN2tRZjhWRVVSVUdSWkdWVC1WUGF3UDRJa3hRd05IejhPVGIyZ9IBxAFBVV95cUxNUjNUSll5b3g3LW9ZZ2w5WF9vb3NONUxnUjVTTXhzMUZXaFJhSlFzNzlKVGFmdzFkS1lGeU9vNm10dGJCZEEybWlOQ2IybHFOT2ZhNk12NGN5UGxzUTFRajdYZ1VXTEJ6LXRvNHBRak5BVndUMk83RnRjb0R6NzZ3a2h1ekEtZ3V3eklIazJ6NHBmRnE5WjF2TnJtcWhzQ1ltTWM4ZnF5bVZxdTlkNGUwdmJiN2g1eHB4eENYTVYtRnN4OFF4?oc=5",
-     "data": "2026-11-13T09:14:01+00:00"
+     "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOVTA2WnRqVVpnQkdjd3kyeGl5S0NDRFdYaGVuNXVWSXF5Wk1TNFVTTHZZVGZsWTZIUWMtOXpWeWxvWVczUkJzSGN3NHdjVFN1YVBqMXdRbm82NDNPdEU2UDJVMVk3cUZKM19yMHVpS1AtdmpRTVVPUFUzRFU5Skw5c1VOUDNDQl85QTE4QXZUbkc3cExPMnk1c1Uxdzdodkl0dFhSVE1rMGduVkN5RHZXcEVENUc3YU9EenhuRDZVQdIBzgFBVV95cUxQdVJQcEdmcnJxd3hON3ZfSEhaSm4ySzNoNFAzTTJVZDgyY0tyNFA3dHRDUWV5RjA5dFgycXVzUnd3djRTcUd0TFRHOGo3RjBmbU9KY2c4cE84UkNOS3ViaUt3cXFodTE3cFg0UnpGb3Y1ZHVSQlRud3NvSGlvQlFXd3gtdlg5bzJxZE5FNnlnYlpxOTlEVW5icEc0VmJmUTVickRXZU5lTDA1d181ZnB0Q25RU0J0Tk9nSS1oakhsQjZ0Ml9SMWtvc1J5Q2U4dw?oc=5",
+     "data": "2026-11-12T09:31:00+00:00"
     },
     {
      "titulo": "Soja e trigo: confira os preços dos grãos para esta quarta-feira (28)",
@@ -7610,10 +7630,10 @@
      "data": "2026-10-28T07:00:00+00:00"
     },
     {
-     "titulo": "Óleo de soja tem maior cotação desde o fim de 2022",
+     "titulo": "Preço da soja reage à alta do dólar e à demanda externa",
      "fonte": "Agrolink",
-     "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNY2VsWlE3NGt3cHUwTV8wcEphenVKeW4ycUtaNDcwVUpZYVBjMVBXODVxclBjOGhZd0VkYTBVUFRGVnhyR19WeXlrOXFTXzU0R1k3UHVfTGlIZVA0cXktdnZJTFphU1dKTEdNYURXV3pieWVyMnBXaGo5YjRtZjFBbTN5c2FqR2N0T3dIa1dIbmhTSktMYUJqaDRKaXpDcVlV?oc=5",
-     "data": "2026-11-06T19:44:00+00:00"
+     "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOdmQ2TGpmVnBsRXJMSjlzdjkyM3JienliQVdsUWVQV1EtYXdPbnM1ZXB3c3NDSXJOampsd05nYzctRWpUU3FNVEc0THltY3lNRVdDVUdDbjM2Nkl4V1pibmJCLTRac3BjUnNSUzhJT0F6UTIxdTFiNzgweC13NzFfU29BdnlpYk14UWNERS1XT2JTSTB1U1pIdEdsVHljTi1oZXh6NTBFbw?oc=5",
+     "data": "2026-11-03T08:00:00+00:00"
     },
     {
      "titulo": "Preço em dólares do boi gordo, bezerro, milho e soja na 1ª metade de outubro de 2026",
@@ -7622,37 +7642,25 @@
      "data": "2026-10-19T07:00:00+00:00"
     },
     {
-     "titulo": "Preço da soja sobe e ultrapassa os R$ 160 no porto de Paranaguá",
-     "fonte": "BiodieselBR",
-     "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPRldoOFdoX0hzVm1CREhyZWdwTzE2VWNPMEM1UTBtQnpaNFljVHR6S0RnME1jYTIzNU5DT3Z6WGVUV2kteUZwdlZHM1laenFFRVA3LS1kQy12S1VILWdwem5VV3BtUmtNQzhsY0lpQlBJaWhSRC1pel9CTE9fZ1JBUkFDM0JlNjAxZ0luRnFscEdFcWJyVWdwVjV6Ym5XZVFpekh4MzRXR1NxTkNZUXlJTDdEWW5ydzk2YmJZ?oc=5",
-     "data": "2026-11-12T14:48:19+00:00"
-    },
-    {
-     "titulo": "Preço da soja reage à alta do dólar e à demanda externa",
-     "fonte": "Agrolink",
-     "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOdmQ2TGpmVnBsRXJMSjlzdjkyM3JienliQVdsUWVQV1EtYXdPbnM1ZXB3c3NDSXJOampsd05nYzctRWpUU3FNVEc0THltY3lNRVdDVUdDbjM2Nkl4V1pibmJCLTRac3BjUnNSUzhJT0F6UTIxdTFiNzgweC13NzFfU29BdnlpYk14UWNERS1XT2JTSTB1U1pIdEdsVHljTi1oZXh6NTBFbw?oc=5",
-     "data": "2026-11-03T08:00:00+00:00"
-    },
-    {
-     "titulo": "Analisando sua comercialização - Para onde vai o preço da soja com as eleições?",
-     "fonte": "Notícias Agrícolas",
-     "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxPcnpjTHM5LU5jaXNQT3R4YXdFQ1ZPVjN0ZllOYjduQUdMVzdVdWF4bllqOFd4NEZ0azUzMDRhcVpfR3J4RC16NDFDM0VEaDRoc3o1Ymc4X3M2cy1GSlhSSERJY2swV05BQkJmREhsMm1zeVNMOVpxOG5vQkRBZ1FqbGMxMTNLVGRYYnNyWHlzYWJVQ2F3aHR3bkJpQW9SOWhfekVSajBkcDZoSHVxSmg0NXF6Q25Td1hoSTZ2eHlDWGhHNDlwYXFFMHc1M2paelo1NEF5dEhhaHRtdmxD0gHiAUFVX3lxTE1wTFNaOWx6Ym5XeWN6S0JFQkpPWXNMX1g3aUNmcTdFNHBTR2N3U1U4SktseFhCcmx0YzAySnB5YUdlN2lxdU5tV3VTbEg3bW1NQ0RJNVprSGtpZXJQOVRSa0RmTHJTeUxLNWZmRGtLa19VVFNWN042T3pXN1d4SzNfUmxOeV90b0VHNHhmSHdFX0xkeXhDTzVjV2dUQWRpdE02V04ybnEyVlRybl8wdzhicUp5MEdJM0hXSVFtVV92LXlEeFpSdl9uZEtHeEpYWmtBVzVpTzVhTV8tTFBtUUpWNGc?oc=5",
-     "data": "2026-10-20T07:00:00+00:00"
-    },
-    {
-     "titulo": "Preço da soja amplia sequência de quedas em Chicago",
+     "titulo": "Preço da soja atinge máxima do ano com impulso do dólar",
      "fonte": "Globo Rural",
-     "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOdVdHbmNvZ010cDgtMEFRWHBRNzZ1TFdBRDBjaTFfRkx3ZTZLUkd4LV9WYl9DbGZ2dU94RGhzS3F6SkhvS21WUElzRkNISXpzampuLWYtYzFmUHRsV29sbVA0Q2ZyQk9PSG1pbEI3dllkczdsVmJncnJKZnFtOGdwMmlFX1RXWGR0NjhHUUpkenI3VGVsTmxmdElfZnZ0LWIxSm5uUTF6bmltWnotaHNNMtIBvwFBVV95cUxQYmM2Zms1djF1aExBSWNFM2lIeTZ6aHVWYjhIZ3RjVFU2ek9Tb1NlQ2pVa2JKUG83bVFZMmU2NHluanM3N0VhcVNyMWVORllZOENSZWpySkpSaFNnOGtiTV9mRFhid2pMLUU5RmhPNlR6Vk5lYTJCVm5RclZ3azlXak5LQkdrZmtpMzluSlA4QU1vc29yVGp2cGhVUUY2T3R0Tl9FcUF3NXZCWXRiQTQwYi1mUW1oTWt4cnl1dVQ3NA?oc=5",
-     "data": "2026-11-05T21:36:31+00:00"
+     "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOWkF3UkZ0TUNHOC1wNVRsdmhRc2RoWUc2eXQzMEdSSGFndmZFZG0yajBFVkszcnYybkRHTlR4QXMzM0xjcmZqcDNidENLb08zeGdUZllLVm9vNllsV2NrUjNZUEhURXdTUndDc0Fuc2RPb0VYSmh3OVdINTU0WkRNcG1rOWlJUWVhS0d2NTA1Z1FiN2tRZjhWRVVSVUdSWkdWVC1WUGF3UDRJa3hRd05IejhPVGIyZ9IBxAFBVV95cUxNUjNUSll5b3g3LW9ZZ2w5WF9vb3NONUxnUjVTTXhzMUZXaFJhSlFzNzlKVGFmdzFkS1lGeU9vNm10dGJCZEEybWlOQ2IybHFOT2ZhNk12NGN5UGxzUTFRajdYZ1VXTEJ6LXRvNHBRak5BVndUMk83RnRjb0R6NzZ3a2h1ekEtZ3V3eklIazJ6NHBmRnE5WjF2TnJtcWhzQ1ltTWM4ZnF5bVZxdTlkNGUwdmJiN2g1eHB4eENYTVYtRnN4OFF4?oc=5",
+     "data": "2026-11-13T09:14:01+00:00"
     },
     {
-     "titulo": "Reforma tributária pode mudar o valor da soja em 2027",
+     "titulo": "Óleo de soja tem maior cotação desde o fim de 2022",
      "fonte": "Agrolink",
-     "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOeEFyYVp0cE5FcU1pQ3lwLXBLMzVOUXRiWk1tV0ZMZ3pmcWRCaldHNmZ0aUI0VWltN0J6ZVFxbEo3ZU5ZSjZuMHBqVE9zV3h0ZFh5NkpWWjQ4d0NUMFdXd19HWHkwX2tkVjVRWUoxek1NTmxHaDR2cXkyZ2d3RnlWYncwUVlvYUtla0E1azZ6dTItazhNRjV4djFMYXUtdVBoOTVQWQ?oc=5",
-     "data": "2026-11-03T08:00:00+00:00"
+     "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNY2VsWlE3NGt3cHUwTV8wcEphenVKeW4ycUtaNDcwVUpZYVBjMVBXODVxclBjOGhZd0VkYTBVUFRGVnhyR19WeXlrOXFTXzU0R1k3UHVfTGlIZVA0cXktdnZJTFphU1dKTEdNYURXV3pieWVyMnBXaGo5YjRtZjFBbTN5c2FqR2N0T3dIa1dIbmhTSktMYUJqaDRKaXpDcVlV?oc=5",
+     "data": "2026-11-06T19:44:00+00:00"
     }
    ],
    "KC=F": [
+    {
+     "titulo": "Resultado da Eleição no Brasil Pressiona Preços de Soja, Café e Açúcar",
+     "fonte": "Forbes Brasil",
+     "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNZk9HZ1hHUUt2RHZ4UUZoay1UVVRWbHJicmxIMVFlYXFUc2xrZVoyOUhtdktISFhBdFc5VEhVaXdGV1lMSWhqbFJJY25YZ2YtUnZXMUYyM1Yxb3hZOHBGMERGUnUySnVOU0dhOThsZnp1WWFNMllITFdPTUJWWWF0MThFckdWaVRXZjd4VlNMbG1Ba1NMWUVIRXdCMjRZU1Z3NHJ0dFRSRWZzckpWNnhNekd3?oc=5",
+     "data": "2026-10-26T07:00:00+00:00"
+    },
     {
      "titulo": "Café brasileiro bate recorde de preço em leilão mundial",
      "fonte": "Revista Cultivar",
@@ -7672,12 +7680,6 @@
      "data": "2026-11-09T20:57:00+00:00"
     },
     {
-     "titulo": "Preço do café deve oscilar entre R$ 1,7 mil e R$ 2 mil a saca em 2027, diz Faemg",
-     "fonte": "Globo Rural",
-     "link": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxQOHNJZVZmYldFVndLQjFCeVV1eUFqNTc4aDNITm5hTFBWSG1QX0l3cEtTS2NjemlrMm5tOXBxTWloMnpudjd2VUVIeHhtRS05ZWJJM2IxOUJDUEJRYzBLcThQZlptNWxSTVdkMlZaX0ZSdHpfbzlsQ2JkbHAyWU52VGhlV0RuSkFJbVd1TUdIRGRpRzFFWkdWdmFZV3J1YmxOZkk2QlEyVG9BdkFUYXZKd0c0QnpsOEhOX29NWHBHY3lGMVRLa3J3VkhqZnI3Tk5NT3pHWk5LS1pGbko5TTJCYml5bkcxZ3J4eHlj0gHrAUFVX3lxTFA4c0llVmZiV0VWd0tCMUJ5VXV5QWo1NzhoM0hObmFMUFZIbVBfSXdwS1NLY2N6aWsybm05cHFNaWgyem52N3ZVRUh4eG1FLTllYkkzYjE5QkNQQlFjMEtxOFBmWm01bFJNV2QyVlpfRlJ0el9vOWxDYmRscDJZTnZUaGVXRG5KQUltV3VNR0hEZGlHMUVaR1Z2YVlXcnVibE5mSTZCUTJUb0F2QVRhdkp3RzRCemw4SE5fb01YcEdjeUYxVEtrcndWSGpmcjdOTk1PekdaTktLWkZuSjlNMkJiaXluRzFncnh4eWM?oc=5",
-     "data": "2026-11-11T16:09:39+00:00"
-    },
-    {
      "titulo": "Café: Mercado fecha no vermelho em NY e derruba preços também no físico brasileiro nesta 2ª (9)",
      "fonte": "Notícias Agrícolas",
      "link": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxNLWJqMUFORVUtNVk5YURNRU5JbEFSZGVmVUZMblY3S3BERTAxRnpCSm1HUjdqcl9qUWFKZ0FKY1hLWU04cGlacG1JQXdsV3k4ZE9sV1BWaWpnVTg0WEdrWWJDazl5MXhCazRnblNmSmY5cTFvbkRRbXozQzg5d09YekI2UGktdmI3bXAtTGFOOUNZT2V0aTAwaTNHZUc2RDB2MXpKUlVtdDJ2RjA2RDFsaUt0c3BhLXVjb3JqblJZNDhVVy1LTzFZeWNLWUpVV0M3ZjN3VnBBajdjdWtYZGdfbEhzeTZXajk0S0HSAe8BQVVfeXFMTjU2MzdQY1lqaWlqaTkzYnJselRMX2RwVkZkR2RTdDFzMTczc2VjZlp2T0ZxOG9vbUQ1aGJBcF9lMVFIVEhRSVNNamN4bTlIMGZDdWg4cXVJc01FaFFEUVFrYzdqUWNxTFZpVmpmdmZDQnM3cXNiajNnelZFaF9CdjFHMTlDOHZxWTJ5eGFPa3Y5Ty1iYU95QWI3cG81d2FQdzR2eVQxbjRxdXZaZ24yeWJvVF94Vmgtb3J5eC02WmpHSnR0ekY3YlEwN0JRQkp5UTJWZjhYUENhRXM3anlVU2plRDZ6LVc4ZnJWdm1iOHc?oc=5",
@@ -7688,6 +7690,12 @@
      "fonte": "Bloomberg Linea Brasil",
      "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQUTBmYTQ5aTRKRFFXNXdfZXNVVDBQVmdQWDBQYXZpTTNtRFFvUldKaDZTaU9SM0VJR1otQnNaOVdYZ0hMQlFxcEk5bFYyazlKSUsyak1DekRfQ2F3RnBNTkdYbmMzNjVIUmlFYmlfTFhVdi1oV0oyWDBsVC1YbWRvZkdyc0NOT2FnemJkSWdkbVhSU1JGMWlxMXJEZ2tQbDduZ3RnSGhhMlk2djlOMV81bVJRTy1kNjN5RlptV3ln0gHSAUFVX3lxTE05bjBrMnRTeFEzZDFVYkRpakZ5a1RLcTI1WWtGaFlEOWsxNnNtVjBzY3RYLVRYOTJnOGZ5U3NiQ0RQNU5ieWJucExJOUt1RDRhODg3V21QNURsazVEVWZ4VUFza2JlbUg4WlJLaFRjT1dUTG5RNVdpajZrbEJ5ai11bDBKeGY4TVdrOHdSSDVBRGVsOHEzRDh5bmY3T2x1cC1fYUttZk8xMEUzaGdMUlAxamJDUnRldmRmbTJaenpKTTEya09tOGJoT2l6bGJDSm9Ldw?oc=5",
      "data": "2026-10-16T07:00:00+00:00"
+    },
+    {
+     "titulo": "Preço do café sobe nesta manhã, impulsionado por dólar",
+     "fonte": "Globo Rural",
+     "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOT1QzMEV5VEJkSTlkZFFKSEZzX1BWX0gyQWpJRlBFd3NCSGtYZFVOQ05CMkFUdGdYa3h6VU1tZUkyOC1MNXFTN1gzejZ4LVd4WGg0MGZfTWFubDRkZ3NrVTU5ZnZGM3FWQ2VMNk9fR3h5MzdfVnVyRG9qYXRDSEFCUXBBak5hNnpnNHVaV1ZwX0R1NjF1Z0NPOUNwdXV6MXJuVEVrM0FxNGxqeThkWndGS1Q1Y9IBwgFBVV95cUxPai0wSzVTdVd1VkY2T2FqN01MNUZkYkNmM1I1ZXBWQ1dmZHJXRXVBbVdYc3pTYzVsejFhdjdCNXd3V2FuNEtfdzFid3ZzQ0xzdlRGcm5vcnU0YW1welJNYmhHR01sWGw3c3hUbEJnRi1jVWgtQmJrTUtNS0x1OFlaZVc0ZnI4QVlPZmdoVTE4bUM2RDF2M3NlSDhiYjNfU2xCTS1pb1ZpX2lrcUZHSGd4SWRiNUMwT21fWnZZQmZXMlRFZw?oc=5",
+     "data": "2026-11-05T08:00:00+00:00"
     },
     {
      "titulo": "Carta Grãos e Agricultura - Café com preços pressionados no final da safra",
@@ -7706,12 +7714,6 @@
      "fonte": "InvestNews",
      "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOSnNTMVROWWpUZnRiLVpQUDdUSW9zSWd0a1BCTHB1cDcyTkVjTkQ4WlB4eElHZy1sWUxxSHRoN0hCbnNxM0pEUDJGOU9oZHpxRjVtX0NhX1ZRbmlrWGRScWJCVXdNV2diQmVyUi12VDBHLTA5eE5Pa05fa1pwZV9TbmFjSFN2UlpnT1hiOUNDejh3UVVvSEJ0ZVE1X1l2LWpYa3JV0gGoAUFVX3lxTE8tNHhnVEszOE01UG92LUR4bklGbjRNTzB4clJ6MkpfWEJmTG1uYm1LRmdDdXFtSEl3ZEdKYnVjUjRxVkJlZlhhTFl2T0xOdXNTS3ZWWEgzN042N1Z6amtqaFlIcFRVMFlIVXY3VHQ5akFjb3hTQS05YVhCcHlrN2xkYWpCZlFMYjNKZms1aF9CWF9qaVk1M2pZbW1SclNla1o5bndvVThMeA?oc=5",
      "data": "2026-10-16T07:00:00+00:00"
-    },
-    {
-     "titulo": "Preços do Açúcar Sobem em Meio Às Chuvas no Brasil; Café Arábica Atinge a Menor Cotação em um Mês",
-     "fonte": "Forbes Brasil",
-     "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPWFlGTUFqOUVVTzk0eG9aSEpLOGVJMWpKdFkxcXg1NnZxN1FDS3Rpb2ctSWdPeGZFXzVacUVmQTNyVE5MQVNQdkljbENlMHZjbmZRWE1ENkRoejdiQ2JTTThPWEVXVXVwRmx4Znh1Q2RrNUFINXkySUp3VXJkSkhiektkdXh4UGR4UjBFd1ZRTGxPcFBjVDd6bDk4ZkcxbUpWWktMQmRuNFpZeFQwZjZqc19hRV9yc3BRTnhreFJOZlA1TFVNZ3RzdUtnMk5Gb3BPSVZ5bWNR?oc=5",
-     "data": "2026-10-29T07:00:00+00:00"
     }
    ],
    "BTC-USD": [
@@ -7722,28 +7724,34 @@
      "data": "2026-11-02T08:00:00+00:00"
     },
     {
-     "titulo": "Bitcoin cai e testa menor nível em três semanas em dia de correção em ações de IA",
-     "fonte": "InfoMoney",
-     "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNTUUtTnd3QWUtN050Z1liQ25NNTRxUVQyOTVXN0N0WldkbTNKWXQtbkNBbHhIbFBpTGNpZzEydDl3ajJyM3NfdkhHMW91TFk5cmE2c1N0REk2Y1g4NTVtZmhWMEx6NGo2NlU5eE83LW5RR3FqQ1ItZGwxSWlfZk1QV1NBQWpsNWV5M3JJS1huemh2ZVkwamZXNVZPcWZtcTRzQmhtZjRnUVJkSTZoVm4wcXlhdFBCcUhmYXowa3IyNEZaVlXSAcgBQVVfeXFMTnhqcHdYSlF3ZGtCdzVIRmc2aWgtRlRsa1RLZWVrT1did3RDU0NvSXhRYnkxbldDU3VoeGh1ME1oVUx2MmZuTzI5eFdxdFRVTGtJN2xabTJWenZ6eHltamx4b2ZFeElMY3BxU0pROEpUY1JvZmlaUG1JY1JTTkFWQUVtQ0xhWERzUUJDSHJyUEVhRnF5QWxnQW1tNFZaMGoyZWE5MndjYXlFWWZ6UFNMNnBfb0QzTUU1RkRXbjA0VE1rNk5OM0d6QnM?oc=5",
-     "data": "2026-10-15T07:00:00+00:00"
-    },
-    {
-     "titulo": "Bitcoin hoje: acompanhe ao vivo a cotação",
-     "fonte": "GZH",
-     "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQMF9ORzFNWHRzaERac2JxVzZhWk1aZDN0RmNqVWIzXzZpRVhWS1BuakhXbGdoMkZZYndGdU41QVdNbGZ3MzJmSEZkRUdieGNLSmZTZzlKTldJdzZ0enhSUnlBUmdzeWIxTlY0SFZoZ3lFaHNpRUQ0eWVCbTFQUjFFNlhxcktTaXNNT1JsZzFPU1Y2aDBNd1lVa1NXSzlJaW8xLXo3U1J3aFFTNUlVY0gzTUh1QlNubjlZbjk2OS1pSGlfbWc?oc=5",
-     "data": "2026-11-13T03:04:51+00:00"
-    },
-    {
-     "titulo": "Bitcoin cai a US$ 71 mil em meio a tensões e crise da Nvidia",
+     "titulo": "Bitcoin sobe com alta procura por ETFs, apesar de tensões no Oriente Médio",
      "fonte": "CNN Brasil",
-     "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNbkUxaTBGWmhKRlQ3NDUwTHFwWllKUFN0RHdJU29QS3BlVWNWZ1RReFM5RWViNUNVTzlTQ0N2bWJiUWlvZjJuQmtEMkdpX1RkNmNWbVNXVXItNVQyaE1HZzEtMHBBT01VTUlOTWN0d0YtZEJFblFSUzhhNGh5M05WYkstWVAtQzI5NGxkcFBacHVRN0ZQRGwwblJwMFNtVEx4cHhvdkRucFREMXJ3Skk1U1NB?oc=5",
-     "data": "2026-11-12T21:13:24+00:00"
+     "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxQUzlPenoyM2gzcFMxVWpTbmtOQ1FpWTFXNHE1cUN3Ylptd1dkblY0SnRsWFQ4SzdvWkhTTXpwQVpKTTVycE5LNUlYR2ZEbHZHaFRnaFQ0NGYtUmU5MFo0aDdXNTItUUF3dS11Vjk4UTUxWWJPS3NYbklBTXRsdXVBOTFpZ0dPSGxsOU82bkhYNXpXdjBaaV9VNG5TX1dLOHhudS1VU290ZldITlNlb1RMMHF0N2x4SEF6c0ZyT084c1lXdm1ncEpLNkFXdkhJU2JaTXVfbktvNWxKQQ?oc=5",
+     "data": "2026-11-05T08:00:00+00:00"
+    },
+    {
+     "titulo": "Mercado Bitcoin sofre ataque hacker e trava saques",
+     "fonte": "InvestNews",
+     "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOSnVCXzR2elNoSG5GemFpUnd4aUpaUm1kcnhScWRnUUlGNzBSTEp3TWQyM2xka0RYTzh6WWZpNXJfM210TEdLblBrNVNQeGZCLVdyTjhGQ2JuUDRyd09welhMYzc1SHJVaFVBX2lPN09Md1A3TlJqMmVyTFZrSzdIN2Y0WmtiWm0xQjJhUkpuX1NMQmQ4YmfSAZsBQVVfeXFMTVd6b1ZUYUc5MVEycExyeGg2dXk1ZUFsVnM1RktTTXE0ejRnRE1jTXpFS2taT1EyeC16WUNhYzhkYUN2aDJ6Sk44ZzVnbTJFS0QwU1p4ZVJscEdSazZVWjdvTGtrSkRSVVNHNFFfdXJ1aERpdmo0c0IzWWZTZVEzSVpoLVB6NUJWMUkwMVVTcWZidl9oc0xPakJiVFU?oc=5",
+     "data": "2026-11-02T08:00:00+00:00"
+    },
+    {
+     "titulo": "Bitcoin cai 4,9% após roubo de US$ 6,3 bi em corretora",
+     "fonte": "UOL Economia",
+     "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPVnZ4eXd0WG1rMzVENFRzanFZckYyTXFNblNXUnhKckFIQnRnbnd3OHF0V1JST01WY1ZDeDRwVjZvNUhRZ1lPZ1VaeGxFMWF2UHAySWRtQlE1TnZ5NDZlektIS0o2ankzMF9ScDZIWGhrZHo5OWVNS3N6R2I0VUZsaHg3UEN5dFBLWkZyQTRmekpvMFFKQzh3c3RPR3N3ckZNQWNKeWRQQUFEYThKS0pReA?oc=5",
+     "data": "2026-10-30T07:00:00+00:00"
+    },
+    {
+     "titulo": "Bitcoin perde US$ 70 mil e amplia queda: até onde o BTC pode cair?",
+     "fonte": "InfoMoney",
+     "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPM2kyRUx3STZRWU95TmZnRW1QQlR6R1hSSFNkWGYyWGZEWkUwa1hpWVNaSWhkLXg0aFNKLXlMY2hGNXZ4RVY0NmVmYzJ6bHdzeWNJNkY2LWtLS2VVWS1YUmtrajZJWGUwM0tXMkNpRDc5STQyazJILU1HY0J2VHFOWkx6R1BrWkUzUjBmVEV6QVg2V3JPd1NZVm96ZjZfWFZ3aUNfWdIBqgFBVV95cUxON0d0Ty1vSEJRSXlMQzRiN0d3bnBJYllBdk9RWDNUamQyMTFtc25RRUpVNUVzaTE0UldVaWN0bHc5ZlV0WUp3eEFGa292VkhiUzl5Z0U5UXNlYy1IYUpuOFRkTDRxdE44djVGVlhWcUl2X0RZQ2lRQ0RheHkya0M1U3FwVjZGQzNDa1lUY3Eyckl1UmxxYWltZEVWcHM1QjIzNG16RWZYN2ozZw?oc=5",
+     "data": "2026-11-13T12:24:22+00:00"
     },
     {
      "titulo": "Bitcoin despenca e pode buscar US$ 63 mil após nova onda de pressão no mercado",
      "fonte": "Estadão",
      "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNSTY2azNRTkxzbVhnUUdhYjVMYWVVNFV5ekkzcHU1OTNGRE92VEtQUFpzT2RUZ1hEOWZGdUNwQ25HazBwWjBrdGFFZG5FSDNKWlFsWHF3NUh2a1lNcVVJdTl5OFNyYjZTR3ZTbVV3cFJBZ0NFQ082c1dfN2tqcVFRZVYxVzVyN0JkaEYwUExKOWtlazF5U1p2MGtrVHgwSlUxazZjZGdVc0VrcGQ2cGVNaEtZN2FScGstc1pYaVBjS2l6UXlwUFhkOUh2aEY?oc=5",
-     "data": "2026-11-12T20:51:48+00:00"
+     "data": "2026-11-14T10:14:55+00:00"
     },
     {
      "titulo": "Preço do Bitcoin cai abaixo de US$ 70 mil com enfraquecimento do sentimento cripto",
@@ -7758,36 +7766,30 @@
      "data": "2026-10-27T07:00:00+00:00"
     },
     {
+     "titulo": "A volatilidade do bitcoin está perto do fim da calmaria?",
+     "fonte": "Banco Inter",
+     "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPV3lZTTF4STVYeml3WFdKNF9OdTYwUkZ2c2hlcU1zeXV1bEdfaDRWNTc5THdycHp3RmtvU0pnQWJzaFA5aWpJenFhWklGcmVVbGdoTWI1My1YYldWaUliQ1JKTlpkeFZ2MjMtTkNZaDZndHJiNnhyR1FEeVBXWDRtaUNwTU8wd01teFRwWXBIeE1mOVljUHdUVXljY0ZDQjRmRG5fYi1vMA?oc=5",
+     "data": "2026-10-15T15:53:01+00:00"
+    },
+    {
      "titulo": "Mercado Bitcoin suspende depósitos e saques por ‘incidente de segurança’",
      "fonte": "Valor Econômico",
      "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxNZHF3U05rN2NvMGUtRm1vMUt6eXBzNUdIX2NVdmJVejBVaDZ4RXRrWWJaUEczMEk4bC1paGFWU3NYY2pHQ19sVWdxSW9QQTJ1VnhKWTRIVGNnRWFROEZRaDFpbEIwa0p6dTR6cG1rVHVzWFFpemtTU1NCc3NpeGxYWmpVdFl1UWZFOFNOQkF4cEdKM0Q4QlFaUkk4N2RWWDEwd0lpWmhYN2UzRHVzMko2Y3NROGl0aHlfZzhoOVlJMWFSUHNIS1E1aG5WTE5nbE1TNUpQVVFB0gHkAUFVX3lxTFBzd1g4M1c2aExuWXIxSnJLX3hKeFBJN1lHZDVlZXZiSDZSUDBjZjctVmlrMERCd3JGN09tZXl2OWcwdlk2RklyOXgxUTZYcHJuTzd3dkJELW9rNzZ3ODdYeHowSi1vVUMtZ2Z2SnBqZi1XZUxsQnZDaGIwR1ZSZnRwWDNIcXRjSTdVQWlJMGVWVVNTcWNNTC1Vd0o4dXE2RFNtZnlhUnJDZWdNSmtPdlMydmdGOWI5V1VORDhFbS1aVDI2NG8wS1JCY3V6bWprcGU2VjN6WVY0UDl0ckZkcFc1SXJNVA?oc=5",
      "data": "2026-11-02T08:00:00+00:00"
-    },
-    {
-     "titulo": "Bitcoin perde US$ 70 mil e amplia queda: até onde o BTC pode cair?",
-     "fonte": "InfoMoney",
-     "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPM2kyRUx3STZRWU95TmZnRW1QQlR6R1hSSFNkWGYyWGZEWkUwa1hpWVNaSWhkLXg0aFNKLXlMY2hGNXZ4RVY0NmVmYzJ6bHdzeWNJNkY2LWtLS2VVWS1YUmtrajZJWGUwM0tXMkNpRDc5STQyazJILU1HY0J2VHFOWkx6R1BrWkUzUjBmVEV6QVg2V3JPd1NZVm96ZjZfWFZ3aUNfWdIBqgFBVV95cUxON0d0Ty1vSEJRSXlMQzRiN0d3bnBJYllBdk9RWDNUamQyMTFtc25RRUpVNUVzaTE0UldVaWN0bHc5ZlV0WUp3eEFGa292VkhiUzl5Z0U5UXNlYy1IYUpuOFRkTDRxdE44djVGVlhWcUl2X0RZQ2lRQ0RheHkya0M1U3FwVjZGQzNDa1lUY3Eyckl1UmxxYWltZEVWcHM1QjIzNG16RWZYN2ozZw?oc=5",
-     "data": "2026-11-13T12:24:22+00:00"
-    },
-    {
-     "titulo": "Mercado Bitcoin reabre acesso após ataque hacker de US$ 49 milhões; dinheiro segue bloqueado",
-     "fonte": "Estadão",
-     "link": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxNVXp5cjZ3QlY4WmJnSWhuMkZ4a084QXUzT292TC1EVS1CcEI5ODRVZ0FmUGJ0dXRLQlVwbUlYV2dOMC05bmJqY3BxQmVRNnNsdEpCaEpvQzl2SHdCcVljQU0xUWFvZ0dTa2VSNFM5bEdTZ1hTRHBwOEN2dXZxbVBUSnlnVm4ybmF4eVBndUhCVlhkdVVaNW9nMndCSWJlZDAwN1Jid2xCUzJlTE01SnplMm5lamNFeDNKdl9FdjR0NmVmYUg3eHdHS1ZqYW1iZjE4M1lVQURmY0xSUVQ5YmFwR3lTR0ZxdzY1ZDF3ZmNn?oc=5",
-     "data": "2026-11-13T02:31:26+00:00"
     }
    ],
    "ETH-USD": [
-    {
-     "titulo": "Ethereum adia atualização do Glamsterdam após pesquisadores de segurança sinalizarem riscos",
-     "fonte": "Cointelegraph Brasil",
-     "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNcU1iX2JTZ0w2NFhKQ2hNV0VJd0Z3SGYyTjl1Szh2Qnl2YThqbU1lYUlHNDA4emdyRDFoQU8zZHNtSmk0bDVVOTRNTzlOdW5nXzdnc21jdGJXLVowVV8yN2dzVUtkazJ6Wk4zYmVvdkQ0dnIxbmx1WTNOOWx4UlVPbkcxTzU1UzgtZndNelRnWThkMkpPUGpWQQ?oc=5",
-     "data": "2026-10-23T07:00:00+00:00"
-    },
     {
      "titulo": "Bitcoin e Ethereum despencam após ataque à Binance e venda de ativos roubados",
      "fonte": "Valor Investe",
      "link": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxOYVFGYmRkOTJ5NDlPVXlsckRjWkdUUGRMYXdXay1JTFNmSktGWUlYS0o0YzhsdTAwVG9fdUxwTnEybE40OFZfaUJubHZNMnY3QnNPclBwYnVMR04zUmhpdzNzUENfRDd4NXAtbExHZ1ZHNWdOZmhoUlo2Vk1sc1I0OTBHb2pEMlZLdElDSG9zQkVUYXZ5dTdFMnB0SktlQ01PSjJLNVRVVDl2Mmk2OEc2WS00dGgwUDJ6M1hVdlFPX180UkhmbWQyWnpJM1RuYm9jTGkxZjhGZFNyWlJ5ckZRZkdWONIB8gFBVV95cUxNZzh6ekZaN3c4RWw5Q0h1X0ZOeGl0YXBidGFsbDNmc2xvdEZRN3pwZ1lCMlczVEdUcGtpOFM2ejRrM2NoQzAxLWhIWTdoeW9pMTczcElqQXdWeXN0dTlZeWVJV3FRbzFDckVuVTBYQzJBekxrelNXWFFMRExCYXJZTXVGeThzUTNGQUhUWHBOc2hDNGQtRGluLW1adFZtR0JGSmVScG93eHhieUoxc3N0Tk1hSXVUQ0UxcGJqR3hxMkdLM010WHdpTWVyT09IU3pqZ2NiVElkSE1qVEdBYmRsU2w1UG5mYklFTHBiV0N0MUwwUQ?oc=5",
      "data": "2026-10-30T07:00:00+00:00"
+    },
+    {
+     "titulo": "JPMorgan expande a JPM Coin para instituições na Ethereum",
+     "fonte": "Cointelegraph Brasil",
+     "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQMFhwSmZxN0kzUjJKSGR2MVY2XzJocHY0c0ZJZDdOVEs5TFc4NTA2cmp4dDFyYUYzdzVNYUxObWJCOUNlWmQyWTRCX3VCLXpGdEt6MVJmUWpyUDdjTk9rWXFqYVU3bEZ1SllrMXgwazV4RkdrUFplLUtERXkyRi1seUxhZ0xkNk1Zamc?oc=5",
+     "data": "2026-10-19T07:00:00+00:00"
     },
     {
      "titulo": "Bitcoin (BTC) abaixo de US$ 70 mil e Ethereum (ETH) valendo menos de US$ 2 mil; o que há nas criptos?",
@@ -7808,16 +7810,16 @@
      "data": "2026-11-09T16:41:28+00:00"
     },
     {
+     "titulo": "JPMorgan leva sua criptomoeda à rede Ethereum para ampliar pagamentos digitais",
+     "fonte": "Portal do Bitcoin",
+     "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOaWtxcTVPcERhNDJNQjJMU2duWGhSeEtYYzhBd2dVb0tMTUV2T1ZHcENWNHc0aFg1MkVSNHNmYUZtTkRLaGlOZUQ3MEFXN3NNalgtS2cteExFNGlTRUNYOVJ0YXZadUFZdWhVR3E3V0lzOUl1TDZiM1Zxal9YUkNSZmhack1MMVdNeF8zV0xaUjdHb1JuUmFPZWdCNDdyT3JQbmVWbl9UVG52bnh4bm5BYi11dG7SAboBQVVfeXFMT0RuNG1KZmE2Q2NrbnhQNDBHVy1BN183V1hWLTBJalpBVHBRV216QTYwVVF0cGd1M2ZXYnNGMnNYeFpwSlVELWdya0p3T2staFlHN0Z6OURvREIyWGxMWHdrT0wtYkNRM1g5S2NmcmFTZDVodVpSN2F2WTFrQnJwbEhHTmE3RWJmOGlzWHFJM1BQYU95N01kai1CdGsyd3VLVEI5b0J0VGY4d3hHaEtybWtucVhOaHRwMjNR?oc=5",
+     "data": "2026-10-19T07:00:00+00:00"
+    },
+    {
      "titulo": "ETHGas quer trazer Wall Street para o Ethereum público com controles institucionais",
      "fonte": "CoinDesk",
      "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQZUdhT1dTcmsySFBnVEI0cVhRM3BZazlzaGhMWjgxN205UWNjWV9XcURKTEtwWGZFdm9VRThDUmFKalRPbThXTDQwU3k4RDNWR1B2ZHVNY0JlTTBYU2JCQzN1WWVZQnFfeEdhX2s4b3RoRzVoTDVhSkgwUGJwNmZzdEdPSWlTMW5UTDVBTzg4RE9pOHUycmFIT0FBQTh4bU1ZUHlveklLdUFhMHJnX0VqbzgtRURnQXlMOTd3NHFDRGd4TnVHSGdZM05od1k0VWNOdV9xcEEzVUJXTk8w?oc=5",
      "data": "2026-11-03T20:29:50+00:00"
-    },
-    {
-     "titulo": "JPMorgan expande a JPM Coin para instituições na Ethereum",
-     "fonte": "Cointelegraph Brasil",
-     "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQMFhwSmZxN0kzUjJKSGR2MVY2XzJocHY0c0ZJZDdOVEs5TFc4NTA2cmp4dDFyYUYzdzVNYUxObWJCOUNlWmQyWTRCX3VCLXpGdEt6MVJmUWpyUDdjTk9rWXFqYVU3bEZ1SllrMXgwazV4RkdrUFplLUtERXkyRi1seUxhZ0xkNk1Zamc?oc=5",
-     "data": "2026-10-19T07:00:00+00:00"
     },
     {
      "titulo": "Previsão do preço do Ethereum: cruz da morte se aproxima com saída de ETFs",
@@ -7826,16 +7828,16 @@
      "data": "2026-11-12T07:31:00+00:00"
     },
     {
-     "titulo": "Ethereum adia teste Glamsterdam após desenvolvedores de segurança identificarem risco aos contratos existentes",
-     "fonte": "CoinDesk",
-     "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxOa3liZjY3cVhVRDdKUzRYVmd1TlBNekc2bWZoSjNIM0pqcFBiNEdadFZ1QzRBQi1RTTE3aENnTmpBVEdwVVVjRFlJSFlpUHhPcXplekJMSG9vVGVzQ2dDSUN1SkwtV1E2WmwxQnBmVDZaSW1zVFhfUkMwMEhaUUduRHJ6Tzg4NVVFWFFZVWhGUWl6VVlkTWpEZVhiUS1tWDdYVUs2dnJCR09Qd2Q2SVlreHJ2dEU4eHRrZmxJNnFVVGw5MElndGVfUVNGaw?oc=5",
-     "data": "2026-10-23T07:00:00+00:00"
+     "titulo": "Ex-funcionária processa Ethereum Foundation e Vitalik Buterin por demissão",
+     "fonte": "Cointelegraph Brasil",
+     "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQcDR4ckZ5OTRFRFNVZUQ0eTYyTHE2em9uS2xxX0VhN3lIMWVJUk9faGozQm5wc0N5LWRCcXlETGFFMHplUmowNGh4aVludV9xa3drS09zVGpDQUl4SF9uN2ptWThJM1JyZERmVUNpTGM1SFNmOEhGd0VaTWtNSDdvUG9rNjBJSTNvNHBMV1hZQlpES0JZRmItZ2pzZU16LXc?oc=5",
+     "data": "2026-11-10T16:45:16+00:00"
     },
     {
-     "titulo": "Starknet abre votação sobre possível saída da L2 da Ethereum devido a riscos quânticos",
-     "fonte": "Cointelegraph Brasil",
-     "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPQ2Jsb196dHNWUXpvSFY2aFNlMWkyMEZuTHI5NUpJd1hfV2lKZlFXZ2ZKTmdBQVdpSnBmUUNmZm51TkllQzhtWk1mTDViaUpfczRlM21lLVJ0M3VKcExhMFVoalJIeERmd1hlYVQ2SkhXTFY3ZzA3aXRuc2dFclpqSjdISlp5TkE?oc=5",
-     "data": "2026-10-15T07:00:00+00:00"
+     "titulo": "O plano de liquidação em quatro minutos da Ethereum pode reduzir o custo de movimentação de criptomoedas",
+     "fonte": "CoinDesk",
+     "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQc3hIelhKa3VtLWtrdWNqcWdGRk1raHF1Snp6ZTVieUdsdVRYOVE5RTlna1oyNUlhZmx3UHlJbVRJUHdYZ1o5d3laNUhsdXAxMHZQWnpOa1NBenhJTkVZbExHWFNodkNSS2NJano1cTJjSFVXeThTSktUakk3TU4tb1RuRG5majJ5b0otQ0tPZUgwdnV6S3ExYXViRnlUZTZnNE5yN3phdzl2X2I5LXBxQzZFQ3k3ZFhZNW5xNXVwbUM?oc=5",
+     "data": "2026-10-22T07:00:00+00:00"
     }
    ],
    "DX-Y.NYB": [
@@ -7846,10 +7848,10 @@
      "data": "2026-11-05T08:00:00+00:00"
     },
     {
-     "titulo": "Perspectiva de Fed mais restritivo fortalece dólar em âmbito global",
-     "fonte": "Valor Econômico",
-     "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPVVpaNVA4WUlHMl9BMzFUMExLMTBvYi1teFd2eDRwc0RabkFpUTNzb3k0VDRoa1h4SmJna2xHclFlYVQxNFpwU3B5TUI2N285QW9NbzRyZHhkMHY0NllDeTdKYkRib0JyTnk0OHZ0YU8wV0d5a0FMcU9HMXNscTh2b3lHNXU3NEQyZ29FOTExZjFveHRjU1F5dm5Ma0R6RU83QlhPSXJvdk5fRk42UlE4dDZ2bjlIZTV3U0NoZlExLWEwd0xIVWhhTVF2QnZESGpjUEHSAdIBQVVfeXFMT1VaWjVQOFlJRzJfQTMxVDBMSzEwb2ItbXhXdng0cHNEWm5BaVEzc295NFQ0aGtYeEpiZ2tsR3JRZWFUMTRacFNweU1CNjdvOUFvTW80cmR4ZDB2NDZZQ3k3SmJEYm9Cck55NDh2dGFPMFdHeWtBTHFPRzFzbHE4dm95RzV1NzREMmdvRTkxMWYxb3h0Y1NReXZuTGtEekVPN0JYT0lyb3ZOX0ZONlJROHQ2dm45SGU1d1NDaGZRMS1hMHdMSFVoYU1RdkJ2REhqY1BB?oc=5",
-     "data": "2026-11-12T08:00:00+00:00"
+     "titulo": "No Brasil, trajetória do dólar acompanha movimento global, mas perda aumenta com incertezas domésticas. Entenda",
+     "fonte": "O GLOBO",
+     "link": "https://news.google.com/rss/articles/CBMihAJBVV95cUxOalVQY1lfcDJLYXFReGpCX2l1WGhWOF9GWjQwMm44WGlJV00ySlZvdF91MlBGMzl1Wk9kQ1hHUWZqelBZY1hZcFNKdkdmd2pDR3lBUHlmaGUtcENwM010YjBpWEUxZWh0U0RndndiNl9GYW9WZWlTX3lrS0NjX1VVUkprN3ktbWZFWU96cU1yUDVPM01ZZGNNaHhSY3F4RFFMSTkweDlkM2EwYU1pS0tPaUh6emx5NE0xZHhrTDYwT0JEX25YOXJzenZUZVNLXzdxV3RxWG1KQlRiTDRJN0xLVm9CR1h4WkVvWTFxRmJidDYzVmwtdTc4a19pbWJ4dEY4WF9pddIBkwJBVV95cUxQTV80N0tJeEZGOHdKQUNURmtEaUlMQVBTSm1HLTFsMGNleE9fZ2tZNFE0WFZkenI3bGRSdGY1dDc0YXhKc2U2ZWtIbHkyZ0xmRzYtOFl5a0xFS1VjNTQxc2dmb3RGQUVDcGhMV09ERUtEMWNIeEVsWVZxc2wwOWdXaWhtY3o3ZDJSeFZ6WFlwb1VMWk9wV1ltVHl4eVZCbmlOUC1NWkFQZVhIWXRRYk40TUpISHp2TTN3R0k4VVN1Y3U4RTdjcFY2NFJBN0F6djRfSHdEUDZuNUxiOThFWlFqTXVuWGFvUExRTUpXNkUwbkRDbVRieVNaMGVzeW52eWZxVDVwVmUzVzRwMDlwVFdKNzBYNA?oc=5",
+     "data": "2026-11-10T18:36:06+00:00"
     },
     {
      "titulo": "Índice do Dólar Americano (DXY) amplia recuperação para 101,80 antes do relatório de emprego não agrícola dos EUA (NFP)",
@@ -7861,7 +7863,7 @@
      "titulo": "Dólar sobe para R$ 5,51, com dados de emprego nos EUA",
      "fonte": "Agência Brasil",
      "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNTk9SYmJsZmF6TkxzU0FfV3JhV2N6dHcyd1FCano1MW9OWkR6MGRFU2tpUXlQclRCR3BFbGxkZlRUekZUTTQ1YmZIeUpuVktURkVGNUlmaUZpYmFGRkdCZk5GdFplN3h3Ry00UWFtREZoV3JYQ1RlYmx1YWlxUlJFZjEwXzZpbzVDbDRKWmdTUW5EbDJmQjdKdmZlWksxLTB4R0dxMEIwYl9YSlRU?oc=5",
-     "data": "2026-11-06T22:10:00+00:00"
+     "data": "2026-11-06T08:00:00+00:00"
     },
     {
      "titulo": "Enfoque - Informações Financeiras - Enfoque - Informações Financeiras",
@@ -7870,34 +7872,34 @@
      "data": "2026-10-26T07:00:00+00:00"
     },
     {
-     "titulo": "Moedas Globais: dólar cai forte ante iene com petróleo, IA e protestos na Europa",
-     "fonte": "InfoMoney",
-     "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNTE1HYnEtQlpyNXNwenE0cDQwc2s1Zm0zLXE0bVhiekdGQTlUODFnWVduU0NuN20yRmJ4a0Y2Vm9oWXlqdFJLbjVhUlR6U2x6aDlnVko3VU1wYnNtbW9YR2tWM3BuNXUxUWNjRGdkTHdxZV9vbVJmV2tkallHOW1teXRxVGVGZGlja3NjSGxxcVJvT2U1ZzZrTkJNZkhsVm1Cb1Q5MXpoY052VmhzTFJxNWZOSW5vYllo0gG-AUFVX3lxTE03eG81RFdod1JkTGtXRzNYRi1JZkgwaWNsbTZTQlhYS3hBSXJ3dmZVd0pRY0FEUXBpQkZsYzhXblE3NjRBQUstb2drUzIxY2dmT01HbDFkN2hsRUY1azUxOEVGSkxVUXV1eWhzcTdZNjRZazZoNlVlWC11SGcyRGVrbHVjd0hYNWlzaGZ6MUVIeHlZbzlVbjZhYUxkbV9nUHNSRVlqS3JRTHRBdWpYVWJfYkF2MEZEM2V2RDcwQ2c?oc=5",
-     "data": "2026-10-22T07:00:00+00:00"
+     "titulo": "Notícias do BTC: Preços caem abaixo de US$ 70 mil, desencadeando liquidações de US$ 1,2 bilhão",
+     "fonte": "CoinDesk",
+     "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNcDhTTHNJdHJueHBEZjhIVlRsY1duMHR1cTI2ZmVpTWltSzRxcy1zQWp2NnpkZ3pLUW5PMXhnY2ZwRjM0MTMtZmJ4RUl5N25TRVBERW4xaWR1WkphTEpaZVo1ODVsMng2aGM5SEJjUVNGMDd3YWozb1ppOVZ5UVNlVk0zelltQ05nX083cGFYUmx3UUMxTVo2QXRjVEdpUjh2b0Q5VA?oc=5",
+     "data": "2026-11-13T03:59:00+00:00"
     },
     {
-     "titulo": "No Brasil, trajetória do dólar acompanha movimento global, mas perda aumenta com incertezas domésticas. Entenda",
-     "fonte": "O GLOBO",
-     "link": "https://news.google.com/rss/articles/CBMihAJBVV95cUxOalVQY1lfcDJLYXFReGpCX2l1WGhWOF9GWjQwMm44WGlJV00ySlZvdF91MlBGMzl1Wk9kQ1hHUWZqelBZY1hZcFNKdkdmd2pDR3lBUHlmaGUtcENwM010YjBpWEUxZWh0U0RndndiNl9GYW9WZWlTX3lrS0NjX1VVUkprN3ktbWZFWU96cU1yUDVPM01ZZGNNaHhSY3F4RFFMSTkweDlkM2EwYU1pS0tPaUh6emx5NE0xZHhrTDYwT0JEX25YOXJzenZUZVNLXzdxV3RxWG1KQlRiTDRJN0xLVm9CR1h4WkVvWTFxRmJidDYzVmwtdTc4a19pbWJ4dEY4WF9pddIBkwJBVV95cUxQTV80N0tJeEZGOHdKQUNURmtEaUlMQVBTSm1HLTFsMGNleE9fZ2tZNFE0WFZkenI3bGRSdGY1dDc0YXhKc2U2ZWtIbHkyZ0xmRzYtOFl5a0xFS1VjNTQxc2dmb3RGQUVDcGhMV09ERUtEMWNIeEVsWVZxc2wwOWdXaWhtY3o3ZDJSeFZ6WFlwb1VMWk9wV1ltVHl4eVZCbmlOUC1NWkFQZVhIWXRRYk40TUpISHp2TTN3R0k4VVN1Y3U4RTdjcFY2NFJBN0F6djRfSHdEUDZuNUxiOThFWlFqTXVuWGFvUExRTUpXNkUwbkRDbVRieVNaMGVzeW52eWZxVDVwVmUzVzRwMDlwVFdKNzBYNA?oc=5",
-     "data": "2026-11-10T18:36:06+00:00"
-    },
-    {
-     "titulo": "Dólar fecha a R$ 5,65, no maior patamar do ano, enquanto Bolsa avança com balanços e alta do petróleo",
-     "fonte": "Jornal de Brasília",
-     "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxNNWFXY1V6UmVyUS1XbEkwR21TbHp3aUJQd3V6emtmRmZ6OFhjQk5Jck9NMnRIc1RxeEQ4ZG1EeC1GYnZINHk2RjY3ZkJqcmpmeW9ZUm1sNlZvbHpRMjdXaEQxY1gxYzJvN3ZJRWc1ZmZfYlA1Wi1TY016Uk9jazMxcmpiWUNWaGx1eDROdExuQ3JZeVBLQUFRQ3VPVEcwcEUxVE92NDlXUDhzS3BXdWdTckpHZGxpcEJnX2w4TV96M0ZsaXVxRHlfT3g0dmpDV2w4T3FTdVZwX1Rtc0NlbmdZUm9B?oc=5",
-     "data": "2026-11-13T21:43:00+00:00"
-    },
-    {
-     "titulo": "Previsão de preço do Índice do Dólar dos EUA: DXY mantém viés de alta acima de 101,50 antes da reunião do FOMC",
+     "titulo": "Índice do Dólar Americano (DXY) se mantém perto das máximas de abril de 2025, acima de 10,300, com apostas sobre o Fed e riscos ligados ao Irã",
      "fonte": "www.tmgm.com",
-     "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxNQmE2WjN0NG9XLU0ydWhVcjdWbFVvcEE4S3NPR2ZCYnVwZ1FFODF4RXdVdjBXclVlTzZ0WVlXRHZ2T0JGUTM5SHQ1TnlnMkZGMWVscDlwN01nZDNqWkdld0liNlRSZE5Zb3BwVHlTQ2hFOEJEWTJhQ0p0ekZnWVE2VWJWWTdaRW8xX0tRSXMySGdVMUdpRklRWUtWRDBaWEhPY2o2b3NPMnZKTHNtYmhicXR4WDlrRi1raDd5Qm9TUUJQQjdCb1lPaklCMjNTY1M1TGZoemJvWU9DeUZqOUE?oc=5",
-     "data": "2026-10-26T07:00:00+00:00"
+     "link": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxQZzI3a3p6ZzFoRFNNOHB4dE5waVNRWWY1aHRTNVVxWnlONWhoYW5Kc2xyY1NmM1pPOGtiaGoyREJOaDJuODNxSFhnb2UwSEZrUW56Z3lNQzNDTl9TSlN6dDgyR0RkTHZZSmZ6MGFIVnhLVVJtRkhYQU16OTZpcWZLRERucHZTdXFPY19aeFF4R1VKZS1QU3NPdTdvUDVpak5KN3RCMkV5Q2JabnZxNGNBODd2WW9NcUJuR3JHUXR3Vk5hbEExbDFrdGNQMkNpNUZnMTRmRmF0ekF4dTZrZGlSZllJZ2VpZw?oc=5",
+     "data": "2026-11-13T21:16:08+00:00"
     },
     {
      "titulo": "Dólar cai 0,42% e fecha a R$ 5,56 com foco em pacote fiscal",
      "fonte": "Agência Brasil",
      "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOZXBNR09SVkFSNHBoT1A0SENnSW9RNXZNdjJ2eE41RU1mTnB4LUJvV2x4YVIyVm1RdDZQMnpGWjdPVzl2RTdtbHk0QzhOZDc2OWtocURkdTVhcUw1ZHJJVkpZOEZZaTVpZkRSb3VKREhEdXpoc2VPSkVabGhlU3JlTkZCM0RRYzQ0UTBNWjZLNW92N1ZFX0FrdDh1SVpCSzVnZUlwNjVQQnBNYWdCMEVrdg?oc=5",
      "data": "2026-11-11T22:51:00+00:00"
+    },
+    {
+     "titulo": "Dólar cai e Ibovespa avança com pacote fiscal e petróleo em alta",
+     "fonte": "Metrô News Jornal",
+     "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQRVJDUFN0YnIxM2JtN1FaTGtFM0JiRnU5R1hMd0VPaTdxZmZxWDVRamROVVIzTTY2N2NDbGJlc1MzbWN6QXpTSERQX0YzX2ZZZkRNbUxEbmoxNVRKM2lHNUFjdEVvOWIydHp6M2tyNTktYUxuanZQSDJQUU5RV18tUmNoS3VqZ1JWRjhPeEVkTUt0Qzhi?oc=5",
+     "data": "2026-11-12T00:11:00+00:00"
+    },
+    {
+     "titulo": "Previsão de preço do Índice do Dólar dos EUA: DXY mantém viés de alta acima de 101,50 antes da reunião do FOMC",
+     "fonte": "www.tmgm.com",
+     "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxNQmE2WjN0NG9XLU0ydWhVcjdWbFVvcEE4S3NPR2ZCYnVwZ1FFODF4RXdVdjBXclVlTzZ0WVlXRHZ2T0JGUTM5SHQ1TnlnMkZGMWVscDlwN01nZDNqWkdld0liNlRSZE5Zb3BwVHlTQ2hFOEJEWTJhQ0p0ekZnWVE2VWJWWTdaRW8xX0tRSXMySGdVMUdpRklRWUtWRDBaWEhPY2o2b3NPMnZKTHNtYmhicXR4WDlrRi1raDd5Qm9TUUJQQjdCb1lPaklCMjNTY1M1TGZoemJvWU9DeUZqOUE?oc=5",
+     "data": "2026-10-26T07:00:00+00:00"
     }
    ]
   }
