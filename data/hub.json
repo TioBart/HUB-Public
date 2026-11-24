@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-23T21:50:14.230014+00:00",
+ "atualizado": "2026-11-24T00:41:59.288115+00:00",
  "juros": {
   "meses": [
    "2024-12",
@@ -89,7 +89,7 @@
    "valor": 13.75,
    "unidade": "%",
    "casas": 2,
-   "data": "2026-11-23",
+   "data": "2026-11-24",
    "freq": "m",
    "anterior": 13.75,
    "serie": [
@@ -2580,24 +2580,24 @@
    },
    {
     "nome": "Petróleo Brent",
-    "valor": 86.75,
+    "valor": 86.95,
     "unidade": "US$",
     "casas": 2,
-    "var": -6.29
+    "var": -6.07
    },
    {
     "nome": "Ouro",
-    "valor": 3632.5,
+    "valor": 3652.2,
     "unidade": "US$",
     "casas": 2,
-    "var": 3.33
+    "var": 3.89
    },
    {
     "nome": "Bitcoin",
-    "valor": 61107.07,
+    "valor": 61220.0,
     "unidade": "US$",
     "casas": 0,
-    "var": -0.09
+    "var": 0.09
    }
   ],
   "acoes": [
@@ -2688,13 +2688,12 @@
      {
       "nome": "Dólar comercial",
       "simbolo": "BRL=X",
-      "valor": 5.9301,
+      "valor": 5.9293,
       "unidade": "R$",
       "casas": 4,
-      "var": -0.06,
-      "var_mes": 17.43,
+      "var": -0.07,
+      "var_mes": 19.54,
       "serie": [
-       5.0499,
        4.9602,
        5.3726,
        5.3503,
@@ -2715,19 +2714,18 @@
        5.7768,
        5.8817,
        5.9335,
-       5.9301
+       5.948
       ]
      },
      {
       "nome": "Euro",
       "simbolo": "EURBRL=X",
-      "valor": 6.4648,
+      "valor": 6.4667,
       "unidade": "R$",
       "casas": 4,
-      "var": -0.57,
-      "var_mes": 14.1,
+      "var": -0.87,
+      "var_mes": 16.81,
       "serie": [
-       5.6657,
        5.536,
        5.9988,
        5.9513,
@@ -2748,19 +2746,19 @@
        6.3452,
        6.4475,
        6.502,
-       6.4648
+       6.5232,
+       6.4667
       ]
      },
      {
       "nome": "Libra",
       "simbolo": "GBPBRL=X",
-      "valor": 7.7276,
+      "valor": 7.7287,
       "unidade": "R$",
       "casas": 4,
-      "var": -0.31,
-      "var_mes": 14.17,
+      "var": -0.66,
+      "var_mes": 16.5,
       "serie": [
-       6.7686,
        6.634,
        7.1582,
        7.1188,
@@ -2781,7 +2779,8 @@
        7.6161,
        7.7325,
        7.7519,
-       7.7276
+       7.78,
+       7.7287
       ]
      }
     ]
@@ -2929,7 +2928,7 @@
       "valor": 6074.47,
       "unidade": "pts",
       "casas": 0,
-      "var": 2.23,
+      "var": -0.64,
       "var_mes": 0.1,
       "serie": [
        6068.2202,
@@ -2952,8 +2951,7 @@
        6212.1099,
        6154.3901,
        6113.8599,
-       5941.9502,
-       6074.4702
+       5941.9502
       ]
      },
      {
@@ -2962,7 +2960,7 @@
       "valor": 25337.27,
       "unidade": "pts",
       "casas": 0,
-      "var": 2.15,
+      "var": -0.5,
       "var_mes": 0.62,
       "serie": [
        25181.6504,
@@ -2985,8 +2983,7 @@
        26045.3691,
        25736.2402,
        25463.8105,
-       24802.7793,
-       25337.2695
+       24802.7793
       ]
      },
      {
@@ -2995,7 +2992,7 @@
       "valor": 10480.82,
       "unidade": "pts",
       "casas": 0,
-      "var": 1.3,
+      "var": 0.27,
       "var_mes": -1.96,
       "serie": [
        10690.4004,
@@ -3018,8 +3015,7 @@
        10689.9004,
        10551.2002,
        10452.7002,
-       10346.2998,
-       10480.8203
+       10346.2998
       ]
      },
      {
@@ -3028,7 +3024,7 @@
       "valor": 8044.84,
       "unidade": "pts",
       "casas": 0,
-      "var": 1.48,
+      "var": -0.44,
       "var_mes": 3.37,
       "serie": [
        7782.8198,
@@ -3051,8 +3047,7 @@
        8216.7803,
        8146.8301,
        8080.7402,
-       7927.75,
-       8044.8398
+       7927.75
       ]
      }
     ]
@@ -3063,16 +3058,12 @@
      {
       "nome": "Nikkei 225 (Japão)",
       "simbolo": "^N225",
-      "valor": 56436.65,
+      "valor": 58485.0,
       "unidade": "pts",
       "casas": 0,
-      "var": -5.06,
-      "var_mes": -11.92,
+      "var": 3.63,
+      "var_mes": -5.96,
       "serie": [
-       64075.4219,
-       64621.2383,
-       62907.8398,
-       62693.1602,
        62189.6484,
        63268.3711,
        63954.1914,
@@ -3091,7 +3082,8 @@
        58860.4297,
        59024.2812,
        59444.2109,
-       56436.6484
+       56436.6484,
+       58485.0
       ]
      },
      {
@@ -3161,13 +3153,12 @@
      {
       "nome": "Kospi (Coreia do Sul)",
       "simbolo": "^KS11",
-      "valor": 4708.54,
+      "valor": 4986.13,
       "unidade": "pts",
       "casas": 0,
-      "var": -8.36,
-      "var_mes": -15.17,
+      "var": 2.39,
+      "var_mes": -8.84,
       "serie": [
-       5550.2998,
        5469.4702,
        5638.3398,
        6012.4399,
@@ -3187,7 +3178,8 @@
        4968.48,
        5067.4399,
        5137.8901,
-       4869.96
+       4869.96,
+       4986.1299
       ]
      }
     ]
@@ -3381,11 +3373,11 @@
      {
       "nome": "Petróleo Brent (US$/barril)",
       "simbolo": "BZ=F",
-      "valor": 86.75,
+      "valor": 86.95,
       "unidade": "US$",
       "casas": 2,
-      "var": -6.29,
-      "var_mes": -25.68,
+      "var": -6.07,
+      "var_mes": -25.51,
       "serie": [
        116.72,
        115.81,
@@ -3408,17 +3400,17 @@
        91.95,
        91.98,
        92.57,
-       86.75
+       86.95
       ]
      },
      {
       "nome": "Petróleo WTI (US$/barril)",
       "simbolo": "CL=F",
-      "valor": 80.33,
+      "valor": 80.48,
       "unidade": "US$",
       "casas": 2,
-      "var": -4.35,
-      "var_mes": -22.21,
+      "var": -4.17,
+      "var_mes": -22.07,
       "serie": [
        103.27,
        101.76,
@@ -3441,17 +3433,17 @@
        83.26,
        83.21,
        83.98,
-       80.33
+       80.48
       ]
      },
      {
       "nome": "Ouro (US$/onça)",
       "simbolo": "GC=F",
-      "valor": 3632.5,
+      "valor": 3652.2,
       "unidade": "US$",
       "casas": 2,
-      "var": 3.33,
-      "var_mes": -9.37,
+      "var": 3.89,
+      "var_mes": -8.87,
       "serie": [
        4007.8999,
        4038.3999,
@@ -3474,17 +3466,17 @@
        3741.8999,
        3685.5,
        3515.3999,
-       3632.5
+       3652.2
       ]
      },
      {
       "nome": "Prata (US$/onça)",
       "simbolo": "SI=F",
-      "valor": 42.875,
+      "valor": 43.62,
       "unidade": "US$",
       "casas": 2,
-      "var": 4.48,
-      "var_mes": -20.17,
+      "var": 6.3,
+      "var_mes": -18.79,
       "serie": [
        53.711,
        54.108,
@@ -3507,17 +3499,17 @@
        44.999,
        44.318,
        41.035,
-       42.875
+       43.62
       ]
      },
      {
       "nome": "Cobre (US$/libra)",
       "simbolo": "HG=F",
-      "valor": 5.612,
+      "valor": 5.614,
       "unidade": "US$",
       "casas": 3,
-      "var": 2.46,
-      "var_mes": -13.34,
+      "var": 2.5,
+      "var_mes": -13.31,
       "serie": [
        6.476,
        6.508,
@@ -3540,7 +3532,7 @@
        5.6595,
        5.625,
        5.477,
-       5.612
+       5.614
       ]
      },
      {
@@ -3682,11 +3674,11 @@
      {
       "nome": "Índice do dólar (DXY)",
       "simbolo": "DX-Y.NYB",
-      "valor": 104.342,
+      "valor": 104.317,
       "unidade": "pts",
       "casas": 2,
-      "var": 0.51,
-      "var_mes": 2.49,
+      "var": 0.49,
+      "var_mes": 2.46,
       "serie": [
        101.81,
        101.96,
@@ -3709,19 +3701,18 @@
        103.86,
        103.9,
        103.81,
-       104.342
+       104.317
       ]
      },
      {
       "nome": "Euro / dólar",
       "simbolo": "EURUSD=X",
-      "valor": 1.0905,
+      "valor": 1.091,
       "unidade": "US$",
       "casas": 4,
-      "var": -0.59,
-      "var_mes": -2.82,
+      "var": -0.56,
+      "var_mes": -2.74,
       "serie": [
-       1.1221,
        1.1218,
        1.1174,
        1.113,
@@ -3742,19 +3733,19 @@
        1.0993,
        1.0972,
        1.097,
-       1.0905
+       1.0972,
+       1.091
       ]
      },
      {
       "nome": "Dólar / iene",
       "simbolo": "JPY=X",
-      "valor": 158.983,
+      "valor": 159.054,
       "unidade": "¥",
       "casas": 2,
-      "var": -0.45,
-      "var_mes": 1.59,
+      "var": 0.08,
+      "var_mes": 1.42,
       "serie": [
-       156.494,
        156.83,
        157.528,
        157.993,
@@ -3775,19 +3766,19 @@
        159.504,
        159.381,
        159.707,
-       158.983
+       158.931,
+       159.054
       ]
      },
      {
       "nome": "Dólar / yuan",
       "simbolo": "CNY=X",
-      "valor": 6.6638,
+      "valor": 6.6548,
       "unidade": "CN¥",
       "casas": 4,
-      "var": -0.04,
-      "var_mes": -0.21,
+      "var": -0.33,
+      "var_mes": -0.35,
       "serie": [
-       6.6779,
        6.6779,
        6.67,
        6.668,
@@ -3808,7 +3799,8 @@
        6.6659,
        6.6676,
        6.6665,
-       6.6638
+       6.677,
+       6.6548
       ]
      },
      {
@@ -3818,9 +3810,8 @@
       "unidade": "ARS",
       "casas": 2,
       "var": 0.94,
-      "var_mes": 3.41,
+      "var_mes": 3.29,
       "serie": [
-       1527.4525,
        1529.2455,
        1540.6971,
        1538.251,
@@ -3841,19 +3832,18 @@
        1552.2371,
        1559.05,
        1564.7737,
-       1579.5
+       1568.8053
       ]
      },
      {
       "nome": "Dólar / peso mexicano",
       "simbolo": "MXN=X",
-      "valor": 19.1813,
+      "valor": 19.175,
       "unidade": "MXN",
       "casas": 4,
-      "var": 0.48,
-      "var_mes": 2.46,
+      "var": 0.52,
+      "var_mes": 2.44,
       "serie": [
-       18.7208,
        18.719,
        18.5502,
        18.687,
@@ -3874,7 +3864,8 @@
        18.415,
        18.8512,
        19.0901,
-       19.1813
+       19.0764,
+       19.175
       ]
      }
     ]
@@ -3885,13 +3876,12 @@
      {
       "nome": "Bitcoin",
       "simbolo": "BTC-USD",
-      "valor": 61107.07,
+      "valor": 61220.0,
       "unidade": "US$",
       "casas": 0,
-      "var": -0.09,
-      "var_mes": -24.63,
+      "var": 0.09,
+      "var_mes": -24.22,
       "serie": [
-       81074.1875,
        80790.8359,
        80024.0078,
        80006.6562,
@@ -3922,19 +3912,18 @@
        58798.9805,
        60094.0898,
        61161.9102,
-       61107.0703
+       61220.0
       ]
      },
      {
       "nome": "Ethereum",
       "simbolo": "ETH-USD",
-      "valor": 1714.94,
+      "valor": 1710.2,
       "unidade": "US$",
       "casas": 0,
-      "var": -0.36,
-      "var_mes": -28.07,
+      "var": -0.63,
+      "var_mes": -27.41,
       "serie": [
-       2384.0774,
        2355.9536,
        2326.9202,
        2320.2812,
@@ -3965,7 +3954,7 @@
        1619.4321,
        1682.2046,
        1721.0757,
-       1714.9399
+       1710.2
       ]
      }
     ]
@@ -6416,52 +6405,82 @@
  },
  "noticias": [
   {
-   "titulo": "Onde assistir a Santos x Grêmio pelo Brasileirão?",
+   "titulo": "Dia de Sorte: confira o resultado do concurso 1354 sorteado nesta segunda-feira (23)",
    "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/esportes/onde-assistir-santos-gremio-brasileirao/",
-   "data": "2026-11-23T21:45:00+00:00"
+   "link": "https://www.infomoney.com.br/consumo/dia-de-sorte-confira-o-resultado-do-concurso-1354-sorteado-nesta-segunda-feira-23/",
+   "data": "2026-11-24T00:29:07+00:00"
   },
   {
-   "titulo": "Braskem salta 12% com notícia sobre acordo com credores para reestruturar dívidas",
-   "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/mercados/braskem-sobe-forte-com-noticia-sobre-acordo-com-credores-para-reestruturar-dividas/",
-   "data": "2026-11-23T21:43:45+00:00"
+   "titulo": "BRB diz que banco segue funcionando após suspensão da CVM",
+   "fonte": "Agência Brasil",
+   "link": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/brb-diz-que-banco-segue-funcionando-apos-suspensao-da-cvm",
+   "data": "2026-11-24T00:29:00+00:00"
   },
   {
-   "titulo": "Petrobras (PETR3;PETR4): 3 fatores que fizeram as ações caírem mais de 3% nesta 2ª",
+   "titulo": "Lotomania: confira o resultado do concurso 3002 sorteado nesta segunda-feira (23)",
    "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/mercados/petrobras-petr3petr4-3-fatores-que-fizeram-as-acoes-cairem-mais-de-3-nesta-2a/",
-   "data": "2026-11-23T21:39:04+00:00"
+   "link": "https://www.infomoney.com.br/consumo/lotomania-confira-o-resultado-do-concurso-3002-sorteado-nesta-segunda-feira-23/",
+   "data": "2026-11-24T00:26:57+00:00"
   },
   {
-   "titulo": "Carteira de ações de Trump provavelmente se beneficia da alta da Nvidia",
+   "titulo": "Lotofácil hoje, concurso 3836: confira o resultado sorteado nesta segunda (23)",
    "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/business/global/carteira-de-acoes-de-trump-provavelmente-se-beneficia-da-alta-da-nvidia/",
-   "data": "2026-11-23T21:36:36+00:00"
+   "link": "https://www.infomoney.com.br/consumo/lotofacil-hoje-concurso-3836-confira-o-resultado-sorteado-nesta-segunda-23/",
+   "data": "2026-11-24T00:05:04+00:00"
   },
   {
-   "titulo": "Ibovespa tem terceira queda seguida; dólar fecha em leve baixa após bater R$ 6",
-   "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/mercados/ibovespa-hoje-bolsa-de-valores-ao-vivo-23112026/",
-   "data": "2026-11-23T21:31:41+00:00"
+   "titulo": "Petrobras aprova pagamento de R$ 15,6 bilhões a acionistas",
+   "fonte": "Agência Brasil",
+   "link": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/petrobras-aprova-pagamento-de-r-156-bilhoes-acionistas",
+   "data": "2026-11-24T00:03:00+00:00"
   },
   {
-   "titulo": "Nasdaq sobe 6,5% e tem melhor pregão desde abril de 2025; Dow e S&P também saltam",
-   "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/mercados/nasdaq-disparada-volta-de-huang-a-nvidia-dow-e-sp-tambem-saltam/",
-   "data": "2026-11-23T21:27:27+00:00"
+   "titulo": "Jornada 5x2: veja como ficam regras de salário, folgas e horas extras",
+   "fonte": "Agência Brasil",
+   "link": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/jornada-5x2-veja-como-ficam-regras-de-salario-folgas-e-horas-extras",
+   "data": "2026-11-23T23:40:00+00:00"
   },
   {
-   "titulo": "Nvidia salta 31% com volta de Huang e ganha US$ 953 bilhões de valor em só 1 pregão",
+   "titulo": "Meta suspende ações sem direito a voto com Zuckerberg diante de disputa judicial",
    "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/mercados/acao-da-nvidia-salta-cerca-de-30-com-reintegracao-de-jensen-huang-como-ceo/",
-   "data": "2026-11-23T21:21:59+00:00"
+   "link": "https://www.infomoney.com.br/mercados/meta-suspende-acoes-sem-direito-a-voto-com-zuckerberg-diante-de-disputa-judicial/",
+   "data": "2026-11-23T23:10:58+00:00"
   },
   {
-   "titulo": "CVM suspende registro do BRB e de mais quatro empresas - Agência Brasil",
-   "fonte": "Google Notícias",
-   "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPakVZaXZiSUg5eHFLTzd3YlcwdHBKQWdENm43V1B4ZVpHWkJkNThLUzJVNk1FMGNXV21TX2F6b3Y0aW1XdFNWeTZyQVZKYXlROTI4VnRING9kMENhVll0ak5yTkFQakZneWtoLW8wXzlJdUsxeUVYVEhrLW44c3pwaThiOUVuNnd6QXFiUTR0VjcwR08wTl9iYlZzVzNwZjNOS25pVGdXTGxScGVTQXJNX2Q1TGI?oc=5",
-   "data": "2026-11-23T21:14:00+00:00"
+   "titulo": "Petrobras vai aportar R$1,8 bi em produtora de etanol de milho, diz CerradinhoBio",
+   "fonte": "InfoMoney",
+   "link": "https://www.infomoney.com.br/mercados/petrobras-vai-aportar-r18-bi-em-produtora-de-etanol-de-milho-diz-cerradinhobio/",
+   "data": "2026-11-23T22:54:47+00:00"
+  },
+  {
+   "titulo": "Câmara aprova urgência para deputados votarem ajuste fiscal ainda nesta segunda-feira",
+   "fonte": "InfoMoney",
+   "link": "https://www.infomoney.com.br/politica/camara-aprova-urgencia-para-deputados-votarem-ajuste-fiscal-ainda-nesta-segunda-feira/",
+   "data": "2026-11-23T22:47:14+00:00"
+  },
+  {
+   "titulo": "Petrobras (PETR4) aprova investimentos de US$ 122 bi em plano de negócios 2027-2031",
+   "fonte": "InfoMoney",
+   "link": "https://www.infomoney.com.br/mercados/petrobras-petr3-petr4-aprova-investimentos-de-us-122-bi-em-plano-de-negocios-2027-2031/",
+   "data": "2026-11-23T22:41:03+00:00"
+  },
+  {
+   "titulo": "Petrobras aprova R$15,6 bi em remuneração extra a acionistas",
+   "fonte": "InfoMoney",
+   "link": "https://www.infomoney.com.br/mercados/petrobras-aprova-r156-bi-em-remuneracao-extra-a-acionistas/",
+   "data": "2026-11-23T22:39:44+00:00"
+  },
+  {
+   "titulo": "Líder do PL anuncia que partido votará contra projeto de ajuste fiscal do governo",
+   "fonte": "InfoMoney",
+   "link": "https://www.infomoney.com.br/politica/lider-do-pl-anuncia-que-partido-votara-contra-projeto-de-ajuste-fiscal-do-governo/",
+   "data": "2026-11-23T22:20:38+00:00"
+  },
+  {
+   "titulo": "Líder do governo na Câmara diz que PT não apresentará destaques ao ajuste fiscal",
+   "fonte": "InfoMoney",
+   "link": "https://www.infomoney.com.br/politica/lider-do-governo-na-camara-diz-que-pt-nao-apresentara-destaques-ao-ajuste-fiscal/",
+   "data": "2026-11-23T22:18:37+00:00"
   },
   {
    "titulo": "CVM suspende registro do BRB e de mais quatro empresas",
@@ -6470,34 +6489,10 @@
    "data": "2026-11-23T21:14:00+00:00"
   },
   {
-   "titulo": "Black Friday: 38% das PMEs esperam vender mais, aponta Serasa Experian",
-   "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/minhas-financas/black-friday-38-das-pmes-esperam-vender-mais-aponta-serasa-experian/",
-   "data": "2026-11-23T20:53:14+00:00"
-  },
-  {
-   "titulo": "Volta de Jensen Huang ao comando da Nvidia foi decidida sem consulta à diretoria",
-   "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/business/volta-de-jensen-huang-ao-comando-da-nvidia-foi-decidida-sem-consulta-a-diretoria/",
-   "data": "2026-11-23T20:45:11+00:00"
-  },
-  {
-   "titulo": "Botafogo x São Paulo: Onde assistir ao Brasileirão?",
-   "fonte": "InfoMoney",
-   "link": "https://www.infomoney.com.br/esportes/botafogo-sao-paulo-onde-assistir-brasileirao/",
-   "data": "2026-11-23T20:45:00+00:00"
-  },
-  {
    "titulo": "Câmara pode votar ajuste fiscal nesta segunda-feira",
    "fonte": "Agência Brasil",
    "link": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/camara-pode-votar-ajuste-fiscal-nesta-segunda-feira",
    "data": "2026-11-23T19:57:00+00:00"
-  },
-  {
-   "titulo": "Avenida no Rio supera rua de SP e se torna a mais cara do Brasil para o comércio - Estadão",
-   "fonte": "Google Notícias",
-   "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOY1hxM3prbU1YejNPNUhMOTVrM3M2SkQ4WFBuWmVfNHJoUVJfSlJTT2ZWbmdoVTFsZTZHVHREcE1JWjhuaThUQk1wWDlWNEtJSFZfWWcyWGFSSTd3dVhiV1lwd1V0T2w0MG5kbTRlRmQtT2h6cDhCSEplWWtSUVdBZ1JULVl1R2wtODRWcHh4TVo0anlURWFn0gGcAUFVX3lxTFBqR0ZSZlROUFZCbEdNSlRiTlNJRjlDVXluSngyN2ZtUEhmZkNNRl9mM2FVZ0RQYzU0QjNtN2RnU3B1eTZyQVp2Yl9fMWZTTzhKOV9OSGlRT1N5Wl92TFJYMkp1dlBCWGh6MVBBM0pibV8tUHU0Tk4taV9fMlZfTDNuMVRMTm9iWnNQcUcteTQ1Z252b01WODNzUjE0eA?oc=5",
-   "data": "2026-11-23T19:48:07+00:00"
   },
   {
    "titulo": "Fazenda reduz previsão do PIB e eleva inflação para 2027 - Agência Brasil",
@@ -6512,22 +6507,28 @@
    "data": "2026-11-23T19:48:00+00:00"
   },
   {
-   "titulo": "Os riscos do dólar a R$ 6 para a economia - Valor Econômico",
-   "fonte": "Google Notícias",
-   "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOaWxLNGE5TktOa1ZLcTNMMTJPQldyeEVGRF85MHFianlFZWkxZG1CcVYzdVVrdDhtTEJNN282VG4tM3p0dkNPSTktYjRkS2pLRzRmZDRLNWVSQUUyWGo3Tlo4TGFWLXl6SHNPVklaVGs2OTVvSlpGdHVvU3ZNYXh2SHFpbjBiYjZVZVBOTNIBmwFBVV95cUxQUHkyenlYWVc2MldBdGVaZkFpcW5ONF85UDJkMjlfQXFCbU1uX0tqOThDc1hlWVkyQ0FOZE5zaXRsNEZyNXA0U2hZWlFvUXpJTUFuWVk1Rm9WNzRaUU5HMUJvNzFDOFU3M19wVXA2VGlzUndHc0dBMHczaGw2R3A4MFBwQVctb0I2UWk2N2FheXdfcS03N0h6RlhPMA?oc=5",
-   "data": "2026-11-23T19:13:54+00:00"
-  },
-  {
    "titulo": "O alívio bilionário que acordo de Trump, Xi e Putin pode trazer ao Brasil - VEJA",
    "fonte": "Google Notícias",
    "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQMVNUNjN2Y05sVzN4UjI2UEd6aU9NZWlmemtKc3Y0X19TOEtlWi1nTGdWZTByV2hFNC1yZ0dySWxKc2V4WVJOd1NaS2dLcVZzQzZ6blZhMzFiZmJiQkNLRWZfUkIwbWJsbDZuWkFVcGJfTVM3a2lOT09OQlBTSnU0RnBzbGZKQXl6NmFfcGx6M0x0WmdYOG1VNjFLZVNiUmtXMGlILVA0TG9ERV9f?oc=5",
    "data": "2026-11-23T17:00:15+00:00"
   },
   {
+   "titulo": "Juros altos não são o único problema do Brasil: CEO do Itaú aponta o que está travando a economia - Money Times",
+   "fonte": "Google Notícias",
+   "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQV3B0TGlLVEYtaVRMLXFldnFFVlJRek1yQW8xSmdWSUZ6dGhNSHhqVUFzTEE0RG0tY1hvSHhMa2J0YmJTV25lLUFzWHdMaW9idXFtQVZ4b3RvSGtUTHVZQTBXRTY5SmJXeVBvX2Z1NVFqNm5ZNGVDUGlBVDktNTBIVGgtQy1iLTVzbDRGZE5OQUxuSEJSZDJhczRWMmlYdGhBS2pjVkJMemp3ak1JRU1iUHFZNGRDQ0p1dHpMZEdfQzgzWHVXMWpKR3pVd3Y?oc=5",
+   "data": "2026-11-23T16:35:26+00:00"
+  },
+  {
    "titulo": "De Brasília a Washington: Galípolo e Bullard alertam que, sem ajuste fiscal, a inflação não dará trégua - NeoFeed",
    "fonte": "Google Notícias",
    "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQS0VPS0Z2YTJXNzdpZURyMHh5b3lOVl82TlBaT0U4eF9Cc05YWndKQ3RacWg5TDJfYTFlTXBYSFctWHZYVERqeXQ1czNUMkRDWDNLVXBJcWpmcDk5eGhlX1hkUEtqWGZKcV9WbHhuNEpKNWNpVUNNcnZxaDV5UjQyNUR5SnVRU2VTdzNocFlva1VTRjlfa3MwMWFoRi1pd2U5REdiT1pxdE1LR25VcnpQWURHQ0c2RkhNTWNpazhhMmswT1lHQ05ua1BzRHUyUQ?oc=5",
    "data": "2026-11-23T15:32:00+00:00"
+  },
+  {
+   "titulo": "Alta do dólar impulsiona preços de grão e derivados - Poder360",
+   "fonte": "Google Notícias",
+   "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNd2pwSDBOeS1JUHRWbjdfY0FHdDZHUDdUVU1QeWdHbmx1dkwyaVBpdVVoUGliSjB4NjdvV1hkZl91VUxSUG5SZm5FR1lBM1FPMjQ3LWVSR3JZR2JlZ2dvSGdKa3hHWFhfMEtSME1MQWRMOGEzdUFueXFManFYTFF1Ry1IckJJaVZnYjg1OGJsMFdQNnFGWTNDU3BJcw?oc=5",
+   "data": "2026-11-23T13:29:30+00:00"
   },
   {
    "titulo": "Mercado eleva projeção do dólar para R$ 5,55 em 2026",
@@ -6560,6 +6561,12 @@
    "data": "2026-11-23T08:30:00+00:00"
   },
   {
+   "titulo": "Os riscos do dólar a R$ 6 para a economia - Valor Econômico",
+   "fonte": "Google Notícias",
+   "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOaWxLNGE5TktOa1ZLcTNMMTJPQldyeEVGRF85MHFianlFZWkxZG1CcVYzdVVrdDhtTEJNN282VG4tM3p0dkNPSTktYjRkS2pLRzRmZDRLNWVSQUUyWGo3Tlo4TGFWLXl6SHNPVklaVGs2OTVvSlpGdHVvU3ZNYXh2SHFpbjBiYjZVZVBOTNIBmwFBVV95cUxQUHkyenlYWVc2MldBdGVaZkFpcW5ONF85UDJkMjlfQXFCbU1uX0tqOThDc1hlWVkyQ0FOZE5zaXRsNEZyNXA0U2hZWlFvUXpJTUFuWVk1Rm9WNzRaUU5HMUJvNzFDOFU3M19wVXA2VGlzUndHc0dBMHczaGw2R3A4MFBwQVctb0I2UWk2N2FheXdfcS03N0h6RlhPMA?oc=5",
+   "data": "2026-11-23T08:00:00+00:00"
+  },
+  {
    "titulo": "A economia política do Lula 4: o que está em jogo? - Brasil de Fato",
    "fonte": "Google Notícias",
    "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPSS1uTWZKSUpDVloxNjV5OGNUN25qS1dOWkpPRzJGTkdmNkJsVTdKdGJXTDU3ZzdHNC11T3dvbkY5NFFmM3kza1N6Qk1iejVPWjZ4dnE4S1RvQkpCakRaeFVxVlZKOThnaGJmS2I2cDJvU0ZrZkNJbElQTFgtN2R1SWd1eGg4TlgyWk9oSko0SkFBZ1VObjc0?oc=5",
@@ -6576,24 +6583,6 @@
    "fonte": "Google Notícias",
    "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQcjZBOEQ2cGxvYUdCczZtRWI0YXItSnJPTnAyTmxLUUIxT1JmaktpQVgxOXJKeGlBNHQ4NmlNNUM0Q1RROUp5RE8zbzc4blo3TmtOM3Utc2V3NjJSQy1tYUM5Qm9Fbk03dzJyVXhCWFBRYkNRUjRaaGptc0RwY05UNFprNDV2bjZKbDJwTWZSVlVWWWZ3MUdTRXRyR2NFY1M1amQ1OUtkVlZteXBGQWhxT0ppSXFDOUdMUFhN?oc=5",
    "data": "2026-11-22T07:34:50+00:00"
-  },
-  {
-   "titulo": "Mega-Sena acumula e prêmio vai para R$ 45 milhões",
-   "fonte": "Agência Brasil",
-   "link": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/mega-sena-acumula-e-premio-vai-para-r-45-milhoes",
-   "data": "2026-11-20T01:20:00+00:00"
-  },
-  {
-   "titulo": "CMN amplia controle sobre recolhimentos de tributos dos bancos",
-   "fonte": "Agência Brasil",
-   "link": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/cmn-amplia-controle-sobre-recolhimentos-de-tributos-dos-bancos",
-   "data": "2026-11-19T23:33:00+00:00"
-  },
-  {
-   "titulo": "Banco Central amplia acesso de cooperativas ao mercado aberto",
-   "fonte": "Agência Brasil",
-   "link": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/banco-central-amplia-acesso-de-cooperativas-ao-mercado-aberto",
-   "data": "2026-11-19T23:22:00+00:00"
   }
  ],
  "noticias_ativos": {
