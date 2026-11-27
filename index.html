@@ -336,6 +336,14 @@ tr.melhor > *{background:var(--accent-soft)}
 .aviso-dados{padding:14px 16px;border-radius:8px;background:var(--zebra);color:var(--muted);font-size:.9rem}
 
 /* ---------- Carteira ---------- */
+.prov-ctrl{display:flex;flex-wrap:wrap;gap:8px}
+.prov-filtros{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:10px}
+.prov-filtros .campo{margin:0;min-width:160px}
+.sit{display:inline-block;padding:1px 8px;border-radius:999px;font-size:.74rem;font-weight:600;white-space:nowrap}
+.sit.recebido{background:var(--zebra);color:var(--up)}
+.sit.areceber{background:var(--accent-soft);color:var(--accent)}
+.sit.previsto{background:var(--zebra);color:var(--muted)}
+.est{font-size:.72rem;color:var(--muted)}
 .cart-topo{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px}
 .cart-frame{display:block;width:100%;min-height:640px;border:0;background:transparent}
 .gate{max-width:640px}
@@ -507,11 +515,27 @@ footer p{margin:0 0 4px}
 
     <div class="aba pilha" data-painel="proventos" role="tabpanel" hidden>
       <div class="g4" id="provStats"></div>
-      <div class="panel"><div class="ptit"><h2>Proventos recebidos por mês</h2></div><p class="sub2">Estimativa dos últimos 12 meses pela quantidade que você tem hoje de cada ativo.</p><div class="chartbox" style="height:260px"><canvas id="chProv" role="img" aria-label="Proventos estimados por mês nos últimos 12 meses"></canvas></div></div>
-      <div class="g2" style="margin-top:16px">
-        <div class="panel"><div class="ptit"><h2>Próximos proventos anunciados</h2></div><div class="scroll"><table id="provProx"></table></div></div>
-        <div class="panel"><div class="ptit"><h2>Últimos pagamentos</h2></div><div class="scroll"><table id="provHist"></table></div></div>
+      <div class="panel">
+        <div class="ptit"><h2>Proventos por data de pagamento</h2>
+          <div class="prov-ctrl">
+            <div class="seg" role="group" aria-label="Mostrar" id="provFiltro"><button type="button" data-f="recebidos" aria-pressed="false">Recebidos</button><button type="button" data-f="areceber" aria-pressed="false">A receber</button><button type="button" data-f="todos" aria-pressed="true">Todos</button></div>
+            <div class="seg" role="group" aria-label="Agrupar por" id="provVis"><button type="button" data-vis="mes" aria-pressed="true">Mês</button><button type="button" data-vis="ano" aria-pressed="false">Ano</button></div>
+          </div></div>
+        <p class="sub2" id="provSub"></p>
+        <div class="chartbox" style="height:320px"><canvas id="chProv" role="img" aria-label="Proventos da carteira por mês de pagamento"></canvas></div>
+        <p class="dica" id="provNota" style="margin:10px 0 0"></p>
       </div>
+      <div class="panel">
+        <div class="ptit"><h2>Histórico de proventos</h2></div>
+        <div class="prov-filtros">
+          <div class="campo"><label for="pfAtivo">Ativo</label><select id="pfAtivo"></select></div>
+          <div class="campo"><label for="pfAno">Ano de pagamento</label><select id="pfAno"></select></div>
+          <div class="campo"><label for="pfSit">Situação</label><select id="pfSit"><option value="">Todas</option><option value="recebido">Recebido</option><option value="areceber">A receber</option><option value="previsto">Previsto</option><option value="futuro">A receber e previsto</option></select></div>
+        </div>
+        <div class="scroll"><table id="provHist"></table></div>
+      </div>
+      <div class="panel"><div class="ptit"><h2>Por ativo, desde o início</h2></div><div class="scroll"><table id="provAtivos"></table></div></div>
+      <p class="fonte">Como o cálculo funciona: para cada provento, o hub pega a sua quantidade do ativo na data com (o último dia em que comprar ainda dá direito), usando os períodos registrados na carteira. Se você não tinha o ativo nessa data, o provento não entra. O valor é líquido: JCP com 15% de imposto retido na fonte; dividendos e rendimentos de FII são isentos. "A receber" é o que você já garantiu na data com e ainda não caiu na conta. "Previsto" é provento já anunciado com data com futura, calculado com a quantidade de hoje.</p>
     </div>
 
     <div class="aba pilha" data-painel="calendario" role="tabpanel" hidden>
@@ -2228,7 +2252,7 @@ async function abrirCarteira(codigo, lembrar) {
     sessionStorage.setItem(CHAVE_CODIGO, codigo);
     if (lembrar) localStorage.setItem(CHAVE_CODIGO, codigo); else localStorage.removeItem(CHAVE_CODIGO);
   } catch (e) { /* armazenamento bloqueado */ }
-  CARTEIRA = { aberta: true, id, seed: pacote.carteira, posicoes: [], periodo: null };
+  CARTEIRA = { aberta: true, id, seed: pacote.carteira, cot: pacote.cotacoes || {}, posicoes: [], periodo: null };
   recalcularPosicoes();
   if (DADOS) renderTopo(DADOS, DADOS === DEMO);
 }
@@ -2408,42 +2432,187 @@ $('fObs').addEventListener('submit', e => {
   renderObservacao(DADOS);
 });
 
+/* ---------- Proventos reais: posição na data com, valor líquido, agrupados pela data de pagamento ---------- */
+const baseTicker = t => String(t || '').toUpperCase().trim().replace(/(\d)F$/, '$1');
+function historicoCarteira() {
+  let fonte = CARTEIRA.seed || {};
+  try { const l = JSON.parse(localStorage.getItem('carteira-acoes.v1:' + CARTEIRA.id) || 'null'); if (l && l.atualizacoes) fonte = l; } catch (e) { /* sem edições */ }
+  const at = fonte.atualizacoes || {};
+  return { ks: Object.keys(at).sort(), at };
+}
+function qtdNaData(H, t, d) {
+  let k = null;
+  for (const x of H.ks) { if (x <= d) k = x; else break; }
+  if (!k) return 0;
+  return (H.at[k] || []).reduce((a, p) => a + (baseTicker(p.ativo) === t && +p.qtd > 0 ? +p.qtd : 0), 0);
+}
+// Dias sem pregão na B3: fins de semana, feriados nacionais, Carnaval, Sexta-Feira Santa, Corpus Christi, 24 e 31/12
+const _feriados = {};
+function feriadosB3(ano) {
+  if (_feriados[ano]) return _feriados[ano];
+  const a = ano % 19, b = Math.floor(ano / 100), c = ano % 100, d = Math.floor(b / 4), e = b % 4, f = Math.floor((b + 8) / 25), g = Math.floor((b - f + 1) / 3);
+  const h = (19 * a + b - d - g + 15) % 30, i = Math.floor(c / 4), k = c % 4, l = (32 + 2 * e + 2 * i - h - k) % 7, m = Math.floor((a + 11 * h + 22 * l) / 451);
+  const pascoa = new Date(Date.UTC(ano, Math.floor((h + l - 7 * m + 114) / 31) - 1, ((h + l - 7 * m + 114) % 31) + 1));
+  const rel = n => new Date(pascoa.getTime() + n * 864e5).toISOString().slice(0, 10);
+  const fixos = ['01-01', '04-21', '05-01', '09-07', '10-12', '11-02', '11-15', '11-20', '12-24', '12-25', '12-31'].map(x => `${ano}-${x}`);
+  return (_feriados[ano] = new Set([...fixos, rel(-48), rel(-47), rel(-2), rel(60)]));
+}
+function diaUtilAnterior(iso) {
+  const d = new Date(iso + 'T12:00:00Z');
+  do { d.setUTCDate(d.getUTCDate() - 1); } while (d.getUTCDay() === 0 || d.getUTCDay() === 6 || feriadosB3(d.getUTCFullYear()).has(d.toISOString().slice(0, 10)));
+  return d.toISOString().slice(0, 10);
+}
+const ehFundo = (D, t) => { const c = cotB3(D).get(t); return c ? c.tp === 'fund' : /11$/.test(t) && !/^(TAEE|KLBN|SANB|BPAC|ALUP|ENGI|SAPR|TIET|IGTI|SULA|BRBI|PPSA)/.test(t); };
+function eventosProventos(D, t, E) {
+  const det = E && E.proventos_detalhe;
+  if (det && det.length) {
+    return det.map(x => ({ t, com: x.com, pag: x.pag || null, v: x.v, tipo: x.tipo || 'Provento', pagEstimado: !x.pag, fonte: E.proventos_fonte === 'B3' ? 'B3' : 'brapi' }));
+  }
+  // Reserva: datas ex do Yahoo (pacote da carteira e coleta do hub). Data com = pregão anterior; pagamento estimado.
+  const m = new Map();
+  const cp = (CARTEIRA.cot && CARTEIRA.cot.proventos) || {};
+  [...(cp[t] || []), ...(cp[t + 'F'] || [])].forEach(([d, v]) => { if (v != null) m.set(d, v); });
+  ((E && E.proventos) || []).forEach(x => { if (x.v != null && !m.has(x.d)) m.set(x.d, x.v); });
+  const fundo = ehFundo(D, t);
+  return [...m].map(([ex, v]) => {
+    const com = diaUtilAnterior(ex);
+    const pag = new Date(Date.parse(com + 'T12:00:00Z') + (fundo ? 10 : 30) * 864e5).toISOString().slice(0, 10);
+    return { t, com, pag, v, tipo: fundo ? 'Rendimento' : 'Provento', pagEstimado: true, fonte: 'Yahoo Finance' };
+  });
+}
+let provVis = 'mes';
+async function calcularProventos(D) {
+  const H = historicoCarteira();
+  const tickers = [...new Set(H.ks.flatMap(k => (H.at[k] || []).filter(p => +p.qtd > 0).map(p => baseTicker(p.ativo))))].filter(t => TICKER_RE.test(t));
+  const empresas = await Promise.all(tickers.map(carregarEmpresa));
+  const hoje = hojeISO(), inicio = H.ks[0] || hoje, atual = H.ks.at(-1);
+  const lista = [];
+  tickers.forEach((t, i) => {
+    eventosProventos(D, t, empresas[i]).forEach(ev => {
+      if (ev.com < inicio) return;
+      const futuro = ev.com > hoje;
+      const q = futuro ? qtdNaData(H, t, atual || hoje) : qtdNaData(H, t, ev.com);
+      if (!(q > 0)) return;
+      const liq = ev.tipo === 'JCP' ? ev.v * 0.85 : ev.v;
+      const pag = ev.pag || ev.com;
+      const sit = futuro ? 'previsto' : pag > hoje ? 'areceber' : 'recebido';
+      lista.push({ ...ev, pag, q, liq, total: q * liq, sit });
+    });
+  });
+  lista.sort((a, b) => b.pag.localeCompare(a.pag) || a.t.localeCompare(b.t));
+  return { lista, tickers, inicio, hoje, semDetalhe: tickers.filter((t, i) => !(empresas[i] && empresas[i].proventos_detalhe && empresas[i].proventos_detalhe.length)) };
+}
+const NOME_SIT = { recebido: 'Recebido', areceber: 'A receber', previsto: 'Previsto' };
+let provCalc = null;
 async function renderProventos(D) {
   const seq = ++cartSeq;
-  const C = posicoesAtuais(), T = ativosAcompanhados();
-  const empresas = new Map((await Promise.all(T.map(async t => [t, await carregarEmpresa(t)]))));
+  const R0 = await calcularProventos(D);
   if (seq !== cartSeq || abaCart !== 'proventos') return;
-  const hoje = hojeISO(), corte = new Date(Date.now() - 365 * 864e5).toISOString().slice(0, 10);
-  const pagos = [];
-  C.forEach(p => { const E = empresas.get(p.t); ((E && E.proventos) || []).forEach(x => { if (x.d > corte && x.d <= hoje) pagos.push({ t: p.t, d: x.d, v: x.v, q: p.q, total: x.v * p.q }); }); });
-  pagos.sort((a, b) => b.d.localeCompare(a.d));
-  const total = pagos.reduce((a, x) => a + x.total, 0), custo = C.reduce((a, p) => a + p.q * p.pm, 0);
+  provCalc = R0;
+  const { lista, hoje } = R0;
+  const soma = f => lista.filter(f).reduce((a, x) => a + x.total, 0);
+  const corte12 = new Date(Date.now() - 365 * 864e5).toISOString().slice(0, 10);
+  const recebido = soma(x => x.sit === 'recebido'), aReceber = soma(x => x.sit === 'areceber'), previsto = soma(x => x.sit === 'previsto');
+  const r12 = soma(x => x.sit === 'recebido' && x.pag > corte12);
   const porAtivo = {};
-  pagos.forEach(x => { porAtivo[x.t] = (porAtivo[x.t] || 0) + x.total; });
+  lista.filter(x => x.sit === 'recebido').forEach(x => { porAtivo[x.t] = (porAtivo[x.t] || 0) + x.total; });
   const maior = Object.entries(porAtivo).sort((a, b) => b[1] - a[1])[0];
   const card = (l, x, s2) => `<div class="panel stat cart-stat"><span class="l">${l}</span><span class="x">${x}</span><span class="s">${s2}</span></div>`;
-  $('provStats').innerHTML = C.length ? [
-    card('Recebido em 12 meses', valor(total, 'R$', 2), `${pagos.length} ${pagos.length === 1 ? 'pagamento' : 'pagamentos'}`),
-    card('Média por mês', valor(total / 12, 'R$', 2), 'Nos últimos 12 meses'),
-    card('Rendimento sobre o investido', pct(custo ? total / custo * 100 : null), 'Proventos de 12 meses sobre o custo da carteira'),
-    card('Maior pagador', maior ? esc(maior[0]) : '–', maior ? `${valor(maior[1], 'R$', 2)} em 12 meses` : 'Sem pagamentos no período')
-  ].join('') : '<div class="panel" style="grid-column:1/-1"><p class="vazio">Não há posições abertas no período mais recente da carteira.</p></div>';
+  $('provStats').innerHTML = [
+    card('Recebido desde o início', valor(recebido, 'R$', 2), `${lista.filter(x => x.sit === 'recebido').length} pagamentos desde ${dia(R0.inicio)}`),
+    card('Recebido em 12 meses', valor(r12, 'R$', 2), `Média de ${valor(r12 / 12, 'R$', 2)} por mês`),
+    card('A receber', valor(aReceber, 'R$', 2), previsto ? `Mais ${valor(previsto, 'R$', 2)} previstos, se mantiver as posições` : 'Já garantidos pela data com'),
+    card('Maior pagador', maior ? esc(maior[0]) : '–', maior ? `${valor(maior[1], 'R$', 2)} desde o início` : 'Sem pagamentos ainda')
+  ].join('');
 
-  const meses = [];
-  for (let k = 11; k >= 0; k--) { const d = new Date(); d.setDate(1); d.setMonth(d.getMonth() - k); meses.push(ym(d.getFullYear(), d.getMonth() + 1)); }
-  const porMes = meses.map(m => pagos.filter(x => x.d.slice(0, 7) === m).reduce((a, x) => a + x.total, 0));
-  if (window.Chart && C.length) {
-    const { opc, acc2 } = baseGrafico();
-    trocarGrafico('prov', () => new Chart($('chProv'), { type: 'bar', data: { labels: meses.map(mes), datasets: [{ label: 'Proventos', data: porMes.map(v => +v.toFixed(2)), backgroundColor: acc2, borderRadius: 4 }] },
-      options: { ...opc(v => 'R$ ' + num(v, 0), c => valor(c.parsed.y, 'R$', 2)), plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => valor(c.parsed.y, 'R$', 2) } } } } }));
+  // Gráfico: sempre pela data de pagamento
+  const chave = x => provVis === 'ano' ? x.pag.slice(0, 4) : x.pag.slice(0, 7);
+  const sitsVis = provFiltro === 'recebidos' ? ['recebido'] : provFiltro === 'areceber' ? ['areceber', 'previsto'] : ['recebido', 'areceber', 'previsto'];
+  const visiveis = lista.filter(x => sitsVis.includes(x.sit));
+  const fimLista = visiveis.reduce((a, x) => x.pag > a ? x.pag : a, '');
+  const primeiro = provFiltro === 'areceber' ? hoje.slice(0, 7) : R0.inicio.slice(0, 7);
+  const ultimoP = (provFiltro === 'recebidos' ? hoje : (fimLista > hoje ? fimLista : hoje)).slice(0, 7);
+  const rot = [];
+  if (provVis === 'ano') { for (let a = +primeiro.slice(0, 4); a <= +ultimoP.slice(0, 4); a++) rot.push(String(a)); }
+  else { let m = primeiro; while (m <= ultimoP) { rot.push(m); m = somaMes(m, 1); } }
+  const serie = sit => rot.map(r => sitsVis.includes(sit) ? +lista.filter(x => x.sit === sit && chave(x) === r).reduce((a, x) => a + x.total, 0).toFixed(2) : 0);
+  document.querySelectorAll('#provVis [data-vis]').forEach(b => b.setAttribute('aria-pressed', b.dataset.vis === provVis));
+  document.querySelectorAll('#provFiltro [data-f]').forEach(b => b.setAttribute('aria-pressed', b.dataset.f === provFiltro));
+  const totVis = visiveis.reduce((a, x) => a + x.total, 0);
+  $('provSub').textContent = provFiltro === 'recebidos' ? `Recebidos de ${mesLongo(primeiro)} até hoje: ${valor(totVis, 'R$', 2)} líquidos, pela sua quantidade na data com.`
+    : provFiltro === 'areceber' ? (visiveis.length ? `A receber e previstos: ${valor(totVis, 'R$', 2)} líquidos. "Previsto" considera a quantidade de hoje.` : 'Nenhum provento a receber ou anunciado no momento.')
+    : `Valores líquidos pela sua quantidade na data com, de ${mesLongo(primeiro)} até hoje${ultimoP > hoje.slice(0, 7) ? ', mais o que já foi anunciado' : ''}.`;
+  const est = lista.filter(x => x.pagEstimado);
+  $('provNota').innerHTML = est.length
+    ? `${est.length} ${est.length === 1 ? 'pagamento tem' : 'pagamentos têm'} data de pagamento estimada (${[...new Set(est.map(x => x.t))].map(esc).join(', ')}), porque a fonte detalhada ainda não trouxe esses ativos. Na tabela eles aparecem marcados com "estimada".`
+    : 'Todas as datas de pagamento vêm da fonte oficial dos proventos.';
+  if (window.Chart) {
+    const { opc, acc, acc2 } = baseGrafico();
+    const totais = {
+      id: 'totaisProv',
+      afterDatasetsDraw(ch) {
+        const { ctx, scales: { x, y } } = ch;
+        ctx.save(); ctx.font = `600 11px ${css('--sans')}`; ctx.fillStyle = css('--muted'); ctx.textAlign = 'center';
+        rot.forEach((r, i) => {
+          const tot = ch.data.datasets.reduce((a, ds, j) => a + (ch.isDatasetVisible(j) ? (ds.data[i] || 0) : 0), 0);
+          if (tot > 0 && (rot.length <= 24)) ctx.fillText('R$ ' + num(tot, 2), x.getPixelForValue(i), y.getPixelForValue(tot) - 6);
+        });
+        ctx.restore();
+      }
+    };
+    trocarGrafico('prov', () => new Chart($('chProv'), {
+      type: 'bar', plugins: [totais],
+      data: { labels: rot.map(r => provVis === 'ano' ? r : mes(r)), datasets: [
+        { label: 'Recebido', data: serie('recebido'), backgroundColor: acc2, borderRadius: 3, stack: 'p', hidden: !sitsVis.includes('recebido') },
+        { label: 'A receber', data: serie('areceber'), backgroundColor: acc, borderRadius: 3, stack: 'p', hidden: !sitsVis.includes('areceber') },
+        { label: 'Previsto', data: serie('previsto'), backgroundColor: alpha(acc, .35), borderRadius: 3, stack: 'p', hidden: !sitsVis.includes('previsto') }
+      ].filter(ds => !ds.hidden) },
+      options: { ...opc(v => 'R$ ' + num(v, 0), c => `${c.dataset.label}: ${valor(c.parsed.y, 'R$', 2)}`),
+        layout: { padding: { top: 18 } },
+        scales: { x: { stacked: true, grid: { display: false }, ticks: { maxRotation: 0, autoSkipPadding: 8 } }, y: { stacked: true, grid: { color: css('--line') }, border: { display: false }, ticks: { callback: v => 'R$ ' + num(v, 0) } } } }
+    }));
   }
-  const prox = T.map(t => ({ t, A: (empresas.get(t) || {}).agenda || {} })).filter(x => (x.A.provento_ex && x.A.provento_ex >= hoje) || (x.A.provento_pagamento && x.A.provento_pagamento >= hoje))
-    .sort((a, b) => (a.A.provento_ex || a.A.provento_pagamento).localeCompare(b.A.provento_ex || b.A.provento_pagamento));
-  $('provProx').innerHTML = prox.length ? `<thead><tr><th scope="col">Ativo</th><th scope="col">Data ex</th><th scope="col">Pagamento</th></tr></thead><tbody>${prox.map(x => `<tr><th scope="row"><a class="tick" href="#acao-${esc(x.t)}">${esc(x.t)}</a> ${origemAtivo(x.t)}</th><td>${x.A.provento_ex ? esc(dia(x.A.provento_ex)) : '–'}</td><td>${x.A.provento_pagamento ? esc(dia(x.A.provento_pagamento)) : '–'}</td></tr>`).join('')}</tbody><caption>Para receber, é preciso ter a ação até o dia anterior à data ex. Valores por ação só aparecem depois do pagamento, no histórico.</caption>`
-    : '<caption>Nenhum provento anunciado para os ativos da carteira e da observação.</caption>';
-  $('provHist').innerHTML = pagos.length ? `<thead><tr><th scope="col">Data ex</th><th scope="col">Ativo</th><th scope="col">Por ação</th><th scope="col">Estimado para você</th></tr></thead><tbody>${pagos.slice(0, 20).map(x => `<tr><th scope="row" style="font-weight:400">${esc(dia(x.d))}</th><td><a class="tick" href="#acao-${esc(x.t)}">${esc(x.t)}</a></td><td>${valor(x.v, 'R$', 4)}</td><td><strong>${valor(x.total, 'R$', 2)}</strong></td></tr>`).join('')}</tbody><caption>Estimativa pela quantidade atual. Se você comprou depois da data ex, não recebeu aquele pagamento.</caption>`
-    : '<caption>Sem pagamentos nos últimos 12 meses para os ativos da carteira.</caption>';
+
+  // Filtros
+  const anos = [...new Set(lista.map(x => x.pag.slice(0, 4)))].sort().reverse();
+  const manter = (id, opts) => { const v = $(id).value; $(id).innerHTML = opts; if ([...$(id).options].some(o => o.value === v)) $(id).value = v; };
+  manter('pfAtivo', '<option value="">Todos</option>' + R0.tickers.slice().sort().map(t => `<option>${esc(t)}</option>`).join(''));
+  manter('pfAno', '<option value="">Todos</option>' + anos.map(a => `<option>${a}</option>`).join(''));
+  pintarHistoricoProventos();
+
+  // Por ativo
+  const linhas = R0.tickers.map(t => {
+    const L = lista.filter(x => x.t === t && x.sit === 'recebido');
+    return { t, n: L.length, tot: L.reduce((a, x) => a + x.total, 0), ult: L[0] ? L[0].pag : null, aRec: lista.filter(x => x.t === t && x.sit !== 'recebido').reduce((a, x) => a + x.total, 0) };
+  }).filter(x => x.n || x.aRec).sort((a, b) => b.tot - a.tot);
+  $('provAtivos').innerHTML = linhas.length ? `<thead><tr><th scope="col">Ativo</th><th scope="col">Pagamentos</th><th scope="col">Recebido</th><th scope="col">% do total</th><th scope="col">Último pagamento</th><th scope="col">A receber e previsto</th></tr></thead>
+    <tbody>${linhas.map(x => `<tr><th scope="row"><a class="tick" href="#acao-${esc(x.t)}">${esc(x.t)}</a></th><td>${x.n}</td><td><strong>${valor(x.tot, 'R$', 2)}</strong></td><td>${pct(recebido ? x.tot / recebido * 100 : null, 1)}</td><td>${x.ult ? esc(dia(x.ult)) : '–'}</td><td>${x.aRec ? valor(x.aRec, 'R$', 2) : '–'}</td></tr>`).join('')}</tbody>`
+    : '<caption>Nenhum provento encontrado para os ativos da carteira.</caption>';
 }
+function pintarHistoricoProventos() {
+  if (!provCalc) return;
+  const fa = $('pfAtivo').value, fy = $('pfAno').value, fs = $('pfSit').value;
+  const L = provCalc.lista.filter(x => (!fa || x.t === fa) && (!fy || x.pag.startsWith(fy)) && (!fs || x.sit === fs || (fs === 'futuro' && x.sit !== 'recebido')));
+  const tot = L.reduce((a, x) => a + x.total, 0);
+  const mostrar = provTodos ? L : L.slice(0, 30);
+  $('provHist').innerHTML = L.length ? `<thead><tr><th scope="col">Pagamento</th><th scope="col">Data com</th><th scope="col">Ativo</th><th scope="col">Tipo</th><th scope="col">Por cota</th><th scope="col">Quantidade com direito</th><th scope="col">Valor líquido</th><th scope="col">Situação</th></tr></thead>
+    <tbody>${mostrar.map(x => `<tr><th scope="row" style="font-weight:400">${esc(dia(x.pag))}${x.pagEstimado ? ' <span class="est">estimada</span>' : ''}</th><td>${esc(dia(x.com))}</td>
+      <td><a class="tick" href="#acao-${esc(x.t)}">${esc(x.t)}</a></td><td>${esc(x.tipo)}${x.tipo === 'JCP' ? ' <span class="est">15% de IR</span>' : ''}</td><td>${valor(x.v, 'R$', 4)}</td><td>${num(x.q, x.q % 1 ? 2 : 0)}</td>
+      <td><strong>${valor(x.total, 'R$', 2)}</strong></td><td><span class="sit ${x.sit}">${NOME_SIT[x.sit]}</span></td></tr>`).join('')}</tbody>
+    <tfoot><tr><th scope="row">Total${L.length > 1 ? ` (${L.length})` : ''}</th><td colspan="5">${L.length > mostrar.length ? `<button type="button" class="link" id="provMais">Mostrar todos os ${L.length} pagamentos</button>` : ''}</td><td><strong>${valor(tot, 'R$', 2)}</strong></td><td></td></tr></tfoot>`
+    : '<caption>Nenhum provento com esses filtros.</caption>';
+}
+let provTodos = false;
+['pfAtivo', 'pfAno', 'pfSit'].forEach(id => $(id).addEventListener('change', () => { provTodos = false; pintarHistoricoProventos(); }));
+$('provHist').addEventListener('click', e => { if (e.target.id === 'provMais') { provTodos = true; pintarHistoricoProventos(); } });
+document.querySelectorAll('#provVis [data-vis]').forEach(b => b.addEventListener('click', () => { provVis = b.dataset.vis; renderProventos(DADOS); }));
+let provFiltro = 'todos';
+document.querySelectorAll('#provFiltro [data-f]').forEach(b => b.addEventListener('click', () => {
+  provFiltro = b.dataset.f;
+  $('pfSit').value = provFiltro === 'recebidos' ? 'recebido' : provFiltro === 'areceber' ? 'futuro' : '';
+  provTodos = false;
+  renderProventos(DADOS);
+}));
 
 async function renderCalendario(D) {
   const seq = ++cartSeq;

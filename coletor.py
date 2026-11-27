@@ -12,6 +12,7 @@ Variáveis de ambiente (opcionais):
   BRAPI_TOKEN  token da brapi.dev (cotações da B3)
   FRED_KEY     chave da API do FRED (S&P 500 e petróleo Brent)
 """
+import base64
 import csv
 import datetime as dt
 import functools
@@ -31,6 +32,9 @@ SAIDA = Path(__file__).resolve().parent / "data" / "hub.json"
 EMPRESAS_DIR = SAIDA.parent / "empresas"          # um arquivo por empresa: data/empresas/PETR4.json
 SUPABASE_URL = os.getenv("SUPABASE_URL", "").rstrip("/")
 SUPABASE_SERVICE_KEY = os.getenv("SUPABASE_SERVICE_KEY", "")  # só no GitHub Secrets, nunca no site
+# Códigos extras para coletar dados completos (ex.: ativos da carteira cifrada), separados por vírgula.
+# Fica no GitHub Secrets, para a lista não aparecer no repositório.
+TICKERS_EXTRAS = [t.strip().upper() for t in os.getenv("TICKERS_EXTRAS", "").split(",") if t.strip()]
 BRAPI_TOKEN = os.getenv("BRAPI_TOKEN", "")
 FRED_KEY = os.getenv("FRED_KEY", "")
 TIMEOUT = 30
@@ -502,6 +506,95 @@ def brapi(ticker):
     r = HTTP.get(f"https://brapi.dev/api/quote/{quote(ticker)}", params=params, timeout=TIMEOUT)
     r.raise_for_status()
     return r.json()["results"][0]
+
+
+# ---------------------------------------------------------------- Proventos com data com, pagamento e tipo
+
+def _data_qualquer(x):
+    """Aceita '2025-05-12', '2025-05-12T00:00:00.000Z' ou '12/05/2025'. Devolve AAAA-MM-DD ou None."""
+    if not x:
+        return None
+    x = str(x).strip()
+    try:
+        if re.match(r"\d{2}/\d{2}/\d{4}$", x):
+            d = dt.datetime.strptime(x, "%d/%m/%Y").date()
+        else:
+            d = dt.date.fromisoformat(x[:10])
+    except ValueError:
+        return None
+    return d.isoformat() if d.year >= 1990 else None
+
+
+def _tipo_provento(rotulo):
+    r = (rotulo or "").upper()
+    if "JUROS" in r or "JCP" in r or "JRS" in r:
+        return "JCP"
+    if "RENDIMENTO" in r:
+        return "Rendimento"
+    if "AMORTIZA" in r:
+        return "Amortização"
+    if "DIVIDEND" in r:
+        return "Dividendo"
+    return rotulo.title() if rotulo else "Provento"
+
+
+def proventos_brapi(ticker):
+    params = {"dividends": "true"}
+    if BRAPI_TOKEN:
+        params["token"] = BRAPI_TOKEN
+    r = HTTP.get(f"https://brapi.dev/api/quote/{quote(ticker)}", params=params, timeout=TIMEOUT)
+    r.raise_for_status()
+    res = (r.json().get("results") or [{}])[0]
+    lista = ((res.get("dividendsData") or {}).get("cashDividends")) or []
+    out = []
+    for x in lista:
+        com, valor = _data_qualquer(x.get("lastDatePrior")), _num(x.get("rate"), 8)
+        if com and valor:
+            out.append({"com": com, "pag": _data_qualquer(x.get("paymentDate")), "v": valor,
+                        "tipo": _tipo_provento(x.get("label")), "ref": x.get("relatedTo")})
+    return out
+
+
+def proventos_b3(ticker):
+    """Proventos em dinheiro pela página oficial de empresas listadas da B3 (só ações e units)."""
+    m = re.fullmatch(r"([A-Z]{4})(\d{1,2})", ticker)
+    classe = {"3": "ACNOR", "4": "ACNPR", "5": "ACNPA", "6": "ACNPB", "11": "CDAM"}.get(m.group(2)) if m else None
+    if not classe:
+        return []
+    chave = base64.b64encode(json.dumps({"issuingCompany": m.group(1), "language": "pt-br"}).encode()).decode()
+    r = HTTP.get(f"https://sistemaswebb3-listados.b3.com.br/listedCompaniesProxy/CompanyCall/GetListedSupplementCompany/{chave}", timeout=TIMEOUT)
+    r.raise_for_status()
+    dados = r.json()
+    dados = dados[0] if isinstance(dados, list) and dados else dados
+    out = []
+    for x in (dados or {}).get("cashDividends") or []:
+        isin = str(x.get("isinCode") or x.get("assetIssued") or "")
+        if classe not in isin:
+            continue
+        com = _data_qualquer(x.get("lastDatePrior"))
+        valor = _num(str(x.get("rate") or "").replace(".", "").replace(",", "."), 8)
+        if com and valor:
+            out.append({"com": com, "pag": _data_qualquer(x.get("paymentDate")), "v": valor,
+                        "tipo": _tipo_provento(x.get("label")), "ref": x.get("relatedTo")})
+    return out
+
+
+def proventos_detalhados(ticker):
+    """Tenta a brapi e depois a B3. Devolve (lista, fonte); lista vazia se nenhuma responder."""
+    for nome, fn in (("brapi", proventos_brapi), ("B3", proventos_b3)):
+        try:
+            lista = fn(ticker)
+            if lista:
+                vistos, unicos = set(), []
+                for p in sorted(lista, key=lambda p: (p["com"], p["pag"] or "")):
+                    k = (p["com"], p["pag"], round(p["v"], 6), p["tipo"])
+                    if k not in vistos:
+                        vistos.add(k)
+                        unicos.append(p)
+                return unicos[-120:], nome
+        except Exception as e:  # noqa: BLE001
+            log(f"[proventos] {ticker} ({nome}): {e}")
+    return [], None
 
 
 def fred(serie_id):
@@ -1016,6 +1109,7 @@ def atualizar_empresas(hub):
     except Exception as e:  # noqa: BLE001
         log(f"[carteiras] {e}")
         carteiras = set()
+    carteiras |= set(TICKERS_EXTRAS)
     universo += sorted(t for t in carteiras if t not in universo)
 
     arquivos = {}
@@ -1035,6 +1129,9 @@ def atualizar_empresas(hub):
             arquivos[t]["fundamentos_em"] = dt.datetime.now(dt.timezone.utc).isoformat()
         except Exception as e:  # noqa: BLE001
             log(f"[empresa] {t}: {e}")
+        lista, fonte = proventos_detalhados(t)
+        if lista:
+            arquivos[t]["proventos_detalhe"], arquivos[t]["proventos_fonte"] = lista, fonte
         time.sleep(0.6)
 
     prioridade_n = lambda t: (t not in carteiras, -_idade(arquivos[t].get("noticias_em")).total_seconds())  # noqa: E731
